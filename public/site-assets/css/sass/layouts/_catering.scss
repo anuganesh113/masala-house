@@ -1,0 +1,145 @@
+@use "../abstracts" as *;
+@use "../base/font" as *;
+
+.catering {
+   &__title {
+      margin-bottom: 6.25rem;
+      margin-top: 4.125rem;
+   }
+   .catering__wrapper {
+      &--box {
+         margin-bottom: clamp(3.125rem, 9vw, 7.75rem);
+         padding-left: clamp(1rem, 3vw, 1.875rem);
+         @media only screen and (min-width: 1550px) {
+            padding-left: 4.375rem;
+         }
+         @media (max-width: ($breakpoint-991)) {
+            padding-inline: clamp(1rem, 3vw, 1.875rem);
+         }
+         .section__title {
+            margin-bottom: 2.25rem;
+         }
+         .row {
+            @media (max-width: ($breakpoint-991)) {
+               flex-direction: column-reverse !important;
+            }
+         }
+         &:nth-child(even) {
+            margin-bottom: 7.75rem;
+            padding-right: clamp(1rem, 3vw, 1.875rem);
+            padding-left: 0;
+            @media only screen and (min-width: 1550px) {
+               padding-right: 4.375rem;
+            }
+            @media (max-width: ($breakpoint-991)) {
+               padding-inline: clamp(1rem, 3vw, 1.875rem);
+            }
+            .row {
+               flex-direction: row-reverse;
+            }
+            .catering__card--content {
+               margin-left: 10rem;
+               margin-right: 0;
+               @media (max-width: ($breakpoint-1400)) {
+                  margin-left: 7rem;
+               }
+               @media (max-width: ($breakpoint-1300)) {
+                  margin-left: 5rem;
+               }
+               @media (max-width: ($breakpoint-1200)) {
+                  margin-left: 4rem;
+               }
+               @media (max-width: ($breakpoint-1100)) {
+                  margin-left: 2rem;
+               }
+               @media (max-width: ($breakpoint-991)) {
+                  margin-left: 0;
+               }
+            }
+         }
+      }
+   }
+}
+
+.service {
+   margin-block: clamp(2.625rem, 6vw, 4.875rem);
+   .section__title {
+      p {
+         @include typography(1.5rem, 400);
+         margin-top: 1.25rem;
+      }
+   }
+   .row .col:nth-child(n + 4) {
+      margin-top: 12.5rem;
+      @media (max-width: ($breakpoint-1400)) {
+         margin-top: 9.375rem;
+      }
+      @media (max-width: ($breakpoint-1300)) {
+         margin-top: 6.25rem;
+      }
+      @media (max-width: ($breakpoint-1200)) {
+         margin-top: 5rem;
+      }
+      @media (max-width: ($breakpoint-1100)) {
+         margin-top: 3.125rem;
+      }
+      @media (max-width: ($breakpoint-991)) {
+         margin-top: 2rem;
+      }
+      @media (max-width: ($breakpoint-767)) {
+         margin-top: 1.5rem;
+      }
+   }
+}
+
+.area {
+   background-color: #f8fdff;
+   padding-top: 7.8125rem;
+   padding-bottom: 14.0625rem;
+   @media (max-width: ($breakpoint-1100)) {
+      padding-top: 6.25rem;
+   }
+   @media (max-width: ($breakpoint-991)) {
+      padding-top: 5rem;
+   }
+   @media (max-width: ($breakpoint-767)) {
+      padding-top: 3rem;
+   }
+   .section__title {
+      margin-bottom: 4.375rem;
+      p {
+         @include typography(1.5rem, 400);
+         margin-top: 1.25rem;
+      }
+   }
+   &__card {
+      h3 {
+         @include typography(clamp(1rem,2vw,1.625rem), 600);
+         color: $primary;
+         margin-bottom: 0.9375rem;
+      }
+      ul li {
+         @include typography(clamp(.75rem,2vw,1.375rem), 400);
+         text-transform: capitalize;
+      }
+   }
+}
+
+.location {
+   .section__title {
+      margin-bottom: clamp(3rem,5vw,4.6875rem);
+      h6 {
+         padding-left: 0;
+         padding-right: 2rem;
+         &::before {
+            left: auto;
+            left: 100%;
+         }
+      }
+   }
+   .map {
+      iframe {
+         @include img(43.75rem, 100%, cover);
+      }
+   }
+}

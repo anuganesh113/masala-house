@@ -1,0 +1,199 @@
+@use "../abstracts" as *;
+@use "../base/font" as *;
+
+.menu {
+   &__box {
+      overflow-x: auto;
+
+      &::-webkit-scrollbar {
+         width: 5px;
+         height: 5px;
+      }
+
+      &::-webkit-scrollbar-track {
+         background: $white;
+      }
+
+      &::-webkit-scrollbar-thumb {
+         background: $primary;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+         background: $primary;
+      }
+   }
+
+   &__item {
+      background-color: $secondary;
+      padding-block: 2rem;
+      position: sticky;
+      top: 5.5rem;
+      z-index: 2;
+
+      @media (max-width:($breakpoint-991)) {
+         top: 6.875rem;
+      }
+
+      .l__button--primary {
+         padding: 0.25rem 1.5625rem;
+
+         @media (max-width:($breakpoint-991)) {
+            @include positionBR(absolute, 100%, 0);
+         }
+      }
+
+      .nav {
+         flex-wrap: nowrap;
+         white-space: nowrap;
+
+         li {
+            margin-right: 4.6875rem;
+
+            &:last-child {
+               margin-right: 0;
+            }
+
+            a {
+               @include typography(1.125rem, 400);
+               color: $white;
+               text-decoration: none;
+            }
+         }
+      }
+   }
+
+   &__wrapper {
+      .menu__list {
+         &:nth-child(even) {
+            .menu__list--box {
+               &>.row {
+                  flex-direction: row-reverse;
+
+                  .image {
+                     margin-right: 0;
+                     margin-left: 1.875rem;
+                  }
+               }
+            }
+         }
+      }
+   }
+
+   &__list {
+      background-color: #f8fdff;
+
+      &>.section__title {
+         padding: 3.75rem 0 6.25rem 0;
+         background-color: #313131;
+
+         & :where(h5, h2) {
+            color: $white;
+         }
+
+         @media (max-width: ($breakpoint-767)) {
+            background-color: $black;
+            padding-block: 3rem;
+         }
+
+         h5 {
+
+            &::before,
+            &::after {
+               background-color: $white;
+            }
+         }
+      }
+
+      &--box {
+         padding: 5rem 0 6.25rem 0;
+
+         .image {
+            position: relative;
+            padding-top: 5.375rem;
+            margin-right: 1.875rem;
+
+            @media (max-width: ($breakpoint-767)) {
+               margin-left: 0 !important;
+               margin-right: 0 !important;
+               margin-bottom: 1.875rem;
+            }
+         }
+
+         .img-1 {
+            @include img(40rem, 100%, cover);
+            max-width: 29.375rem;
+         }
+
+         .img-2 {
+            @include img(14.375rem, 100%, cover);
+            max-width: 20.625rem;
+            @include positionTR(absolute, 0, 0);
+            z-index: 1;
+         }
+
+         .menuFlex__card {
+            & :where(.name, .price) {
+               background-color: #f8fdff;
+            }
+
+            &--content {
+               @include flex-between(start, 1rem);
+               margin-top: 0.625rem;
+               width: 100%;
+               position: relative;
+            }
+
+            &--text {
+               .text {
+                  @include typography(1rem, 400);
+                  @include line-clamp(3);
+               }
+            }
+
+            .cat {
+               margin-top: 0.625rem;
+
+               @media (max-width: ($breakpoint-767)) {
+                  margin-top: 0;
+               }
+            }
+         }
+      }
+
+      .flex {
+         align-items: start;
+         margin-bottom: 3.125rem;
+      }
+
+      .l__button--primary {
+         @include positionBR(absolute, -1.25rem, 0);
+         padding: 0.5rem 1.5625rem;
+         border-radius: 0.625rem;
+      }
+   }
+
+   &List__carousel {
+      .owl-dots {
+         @include flex-start(0);
+         margin-top: clamp(2.5rem, 5vw, 5.625rem) !important;
+      }
+   }
+}
+
+.grab {
+   margin-top: 3.125rem;
+   padding-top: 3.125rem;
+   padding-bottom: clamp(2.5rem, 6vw, 6.25rem);
+   border-top: 1px solid $primary;
+
+   .flex {
+      align-items: center;
+      margin-bottom: clamp(2.5rem, 6vw, 6.25rem);
+
+      p {
+         @include typography(1.5625rem, 400);
+         line-height: 1.5;
+         max-width: 50rem;
+      }
+   }
+}

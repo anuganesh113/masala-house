@@ -1,0 +1,240 @@
+@use "../abstracts" as *;
+@use "../base/font" as *;
+
+.footer {
+	background-color: $secondary;
+	padding: 3.125rem 0 2.5rem 0;
+	&__top {
+		padding-bottom: 2rem;
+		border-bottom: 1px solid rgba(225,225,225,0.25);
+		@include flex-between(center, 1rem);
+		@media (max-width: ($breakpoint-767)) {
+			gap: 1rem;
+		}
+		.logo {
+			display: block;
+			img {
+				display: block;
+				@include img(4rem, auto, contain);
+				@media (max-width: ($breakpoint-1200)) {
+					height: 3rem;
+				}
+			}
+		}
+		&--nav {
+			@include ul(0, 0);
+			@include flex-between(start, clamp(1rem, 5vw, 5rem));
+			@media (max-width: ($breakpoint-1300)) {
+				gap: 2rem;
+			}
+			@media (max-width: ($breakpoint-1200)) {
+				gap: 1rem;
+			}
+			@media (max-width: ($breakpoint-1100)) {
+				gap: 0.75rem;
+			}
+			@media (max-width: ($breakpoint-991)) {
+				padding-top: clamp(2rem, 4vw, 3.125rem);
+				padding-bottom: clamp(2rem, 4vw, 4.375rem);
+				columns: 2;
+			}
+			@media (max-width: ($breakpoint-767)) {
+				columns: 1;
+			}
+			li {
+				list-style: none;
+				@media (max-width: ($breakpoint-991)) {
+					margin-bottom: 1.5rem;
+				}
+				@media (max-width: ($breakpoint-767)) {
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+				a {
+					color: $white;
+					text-transform: capitalize;
+					text-decoration: none;
+					@include typography(clamp(0.875rem, 3vw, 1.125rem), 400);
+					display: inline-block;
+					transition: 0.3s ease;
+					position: relative;
+					@media (max-width: ($breakpoint-1200)) {
+						font-size: 0.875rem;
+					}
+					@media (max-width: ($breakpoint-991)) {
+						font-size: 1.125rem;
+					}
+					&::before {
+						content: "";
+						@include hw(1px, 100%);
+						background-color: $white;
+						@include positionBL(absolute, -1px, 0);
+						transition: 0.3s ease;
+					}
+					&:hover {
+						color: $primary;
+						&::before {
+							width: 0;
+							color: $primary;
+						}
+					}
+				}
+			}
+		}
+	}
+	&__middle {
+		padding-top: 4.6875rem;
+		padding-bottom: 5.875rem;
+		@include flex-between(start, 1rem);
+
+		@media (max-width: ($breakpoint-1200)) {
+			padding-top: 3.125rem;
+			padding-bottom: 4.375rem;
+		}
+		@media (max-width: ($breakpoint-991)) {
+			padding-top: clamp(2rem, 4vw, 3.125rem);
+			padding-bottom: clamp(2rem, 4vw, 4.375rem);
+			columns: 2;
+		}
+		@media (max-width: ($breakpoint-767)) {
+			flex-direction: column;
+			gap: 2rem;
+		}
+		&--mb {
+			border-top: 1px solid rgba(225,225,225,0.25);
+			text-align: center;
+			.box {
+				max-width: 31.25rem !important;
+				margin: auto;
+			}
+		}
+		.box {
+			width: 100%;
+			text-align: center;
+			&:nth-child(1) {
+				max-width: 15.625rem;
+				@media (max-width: ($breakpoint-767)) {
+					max-width: 100%;
+				}
+			}
+			&:nth-child(2) {
+				max-width: 22.5rem;
+				@media (max-width: ($breakpoint-991)) {
+					max-width: 100%;
+					display: none;
+				}
+			}
+			&:nth-child(3) {
+				max-width: 15.625rem;
+				@media (max-width: ($breakpoint-767)) {
+					max-width: 100%;
+				}
+			}
+			h2 {
+				@include typography(1.75rem, 700);
+				color: $white;
+				margin-bottom: 2rem;
+				@media (max-width: ($breakpoint-1200)) {
+					font-size: 1.5rem;
+					margin-bottom: 1.125rem;
+				}
+			}
+			p {
+				@include typography(1.25rem, 400);
+				color: $white;
+				@media (max-width: ($breakpoint-1200)) {
+					font-size: 1rem;
+				}
+			}
+			a {
+				@include typography(1.25rem, 400);
+				color: $primary;
+				display: block;
+				margin-top: 1.875rem;
+				text-decoration: none;
+			}
+		}
+	}
+	&__bottom {
+		padding-top: 3.4375rem;
+		border-top: 1px solid rgba(225,225,225,0.25);
+		@media (max-width: ($breakpoint-1200)) {
+			padding-top: 2.5rem;
+		}
+		p {
+			text-align: center;
+			color: $white;
+			@include typography(1.125rem, 400);
+		}
+	}
+}
+
+.bookingForm {
+	.modal {
+		&-body {
+			background-color: $secondary;
+			padding: clamp(1.5rem, 6vw, 6.25rem);
+			position: relative;
+			@media (max-width: ($breakpoint-991)) {
+				padding: 2.5rem;
+			}
+			.btn-close {
+				color: $white;
+				background: transparent !important;
+				opacity: 1;
+				font-size: 2rem;
+				@include positionBL(absolute, 100%, 100%);
+			}
+			.form {
+				position: relative;
+				background-color: $white;
+				padding: clamp(1.5rem, 4vw, 3.125rem) clamp(1.5rem, 6vw, 5rem);
+				@media (max-width: ($breakpoint-991)) {
+					padding: 1.5rem;
+				}
+				h5 {
+					color: $primary;
+					@include typography(1.375rem, 400);
+					font-family: $sansita;
+					text-transform: uppercase;
+				}
+				h2 {
+					@include typography(clamp(1.75rem, 3vw, 2.8125rem), 600);
+					text-transform: capitalize;
+					margin-bottom: 3.4375rem;
+					@media (max-width: ($breakpoint-991)) {
+						margin-bottom: 2.5rem;
+					}
+				}
+				&__group {
+					margin-bottom: 2.8125rem;
+					@media (max-width: ($breakpoint-991)) {
+						margin-bottom: 1.5rem;
+					}
+				}
+				&-label {
+					@include typography(1.375rem, 400);
+					margin-bottom: 0;
+					@media (max-width: ($breakpoint-991)) {
+						font-size: 1.125rem;
+					}
+				}
+				&-select,
+				&-control {
+					padding: 1.25rem;
+					@media (max-width: ($breakpoint-991)) {
+						padding: 1rem;
+					}
+					&::placeholder {
+						color: #c7c7c7;
+						font-size: 1.125rem;
+					}
+				}
+				.l__button {
+					padding: 0.875rem 2.5rem;
+				}
+			}
+		}
+	}
+}

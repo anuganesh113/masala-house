@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sansita+Swashed:wght@300..900&display=swap");
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000000;
+  overflow-x: hidden;
+  transition: all 0.5s ease;
+  background-color: #ffffff;
+}
+body.locked {
+  overflow: hidden;
+}
+
+p,
+small,
+span {
+  color: #000000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #222222;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+h2 {
+  font-size: clamp(1.25rem, 3vw, 1.875rem);
+}
+
+h3 {
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
+}
+
+h4 {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+}
+
+p {
+  font-size: 1rem;
+  transition: all 0.5s ease;
+  line-height: 2;
+}
+p:last-child {
+  margin-bottom: 0 !important;
+}
+@media (max-width: 767px) {
+  p {
+    line-height: 1.5;
+    font-size: 1rem !important;
+  }
+}
+
+li {
+  font-size: 16px;
+  transition: all 0.5s ease;
+}
+
+input {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+textarea.form-control::-moz-placeholder, input.form-control::-moz-placeholder {
+  color: #797373;
+  font-size: 14px;
+}
+
+textarea.form-control::placeholder,
+input.form-control::placeholder {
+  color: #797373;
+  font-size: 14px;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}/*# sourceMappingURL=typography.css.map */

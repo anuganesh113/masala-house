@@ -1,0 +1,111 @@
+@use "../abstracts" as *;
+@use "../base/font" as *;
+
+.contact {
+   margin-top: 5rem;
+   .section__title {
+      margin-bottom: 5rem;
+   }
+}
+
+.contact {
+   .map {
+      iframe {
+         @include img(43.75rem, 100%, cover);
+      }
+      h2 {
+         @include typography(10.625rem, 400);
+         color: #d3d3d3;
+         font-family: $bebas;
+         @media (max-width: ($breakpoint-1400)) {
+            font-size: 9.375rem;
+         }
+         @media (max-width: ($breakpoint-1300)) {
+            font-size: 8.125rem;
+         }
+         @media (max-width: ($breakpoint-1200)) {
+            font-size: 6.875rem;
+         }
+      }
+   }
+   .form {
+      box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
+      padding: 3.125rem 4.375rem;
+      margin-top: -37rem;
+      background-color: $white;
+      @media (max-width: ($breakpoint-1400)) {
+         padding: 3.125rem;
+      }
+      @media (max-width: ($breakpoint-1300)) {
+         padding: 2.5rem;
+      }
+      @media (max-width: ($breakpoint-1100)) {
+         padding: 2rem;
+      }
+      @media (max-width: ($breakpoint-991)) {
+         margin-top: -7.8125rem;
+      }
+      h6 {
+         font-family: $sansita;
+         @include typography(clamp(.875rem,2vw,1.25rem), 400);
+         color: $primary;
+         margin-bottom: clamp(.625rem,2vw,1.75rem);
+      }
+      h2 {
+         @include typography(clamp(1.375rem,4vw,2.8125rem), 700);
+         margin-bottom: clamp(1.25rem,4vw,3.4375rem);
+      }
+      &__group {
+         margin-bottom: 2.8125rem;
+         @media (max-width: ($breakpoint-1200)) {
+            margin-bottom: 2rem;
+         }
+      }
+      &-label {
+         @include typography(clamp(.875rem,2vw,1.375rem), 400);
+      }
+      &-control {
+         padding: 0.875rem 1rem;
+         border-color: #dfdfdf;
+      }
+      .l__button {
+         padding: clamp(0.5rem,2vw,0.875rem) clamp(1.5rem,3vw,3.75rem);
+      }
+   }
+   &__info {
+      background-color: #fffdf5;
+      padding-block: 3.75rem;
+      .section__title {
+         
+         h2 span {
+            text-decoration: underline;
+            display: block;
+         }
+      }
+      &--box {
+         h2 {
+            @include typography(clamp(.875rem,2vw,1.625rem), 700);
+            color: $primary;
+         }
+         ul {
+            @include ul(0, 0);
+            li {
+               list-style: none;
+               a {
+                  color: $black;
+                  @include typography(clamp(.875rem,2vw,1.375rem), 500);
+                  text-decoration: none;
+                  &:hover {
+                     color: $primary;
+                  }
+               }
+               &:hover {
+                  i {
+                     color: $primary;
+                  }
+               }
+            }
+         }
+      }
+   }
+}
