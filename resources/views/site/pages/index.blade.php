@@ -109,41 +109,41 @@
 
                             @endforeach
                             <!-- <li class="tab__buttons--btn active" data-target="#tab1">
-                                                                                    <span></span> Lunch Combo
-                                                                                </li>
-                                                                                <li class="tab__buttons--btn" data-target="#tab2">
-                                                                                    <span></span> From the Himalayas
-                                                                                </li>
-                                                                                <li class="tab__buttons--btn" data-target="#tab3">
-                                                                                    <span></span> Indian Street Food
-                                                                                </li>
-                                                                                <li class="tab__buttons--btn" data-target="#tab4">
-                                                                                    <span></span> Apetizer
-                                                                                </li>
-                                                                                <li class="tab__buttons--btn" data-target="#tab5">
-                                                                                    <span></span> Sides
-                                                                                </li>
-                                                                                <li class="tab__buttons--btn" data-target="#tab6">
-                                                                                    <span></span> Drinks
-                                                                                </li>
-                                                                                <li class="tab__buttons--btn" data-target="#tab7">
-                                                                                    <span></span> Biryani
-                                                                                </li>
-                                                                                <li class="tab__buttons--btn" data-target="#tab8">
-                                                                                    <span></span> Thalis
-                                                                                </li>
-                                                                                <li class="tab__buttons--btn" data-target="#tab9">
-                                                                                    <span></span> Indo Chinese
-                                                                                </li>
-                                                                                <li class="tab__buttons--btn" data-target="#tab10">
-                                                                                    <span></span> Entree
-                                                                                </li>
-                                                                                <li class="tab__buttons--btn" data-target="#tab11">
-                                                                                    <span></span> From Tandoor
-                                                                                </li> -->
+                                                                                                                                                            <span></span> Lunch Combo
+                                                                                                                                                        </li>
+                                                                                                                                                        <li class="tab__buttons--btn" data-target="#tab2">
+                                                                                                                                                            <span></span> From the Himalayas
+                                                                                                                                                        </li>
+                                                                                                                                                        <li class="tab__buttons--btn" data-target="#tab3">
+                                                                                                                                                            <span></span> Indian Street Food
+                                                                                                                                                        </li>
+                                                                                                                                                        <li class="tab__buttons--btn" data-target="#tab4">
+                                                                                                                                                            <span></span> Apetizer
+                                                                                                                                                        </li>
+                                                                                                                                                        <li class="tab__buttons--btn" data-target="#tab5">
+                                                                                                                                                            <span></span> Sides
+                                                                                                                                                        </li>
+                                                                                                                                                        <li class="tab__buttons--btn" data-target="#tab6">
+                                                                                                                                                            <span></span> Drinks
+                                                                                                                                                        </li>
+                                                                                                                                                        <li class="tab__buttons--btn" data-target="#tab7">
+                                                                                                                                                            <span></span> Biryani
+                                                                                                                                                        </li>
+                                                                                                                                                        <li class="tab__buttons--btn" data-target="#tab8">
+                                                                                                                                                            <span></span> Thalis
+                                                                                                                                                        </li>
+                                                                                                                                                        <li class="tab__buttons--btn" data-target="#tab9">
+                                                                                                                                                            <span></span> Indo Chinese
+                                                                                                                                                        </li>
+                                                                                                                                                        <li class="tab__buttons--btn" data-target="#tab10">
+                                                                                                                                                            <span></span> Entree
+                                                                                                                                                        </li>
+                                                                                                                                                        <li class="tab__buttons--btn" data-target="#tab11">
+                                                                                                                                                            <span></span> From Tandoor
+                                                                                                                                                        </li> -->
                         </ul>
                     </div>
-                    <div class="col-lg-8 col-xl-8 col-xxl-9">
+                    <div class="whole-menu-section col-lg-8 col-xl-8 col-xxl-9">
                         <div class="tab__contents">
                             @foreach ($categories as $category)
                                 <div id="tab{{ $loop->iteration }}"
@@ -187,8 +187,9 @@
 
                                                         <div>
                                                             <h6 style="">${{ $item->price }} </h6>
-                                                            <span style="" class="l__button l__button--primary  br-btn pd-0-1">
-                                                                <a href="{{ requesturl() }}" class="order-font-x clr-white"> Order
+                                                            <span style="" class="">
+                                                                <a href="{{ requesturl() }}" class="order-now-btn2">
+                                                                    Order
                                                                     Now</a></span>
                                                         </div>
 
@@ -239,8 +240,8 @@
 
                                                         <div>
                                                             <h6>${{ $item->price }} </h6>
-                                                            <span style="" class="l__button l__button--primary  br-btn pd-0-1">
-                                                                <a href="{{ requesturl() }}" class="order-font-x clr-white"> Order
+                                                            <span style="" class="">
+                                                                <a href="{{ requesturl() }}" class="order-now-btn2"> Order
                                                                     Now</a></span>
                                                         </div>
 
@@ -254,88 +255,88 @@
                                 </div>
                             @endforeach
                             <!-- <div id="tab2" class="tab__contents--text">
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div id="tab3" class="tab__contents--text">
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div id="tab4" class="tab__contents--text">
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div id="tab5" class="tab__contents--text">
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div id="tab6" class="tab__contents--text">
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div id="tab7" class="tab__contents--text">
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div id="tab8" class="tab__contents--text">
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div id="tab9" class="tab__contents--text">
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div id="tab10" class="tab__contents--text">
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div id="tab11" class="tab__contents--text">
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                    <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
-                                                                                        @include("site.includes.menu-slider")
-                                                                                    </div>
-                                                                                </div> -->
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                        <div id="tab3" class="tab__contents--text">
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                        <div id="tab4" class="tab__contents--text">
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                        <div id="tab5" class="tab__contents--text">
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                        <div id="tab6" class="tab__contents--text">
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                        <div id="tab7" class="tab__contents--text">
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                        <div id="tab8" class="tab__contents--text">
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                        <div id="tab9" class="tab__contents--text">
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                        <div id="tab10" class="tab__contents--text">
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                        <div id="tab11" class="tab__contents--text">
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                            <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
+                                                                                                                                                                @include("site.includes.menu-slider")
+                                                                                                                                                            </div>
+                                                                                                                                                        </div> -->
                             <!-- <div class="mt-5 text-center text-lg-start">
-                                                                                    <a href="" class="l__button l__button--primary">complete order</a>
-                                                                                </div> -->
+                                                                                                                                                            <a href="" class="l__button l__button--primary">complete order</a>
+                                                                                                                                                        </div> -->
                         </div>
                     </div>
                 </div>
@@ -364,8 +365,8 @@
                 <div class="col-lg-6">
                     <div class="event__left" style="background-image: url('../../site-assets/images/events.png');">
                         <!-- <div class="event__img">
-                                                                                <img src="{{ asset ('site-assets/images/events.png') }}" alt="">
-                                                                            </div> -->
+                                                                                                                                                        <img src="{{ asset ('site-assets/images/events.png') }}" alt="">
+                                                                                                                                                    </div> -->
                         <ul class="tab__buttons">
                             <li class="tab__buttons--btn active" data-target="#eventTab1">
                                 <span></span> Lunch Combo
@@ -723,11 +724,11 @@
                     const totalCount = e.item.count;
 
                     $("#counter").html(`
-                                                                            <span class="left-arrow" style="cursor:pointer;"><i class="fas fa-chevron-left"></i></span>
-                                                                            <span class="first">${currentIndex}</span> /
-                                                                            <span class="second">${totalCount}</span>
-                                                                            <span class="right-arrow" style="cursor:pointer;"><i class="fas fa-chevron-right"></i></span>
-                                                                        `);
+                                                                                                                                                    <span class="left-arrow" style="cursor:pointer;"><i class="fas fa-chevron-left"></i></span>
+                                                                                                                                                    <span class="first">${currentIndex}</span> /
+                                                                                                                                                    <span class="second">${totalCount}</span>
+                                                                                                                                                    <span class="right-arrow" style="cursor:pointer;"><i class="fas fa-chevron-right"></i></span>
+                                                                                                                                                `);
 
                     // Remove previous click handlers to avoid duplicates
                     $("#counter .left-arrow").off("click").on("click", function () {

@@ -121,21 +121,21 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="menuFlex__card--quantity">
-                                                                    <div class="box d-none d-lg-flex" data-quantity="">
-                                                                        <button class="quantity-btn" data-quantity-minus="">
-                                                                            <i class='bx bx-minus'></i>
-                                                                        </button>
-                                                                        <input type="number" class="quantity-input"
-                                                                            data-quantity-target="" value="1" step="1" min="1" max=""
-                                                                            name="quantity" />
-                                                                        <button class="quantity-btn" data-quantity-plus="">
-                                                                            <i class='bx bx-plus'></i>
-                                                                        </button>
-                                                                    </div>
+                                                                    <!-- <div class="box d-none d-lg-flex" data-quantity="">
+                                                                                                                                                        <button class="quantity-btn" data-quantity-minus="">
+                                                                                                                                                            <i class='bx bx-minus'></i>
+                                                                                                                                                        </button>
+                                                                                                                                                        <input type="number" class="quantity-input"
+                                                                                                                                                            data-quantity-target="" value="1" step="1" min="1" max=""
+                                                                                                                                                            name="quantity" />
+                                                                                                                                                        <button class="quantity-btn" data-quantity-plus="">
+                                                                                                                                                            <i class='bx bx-plus'></i>
+                                                                                                                                                        </button>
+                                                                                                                                                    </div> -->
                                                                     <span class="cat">Vegitarian</span>
                                                                     <span>
                                                                         <a href="{{ requesturl() }}" target="_blank"
-                                                                            class="btn btn-warning btn-org"
+                                                                            class="order-now-btn2"
                                                                             style="margin-top: 20px; display: block;">Order Now </a>
                                                                     </span>
                                                                 </div>
@@ -145,11 +145,11 @@
 
                                                     </div>
                                                     <!-- <div style="float: right;position: relative;bottom: 30px;" >
-                                                                                                                                                            <a href="{{ requesturl() }}" class="l__button l__button--primary  br-btn pd-0-1 mb-2"
-                                                                                                                                                            style="position: inherit!important;"
-                                                                                                                                                            >Order Now</a>
+                                                                                                                                                                                                                                                                                            <a href="{{ requesturl() }}" class="l__button l__button--primary  br-btn pd-0-1 mb-2"
+                                                                                                                                                                                                                                                                                            style="position: inherit!important;"
+                                                                                                                                                                                                                                                                                            >Order Now</a>
 
-                                                                                                                                                    </div> -->
+                                                                                                                                                                                                                                                                                    </div> -->
 
                                                 @endforeach
                                             </div>
@@ -192,7 +192,7 @@
             </div>
         </div>
         <div class="grab__box">
-            <div class="owl-carousel owl-theme family__carousel">
+            <div class="owl-carousel owl-theme family family__carousel">
                 @include("site.includes.menu-slider")
             </div>
         </div>

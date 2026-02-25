@@ -1,6 +1,6 @@
 @foreach ($categories->take(1) as $category)
    @foreach ($category->menus->take(4) as $menu)
-      <div class="item">
+      <div class="item" style="margin-right: -20px;">
          <div class="menu__card menu__card--family">
             <div class="menu__card--img">
                <a href="{{ requesturl() }}">
@@ -33,7 +33,7 @@
                <p class="text">{!! $menu->excerpt ?? 'no description available ' !!}</p>
                <div class="menu__card--footer">
                   <span class="badge badge--category">{{ checkVegetarian($menu->type) }}</span>
-                  <a class="menu__card--cta" href="{{ requesturl() }}">Order Now</a>
+                  <a class="menu__card--cta order-now-btn" href="{{ requesturl() }}">Order Now</a>
                </div>
             </div>
          </div>
