@@ -77,14 +77,14 @@
 
 						<div class="form-group m-form__group">
                             <label>Excerpt</label>
-                            <textarea class="tinymce form-control m-input"
+                            <textarea class=" form-control m-input"
                                       name="excerpt"
                                       rows="15">{{ old('excerpt')??data_get($menu, "excerpt") }}</textarea>
                         </div>
 
 						<div class="form-group m-form__group">
                             <label>Description</label>
-                            <textarea class="tinymce form-control m-input"
+                            <textarea class="summernote_reg form-control m-input"
                                       name="description"
                                       rows="25">{{ old('description')??data_get($menu, "description") }}</textarea>
                         </div>
@@ -158,6 +158,7 @@
 @endsection
 
 @push("footer")
+  @include('_helpers._summernote')
     <script src="https://cdn.tiny.cloud/1/{{ env('TINYMCE_API_KEY') }}/tinymce/5/tinymce.min.js" referrerpolicy="origin" defer></script>
     <script src="{{ asset('admin-assets/custom-js/tinymce-script.js') }}" defer></script>
 @endpush

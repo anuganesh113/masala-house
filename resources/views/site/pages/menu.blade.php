@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="col-xl-3">
-                        <a href="" class="l__button l__button--primary">
+                        <a href="{{ requesturl() }}" class="l__button l__button--primary">
                             <i class='bx bx-carts'></i> Order Now
                         </a>
                     </div>
@@ -101,9 +101,9 @@
 
                                                             </div>
                                                             <div class="menuFlex__card--content">
-                                                                <div class="menuFlex__card--text d-block">
-                                                                    <p class="text">
-                                                                        {!! $menu->excerpt ?? 'no description available ' !!}
+                                                                <div class="menuFlex__card--text d-block popular_cont">
+                                                                 
+                                                                        {!! $menu->excerpt ?? '<P> no description available</P> ' !!}
 
                                                                     <div class="menuFlex__card--quantity d-lg-none mt-4">
                                                                         <h5>Quantity</h5>
@@ -132,7 +132,7 @@
                                                                                                                                                             <i class='bx bx-plus'></i>
                                                                                                                                                         </button>
                                                                                                                                                     </div> -->
-                                                                    <span class="cat">Vegitarian</span>
+                                                                    <span class="cat">{{ checkVegetarian($menu->type) }}</span>
                                                                     <span>
                                                                         <a href="{{ requesturl() }}" target="_blank"
                                                                             class="order-now-btn2"

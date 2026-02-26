@@ -71,11 +71,17 @@ class WebsiteController extends BaseController
 
     public function cateringBooking(Request $request)
     {
-         dd($request->all());
+       
         $details = [
+            'namecatering' => $request->namecatering,
             'name' => $request->name,
+
             'email' => $request->email,
-            'message' => $request->message,
+
+            'date' => $request->date,
+            'time' => $request->time,
+            'persons' => $request->Number_of_persons,
+            'phone' => $request->phone,
         ];
        Mail::to($request->email)->send(new \App\Mail\Contact($details));
          return redirect()->back()->with('success', 'Successfull!  We will inform you soon');

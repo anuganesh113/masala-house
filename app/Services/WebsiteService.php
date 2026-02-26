@@ -24,7 +24,9 @@ class WebsiteService
     {
         $data['about'] = getPageBySlug('about');
         $data['wonderful_dining'] = getPageBySlug('wonderful-dining');
-        $data['categories'] = Category::get();
+     $data['categories'] = Category::with(['menus' => function ($query) {
+    $query->status();
+     }])->get();
         $data['galleries'] = Gallery::get();
 
 
