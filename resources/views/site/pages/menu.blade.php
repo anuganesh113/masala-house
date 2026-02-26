@@ -105,7 +105,7 @@
                                                                  
                                                                         {!! $menu->excerpt ?? '<P> no description available</P> ' !!}
 
-                                                                    <div class="menuFlex__card--quantity d-lg-none mt-4">
+                                                                    <!-- <div class="menuFlex__card--quantity d-lg-none mt-4">
                                                                         <h5>Quantity</h5>
                                                                         <div class="box d" data-quantity="">
                                                                             <button class="quantity-btn" data-quantity-minus="">
@@ -118,7 +118,7 @@
                                                                                 <i class='bx bx-plus'></i>
                                                                             </button>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> -->
                                                                 </div>
                                                                 <div class="menuFlex__card--quantity">
                                                                     <!-- <div class="box d-none d-lg-flex" data-quantity="">
