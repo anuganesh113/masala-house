@@ -10,7 +10,7 @@
                     <div class="popular__box">
                         <div class="owl-carousel owl-theme popular__carousel">
                             <div class="item" style="padding: 40px">
-                                @foreach ($category->menusOrdered as $item)
+                                @foreach ($category->menusOrdered->take(4) as $item)
                                     <div class="menuFlex__card">
                                         <div class="img d-lg-none">
                                             <img src="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::CATEGORIES_PATH, data_get($category, 'image'))) }}"
@@ -36,7 +36,7 @@
                             </div>
                             <div class="item" style="padding: 40px">
 
-                                @foreach ($category->menus as $item)
+                                @foreach ($category->menus->take(4) as $item)
                                     <div class="menuFlex__card">
                                         <div class="img d-lg-none">
                                             <img src="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::CATEGORIES_PATH, data_get($category, 'image'))) }}"
