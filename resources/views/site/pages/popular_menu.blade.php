@@ -21,26 +21,15 @@
                                                 <h3 class="name">{{ $item->name }}</h3>
                                                 <span class="price">${{ $item->price }}</span>
                                             </div>
-                                            <div class="menuFlex__card--text">
+                                            <div class="popular_cont">
                                                 <p class="text">
-                                                    {{strip_tags(substr($item->excerpt, 0, 280))}}
+                                                    {!!strip_tags(substr($item->excerpt, 0, 180))!!}
                                                 </p>
-                                                <span class="cat">{{ checkVegetarian($item->type) }}</span>
                                                 <a class="order-btn" href="{{ requesturl() }}">order now</a>
+                                                <span class="cat bg-green" style="float: right;">{{ checkVegetarian($item->type) }}</span>
+
                                             </div>
-                                            <!-- <div class="menuFlex__card--quantity">
-                                                                                                                                <h5>Quantity : </h5>
-                                                                                                                                <div class="box" data-quantity="">
-                                                                                                                                    <button class="quantity-btn" data-quantity-minus="">
-                                                                                                                                        <i class='bx bx-minus'></i>
-                                                                                                                                    </button>
-                                                                                                                                    <input type="number" class="quantity-input" data-quantity-target=""
-                                                                                                                                        value="1" step="1" min="1" max="" name="quantity" />
-                                                                                                                                    <button class="quantity-btn" data-quantity-plus="">
-                                                                                                                                        <i class='bx bx-plus'></i>
-                                                                                                                                    </button>
-                                                                                                                                </div>
-                                                                                                                            </div> -->
+                                     
                                         </div>
                                     </div>
                                 @endforeach
@@ -58,24 +47,22 @@
                                                 <h3 class="name">{{ $item->name }}</h3>
                                                 <span class="price">${{ $item->price }}</span>
                                             </div>
-                                            <div class="menuFlex__card--text">
+                                            <div class="popular_cont">
                                                 <p class="text">
 
-                                                    {{strip_tags(substr($item->excerpt, 0, 280))}}
+                                                    {!!strip_tags(substr($item->excerpt, 0, 180))!!}
 
                                                 </p>
-                                                <span class="cat">{{ checkVegetarian($item->type) }}</span>
                                                 <a href="{{ requesturl() }}">order now</a>
+                                                <span class="cat bg-green" style="float: right;">{{ checkVegetarian($item->type) }}</span>
+
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
                             </div>
                         </div>
-                        <!-- <div class="meta">
-                                                                                <a href="{{ url('checkout') }}" class="l__button l__button--primary">complete order</a>
-                                                                                <div id="counter"></div>
-                                                                            </div> -->
+                  
                     </div>
                 </div>
             </div>
