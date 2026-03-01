@@ -24,26 +24,23 @@
          <h1>How meaningful bonds connect hearts, homes, and hope.</h1>
       </div>
    </div>
-   <div class="row">
-      <div class="col-lg-12">
-         <div class="map">
-            <iframe
-               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.433960498821!2d-118.43290069999999!3d34.0327377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bb07feea2001%3A0x35eb8e7dab054b70!2sRichland%20Ave%2C%20Los%20Angeles%2C%20CA%2090064%2C%20USA!5e0!3m2!1sen!2snp!4v1758431380608!5m2!1sen!2snp"
-               width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-               referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <h2 class="d-none d-lg-block">GET IN TOUCH</h2>
+   <div class="row mb-5">
+      <div class="col-lg-6">
+         <div class="map" style="width: 100%; height: 100%;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d786.2360288323973!2d-122.03363898650821!3d37.978433489709104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808567ea99134c93%3A0x6b28e690072aa4a1!2sMasala%20House!5e0!3m2!1sen!2snp!4v1772361860556!5m2!1sen!2snp" width="600" style="border:0;height: 60.1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            
          </div>
       </div>
 
-      <div class="col-lg-6 offset-lg-6">
+      <div class="col-lg-6 ">
 
-         <div class="container-fluid">
+         <div class="">
             @if ( Session::has('success'))
             <div class="alert alert-success" align="center">
                <p>{{ Session::get('success') }}</p>
             </div>
             @endif
-            <form action="{{ route('site.contact.save') }}" method="post" class="form">
+            <form action="{{ route('site.contact.save') }}" method="post" class="form" style="margin-top: 0;">
                @csrf
                <h6>Contact US</h6>
                <h2>Connect with Masala House</h2>
