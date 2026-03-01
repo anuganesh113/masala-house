@@ -245,19 +245,23 @@
                <h2>book a catering service</h2>
                <div class="form__group">
                   <label for="" class="form-label">Your name</label>
-                  <input type="text" class="form-control" placeholder="Your name">
+                  <input type="text" class="form-control" name="name" placeholder="Your name" required>
+               </div>
+                    <div class="form__group">
+                  <label for="" class="form-label">Your Email</label>
+                  <input type="email" class="form-control" name="email" placeholder="Your email" required>
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Select date</label>
-                  <input type="date" class="form-control" placeholder="Select date">
+                  <input type="date" class="form-control" name="date" placeholder="Select date">
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Select time</label>
-                  <input type="time" class="form-control" placeholder="Select time">
+                  <input type="time" class="form-control" name="time" placeholder="Select time">
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Number of persons</label>
-                  <select name="" id="" class="form-select">
+                  <select name="Number_of_persons" id="" class="form-select">
                      <option value="">Number of persons</option>
                      <option value="">1 - 2 persons</option>
                      <option value="">2 - 5 persons</option>
@@ -266,7 +270,7 @@
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Contact Number</label>
-                  <input type="text" class="form-control" placeholder="Contact Number">
+                  <input type="text" class="form-control" name="phone" placeholder="Contact Number">
                </div>
                <div class="form__group">
                   <div class="btn__group">

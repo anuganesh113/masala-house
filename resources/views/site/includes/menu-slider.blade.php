@@ -30,10 +30,10 @@
                   </h3>
                   <div class="menu__card--price">${{ $menu->price }}</div>
                </div>
-               <p class="text">{!! $menu->excerpt ?? 'no description available ' !!}</p>
+               {!! $menu->excerpt ?? '<p>no description available</p> ' !!}
                <div class="menu__card--footer">
-                  <span class="badge badge--category">{{ checkVegetarian($menu->type) }}</span>
-                  <a class="menu__card--cta order-now-btn" href="{{ requesturl() }}">Order Now</a>
+                  <span class="cat veg-btn">{{ checkVegetarian($menu->type) }}</span>
+                  <a class="menu__card--cta order-now-btn"  style="margin-left: -10px;"  href="{{ requesturl() }}">Order Now</a>
                </div>
             </div>
          </div>

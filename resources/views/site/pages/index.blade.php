@@ -178,20 +178,17 @@
                                                     </div>
                                                     <div class="menu__card--content">
                                                         <h3><a href="{{ requesturl() }}">{{ $item->name }} </a>
-                                                            <span class="cat {{ $item->type == 'non-veg' ? 'non-veg' : '' }}"
-                                                                style="margin-top: -23px;">{{ checkVegetarian($item->type) }}</span>
+                                                            
                                                         </h3>
-                                                        <div class="text" style="min-height: 60px;">
-                                                            {!! $item->excerpt ?? 'No description available' !!}
+                                                        <div class="exploreour" style="min-height: 50px;">
+                                                            {!! $item->excerpt ?? '<p>No description available</p>' !!}
                                                         </div>
 
-                                                        <div>
-                                                            <h6 style="">${{ $item->price }} </h6>
-                                                            <span style="" class="">
-                                                                <a href="{{ requesturl() }}" class="order-now-btn2">
-                                                                    Order
-                                                                    Now</a></span>
-                                                        </div>
+                                                      <div class="menu__card--footer">
+                                                          <h6 class="menu_price_color">${{ $item->price }} </h6>
+                  <span class="cat veg-btn-e">{{ checkVegetarian($item->type) }}</span>
+                  <a class="menu__card--cta order-now-btn mt-0"  style="margin-left: -10px;"  href="{{ requesturl() }}">Order Now</a>
+               </div>
 
                                                     </div>
                                                 </div>
@@ -229,22 +226,19 @@
                                                             </svg>
                                                         </div>
                                                     </div>
-                                                    <div class="menu__card--content">
-                                                        <h3><a href="{{ requesturl() }}">{{ $item->name }}</a>
-                                                            <span class="cat" style="margin-top: -23px;">Vegitarian</span>
+                                                                      <div class="menu__card--content">
+                                                        <h3><a href="{{ requesturl() }}">{{ $item->name }} </a>
+                                                            
                                                         </h3>
-                                                        <div class="text" style="min-height: 60px;">
-                                                            {!! $item->excerpt ?? 'No description available' !!}
+                                                        <div class="exploreour" style="min-height: 50px;">
+                                                            {!! $item->excerpt ?? '<p>No description available</p>' !!} 
                                                         </div>
 
-
-                                                        <div>
-                                                            <h6>${{ $item->price }} </h6>
-                                                            <span style="" class="">
-                                                                <a href="{{ requesturl() }}" class="order-now-btn2"> Order
-                                                                    Now</a></span>
-                                                        </div>
-
+                                                      <div class="menu__card--footer">
+                                                          <h6 class="menu_price_color">${{ $item->price }} </h6>
+                   <span class="cat veg-btn-e">{{ checkVegetarian($item->type) }}</span>
+                  <a class="menu__card--cta order-now-btn mt-0"  style="margin-left: -10px;"  href="{{ requesturl() }}">Order Now</a>
+               </div>
 
                                                     </div>
                                                 </div>
@@ -628,9 +622,9 @@
             loop: true,
             margin: 30,
             responsiveClass: true,
-            autoplay: true,
+            autoplay: false,
             autoplayHoverPause: true,
-            autoplaySpeed: 600,
+            autoplaySpeed: 2000,
             lazyLoad: true,
             navText: [
                 '<i class="fas fa-chevron-left"></i>',
@@ -743,7 +737,7 @@
                     loop: true,
                     margin: 0,
                     responsiveClass: true,
-                    autoplay: true,
+                    autoplay: false,
                     autoplayTimeout: 5000,
                     autoplayHoverPause: false,
                     navText: [

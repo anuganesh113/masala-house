@@ -60,7 +60,7 @@ class Contact extends Mailable
      */
        public function attachments(): array
     {
-        if (!is_null($this->details['file'])) {
+        if (isset($this->details['file']) && !is_null($this->details['file'])) {
             return [
                 Attachment::fromPath(asset('storage/' . $this->details['file']))
                     ->as('attachment.pdf')
