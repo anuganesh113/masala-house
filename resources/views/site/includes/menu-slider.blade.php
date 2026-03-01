@@ -32,7 +32,7 @@
                </div>
                {!! $menu->excerpt ?? '<p>no description available</p> ' !!}
                <div class="menu__card--footer">
-                  <span class="cat veg-btn bt-fr">{{ checkVegetarian($menu->type) }}</span>
+                  <span class="cat veg-btn bt-fr {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
                   <a class="menu__card--cta order-now-btn  mr-l wtc"  href="{{ requesturl() }}">Order Now</a>
                </div>
             </div>

@@ -25,10 +25,14 @@
   <!-- css -->
   <link rel="stylesheet" href="{{ asset('site-assets/css/style.css') }}">
   <style>
-.boxshadow{
-        box-shadow: 0 14px 28px rgb(255 255 255 / 35%)!important;
-}
-    
+    .cssnonveg {
+      background-color: #85542b !important
+    }
+
+    .boxshadow {
+      box-shadow: 0 14px 28px rgb(255 255 255 / 35%) !important;
+    }
+
     .bt-fr {
       float: right !important;
     }
@@ -75,7 +79,7 @@
         display: inherit !important;
       }
 
-     
+
       .bt-fr {
         float: inherit !important;
         margin-bottom: 5px !important;
@@ -85,11 +89,11 @@
         margin-left: inherit !important;
 
       }
-      
-      .wtc{
-          width: 100%!important;
-    text-align: center!important;
-}
+
+      .wtc {
+        width: 100% !important;
+        text-align: center !important;
+      }
     }
   </style>
 </head>

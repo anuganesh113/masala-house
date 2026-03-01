@@ -55,7 +55,7 @@
 
                                                 </p>
                                                 <a class="wtc" href="{{ requesturl() }}">order now</a>
-                                                <span class="cat bg-green bt-fr">{{ checkVegetarian($item->type) }}</span>
+                                                <span class="cat bg-green bt-fr {{cssnonveg($item->type)}}">{{ checkVegetarian($item->type) }}</span>
 
                                             </div>
                                         </div>
