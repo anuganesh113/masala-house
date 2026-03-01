@@ -75,6 +75,7 @@
      
       .bt-fr {
         float: inherit !important;
+        margin-bottom: 5px !important;
       }
 
       .mr-l {

@@ -13,7 +13,7 @@
                                 @foreach ($category->menusOrdered->take(4) as $item)
                                     <div class="menuFlex__card">
                                         <div class="img d-lg-none">
-                                            <img src="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::CATEGORIES_PATH, data_get($category, 'image'))) }}"
+                                            <img src="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::MENUS_PATH, data_get($item, 'image'))) }}"
                                                 class="img-2" alt="">
                                         </div>
                                         <div class="contents">
@@ -25,8 +25,9 @@
                                                 <p class="text">
                                                     {!!strip_tags(substr($item->excerpt, 0, 180))!!}
                                                 </p>
-                                                <a class="order-btn" href="{{ requesturl() }}">order now</a>
                                                 <span class="cat bg-green bt-fr">{{ checkVegetarian($item->type) }}</span>
+
+                                                <a class="order-btn" href="{{ requesturl() }}">order now</a>
 
                                             </div>
                                      
