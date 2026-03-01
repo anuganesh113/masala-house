@@ -23,7 +23,7 @@
   <link href="{{ asset('site-assets/css/owl.theme.default.min.css') }}" rel="stylesheet" type="text/css" />
   @stack('header')
   <!-- css -->
-  <link rel="stylesheet" href="{{ asset('site-assets/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('site-assets/css/style.css?v1.1') }}">
   <style>
     .cssnonveg {
       background-color: #85542b !important
