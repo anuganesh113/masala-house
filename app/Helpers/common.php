@@ -129,6 +129,17 @@ if (!function_exists('checkVegetarian')) {
 }
 
 
+if (!function_exists('cssnonveg')) {
+    function cssnonveg($item): bool|string
+    {
+        if (isset($item) && $item == 'veg') {
+            return '';
+        }
+
+        return 'cssnonveg';
+    }
+}
+
 
 
 
