@@ -96,19 +96,19 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label class="form-control-label">Full Name:</label>
-                    <input type="text" readonly class="form-control" id="name">
+                    <input type="text" name="name" readonly class="form-control" id="name">
                 </div>
                 <div class="form-group">
                     <label class="form-control-label">Email:</label>
-                    <input type="text" readonly class="form-control" id="email">
+                    <input type="text" name="email" readonly class="form-control" id="email">
                 </div>
                 <div class="form-group">
                     <label class="form-control-label">Subject:</label>
-                    <input type="text" readonly class="form-control" id="subject">
+                    <input type="text" name="subject" readonly class="form-control" id="subject">
                 </div>
                 <div class="form-group">
                     <label class="form-control-label">Message:</label>
-                    <textarea class="form-control m-input" readonly rows="5" id="message" ></textarea>
+                    <textarea class="form-control m-input" name="message" readonly rows="5" id="message" ></textarea>
                 </div>
             </div>
             <div class="modal-footer">

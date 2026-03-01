@@ -8,6 +8,7 @@ use App\Http\Controllers\BaseController;
 use App\Mail\Contact;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Inquiry;
 use App\Models\Page;
 use App\Services\WebsiteService;
 use Illuminate\Contracts\View\View;
@@ -90,19 +91,25 @@ class WebsiteController extends BaseController
 
         public function contactStore(Request $request)
     {
+        // dd($request->all());
+
+
+         $inquiry = new Inquiry();
+         $inquiry->metadata = json_encode($request->contact);
+         $inquiry->save();
        
-        $details = [
-            'namecatering' => $request->namecatering ?? 'Contact Us',
-            'name' => $request->name ?? 'N/A',
+        // $details = [
+        //     'namecatering' => $request->namecatering ?? 'Contact Us',
+        //     'name' => $request->name ?? 'N/A',
 
-            'email' => $request->email ?? 'N/A',
+        //     'email' => $request->email ?? 'N/A',
 
-            'date' => $request->date ?? 'N/A',
-            'time' => $request->time ?? 'N/A',
-            'persons' => $request->Number_of_persons ?? 'N/A',
-            'phone' => $request->phone,
-        ];
-       Mail::to($request->email)->send(new \App\Mail\Contact($details));
+        //     'date' => $request->date ?? 'N/A',
+        //     'time' => $request->time ?? 'N/A',
+        //     'persons' => $request->Number_of_persons ?? 'N/A',
+        //     'phone' => $request->phone,
+        // ];
+    //    Mail::to($request->email)->send(new \App\Mail\Contact($details));
     //    Contact::create($details);
          return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
     }
