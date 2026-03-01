@@ -25,33 +25,63 @@
   <!-- css -->
   <link rel="stylesheet" href="{{ asset('site-assets/css/style.css') }}">
   <style>
-  .veg-btn{
-    float: right;
-    position: relative;
-    bottom: -36px;
-  }
-  .bg-green {
-  background: #62990a !important;
-}
- .popular_cont p , .exploreour p {
-  color: #777777;
-    font-family: "Sansita Swashed", sans-serif;
-    font-size: 1rem!important;
-    font-weight: 400;
-    line-height: 1.5;
     
- }
+    .bt-fr {
+      float: right !important;
+    }
 
-   .veg-btn-e{
-    float: right;
-    position: relative;
-    bottom: -5px;
-  }
-  .menu_price_color{
-   color: #FF6F00!important;
-    font-size: 1.5rem!important;
-    font-weight: 500!important;
-  }
+    .mr-l {
+      margin-left: -10px !important;
+
+    }
+
+    .veg-btn {
+      float: right;
+      position: relative;
+      bottom: -36px;
+    }
+
+    .bg-green {
+      background: #62990a !important;
+    }
+
+    .popular_cont p,
+    .exploreour p {
+      color: #777777;
+      font-family: "Sansita Swashed", sans-serif;
+      font-size: 1rem !important;
+      font-weight: 400;
+      line-height: 1.5;
+
+    }
+
+    .veg-btn-e {
+      float: right;
+      position: relative;
+      bottom: -5px;
+    }
+
+    .menu_price_color {
+      color: #FF6F00 !important;
+      font-size: 1.5rem !important;
+      font-weight: 500 !important;
+    }
+
+    @media only screen and (max-width: 400px) {
+      .dnone {
+        display: inherit !important;
+      }
+
+     
+      .bt-fr {
+        float: inherit !important;
+      }
+
+      .mr-l {
+        margin-left: inherit !important;
+
+      }
+    }
   </style>
 </head>
 

@@ -87,10 +87,10 @@
 
                                             <div class="item">
                                                 @foreach ($category->menus as $menu)
-                                                    <div class="menuFlex__card">
+                                                    <div class="menuFlex__card dnone">
                                                         <div class="menuFlex__card--img d-lg-none">
-                                                            <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::CATEGORIES_PATH, data_get($menu, 'image'))) }}"
-                                                                alt="">
+                                                            <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
+                                                                alt="{{ $menu->name }}">
                                                         </div>
                                                         <div class="menuFlex__card--box">
                                                             <div class="menuFlex__card--title">
@@ -100,7 +100,7 @@
                                                                 <span class="price">${{ $menu->price }} <br>
 
                                                             </div>
-                                                            <div class="menuFlex__card--content">
+                                                            <div class="menuFlex__card--content dnone" >
                                                                 <div class="menuFlex__card--text d-block popular_cont">
                                                                  
                                                                         {!! $menu->excerpt ?? '<P> no description available</P> ' !!}
@@ -135,7 +135,7 @@
                                                                     <span class="cat">{{ checkVegetarian($menu->type) }}</span>
                                                                     <span>
                                                                         <a href="{{ requesturl() }}" target="_blank"
-                                                                            class="order-now-btn2"
+                                                                            class="order-now-btn2 boxshadow"
                                                                             style="margin-top: 20px; display: block;">Order Now </a>
                                                                     </span>
                                                                 </div>

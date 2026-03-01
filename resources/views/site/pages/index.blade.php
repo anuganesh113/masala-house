@@ -186,8 +186,8 @@
 
                                                       <div class="menu__card--footer">
                                                           <h6 class="menu_price_color">${{ $item->price }} </h6>
-                  <span class="cat veg-btn-e">{{ checkVegetarian($item->type) }}</span>
-                  <a class="menu__card--cta order-now-btn mt-0"  style="margin-left: -10px;"  href="{{ requesturl() }}">Order Now</a>
+                  <span class="cat veg-btn-e bt-fr">{{ checkVegetarian($item->type) }}</span>
+                  <a class="menu__card--cta order-now-btn mt-0 mr-l"  href="{{ requesturl() }}">Order Now</a>
                </div>
 
                                                     </div>
@@ -236,8 +236,8 @@
 
                                                       <div class="menu__card--footer">
                                                           <h6 class="menu_price_color">${{ $item->price }} </h6>
-                   <span class="cat veg-btn-e">{{ checkVegetarian($item->type) }}</span>
-                  <a class="menu__card--cta order-now-btn mt-0"  style="margin-left: -10px;"  href="{{ requesturl() }}">Order Now</a>
+                   <span class="cat veg-btn-e bt-fr">{{ checkVegetarian($item->type) }}</span>
+                  <a class="menu__card--cta order-now-btn mt-0 mr-l"  href="{{ requesturl() }}">Order Now</a>
                </div>
 
                                                     </div>
@@ -585,7 +585,7 @@
             loop: true,
             margin: 30,
             responsiveClass: true,
-            autoplay: true,
+            autoplay: false,
             autoplayHoverPause: true,
             autoplaySpeed: 600,
             lazyLoad: true,
