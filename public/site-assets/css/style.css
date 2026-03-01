@@ -5497,11 +5497,12 @@ img {
 }
 
 .contact .map iframe {
-  height: 28rem;
+  height: 28.1rem;
   width: 100%;
   object-fit: cover;
   transition: all 0.5s ease;
   display: block;
+
 }
 
 .contact .map h2 {
