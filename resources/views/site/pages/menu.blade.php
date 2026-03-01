@@ -135,7 +135,7 @@
                                                                     <span class="cat">{{ checkVegetarian($menu->type) }}</span>
                                                                     <span>
                                                                         <a href="{{ requesturl() }}" target="_blank"
-                                                                            class="order-now-btn2 boxshadow"
+                                                                            class="order-now-btn2 boxshadow wtc"
                                                                             style="margin-top: 20px; display: block;">Order Now </a>
                                                                     </span>
                                                                 </div>

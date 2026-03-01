@@ -187,7 +187,7 @@
                                                       <div class="menu__card--footer">
                                                           <h6 class="menu_price_color">${{ $item->price }} </h6>
                   <span class="cat veg-btn-e bt-fr">{{ checkVegetarian($item->type) }}</span>
-                  <a class="menu__card--cta order-now-btn mt-2 mr-l"  href="{{ requesturl() }}">Order Now</a>
+                  <a class="menu__card--cta order-now-btn mt-2 mr-l wtc"  href="{{ requesturl() }}">Order Now</a>
                </div>
 
                                                     </div>
@@ -585,7 +585,7 @@
             loop: true,
             margin: 30,
             responsiveClass: true,
-            autoplay: false,
+            autoplay: true,
             autoplayHoverPause: true,
             autoplaySpeed: 600,
             lazyLoad: true,

@@ -27,7 +27,7 @@
                                                 </p>
                                                 <span class="cat bg-green bt-fr">{{ checkVegetarian($item->type) }}</span>
 
-                                                <a class="order-btn" href="{{ requesturl() }}">order now</a>
+                                                <a class="order-btn wtc" href="{{ requesturl() }}">order now</a>
 
                                             </div>
                                      
@@ -54,7 +54,7 @@
                                                     {!!strip_tags(substr($item->excerpt, 0, 180))!!}
 
                                                 </p>
-                                                <a href="{{ requesturl() }}">order now</a>
+                                                <a class="wtc" href="{{ requesturl() }}">order now</a>
                                                 <span class="cat bg-green bt-fr">{{ checkVegetarian($item->type) }}</span>
 
                                             </div>

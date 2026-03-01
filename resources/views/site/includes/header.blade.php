@@ -25,6 +25,9 @@
   <!-- css -->
   <link rel="stylesheet" href="{{ asset('site-assets/css/style.css') }}">
   <style>
+.boxshadow{
+        box-shadow: 0 14px 28px rgb(255 255 255 / 35%)!important;
+}
     
     .bt-fr {
       float: right !important;
@@ -82,6 +85,11 @@
         margin-left: inherit !important;
 
       }
+      
+      .wtc{
+          width: 100%!important;
+    text-align: center!important;
+}
     }
   </style>
 </head>
