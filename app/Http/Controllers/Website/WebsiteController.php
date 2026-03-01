@@ -89,7 +89,7 @@ class WebsiteController extends BaseController
          return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
     }
 
-        public function contactStore(Request $request)
+        public function contactsave(Request $request)
     {
         // dd($request->all());
 
