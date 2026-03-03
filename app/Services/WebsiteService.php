@@ -12,6 +12,7 @@ use App\Models\Gallery;
 use App\Models\MemberMessage;
 use App\Models\Menu;
 use App\Models\Page;
+use App\Models\Popup;
 use App\Models\Service;
 use App\Models\Testimonial;
 
@@ -28,6 +29,7 @@ class WebsiteService
     $query->status();
      }])->get();
         $data['galleries'] = Gallery::get();
+        $data['popup'] = Popup::where('status', Status::ACTIVE)->first();
 
 
         return $data;

@@ -448,11 +448,23 @@
 </section>
 <!-- reservation section end -->
 
+@if(isset($popup) && $popup->count() > 0)
+
+@include("site.pages.popup")
+@endif
 @endsection
 
 @push('footer')
+
+
 <!-- owl carousel script -->
 <script>
+
+     document.addEventListener('DOMContentLoaded', function() {
+        var modal = new bootstrap.Modal(document.getElementById('popupModal'));
+        modal.show();
+    });
+
     $('.banner__carousel').owlCarousel({
         loop: true,
         margin: 0,
