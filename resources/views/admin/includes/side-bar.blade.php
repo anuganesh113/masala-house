@@ -251,6 +251,18 @@
                 </a>
             </li>
 
+                    <li class="m-menu__item " aria-haspopup="true" title="Popups">
+                <a  href="{{ route('admin.popups.index') }}" class="m-menu__link" title="Admin Dashboard">
+                    <i class="m-menu__link-icon flaticon-banner {{ request()->is('admin/popups*') ? 'text-secondary' : '' }}"></i>
+                    <span class="m-menu__link-title">
+                        <span class="m-menu__link-wrap">
+                            <span class="m-menu__link-text {{ request()->is('admin/popups*') ? 'text-secondary' : '' }}">Popups</span>
+                        </span>
+                    </span>
+                </a>
+            </li>
+
+
         </ul>
     </div>
 </div>

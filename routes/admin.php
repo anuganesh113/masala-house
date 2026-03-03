@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\InquiryController;
 use App\Http\Controllers\Admin\MemberMessageController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\PopupController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TestimonialController;
@@ -73,6 +74,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
         $route->resource('blogs', BlogController::class)->except(['show']);
 
         $route->resource('banners', BannerController::class)->except(['show']);
+        $route->resource('popups', PopupController::class)->except(['show']);
+
 
         $route->resource('brands', BrandController::class)->except(['show']);
 

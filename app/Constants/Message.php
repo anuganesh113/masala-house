@@ -73,6 +73,16 @@ class Message
         'DELETE_SUCCESS' => 'Banner Delete Success',
     ];
 
+        /**
+     * @var array
+     */
+    public const POPUP_MESSAGE = [
+        'CREATE_SUCCESS' => 'Popup Create Success',
+        'UPDATE_SUCCESS' => 'Popup Update Success',
+        'DELETE_SUCCESS' => 'Popup Delete Success',
+    ];
+
+
     /**
      * @var array
      */
