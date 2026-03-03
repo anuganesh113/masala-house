@@ -16,13 +16,13 @@
 							<span class="m-portlet__head-icon m--hide">
 								<i class="la la-gear"></i>
 							</span>
-							<h3 class="m-portlet__head-text">Create Banner</h3>
+							<h3 class="m-portlet__head-text">Create Popup</h3>
 						</div>
 					</div>
 					<div class="m-portlet__head-tools">
 						<a class="btn btn-info m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill"
-							href="{{ route('admin.banners.index') }}">
-							<i class="la la-list"></i> Banner List
+							href="{{ route('admin.popups.index') }}">
+							<i class="la la-list"></i> Popup List
 						</a>
 					</div>
 				</div>
@@ -92,7 +92,7 @@
 										<i class="la la-upload"></i>
 										Submit
 									</button>
-									<a href="{{ route('admin.banners.index') }}" class="btn btn-danger text-light">
+									<a href="{{ route('admin.popups.index') }}" class="btn btn-danger text-light">
 										<i class="la la-close"></i>
 										Cancel
 									</a>
