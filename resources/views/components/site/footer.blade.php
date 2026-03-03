@@ -124,7 +124,7 @@
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Number of Persons </label>
-                      <input type="number"  class="form-control" name="persons" placeholder="Number of persons" >
+                      <input type="number"  max="50" min="1" class="form-control" name="persons" placeholder="Number of persons" >
                   <!-- <select name="" id="" class="form-select">
                      <option value="">Number of persons</option>
                      <option value="">1 - 2 persons</option>
@@ -134,7 +134,7 @@
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Contact Number <span class="text-danger">*</span></label>
-                  <input type="text" name="phone" class="form-control" placeholder="Phone Number"  required>
+                  <input type="number"  name="phone"  class="form-control" placeholder="Phone Number"  required>
 
                </div>
                <div class="form__group">

@@ -46,12 +46,15 @@
                                 @include("site.includes.events-faq")
                             </div>
                             <div class="btn__group">
-                                <button class="l__button l__button--primary">Reserve</button>
+                                <!-- <button class="l__button l__button--primary">Reserve</button> -->
                                 <!-- <button class="l__button l__button--secondary" data-name="Food Tray Service">Contact us</button> -->
 
-                                <a href="" class="l__button l__button--secondary bookacatering"
+                                <a href="" class="l__button l__button--primary bookacatering"
                                  data-name="Food Tray Service"
-                                data-bs-toggle="modal" data-bs-target="#bookacatering">Contact us</a>
+                                data-bs-toggle="modal" data-bs-target="#bookacatering">Reserve</a>
+                                <a href="/contact" class="l__button l__button--secondary" target="_blank"> Contact us </a>
+
+
                                 
                             </div>
                         </div>
@@ -85,10 +88,11 @@
                                 @include("site.includes.events-faq")
                             </div>
                             <div class="btn__group">
-                                <button class="l__button l__button--primary">Reserve</button>
-                                 <a href="" class="l__button l__button--secondary bookacatering"
+                                <!-- <button class="l__button l__button--primary">Reserve</button> -->
+                                 <a href="" class="l__button l__button--primary bookacatering"
                                  data-name="Food Tray"
-                                data-bs-toggle="modal" data-bs-target="#bookacatering">Contact us</a>
+                                data-bs-toggle="modal" data-bs-target="#bookacatering">Reserve</a>
+                                    <a href="/contact" class="l__button l__button--secondary" target="_blank"> Contact us </a>
                             </div>
                         </div>
                     </div>
@@ -261,7 +265,7 @@
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Number of persons</label>
-                  <input type="number" class="form-control" name="persons" placeholder="Number of persons">
+                  <input type="number" min="50" class="form-control" name="persons" placeholder="Number of persons">
 
                   <!-- <select name="Number_of_persons" id="" class="form-select">
                      <option value="">Number of persons</option>
@@ -272,7 +276,7 @@
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Contact Number <span class="text-danger">*</span></label>
-                                <input type="text" name="phone" class="form-control" placeholder="Phone Number" required>
+                                <input type="number" name="phone" class="form-control" placeholder="Phone Number" required>
 
                </div>
                <div class="form__group">
