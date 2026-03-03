@@ -402,7 +402,7 @@
                         </div>
                         <div class="col-lg-4 mt-5">
                             <div class="form__group">
-                                  <input type="text" name="phone" class="form-control" placeholder="Phone Number"  required>
+                                  <input type="number" name="phone" class="form-control" placeholder="Phone Number"  required>
 
                                 <!-- <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> -->
                             </div>
@@ -421,7 +421,7 @@
                      </div>
                      <div class="col-lg-4 mt-5">
                         <div class="form__group">
-                            <input type="number" name="persons" placeholder="Number of persons">
+                            <input type="number" max="50" name="persons" placeholder="Number of persons">
                            
                         </div>
                      </div>
