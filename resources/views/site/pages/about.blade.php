@@ -179,7 +179,7 @@
                         <div class="col-xxl-7 col-xl-7 col-lg-6  order-3">
                             <div class="btn__group">
                                 <button class="l__button l__button--primary" data-bs-toggle="modal" data-bs-target="#bookatableModal">Reserve</button>
-                                <button class="l__button l__button--secondary">contact us</button>
+                                <a href="/contact" class="l__button l__button--secondary" target="_blank">Contact us</a>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 @extends('site.layouts.layout')
-@section('page_title', config()->get('app.name'))
+@section('page_title',  'Menu')
 
 @section('content')
 
@@ -24,12 +24,12 @@
         <section class="menu__item">
             <div class="container-fluid">
                 <div class="row align-items-center">
-                    <div class="col-xl-9">
+                    <div class="col-xl-12">
                         <div class="menu__box">
                             <ul class="nav" id="navbar">
                                 @foreach ($categories as $category)
                                     @if($category->menus->count() > 0)
-                                        <li class="">
+                                        <li class="" style="margin-right: inherit;">
                                             <a href="#menuNav{{ $loop->iteration }}" class="nav-links">
                                                 {{ $category->name }}
                                             </a>
@@ -42,11 +42,11 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-xl-3">
+                    <!-- <div class="col-xl-3">
                         <a href="{{ requesturl() }}" class="l__button l__button--primary">
                             <i class='bx bx-carts'></i> Order Now
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
