@@ -30,7 +30,7 @@
                               <a href="" class="" data-bs-toggle="modal" data-bs-target="#bookatableModal">find a table</a>
                            </li>
                            <li class="border-menu secondary">
-                              <a href="{{ requesturl() }}" class="">order now</a>
+                              <a href="{{ requesturl() }}" class="" target="_blank">order now</a>
                            </li>
                         </ul>
                      </div>
