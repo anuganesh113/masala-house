@@ -27,7 +27,7 @@
    <div class="row mb-5">
       <div class="col-lg-6">
          <div class="map" style="width: 100%; height: 100%;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d786.2360288323973!2d-122.03363898650821!3d37.978433489709104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808567ea99134c93%3A0x6b28e690072aa4a1!2sMasala%20House!5e0!3m2!1sen!2snp!4v1772361860556!5m2!1sen!2snp" width="600" style="border:0;height: 60.1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src=" {!! data_get($setting, 'metadata.google_map_iframe') !!}" width="600" style="border:0;height: 60.1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             
          </div>
       </div>
