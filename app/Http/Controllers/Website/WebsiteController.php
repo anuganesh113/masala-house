@@ -38,8 +38,8 @@ class WebsiteController extends BaseController
         }
 
         $data = $this->websiteService->page($page);
-   
-     
+
+
 
         return view(sprintf('site.pages.%s', data_get($page, 'template', 'common-page')), $data);
     }
@@ -73,44 +73,58 @@ class WebsiteController extends BaseController
 
     public function cateringBooking(Request $request)
     {
-       
+
         $details = [
-            'namecatering' => $request->namecatering,
+            'request_name' => $request->namecatering,
             'name' => $request->name,
-
             'email' => $request->email,
-
             'date' => $request->date,
             'time' => $request->time,
-            'persons' => $request->Number_of_persons,
+            'persons' => $request->persons,
             'phone' => $request->phone,
+
         ];
-       Mail::to($request->email)->send(new \App\Mail\Contact($details));
-         return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
+        Mail::to($request->email)->send(new \App\Mail\Contact($details));
+        return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
     }
 
-        public function contactsave(Request $request)
+
+    public function tablebook(Request $request)
     {
-        // dd($request->all());
-
-
-         $inquiry = new Inquiry();
-         $inquiry->metadata = json_encode($request->contact);
-         $inquiry->save();
        
-        // $details = [
-        //     'namecatering' => $request->namecatering ?? 'Contact Us',
-        //     'name' => $request->name ?? 'N/A',
+        $details = [
+            'request_name' => 'tablebook',
+            'name' => $request->name,
+            'email' => $request->email,
+            'date' => $request->date,
+            'time' => $request->time,
+            'persons' => $request->persons,
+            'phone' => $request->phone,
 
-        //     'email' => $request->email ?? 'N/A',
+        ];
+        Mail::to($request->email)->send(new \App\Mail\Contact($details));
+        return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
+    }
 
-        //     'date' => $request->date ?? 'N/A',
-        //     'time' => $request->time ?? 'N/A',
-        //     'persons' => $request->Number_of_persons ?? 'N/A',
-        //     'phone' => $request->phone,
-        // ];
-    //    Mail::to($request->email)->send(new \App\Mail\Contact($details));
-    //    Contact::create($details);
-         return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
+
+    public function contactsave(Request $request)
+    {
+
+        $inquiry = new Inquiry();
+        $inquiry->metadata = json_encode($request->contact);
+        $inquiry->save();
+
+        $details = [
+            'name' =>  json_decode($inquiry->metadata, true)['name'],
+            'email' =>  json_decode($inquiry->metadata, true)['email'],
+            'time' =>  json_decode($inquiry->metadata, true)['time'],
+            'phone' =>  json_decode($inquiry->metadata, true)['phone'] ?? "N/A",
+            'message' =>  json_decode($inquiry->metadata, true)['message'] ?? "N/A",
+
+
+        ];
+
+         Mail::to( $details['email'])->send(new \App\Mail\Contact($details));
+        return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
     }
 }

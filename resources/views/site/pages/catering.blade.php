@@ -244,33 +244,36 @@
                <input name="namecatering" value="" id="namecatering" type="hidden">
                <h2>book a catering service</h2>
                <div class="form__group">
-                  <label for="" class="form-label">Your name</label>
+                  <label for="" class="form-label">Your name <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" name="name" placeholder="Your name" required>
                </div>
                     <div class="form__group">
-                  <label for="" class="form-label">Your Email</label>
+                  <label for="" class="form-label">Your Email <span class="text-danger">*</span></label>
                   <input type="email" class="form-control" name="email" placeholder="Your email" required>
                </div>
                <div class="form__group">
-                  <label for="" class="form-label">Select date</label>
-                  <input type="date" class="form-control" name="date" placeholder="Select date">
+                  <label for="" class="form-label">Select Date <span class="text-danger">*</span></label>
+                  <input type="date" class="form-control" name="date" placeholder="Select date" required>
                </div>
                <div class="form__group">
-                  <label for="" class="form-label">Select time</label>
-                  <input type="time" class="form-control" name="time" placeholder="Select time">
+                  <label for="" class="form-label">Select time <span class="text-danger">*</span></label>
+                  <input type="time" class="form-control" name="time" placeholder="Select time" required>
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Number of persons</label>
-                  <select name="Number_of_persons" id="" class="form-select">
+                  <input type="number" class="form-control" name="persons" placeholder="Number of persons">
+
+                  <!-- <select name="Number_of_persons" id="" class="form-select">
                      <option value="">Number of persons</option>
                      <option value="">1 - 2 persons</option>
                      <option value="">2 - 5 persons</option>
                      <option value="">5 - 10 persons</option>
-                  </select>
+                  </select> -->
                </div>
                <div class="form__group">
-                  <label for="" class="form-label">Contact Number</label>
-                  <input type="text" class="form-control" name="phone" placeholder="Contact Number">
+                  <label for="" class="form-label">Contact Number <span class="text-danger">*</span></label>
+                                <input type="text" name="phone" class="form-control" placeholder="Phone Number" required>
+
                </div>
                <div class="form__group">
                   <div class="btn__group">

@@ -97,40 +97,50 @@
    <div class="modal-dialog modal-dialog-centered modal-xl">
       <div class="modal-content">
          <div class="modal-body">
-            <form action="" class="form">
+            <form action="{{ route('site.table.book') }}" method="post" class="form">
+               @csrf
                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
                      class='bx bx-x'></i></button>
                <h5>Reservation</h5>
                <h2>book a table</h2>
                <div class="form__group">
-                  <label for="" class="form-label">Your name</label>
-                  <input type="text" class="form-control" placeholder="Your name">
+                  <label for="" class="form-label">Your Full Name<span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" name="name" placeholder="Your Full name" required>
+               </div>
+                 <div class="form__group">
+                  <label for="" class="form-label">Your Email<span class="text-danger">*</span></label>
+                 <input type="email" name="email" class="form-control"  placeholder="Email" required>
+               </div>
+
+
+                
+               <div class="form__group">
+                  <label for="" class="form-label">Select Date<span class="text-danger">*</span></label>
+                  <input type="date" name="date" class="form-control" placeholder="Select date" required>
                </div>
                <div class="form__group">
-                  <label for="" class="form-label">Select date</label>
-                  <input type="date" class="form-control" placeholder="Select date">
+                  <label for="" class="form-label">Select Time<span class="text-danger">*</span></label>
+                  <input type="time" name="time" class="form-control"  placeholder="Select time" required>
                </div>
                <div class="form__group">
-                  <label for="" class="form-label">Select time</label>
-                  <input type="time" class="form-control" placeholder="Select time">
-               </div>
-               <div class="form__group">
-                  <label for="" class="form-label">Number of persons</label>
-                  <select name="" id="" class="form-select">
+                  <label for="" class="form-label">Number of Persons </label>
+                      <input type="number"  class="form-control" name="persons" placeholder="Number of persons" >
+                  <!-- <select name="" id="" class="form-select">
                      <option value="">Number of persons</option>
                      <option value="">1 - 2 persons</option>
                      <option value="">2 - 5 persons</option>
                      <option value="">5 - 10 persons</option>
-                  </select>
+                  </select> -->
                </div>
                <div class="form__group">
-                  <label for="" class="form-label">Contact Number</label>
-                  <input type="text" class="form-control" placeholder="Contact Number">
+                  <label for="" class="form-label">Contact Number <span class="text-danger">*</span></label>
+                  <input type="text" name="phone" class="form-control" placeholder="Phone Number"  required>
+
                </div>
                <div class="form__group">
                   <div class="btn__group">
-                     <button class="l__button l__button--primary">Book now</button>
-                     <button class="l__button l__button--secondary">Cancel</button>
+                     <button type="submit" class="l__button l__button--primary">Book now</button>
+                     <!-- <button class="l__button l__button--secondary">Cancel</button> -->
                   </div>
                </div>
             </form>
