@@ -226,7 +226,7 @@
         </div>
     </div>
     <div class="map">
-        {!! data_get($setting, 'metadata.google_map_iframe') !!}
+     <iframe src=" {!! data_get($setting, 'metadata.google_map_iframe') !!}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </section>
 <!-- our location section end -->
