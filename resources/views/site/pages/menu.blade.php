@@ -121,17 +121,17 @@
                                                                     </div> -->
                                                                 </div>
                                                                 <div class="menuFlex__card--quantity">
-                                                                    <!-- <div class="box d-none d-lg-flex" data-quantity="">
-                                                                                                                                                        <button class="quantity-btn" data-quantity-minus="">
-                                                                                                                                                            <i class='bx bx-minus'></i>
-                                                                                                                                                        </button>
-                                                                                                                                                        <input type="number" class="quantity-input"
-                                                                                                                                                            data-quantity-target="" value="1" step="1" min="1" max=""
-                                                                                                                                                            name="quantity" />
-                                                                                                                                                        <button class="quantity-btn" data-quantity-plus="">
-                                                                                                                                                            <i class='bx bx-plus'></i>
-                                                                                                                                                        </button>
-                                                                                                                                                    </div> -->
+                                                            <!-- <div class="box d-none d-lg-flex" data-quantity="">
+                                                            <button class="quantity-btn" data-quantity-minus="">
+                                                            <i class='bx bx-minus'></i>
+                                                            </button>
+                                                            <input type="number" class="quantity-input"
+                                                            data-quantity-target="" value="1" step="1" min="1" max=""
+                                                            name="quantity" />
+                                                            <button class="quantity-btn" data-quantity-plus="">
+                                                            <i class='bx bx-plus'></i>
+                                                            </button>
+                                                            </div> -->
                                                                     <span class="cat {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
                                                                     <span>
                                                                         <a href="{{ requesturl() }}" target="_blank"
@@ -144,12 +144,6 @@
 
 
                                                     </div>
-                                                    <!-- <div style="float: right;position: relative;bottom: 30px;" >
-                                                                                                                                                                                                                                                                                            <a href="{{ requesturl() }}" class="l__button l__button--primary  br-btn pd-0-1 mb-2"
-                                                                                                                                                                                                                                                                                            style="position: inherit!important;"
-                                                                                                                                                                                                                                                                                            >Order Now</a>
-
-                                                                                                                                                                                                                                                                                    </div> -->
 
                                                 @endforeach
                                             </div>

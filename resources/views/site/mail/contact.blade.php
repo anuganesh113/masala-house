@@ -1,59 +1,55 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Contact Information</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            max-width: 800px;
-            margin: 20px auto;
-            font-family: Arial, sans-serif;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-        td {
-            background-color: #ffffff;
-        }
-        tr:nth-child(even) td {
-            background-color: #f9f9f9;
-        }
-    </style>
+    <title>Masala House</title>
 </head>
+
 <body>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Name Catering</th>
+    <h1>{{ $details['request_name'] ?? 'Contact Us' }}</h1>
+    <div class="row">
+    	<div class="col-md-2">
+    		<p><b>Name:</b>{{ $details['name'] ?? "N/A" }}</p>
+    	</div>
+    	
+    </div>
+    <div class="row">
+    	<div class="col-md-2">
+    		<p><b>Email:</b>{{ $details['email'] ?? "N/A" }}</p>
+    	</div>
+    	
+    </div>
+     <div class="row">
+    	<div class="col-md-2">
+    		<p><b>Phone:</b>{{ $details['phone'] ?? "N/A" }}</p>
+    	</div>
+    	
+    </div>
+    
+    <div class="row">
+    	<div class="col-md-2">
+    		<p><b>Date:</b>{{ $details['date'] ?? "N/A" }}</p>
+    	</div>
+    	
+    </div>
+    <div class="row">
+    	<div class="col-md-2">
+    		<p><b>Time:</b>{{ $details['time'] ?? "N/A" }}</p>
+    	</div>
+    	
+    </div>
+     <div class="row">
+    	<div class="col-md-2">
+    		<p><b>Persons:</b>{{ $details['persons'] ?? "N/A" }}</p>
+    	</div>
+    </div>
+      <div class="row">
+    	<div class="col-md-2">
+    		<p><b>Message:</b>{{ $details['message'] ?? "N/A" }}</p>
+    	</div>
+    </div>
 
-                <th>Email</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Persons</th>
-                <th>Phone</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{ $details['name'] ?? 'N/A' }}</td>
-                <td>{{ $details['namecatering'] ?? 'N/A' }}</td>
-
-                <td>{{ $details['email'] ?? 'N/A' }}</td>
-                <td>{{ $details['date'] ?? 'N/A' }}</td>
-                <td>{{ $details['time'] ?? 'N/A' }}</td>
-                <td>{{ $details['persons'] ?? 'Not specified' }}</td>
-                <td>{{ $details['phone'] ?? 'N/A' }}</td>
-            </tr>
-        </tbody>
-    </table>
+    
+    
+    <p>Thank you</p>
 </body>
 </html>

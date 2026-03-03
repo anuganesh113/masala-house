@@ -32,7 +32,7 @@ class Contact extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address(env('MAIL_FROM_ADDRESS'), 'dasd'),
+            from: new Address(env('MAIL_FROM_ADDRESS'), 'sales@gmail.com'),
             replyTo: [
                 new Address($this->details['email']),
             ],
