@@ -136,7 +136,8 @@
                      <select class="form-control country-code" name="" style="max-width: 120px;">
                         <option value="+1" selected >USA (+1)</option>
                      </select>
-                     <input type="number" name="table[phone]"  pattern="[0-9]{10}" class="form-control checkphone" placeholder="Phone Number" required>
+                     <input type="number" name="table[phone]"  minlength="10" 
+           maxlength="10"  pattern="[0-9]{10}" class="form-control checkphone" placeholder="Phone Number" required>
                   </div>
                </div>
                <div class="form__group">

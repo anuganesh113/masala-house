@@ -275,12 +275,13 @@
                   </select> -->
                </div>
                   <div class="form__group">
-                  <label for="" class="form-label">Contact Number <span class="text-danger">*</span></label>
+                  <label for="" class="form-label">Contact Number <span class="text-danger contact_number">*</span></label>
                   <div class="input-group">
                      <select class="form-control country-code" name="" style="max-width: 120px;">
                         <option value="+1" selected >USA (+1)</option>
                      </select>
-                     <input type="number" name="catering[phone]" class="form-control checkphone"  pattern="[0-9]{10}" placeholder="Phone Number" required>
+                     <input type="number" name="catering[phone]"  minlength="10" 
+                               maxlength="10" class="form-control checkphone"  pattern="[0-9]{10}" placeholder="Phone Number" required>
                   </div>
                </div>
                <div class="form__group">
