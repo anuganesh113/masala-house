@@ -131,7 +131,7 @@
                   </select> -->
                </div>
                <div class="form__group">
-                  <label for="" class="form-label">Contact Number <span class="text-danger">*</span></label>
+                  <label for="" class="form-label">Contact Number <span class="text-danger contact_number">*</span></label>
                   <div class="input-group">
                      <select class="form-control country-code" name="" style="max-width: 120px;">
                         <option value="+1" selected >USA (+1)</option>
