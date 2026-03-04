@@ -99,17 +99,12 @@
       }
     }
 
-    @media only screen and (min-width: 480px) {
+    @media (max-width: 991px) {
     .menu__item {
-        top: 3.5rem!important;
-    }
+      top: 4.375rem!important;
 
-       @media only screen and (max-width: 650px) {
-    .menu__item {
-         top: 5.5rem!important;
+}
     }
-}
-}
   </style>
 </head>
 
