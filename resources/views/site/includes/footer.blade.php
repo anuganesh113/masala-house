@@ -5,28 +5,49 @@
 <script src="{{ asset('site-assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('site-assets/js/main.js') }}"></script>
 <script>
-   $('.checkphone').on('input', function() {
-      // Remove any non-digit characters
-      let value = this.value.replace(/\D/g, '');
-
-      if (value.length > 9) {
-         alert('Phone number cannot exceed 9 digits!');
-         this.value = value.slice(0, 9);
-      } else {
-         return false;
-      }
-   });
+$('.checkphone').on('input', function() {
+    let value = this.value.replace(/\D/g, '');
+    // If more than 10 digits, slice to 10 and show alert
+    if (value.length > 10) {
+        alert('Phone number cannot exceed 10 digits!');
+        this.value = value.slice(0, 10);
+    } 
+    else if (value.length === 10) {
+        this.value = value;
+    }
+    else {
+        this.value = value;
+    }
+});
 
    $('.checknumberper').on('input', function() {
       // Remove any non-digit characters
       let value = this.value.replace(/\D/g, '');
-
-      if (parseInt(value) >= 50) {
-         alert('No of persons cannot More than 50!');
-         value = value.slice(0, 10);
+      if (value === '') {
+         this.value = '';
+         return;
       }
-
-      this.value = value;
+      // Convert to number for comparison
+      let numValue = parseInt(value, 10);
+      // Check if value is more than 100
+      if (numValue > 100) {
+         alert('Number of persons cannot be more than 100!');
+         // If value > 100, keep only first 2 digits
+         if (value.length > 2) {
+            this.value = value.slice(0, 2);
+         } else {
+            this.value = value; // Keep as is if it's less than 100
+         }
+      }
+      // If value is between 1-99, keep as is
+      else if (numValue <= 99) {
+         // Allow up to 3 digits for numbers 1-99
+         this.value = value.slice(0, 3);
+      }
+      // If value is exactly 100
+      else if (numValue === 100) {
+         this.value = value.slice(0, 3);
+      }
    });
    // When the user scrolls the page, execute myFunction
    window.onscroll = function() {
