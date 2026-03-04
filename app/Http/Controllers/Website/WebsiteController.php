@@ -81,7 +81,7 @@ class WebsiteController extends BaseController
             'date' => $request->date,
             'time' => $request->time,
             'persons' => $request->persons,
-            'phone' => $request->phone,
+            'phone' =>  $request->country_code . $request->phone,
 
         ];
         Mail::to($request->email)->send(new \App\Mail\Contact($details));
@@ -91,6 +91,7 @@ class WebsiteController extends BaseController
 
     public function tablebook(Request $request)
     {
+        dd($request->all());
        
         $details = [
             'request_name' => 'tablebook',
@@ -99,8 +100,9 @@ class WebsiteController extends BaseController
             'date' => $request->date,
             'time' => $request->time,
             'persons' => $request->persons,
-            'phone' => $request->phone,
-
+            'phone' =>  $request->country_code . $request->phone,
+            
+ 
         ];
         Mail::to($request->email)->send(new \App\Mail\Contact($details));
         return redirect()->back()->with('success', 'Successfull!  We will inform you soon');

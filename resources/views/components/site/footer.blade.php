@@ -11,9 +11,9 @@
                <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
             </li>
             @foreach(footerPages() ?? [] as $page)
-               <li>
-                  <a href="{{ url(data_get($page, 'slug')) }}">{{ data_get($page, 'name') }}</a>
-               </li>
+            <li>
+               <a href="{{ url(data_get($page, 'slug')) }}">{{ data_get($page, 'name') }}</a>
+            </li>
             @endforeach
 
 
@@ -51,9 +51,9 @@
                   <a href="{{ url('menu') }}">menu</a>
                </li>
                @foreach($pages ?? [] as $page)
-                  <li>
-                     <a href="{{ url(data_get($page, 'slug')) }}">{{ data_get($page, 'name') }}</a>
-                  </li>
+               <li>
+                  <a href="{{ url(data_get($page, 'slug')) }}">{{ data_get($page, 'name') }}</a>
+               </li>
                @endforeach
 
             </ul>
@@ -107,24 +107,22 @@
                   <label for="" class="form-label">Your Full Name<span class="text-danger">*</span></label>
                   <input type="text" class="form-control" name="name" placeholder="Your Full name" required>
                </div>
-                 <div class="form__group">
+               <div class="form__group">
                   <label for="" class="form-label">Your Email<span class="text-danger">*</span></label>
-                 <input type="email" name="email" class="form-control"  placeholder="Email" required>
+                  <input type="email" name="email" class="form-control" placeholder="Email" required>
                </div>
 
-
-                
                <div class="form__group">
                   <label for="" class="form-label">Select Date<span class="text-danger">*</span></label>
                   <input type="date" name="date" class="form-control" placeholder="Select date" required>
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Select Time<span class="text-danger">*</span></label>
-                  <input type="time" name="time" class="form-control"  placeholder="Select time" required>
+                  <input type="time" name="time" class="form-control" placeholder="Select time" required>
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Number of Persons </label>
-                      <input type="number"  max="50" min="1" class="form-control" name="persons" placeholder="Number of persons" >
+                  <input type="number" max="50" min="1" class="form-control checknumberper" name="persons" placeholder="Number of persons">
                   <!-- <select name="" id="" class="form-select">
                      <option value="">Number of persons</option>
                      <option value="">1 - 2 persons</option>
@@ -134,8 +132,12 @@
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Contact Number <span class="text-danger">*</span></label>
-                  <input type="number"  name="phone"  class="form-control" placeholder="Phone Number"  required>
-
+                  <div class="input-group">
+                     <select class="form-control country-code" name="country_code" style="max-width: 120px;">
+                        <option value="+1" selected >USA (+1)</option>
+                     </select>
+                     <input type="number" name="phone"  pattern="[0-9]{10}" class="form-control checkphone" placeholder="Phone Number" required>
+                  </div>
                </div>
                <div class="form__group">
                   <div class="btn__group">

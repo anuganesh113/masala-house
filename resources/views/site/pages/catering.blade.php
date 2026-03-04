@@ -264,8 +264,8 @@
                   <input type="time" class="form-control" name="time" placeholder="Select time" required>
                </div>
                <div class="form__group">
-                  <label for="" class="form-label">Number of persons</label>
-                  <input type="number" min="50" class="form-control" name="persons" placeholder="Number of persons">
+                  <label for="" class="form-label">Number of persons </label>
+                  <input type="number" min="50" class="form-control checknumberper" name="persons" placeholder="Number of persons">
 
                   <!-- <select name="Number_of_persons" id="" class="form-select">
                      <option value="">Number of persons</option>
@@ -274,10 +274,14 @@
                      <option value="">5 - 10 persons</option>
                   </select> -->
                </div>
-               <div class="form__group">
+                  <div class="form__group">
                   <label for="" class="form-label">Contact Number <span class="text-danger">*</span></label>
-                                <input type="number" name="phone" class="form-control" placeholder="Phone Number" required>
-
+                  <div class="input-group">
+                     <select class="form-control country-code" name="country_code" style="max-width: 120px;">
+                        <option value="+1" selected >USA (+1)</option>
+                     </select>
+                     <input type="number" name="phone" class="form-control checkphone"  pattern="[0-9]{10}" placeholder="Phone Number" required>
+                  </div>
                </div>
                <div class="form__group">
                   <div class="btn__group">
