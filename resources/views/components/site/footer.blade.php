@@ -111,8 +111,6 @@
                   <label for="" class="form-label">Your Email<span class="text-danger">*</span></label>
                  <input type="email" name="email" class="form-control"  placeholder="Email" required>
                </div>
-
-
                 
                <div class="form__group">
                   <label for="" class="form-label">Select Date<span class="text-danger">*</span></label>
