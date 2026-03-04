@@ -14,6 +14,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- fontawesome CSS -->
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
   <!-- bootstrap -->
@@ -25,9 +27,17 @@
   <!-- css -->
   <link rel="stylesheet" href="{{ asset('site-assets/css/style.css?v1.1') }}">
   <style>
-    .reservation::before{
+    /* Make success message brighter green */
+    .toast-success {
+      background-color: #28a745 !important;
+      opacity: 1 !important;
+      box-shadow: 0 0 12px rgba(40, 167, 69, 0.4) !important;
+    }
+
+    .reservation::before {
       border: inherit !important;
     }
+
     .cssnonveg {
       background-color: #85542b !important
     }
@@ -77,22 +87,32 @@
       font-weight: 500 !important;
     }
 
+    @media only screen and (max-width: 550px) {
+
+      .reservationimg {
+        margin: auto !important;
+        width: 100% !important;
+        max-width: inherit !important;
+      }
+
+      .reservationbtn {
+        text-align: center !important;
+      }
+
+    }
+
     @media only screen and (max-width: 400px) {
       .dnone {
         display: inherit !important;
       }
-
-
       .bt-fr {
         float: inherit !important;
         margin-bottom: 5px !important;
       }
-
       .mr-l {
         margin-left: inherit !important;
 
       }
-
       .wtc {
         width: 100% !important;
         text-align: center !important;
@@ -100,10 +120,10 @@
     }
 
     @media (max-width: 991px) {
-    .menu__item {
-      top: 4.375rem!important;
+      .menu__item {
+        top: 4.375rem !important;
 
-}
+      }
     }
   </style>
 </head>

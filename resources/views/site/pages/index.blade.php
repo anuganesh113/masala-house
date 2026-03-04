@@ -432,14 +432,14 @@
                                 <textarea rows="1" placeholder="Message" name="table[message]" id=""></textarea>
                             </div>
                         </div>
-                        <div class="col-lg-12">
-                            <button type="submit" class="l__button l__button--primary">Make a Reservation</button>
+                        <div class="col-lg-12 reservationbtn">
+                            <button type="submit" class="l__button l__button--primary ">Make a Reservation</button>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="col-md-4">
-                <div class="reservation__img">
+                <div class="reservation__img reservationimg">
                     <img src="{{ asset('site-assets/images/reservation.png') }}" alt="">
                 </div>
             </div>

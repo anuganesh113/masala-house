@@ -1,4 +1,5 @@
 <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 <script src="{{ asset('site-assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('site-assets/js/jquery.min.js') }}"></script>
@@ -77,6 +78,32 @@ $('.checkphone').on('input', function() {
          header.classList.remove("sticky");
       }
    }
+
+   </script>
+   <script>
+
+  @if(Session::has('success'))
+        toastr.success("{{ Session::get('success') }}", "Success!");
+    @endif
+
+    // Configure Toastr options (optional)
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
 </script>
 
 @stack('footer')
