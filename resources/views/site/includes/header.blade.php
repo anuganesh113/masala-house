@@ -25,6 +25,9 @@
   <!-- css -->
   <link rel="stylesheet" href="{{ asset('site-assets/css/style.css?v1.1') }}">
   <style>
+    .reservation::before{
+      border: inherit !important;
+    }
     .cssnonveg {
       background-color: #85542b !important
     }
@@ -95,6 +98,18 @@
         text-align: center !important;
       }
     }
+
+    @media only screen and (min-width: 480px) {
+    .menu__item {
+        top: 3.5rem!important;
+    }
+
+       @media only screen and (max-width: 650px) {
+    .menu__item {
+         top: 5.5rem!important;
+    }
+}
+}
   </style>
 </head>
 
