@@ -27,7 +27,7 @@ class FAQController extends BaseController
 
     public function index(): View
     {
-        $data['faqs'] = $this->faqModel->query()->whereNull('event_id')->get();
+        $data['faqs'] = $this->faqModel->query()->get();
 
         return view('admin.pages.faqs.index', $data);
     }
