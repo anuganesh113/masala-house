@@ -265,7 +265,7 @@
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Number of persons </label>
-                  <input type="number" min="100" class="form-control checknumberper" name="catering[persons]" placeholder="Number of persons">
+                  <input type="number" max="100" class="form-control checknumberper" name="catering[persons]" placeholder="Number of persons">
 
                   <!-- <select name="Number_of_persons" id="" class="form-select">
                      <option value="">Number of persons</option>
