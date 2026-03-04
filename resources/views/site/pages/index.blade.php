@@ -402,7 +402,7 @@
                         </div>
                         <div class="col-lg-4 mt-5">
                             <div class="form__group"><span class="text-danger contact_number"></span>
-                                  <input type="number" name="table[phone]"  class="form-control checkphone" pattern="[0-9]{10}" placeholder="Phone Number"  required>
+                                  <input type="tel" name="table[phone]" class="checkphone" pattern="[0-9+\-\s]{10,15}" placeholder="Phone Number"  required>
 
                                 <!-- <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> -->
                             </div>
