@@ -5,30 +5,29 @@
 <script src="{{ asset('site-assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('site-assets/js/main.js') }}"></script>
 <script>
+   $('.checkphone').on('input', function() {
+      // Remove any non-digit characters
+      let value = this.value.replace(/\D/g, '');
 
-      $('.checkphone').on('input', function() {
-    // Remove any non-digit characters
-    let value = this.value.replace(/\D/g, '');
+      if (value.length > 9) {
+         alert('Phone number cannot exceed 9 digits!');
+         this.value = value.slice(0, 9);
+      } else {
+         return false;
+      }
+   });
 
-    if (value.length > 10) {
-        alert('Phone number cannot exceed 10 digits!');
-        value = value.slice(0, 10);
-    }
-    
-    this.value = value;
-});
-
-      $('.checknumberper').on('input', function() {
-    // Remove any non-digit characters
-    let value = this.value.replace(/\D/g, '');
+   $('.checknumberper').on('input', function() {
+      // Remove any non-digit characters
+      let value = this.value.replace(/\D/g, '');
 
       if (parseInt(value) >= 50) {
-        alert('No of persons cannot More than 50!');
-        value = value.slice(0, 10);
-    }
-    
-    this.value = value;
-});
+         alert('No of persons cannot More than 50!');
+         value = value.slice(0, 10);
+      }
+
+      this.value = value;
+   });
    // When the user scrolls the page, execute myFunction
    window.onscroll = function() {
       myFunction();

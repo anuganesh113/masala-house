@@ -274,10 +274,14 @@
                      <option value="">5 - 10 persons</option>
                   </select> -->
                </div>
-               <div class="form__group">
+                  <div class="form__group">
                   <label for="" class="form-label">Contact Number <span class="text-danger">*</span></label>
-                                <input type="number" name="phone" class="form-control checkphone" placeholder="Phone Number" required>
-
+                  <div class="input-group">
+                     <select class="form-control country-code" name="country_code" style="max-width: 120px;">
+                        <option value="+1" selected >USA (+1)</option>
+                     </select>
+                     <input type="number" name="phone" class="form-control checkphone"  pattern="[0-9]{10}" placeholder="Phone Number" required>
+                  </div>
                </div>
                <div class="form__group">
                   <div class="btn__group">
