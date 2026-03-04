@@ -245,27 +245,27 @@
                 @csrf
                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class='bx bx-x'></i></button>
                <h5>Reservation</h5>
-               <input name="namecatering" value="" id="namecatering" type="hidden">
+               <input name="catering[namecatering]" value="" id="namecatering" type="hidden">
                <h2>book a catering service</h2>
                <div class="form__group">
                   <label for="" class="form-label">Your name <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" name="name" placeholder="Your name" required>
+                  <input type="text" class="form-control" name="catering[name]" placeholder="Your name" required>
                </div>
                     <div class="form__group">
                   <label for="" class="form-label">Your Email <span class="text-danger">*</span></label>
-                  <input type="email" class="form-control" name="email" placeholder="Your email" required>
+                  <input type="email" class="form-control" name="catering[email]" placeholder="Your email" required>
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Select Date <span class="text-danger">*</span></label>
-                  <input type="date" class="form-control" name="date" placeholder="Select date" required>
+                  <input type="date" class="form-control" name="catering[date]" placeholder="Select date" required>
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Select time <span class="text-danger">*</span></label>
-                  <input type="time" class="form-control" name="time" placeholder="Select time" required>
+                  <input type="time" class="form-control" name="catering[time]" placeholder="Select time" required>
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Number of persons </label>
-                  <input type="number" min="50" class="form-control checknumberper" name="persons" placeholder="Number of persons">
+                  <input type="number" min="100" class="form-control checknumberper" name="catering[persons]" placeholder="Number of persons">
 
                   <!-- <select name="Number_of_persons" id="" class="form-select">
                      <option value="">Number of persons</option>
@@ -277,10 +277,10 @@
                   <div class="form__group">
                   <label for="" class="form-label">Contact Number <span class="text-danger">*</span></label>
                   <div class="input-group">
-                     <select class="form-control country-code" name="country_code" style="max-width: 120px;">
+                     <select class="form-control country-code" name="" style="max-width: 120px;">
                         <option value="+1" selected >USA (+1)</option>
                      </select>
-                     <input type="number" name="phone" class="form-control checkphone"  pattern="[0-9]{10}" placeholder="Phone Number" required>
+                     <input type="number" name="catering[phone]" class="form-control checkphone"  pattern="[0-9]{10}" placeholder="Phone Number" required>
                   </div>
                </div>
                <div class="form__group">
