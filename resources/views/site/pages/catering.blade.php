@@ -280,8 +280,8 @@
                      <select class="form-control country-code" name="" style="max-width: 120px;">
                         <option value="+1" selected >USA (+1)</option>
                      </select>
-                     <input type="number" name="catering[phone]"  minlength="10" 
-                               maxlength="10" class="form-control checkphone"  pattern="[0-9]{10}" placeholder="Phone Number" required>
+                     <input type="tel" name="catering[phone]"  minlength="10" 
+                               maxlength="10" class="form-control checkphone"  pattern="[0-9+\-\s]{10,15}" placeholder="Phone Number" required>
                   </div>
                </div>
                <div class="form__group">

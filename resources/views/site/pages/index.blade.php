@@ -402,7 +402,7 @@
                         </div>
                         <div class="col-lg-4 mt-5">
                             <div class="form__group"><span class="text-danger contact_number"></span>
-                                  <input type="number" name="table[phone]"  class="form-control checkphone" pattern="[0-9]{10}" placeholder="Phone Number"  required>
+                                  <input type="tel" name="table[phone]" class="checkphone" pattern="[0-9+\-\s]{10,15}" placeholder="Phone Number"  required>
 
                                 <!-- <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> -->
                             </div>
@@ -432,14 +432,14 @@
                                 <textarea rows="1" placeholder="Message" name="table[message]" id=""></textarea>
                             </div>
                         </div>
-                        <div class="col-lg-12">
-                            <button type="submit" class="l__button l__button--primary">Make a Reservation</button>
+                        <div class="col-lg-12 reservationbtn">
+                            <button type="submit" class="l__button l__button--primary ">Make a Reservation</button>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="col-md-4">
-                <div class="reservation__img">
+                <div class="reservation__img reservationimg">
                     <img src="{{ asset('site-assets/images/reservation.png') }}" alt="">
                 </div>
             </div>
