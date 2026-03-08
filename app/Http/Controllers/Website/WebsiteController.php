@@ -76,7 +76,6 @@ class WebsiteController extends BaseController
         $inquiry = new Inquiry();
         $inquiry->metadata = json_encode($request->catering);
         $inquiry->save();
-
         $settingdata = $this->websiteService->settings();
         $details = [
             'data' =>  json_decode($inquiry->metadata, true),
@@ -86,6 +85,7 @@ class WebsiteController extends BaseController
             'phone' => $settingdata->phone,
             'address' => $settingdata->address,
             'siteemail' => $settingdata->email,
+            'website' => '',
 
         ];
         Mail::to($details['email'])->send(new \App\Mail\Contact($details));
@@ -109,6 +109,7 @@ class WebsiteController extends BaseController
             'phone' => $settingdata->phone,
             'address' => $settingdata->address,
             'siteemail' => $settingdata->email,
+            'website' => '',
         ];
         Mail::to($details['email'])->send(new \App\Mail\Contact($details));
         return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
@@ -128,6 +129,7 @@ class WebsiteController extends BaseController
             'social' => $settingdata->social,
             'phone' => $settingdata->phone,
             'siteemail' => $settingdata->email,
+            'website' => '',
 
         ];
 
