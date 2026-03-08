@@ -22,7 +22,7 @@
 
 		<tr>
 			<td style="background: #000000; padding: 1.75rem 2rem; text-align: center">
-				<img src="{{asset('site-assets/images/logo.png')}}" alt="Treks.jo" style="height: 60px; margin: auto; width: auto;">
+				<img src="{{asset('site-assets/images/logo.png')}}" alt="Masala House" style="height: 60px; margin: auto; width: auto;">
 			</td>
 		</tr>
 
@@ -34,8 +34,8 @@
 				</p>
 				<p style="color: #313745; line-height: 1.65; margin: 1.5rem 0 0;">
 					Phone: <b>+{{$details['phone'] ?? '(525) 847-0411'}}</b> <br />
-					Email: <b><a href="mailto:{{$details['siteemail'] ?? 'sales@gmail.com'}}" target="_blank" style="color:#006dad;">
-							{{$details['siteemail'] ?? 'sales@gmail.com'}}</a></b>
+					Email: <b><a href="mailto:{{$details['siteemail'] ?? 'info@masalahousepittsburg.com'}}" target="_blank" style="color:#006dad;">
+							{{$details['siteemail'] ?? 'info@masalahousepittsburg.com'}}</a></b>
 				</p>
 			</td>
 		</tr>
@@ -105,7 +105,7 @@
 						<td>
 							<a href="{{$details['social']['facebook'] ?? ''}}" target="_blank" style="color: #eee;  font-weight: 500; padding: .25rem 1rem; text-decoration: none;">Facebook</a>|
 							<a href="{{$details['social']['instagram'] ?? ''}}" target="_blank" style="color: #eee;  font-weight: 500; padding: .25rem 1rem; text-decoration: none;">Instagram</a>|
-							<a href="{{$details['website'] ?? ''}}" target="_blank" style="color: #eee;  font-weight: 500; padding: .25rem 1rem; text-decoration: none;">Masala House Concord</a>
+							<a href="{{$details['website'] ?? ''}}" target="_blank" style="color: #eee;  font-weight: 500; padding: .25rem 1rem; text-decoration: none;">Masala House Pittsburg</a>
 						</td>
 					</tr>
 
