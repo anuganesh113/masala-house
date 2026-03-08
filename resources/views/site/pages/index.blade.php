@@ -272,7 +272,7 @@
                                     next big Event </p>
                             </div>
                             <div class="content">
-                                <p>Masala House was founded in 2015 by Chef Raj Sharma with a simple mission: to bring the authentic flavors of India to Concord, California. Born and raised in Delhi, Chef Raj learned the art of Indian cooking from his grandmother, who taught him the importance of freshly ground spices and traditional cooking techniques.</p>
+                                <p>Masala House was founded in 2015 by Chef Raj Sharma with a simple mission: to bring the authentic flavors of India to Concord, California. Born and raised in Delhi, Chef Raj learned the art of Indian cooking from his grandmother, who taught him the importance of freshly ground spices and traditional cooking techniques</p>
                             </div>
                             <div class="box">
                                 <h3>Service Contains</h3>
