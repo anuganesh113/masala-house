@@ -26,9 +26,10 @@
 			</td>
 		</tr>
 
+		
 		<tr>
 			<td style="padding:1rem;">
-				<h1 style="color: #313745; font-size: 1.3rem; font-weight: 500; line-height: 1.5; margin: 0 0 .75rem;">Hello Admin!</h1>
+				<h1 style="color: #313745; font-size: 1.3rem; font-weight: 500; line-height: 1.5; margin: 0 0 .75rem;">Hello {{$details['data']['name'] ?? ''}}!</h1>
 				<p style="color: #313745; line-height: 1.5; margin: 0;">
 					Thank you for choosing us.
 				</p>
