@@ -36,13 +36,22 @@
 			<tr>
 				<td>
 					<table style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+
+						@foreach($details['data'] as $key => $value)
 						<tr>
+							<td style="border: 1px solid #000000;">{{ucfirst($key)}}    </td>
+							<td style="border: 1px solid #000000;" > {{$value}}</td>
+						</tr>
+						@endforeach
+
+
+						<!-- <tr>
 							<td style="vertical-align: top; padding: 0 2% 0 3%;">
 								@foreach($details['data'] as $key => $value)
 								{{ucfirst($key)}}: <span style="font-size: small;">{{$value}}</span> <br>
 								@endforeach
 							</td>
-						</tr>
+						</tr> -->
 					</table>
 				</td>
 			</tr>
