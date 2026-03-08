@@ -27,7 +27,7 @@
 </script>
 
 @stack("footer")
-
+@include('_helpers._summernote')
 <script type="text/javascript" src="{{ asset('admin-assets/js/bootstrap-datepicker.js') }}"></script>
 <script src="{{ asset('admin-assets/js/vendors.bundle.js') }}" type="text/javascript"></script>
 <script src="{{ asset('admin-assets/js/scripts.bundle.js') }}" type="text/javascript"></script>
@@ -35,7 +35,7 @@
 <script src="{{ asset('admin-assets/js/toastr.js') }}" type="text/javascript"></script>
 
 <script src="{{ asset('admin-assets/custom-js/backend-script.js') }}" type="text/javascript"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 {{--<script>
     $(document).ready(function(){
         $(`.select2`).select2({
