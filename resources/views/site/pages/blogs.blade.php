@@ -70,7 +70,7 @@
 
 
 <!-- video section srat -->
-<section class="video">
+<!-- <section class="video">
     <div class="container-fluid">
         <div class="flex">
             <div class="section__title">
@@ -118,7 +118,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- video section end -->
 
 @endsection
