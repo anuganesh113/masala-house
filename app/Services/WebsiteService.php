@@ -14,6 +14,7 @@ use App\Models\Menu;
 use App\Models\Page;
 use App\Models\Popup;
 use App\Models\Service;
+use App\Models\Setting;
 use App\Models\Testimonial;
 
 /**
@@ -25,13 +26,20 @@ class WebsiteService
     {
         $data['about'] = getPageBySlug('about');
         $data['wonderful_dining'] = getPageBySlug('wonderful-dining');
-     $data['categories'] = Category::with(['menus' => function ($query) {
-    $query->status();
-     }])->get();
+        $data['categories'] = Category::with(['menus' => function ($query) {
+            $query->status();
+        }])->get();
         $data['galleries'] = Gallery::get();
         $data['popup'] = Popup::where('status', Status::ACTIVE)->first();
 
 
+        return $data;
+    }
+
+
+    public function settings()
+    {
+        $data = Setting::first();
         return $data;
     }
 
@@ -47,11 +55,11 @@ class WebsiteService
                 $data['welcome'] = getPageBySlug('welcome-to-masala');
                 $data['dining_experience'] = getPageBySlug('dining-experiences');
                 $data['members'] = MemberMessage::query()->get();
-                  $data['galleries'] =  Album::with('gallery')->get();
+                $data['galleries'] =  Album::with('gallery')->get();
                 $data['compliments'] = Testimonial::query()
                     ->with(['member:id,name,designation'])
                     ->whereNotNull('member_message_id')
-                    ->select(['id','member_message_id','name','designation','message'])
+                    ->select(['id', 'member_message_id', 'name', 'designation', 'message'])
                     ->where('status', Status::ACTIVE)
                     ->inRandomOrder()->take(5)
                     ->get();
@@ -59,10 +67,10 @@ class WebsiteService
 
             case 'blogs':
                 $data['categories'] = Category::query()->get();
-                $data['blogs'] = Blog::query()->select(['id','tag','name','slug','image'])->paginate(Pagination::MEDIUM_PAGE);
+                $data['blogs'] = Blog::query()->select(['id', 'tag', 'name', 'slug', 'image'])->paginate(Pagination::MEDIUM_PAGE);
                 $data['compliments'] = Testimonial::query()
                     ->whereNotNull('member_message_id')
-                    ->select(['id','name','designation','message'])
+                    ->select(['id', 'name', 'designation', 'message'])
                     ->get();
                 break;
 
@@ -77,17 +85,17 @@ class WebsiteService
             case 'menu':
                 $data['menus'] = Menu::query()->status()->get();
                 $data['categories'] = Category::with(['menus' => function ($query) {
-    $query->status();
-     }])->get();
+                    $query->status();
+                }])->get();
                 break;
 
             case 'catering':
                 $data['service'] = getPageBySlug('services');
                 $data['services'] = Service::query()->get();
-                   $data['compliments'] = Testimonial::query()
+                $data['compliments'] = Testimonial::query()
                     ->with(['member:id,name,designation'])
                     ->whereNotNull('member_message_id')
-                    ->select(['id','member_message_id','name','designation','message'])
+                    ->select(['id', 'member_message_id', 'name', 'designation', 'message'])
                     ->where('status', Status::ACTIVE)
                     ->inRandomOrder()->take(5)
                     ->get();
