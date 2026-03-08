@@ -35,8 +35,8 @@
                                 <h2>Food Tray Service</h2>
                             </div>
                             <div class="content">
-                                <p>Perfect for DIY events in Concord and the East Bay, you can order freshly
-                                    prepared food trays, ready to serve at your Concord location. Choose from a
+                                <p>Perfect for DIY events in Pittsburg and the East Bay, you can order freshly
+                                    prepared food trays, ready to serve at your Pittsburg location. Choose from a
                                     variety of authentic Indian and Nepali dishes, with pricing based on tray size.
                                     Delivery is available throughout Contra Costa and the surrounding areas, making
                                     it easy to enjoy flavorful cuisine at your next gathering.</p>
@@ -77,8 +77,8 @@
                                 <h2>Food Tray</h2>
                             </div>
                             <div class="content">
-                                <p>Perfect for DIY events in Concord and the East Bay, you can order freshly
-                                    prepared food trays, ready to serve at your Concord location. Choose from a
+                                <p>Perfect for DIY events in Pittsburg and the East Bay, you can order freshly
+                                    prepared food trays, ready to serve at your Pittsburg location. Choose from a
                                     variety of authentic Indian and Nepali dishes, with pricing based on tray size.
                                     Delivery is available throughout Contra Costa and the surrounding areas, making
                                     it easy to enjoy flavorful cuisine at your next gathering.</p>
@@ -119,10 +119,11 @@
     <div class="container">
         <div class="section__title catering__title text-center">
             <h5>Welcome to Masala House Catering!</h5>
-            <h2>Why Choose Our Concord Catering Services</h2>
-            <p>Experience the best of Indian and Nepali catering with Masala House in Concord, CA</p>
+            <h2>Why Choose Our Pittsburg Catering Services</h2>
+            <p>Experience the best of Indian and Nepali catering with Masala House in Pittsburg, CA</p>
         </div>
     </div>
+    
     <div class="container-fluid">
         <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-xxl-5 g-4">
 
@@ -162,7 +163,7 @@
                 <div class="area__card">
                     <h3>Central County</h3>
                     <ul>
-                        <li>Concord</li>
+                        <li>Pittsburg</li>
                         <li>Pleasant Hill</li>
                         <li>Walnut Creek</li>
                         <li>Clayton</li>
@@ -186,7 +187,7 @@
                 <div class="area__card">
                     <h3>South County</h3>
                     <ul>
-                        <li>Concord</li>
+                        <li>Pittsburg</li>
                         <li>Pleasant Hill</li>
                         <li>Walnut Creek</li>
                         <li>Clayton</li>
