@@ -33,9 +33,9 @@
                     <h2> Wonderful Dining Experience & Indian Food</h2>
                 </div>
                 <div class="content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit do eiusmod tempor incididunt ut labore
-                        et dolore magna minim veniam nostrud exercitation consectetur adipiscing elit do eiusmod
-                        tempor incididunt ut labore.</p>
+                    <p>Masala House was founded in 2015 by Chef Raj Sharma with a simple mission: to bring the authentic flavors of India to Concord, 
+                        California. Born and raised in Delhi, Chef Raj learned the art of Indian cooking from his grandmother, 
+                        who taught him the importance of freshly ground spices and traditional cooking techniques.</p>
                 </div>
                 <div class="btn__group">
                     <button class="l__button l__button--primary" data-bs-toggle="modal"
@@ -272,10 +272,7 @@
                                     next big Event </p>
                             </div>
                             <div class="content">
-                                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                    when an unknown printer took a galley of type and scrambled it to make a type
-                                    specimen book. It has survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged. It was popularis</p>
+                                <p>Masala House was founded in 2015 by Chef Raj Sharma with a simple mission: to bring the authentic flavors of India to Concord, California. Born and raised in Delhi, Chef Raj learned the art of Indian cooking from his grandmother, who taught him the importance of freshly ground spices and traditional cooking techniques</p>
                             </div>
                             <div class="box">
                                 <h3>Service Contains</h3>
