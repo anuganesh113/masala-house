@@ -1,9 +1,9 @@
-<script src="https://cdn.tiny.cloud/1/{{ env('TINYMCE_API_KEY') }}/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/{{ env('summernote_reg_API_KEY') }}/summernote_reg/7/summernote_reg.min.js" referrerpolicy="origin"></script>
 
 <script>
     var editor_config = {
         path_absolute : '/',
-        selector: 'textarea.tinymce',
+        selector: 'textarea.summernote_reg',
         extended_valid_elements: '*[*]',
         relative_urls: false,
         plugins: [
@@ -27,7 +27,7 @@
                 reader.readAsDataURL(file);
                 reader.onload = function() {
                     var id = `blobid${(new Date()).getTime()}`;
-                    var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
+                    var blobCache =  summernote_reg.activeEditor.editorUpload.blobCache;
                     var base64 = reader.result.split(',')[1];
                     var blobInfo = blobCache.create(id, file, base64);
                     blobCache.add(blobInfo);
@@ -38,5 +38,5 @@
         }
     };
 
-    tinymce.init(editor_config);
+    summernote_reg.init(editor_config);
 </script>

@@ -140,7 +140,7 @@
                         <div class="form-group m-form__group row">
                             <div class="col-lg-12">
                                 <label>Footer Text</label>
-                                <textarea class="tinymce form-control m-input" name="footer_text"
+                                <textarea class="summernote_reg form-control m-input" name="footer_text"
                                 rows="7">{{ old("footer_text")??data_get($setting, "footer_text") }}</textarea>
                             </div>
                         </div>
