@@ -30,7 +30,7 @@ class WebsiteService
             $query->status();
         }])->get();
         $data['galleries'] = Gallery::get();
-        $data['popup'] = Popup::where('status', Status::ACTIVE)->first();
+        $data['popup'] = Popup::Image()->where('status', Status::ACTIVE)->first();
 
 
         return $data;

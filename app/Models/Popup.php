@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Popup extends Model
 {
-   use StatusScopeTrait;
+    use StatusScopeTrait;
 
     /**
      * @var string
@@ -36,4 +36,14 @@ class Popup extends Model
         'status',
         'order',
     ];
+
+    public function scopeImage($query)
+    {
+        return $query->whereNotNull('image');
+    }
+
+    public function scopeImagenull($query)
+    {
+        return $query->whereNull('image');
+    }
 }

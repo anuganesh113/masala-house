@@ -78,6 +78,11 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
 
         $route->resource('banners', BannerController::class)->except(['show']);
         $route->resource('popups', PopupController::class)->except(['show']);
+        $route->resource('videos', PopupController::class)->except(['show']);
+         $route->get('videos', [PopupController::class, 'videoindex'])->name('videos.index');
+        $route->post('videos/create', [PopupController::class, 'videocreate'])->name('videos.create');
+
+        
 
 
         $route->resource('brands', BrandController::class)->except(['show']);
