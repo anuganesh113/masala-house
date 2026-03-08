@@ -76,19 +76,19 @@ class WebsiteController extends BaseController
         $inquiry = new Inquiry();
         $inquiry->metadata = json_encode($request->catering);
         $inquiry->save();
+        $settingdata = $this->websiteService->settings();
+        $details = [
+            'data' =>  json_decode($inquiry->metadata, true),
+            'email' => json_decode($inquiry->metadata, true)['email'],
+            'metadata' => $settingdata->metadata,
+            'social' => $settingdata->social,
+            'phone' => $settingdata->phone,
+            'address' => $settingdata->address,
+            'siteemail' => $settingdata->email,
+            'website' => '',
 
-
-        // $details = [
-        //     'request_name' => $request->namecatering,
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'date' => $request->date,
-        //     'time' => $request->time,
-        //     'persons' => $request->persons,
-        //     'phone' =>  $request->phone,
-
-        // ];
-        // Mail::to($request->email)->send(new \App\Mail\Contact($details));
+        ];
+        Mail::to($details['email'])->send(new \App\Mail\Contact($details));
         return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
     }
 
@@ -100,40 +100,40 @@ class WebsiteController extends BaseController
         $inquiry->metadata = json_encode($request->table);
         $inquiry->save();
 
-        // $details = [
-        //     'request_name' => 'tablebook',
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'date' => $request->date,
-        //     'time' => $request->time,
-        //     'persons' => $request->persons,
-        //     'phone' =>  $request->phone,
-
-
-        // ];
-        // Mail::to($request->email)->send(new \App\Mail\Contact($details));
+        $settingdata = $this->websiteService->settings();
+        $details = [
+            'data' =>  json_decode($inquiry->metadata, true),
+            'email' => json_decode($inquiry->metadata, true)['email'],
+            'metadata' => $settingdata->metadata,
+            'social' => $settingdata->social,
+            'phone' => $settingdata->phone,
+            'address' => $settingdata->address,
+            'siteemail' => $settingdata->email,
+            'website' => '',
+        ];
+        Mail::to($details['email'])->send(new \App\Mail\Contact($details));
         return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
     }
 
 
     public function contactsave(Request $request)
     {
-
+        $settingdata = $this->websiteService->settings();
         $inquiry = new Inquiry();
         $inquiry->metadata = json_encode($request->contact);
         $inquiry->save();
+        $details = [
+            'data' =>  json_decode($inquiry->metadata, true),
+            'email' => json_decode($inquiry->metadata, true)['email'],
+            'metadata' => $settingdata->metadata,
+            'social' => $settingdata->social,
+            'phone' => $settingdata->phone,
+            'siteemail' => $settingdata->email,
+            'website' => '',
 
-        // $details = [
-        //     'name' =>  json_decode($inquiry->metadata, true)['name'],
-        //     'email' =>  json_decode($inquiry->metadata, true)['email'],
-        //     'time' =>  json_decode($inquiry->metadata, true)['time'],
-        //     'phone' =>  json_decode($inquiry->metadata, true)['phone'] ?? "N/A",
-        //     'message' =>  json_decode($inquiry->metadata, true)['message'] ?? "N/A",
+        ];
 
-
-        // ];
-
-        // Mail::to($details['email'])->send(new \App\Mail\Contact($details));
+        Mail::to($details['email'])->send(new \App\Mail\Contact($details));
         return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
     }
 }
