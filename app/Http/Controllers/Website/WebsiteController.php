@@ -85,10 +85,11 @@ class WebsiteController extends BaseController
             'phone' => $settingdata->phone,
             'address' => $settingdata->address,
             'siteemail' => $settingdata->email,
-            'website' => '',
+            'website' => 'https://masalahousepittsburg.com/',
+
 
         ];
-        Mail::to($details['email'])->send(new \App\Mail\Contact($details));
+        Mail::to('info@masalahousepittsburg.com')->cc($details['email'])->send(new \App\Mail\Contact($details));
         return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
     }
 
@@ -109,9 +110,10 @@ class WebsiteController extends BaseController
             'phone' => $settingdata->phone,
             'address' => $settingdata->address,
             'siteemail' => $settingdata->email,
-            'website' => '',
+            'website' => 'https://masalahousepittsburg.com/',
+
         ];
-        Mail::to($details['email'])->send(new \App\Mail\Contact($details));
+        Mail::to('info@masalahousepittsburg.com')->cc($details['email'])->send(new \App\Mail\Contact($details));
         return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
     }
 
@@ -129,11 +131,11 @@ class WebsiteController extends BaseController
             'social' => $settingdata->social,
             'phone' => $settingdata->phone,
             'siteemail' => $settingdata->email,
-            'website' => '',
+            'website' => 'https://masalahousepittsburg.com/',
 
         ];
 
-        Mail::to($details['email'])->send(new \App\Mail\Contact($details));
+        Mail::to('info@masalahousepittsburg.com')->cc($details['email'])->send(new \App\Mail\Contact($details));
         return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
     }
 }
