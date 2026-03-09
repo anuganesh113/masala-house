@@ -258,7 +258,7 @@
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Select Date <span class="text-danger">*</span></label>
-                  <input type="date" class="form-control" name="catering[date]" placeholder="Select date" required>
+                  <input type="date" class="form-control datepicker-field" name="catering[date]" placeholder="Select date"   onkeydown="return false" required>
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Select time <span class="text-danger">*</span></label>
