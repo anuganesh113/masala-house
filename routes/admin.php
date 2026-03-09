@@ -69,7 +69,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
         $route->get('dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
 
         $route->resource('admins', AdminController::class)->except(['show']);
-        $route->resource('faqs', FAQController::class)->except(['show']);
+        // $route->resource('faqs', FAQController::class)->except(['show']);
 
 
         $route->resource('advertises', AdvertiseController::class)->except(['show']);

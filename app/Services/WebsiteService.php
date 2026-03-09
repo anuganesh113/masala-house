@@ -31,7 +31,7 @@ class WebsiteService
         }])->get();
         $data['galleries'] = Gallery::get();
         $data['popup'] = Popup::Image()->where('status', Status::ACTIVE)->first();
-       
+
 
 
 
@@ -60,7 +60,7 @@ class WebsiteService
                 $data['galleries'] =  Album::with('gallery')->get();
                 $data['compliments'] = Testimonial::query()
                     ->with(['member:id,name,designation'])
-                    ->whereNotNull('member_message_id')
+                    // ->whereNotNull('member_message_id')
                     ->select(['id', 'member_message_id', 'name', 'designation', 'message'])
                     ->where('status', Status::ACTIVE)
                     ->inRandomOrder()->take(5)
@@ -71,10 +71,12 @@ class WebsiteService
                 $data['categories'] = Category::query()->get();
                 $data['blogs'] = Blog::query()->select(['id', 'tag', 'name', 'slug', 'image'])->paginate(Pagination::MEDIUM_PAGE);
                 $data['compliments'] = Testimonial::query()
-                    ->whereNotNull('member_message_id')
+                    ->status()
+                    // ->whereNotNull('member_message_id')
+                
                     ->select(['id', 'name', 'designation', 'message'])
                     ->get();
-                     $data['videos'] = Popup::Video()->first();
+                $data['videos'] = Popup::Video()->first();
                 break;
 
             case 'faqs':

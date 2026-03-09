@@ -40,7 +40,7 @@
                                 <select class="form-control m-input m-input--square" name="member_message_id">
                                     <option selected value="">-- SELECT --</option>
                                     @foreach($members??[] as $value)
-                                        <option value="{{ $value->id }}" @checked([$value->id == $testimonial->member_message_id])>
+                                        <option value="{{ $value->id }}" {{ $value->id == $testimonial->member_message_id ? 'selected' : '' }}>
                                             {{ ucwords($value->name) }}
                                         </option>
                                     @endforeach
