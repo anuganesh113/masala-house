@@ -92,6 +92,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
             $route->get('contacts', 'index')->name('contacts');
             $route->get('contact/{contact}/view', 'create')->name('contact.view');
             $route->post('contact/{contact}/delete', 'delete')->name('contact.delete');
+           
+            $route->get('contact/{id}/seen', 'messageSeen')->name('contact.messageSeen');
         });
 
         /********************************** Courses Controller Route ********************************/
