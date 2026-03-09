@@ -47,7 +47,7 @@
                             </div>
 
                         </div>
-                        
+
                         <div class="form-group m-form__group row">
                             <div class="col-lg-12">
                                 <label>Name<span class="text-danger">*</span></label>
@@ -82,7 +82,7 @@
                                         <td>{{ $key + 1 }}</td>
                                         <td><input type="text" class="name-input form-control"
                                                 name="metadata[]"
-                                                value="{{ $value ?? '' }}" placeholder="Enter name">
+                                                value="{{ $value ?? '' }}" placeholder="https://www.youtube.com/shorts/HVUWN4_5NCA">
                                         </td>
 
                                         <td><span class="removeRowBtn btn btn-danger">Remove Row</span>
@@ -142,7 +142,7 @@
             // Construct the new row
             var newRow = '<tr>' +
                 '<td>' + rowNum + '</td>' +
-                '<td><input type="text" class="name-input form-control"  name="metadata[]" placeholder="Enter name"></td>' +
+                '<td><input type="text" class="name-input form-control"  name="metadata[]" placeholder="https://www.youtube.com/shorts/HVUWN4_5NCA"></td>' +
                 '<td><span class="removeRowBtn btn btn-danger">Remove Row</span></td>' +
                 '</tr>';
 
