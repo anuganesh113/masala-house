@@ -70,12 +70,12 @@
 
 
 <!-- video section srat -->
-<!-- <section class="video">
+<section class="video {{isset($videos) && $videos ? '' : 'd-none'}}">
     <div class="container-fluid">
         <div class="flex">
             <div class="section__title">
-                <h4>Watch our cooking skills in Tiktok</h4>
-                <h2>Watch Us</h2>
+                <h4> {{ $videos->title ?? 'Watch our cooking skills in Tiktok' }} </h4>
+                <h2>{{ $videos->name ?? 'Watch Us' }}</h2>
             </div>
             <div class="text-end">
                 <span class="scroll">Scroll</span>
@@ -84,41 +84,20 @@
     </div>
     <div class="video__box">
         <div class="owl-carousel owl-theme video__carousel">
-            <div class="item">
+            @foreach($videos->metadata ?? []  as $key=>$link)
+               <div class="item">
                 <div class="video__card">
-                    <a data-fancybox="video" href="https://www.youtube.com/shorts/Tm6iP_tWVoI">
+                    <a data-fancybox="video" href="{{ $link }}">
                         <img alt="Video poster" class="img-fluid"
-                            src="http://i3.ytimg.com/vi/Tm6iP_tWVoI/hqdefault.jpg">
+                            src="https://img.youtube.com/vi/{{ getYoutubeVideoId($link) }}/maxresdefault.jpg" />
                     </a>
                 </div>
             </div>
-            <div class="item">
-                <div class="video__card">
-                    <a data-fancybox="video" href="https://www.youtube.com/shorts/HVUWN4_5NCA">
-                        <img alt="Video poster" class="img-fluid"
-                            src="http://i3.ytimg.com/vi/HVUWN4_5NCA/hqdefault.jpg">
-                    </a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="video__card">
-                    <a data-fancybox="video" href="https://www.youtube.com/shorts/l7P9gppkIP4">
-                        <img alt="Video poster" class="img-fluid"
-                            src="http://i3.ytimg.com/vi/l7P9gppkIP4/hqdefault.jpg">
-                    </a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="video__card">
-                    <a data-fancybox="video" href="https://www.youtube.com/shorts/AjmAa_vJ0Fk">
-                        <img alt="Video poster" class="img-fluid"
-                            src="http://i3.ytimg.com/vi/AjmAa_vJ0Fk/hqdefault.jpg">
-                    </a>
-                </div>
-            </div>
+            @endforeach
+  
         </div>
     </div>
-</section> -->
+</section>
 <!-- video section end -->
 
 @endsection

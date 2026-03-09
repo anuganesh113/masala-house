@@ -22,7 +22,7 @@
                     <div class="m-portlet__head-tools">
                         <a class="btn btn-info m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill"
                             href="{{ url('admin/videos') }}">
-                            <i class="la la-list"></i> Video List
+                            <i class="la la-list"></i> Video Create
                         </a>
                     </div>
                 </div>
@@ -36,6 +36,18 @@
 
                     <div class="m-portlet__body">
 
+                                  <div class="form-group m-form__group row">
+                            <div class="col-lg-12">
+                                <label>Title<span class="text-danger">*</span></label>
+                                <input type="text"
+                                    name="title"
+                                    class="form-control m-input"
+                                    placeholder="Title"
+                                    value="{{ old('title')??data_get($popups, 'title') }}">
+                            </div>
+
+                        </div>
+                        
                         <div class="form-group m-form__group row">
                             <div class="col-lg-12">
                                 <label>Name<span class="text-danger">*</span></label>
@@ -47,6 +59,8 @@
                             </div>
 
                         </div>
+
+                   
 
                         <div class="form-group m-form__group row">
                             <h2>Video Specification</h2>

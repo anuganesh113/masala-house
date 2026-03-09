@@ -126,7 +126,7 @@ class PopupController extends BaseController
     public function videoindex()
     {
         $popups = $this->popupModel->query()
-            ->imagenull()
+            ->Video()
             ->orderBy('order')
             ->first();
 

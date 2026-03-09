@@ -31,6 +31,8 @@ class WebsiteService
         }])->get();
         $data['galleries'] = Gallery::get();
         $data['popup'] = Popup::Image()->where('status', Status::ACTIVE)->first();
+       
+
 
 
         return $data;
@@ -72,6 +74,7 @@ class WebsiteService
                     ->whereNotNull('member_message_id')
                     ->select(['id', 'name', 'designation', 'message'])
                     ->get();
+                     $data['videos'] = Popup::Video()->first();
                 break;
 
             case 'faqs':

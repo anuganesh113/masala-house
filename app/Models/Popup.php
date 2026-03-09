@@ -42,7 +42,7 @@ class Popup extends Model
         return $query->whereNotNull('image');
     }
 
-    public function scopeImagenull($query)
+    public function scopeVideo($query)
     {
         return $query->whereNull('image');
     }
