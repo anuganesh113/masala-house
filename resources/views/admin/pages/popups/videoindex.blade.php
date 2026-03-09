@@ -16,15 +16,15 @@
                             <span class="m-portlet__head-icon m--hide">
                                 <i class="la la-gear"></i>
                             </span>
-                            <h3 class="m-portlet__head-text">Create Video</h3>
+                            <h3 class="m-portlet__head-text"> {{ isset($popups) ? 'Update' : 'Create' }} Video</h3>
                         </div>
                     </div>
-                    <div class="m-portlet__head-tools">
+                    <!-- <div class="m-portlet__head-tools">
                         <a class="btn btn-info m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill"
                             href="{{ url('admin/videos') }}">
                             <i class="la la-list"></i> Video Create
                         </a>
-                    </div>
+                    </div> -->
                 </div>
 
                 <form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed"
@@ -43,7 +43,7 @@
                                     name="title"
                                     class="form-control m-input"
                                     placeholder="Title"
-                                    value="{{ old('title')??data_get($popups, 'title') }}">
+                                    value="{{ old('title')??data_get($popups, 'title') }}" required>
                             </div>
 
                         </div>
@@ -55,7 +55,7 @@
                                     name="name"
                                     class="form-control m-input"
                                     placeholder="Name"
-                                    value="{{ old('name')??data_get($popups, 'name') }}">
+                                    value="{{ old('name')??data_get($popups, 'name') }}" required>
                             </div>
 
                         </div>
