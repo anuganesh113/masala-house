@@ -13,7 +13,6 @@ if (!function_exists('setting')) {
     {
         return Setting::first();
     }
-
 }
 
 if (!function_exists('appName')) {
@@ -100,7 +99,13 @@ if (!function_exists('getYoutubeVideoIdFromLink')) {
 if (!function_exists('requesturl')) {
     function requesturl(): string
     {
-        return 'https://www.clover.com/online-ordering/masala-house-concord';
+        $settings = setting(); // Call the function first
+
+        if (isset($settings) && data_get($settings, 'social.ordernow')) {
+            return data_get($settings, 'social.ordernow');
+        } else {
+            return request()->url();
+        }
     }
 }
 if (!function_exists('footerPages')) {
@@ -113,8 +118,6 @@ if (!function_exists('footerPages')) {
             ->orderBy('order')
             ->get();
     }
-
-
 }
 
 if (!function_exists('checkVegetarian')) {
@@ -164,4 +167,3 @@ function getYoutubeVideoId($link)
 
 // echo "Extracted Video ID: " . $videoId; 
 // }
-

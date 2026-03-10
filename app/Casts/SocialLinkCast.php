@@ -24,6 +24,8 @@ class SocialLinkCast implements CastsAttributes
             'instagram' => data_get($value, 'instagram'),
             'twitter' => data_get($value, 'twitter'),
             'youtube' => data_get($value, 'youtube'),
+            'ordernow' => data_get($value, 'ordernow'),
+
         ];
     }
 
@@ -39,6 +41,7 @@ class SocialLinkCast implements CastsAttributes
             'instagram' => data_get($value, 'instagram'),
             'twitter' => data_get($value, 'twitter'),
             'youtube' => data_get($value, 'youtube'),
+            'ordernow' => data_get($value, 'ordernow'),
         ]);
     }
 }
