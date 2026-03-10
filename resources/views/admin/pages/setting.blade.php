@@ -28,7 +28,7 @@
                 </div>
 
                 <form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed"
-                    action="{{ route('admin.update') }}" method="POST" enctype="multipart/form-data" >
+                    action="{{ route('admin.update') }}" method="POST" enctype="multipart/form-data">
 
                     @csrf
 
@@ -52,16 +52,14 @@
                             'name' => 'logo',
                             'path' => \App\Enums\UploadFilePath::LOGO_PATH,
                             'value' => data_get($setting, 'color_logo')
-                        ]"
-                        />
+                        ]" />
 
                         <x-admin.image-field :data="[
                             'label' => 'White Logo',
                             'name' => 'white_logo',
                             'path' => \App\Enums\UploadFilePath::LOGO_PATH,
                             'value' => data_get($setting, 'white_logo')
-                        ]"
-                        />
+                        ]" />
 
                         <div class="form-group m-form__group row">
                             <div class="col-lg-4">
@@ -78,8 +76,8 @@
                                 <label>Address</label>
                                 <div class="m-input-icon m-input-icon--right">
                                     <input type="text" class="form-control m-input" name="address"
-                                           value="{{ old('address')??data_get($setting, "address") }}"
-                                           placeholder="Address">
+                                        value="{{ old('address')??data_get($setting, "address") }}"
+                                        placeholder="Address">
                                 </div>
                             </div>
                         </div>
@@ -98,8 +96,8 @@
                         <div class="form-group m-form__group">
                             <label>Google Map Iframe<span class="text-danger">*</span></label>
                             <textarea class="form-control m-input"
-                                      name="metadata[google_map_iframe]"
-                                      rows="7">{{ old('metadata.google_map_iframe')??data_get($setting, "metadata.google_map_iframe") }}</textarea>
+                                name="metadata[google_map_iframe]"
+                                rows="7">{{ old('metadata.google_map_iframe')??data_get($setting, "metadata.google_map_iframe") }}</textarea>
                         </div>
 
                         {{--<div class="form-group m-form__group row">
@@ -117,95 +115,109 @@
                                         <tr>
                                             <td>
                                                 <input type="text" class="form-control m-input" name="metadata[title][{{$range}}]"
-                                                       value="{{ old('metadata.title.'.$range)??data_get($setting, 'metadata.title.'.$range) }}"
-                                                       placeholder="Title">
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control m-input" name="metadata[count][{{$range}}]"
-                                                       value="{{ old('metadata.count.'.$range)??data_get($setting, 'metadata.count.'.$range) }}"
-                                                       placeholder="Count">
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control m-input" name="metadata[unit][{{$range}}]"
-                                                       value="{{ old('metadata.unit.'.$range)??data_get($setting, 'metadata.unit.'.$range) }}"
-                                                       placeholder="Unit">
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>--}}
-
-                        <div class="form-group m-form__group row">
-                            <div class="col-lg-12">
-                                <label>Footer Text</label>
-                                <textarea class="summernote_reg form-control m-input" name="footer_text"
-                                rows="7">{{ old("footer_text")??data_get($setting, "footer_text") }}</textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group m-form__group row">
-                            <div class="col-lg-6">
-                                <label>Facebook Link</label>
-                                <div class="m-input-icon m-input-icon--right">
-                                    <input type="text" class="form-control m-input" name="social[facebook]"
-                                           value="{{ old('social.facebook')??data_get($setting, "social.facebook") }}"
-                                           placeholder="Facebook Link">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <label>Youtube Link</label>
-                                <div class="m-input-icon m-input-icon--right">
-                                    <input type="text" class="form-control m-input" name="social[youtube]"
-                                           value="{{ old('social.youtube')??data_get($setting, "social.youtube") }}"
-                                           placeholder="youtube link">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group m-form__group row">
-                            <div class="col-lg-6">
-                                <label>Instagram Link</label>
-                                <div class="m-input-icon m-input-icon--right">
-                                    <input type="text" class="form-control m-input" name="social[instagram]"
-                                           value="{{ old('social.instagram')??data_get($setting, "social.instagram") }}"
-                                           placeholder="Instagram Link">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <label>Twitter Link</label>
-                                <div class="m-input-icon m-input-icon--right">
-                                    <input type="text" class="form-control m-input" name="social[twitter]"
-                                           value="{{ old('social.twitter')??data_get($setting, "social.twitter") }}"
-                                           placeholder="Twitter Link">
-                                </div>
-                            </div>
-                        </div>
-
-                        <x-admin.seo :data="data_get($setting, 'seo', [])" />
-
+                        value="{{ old('metadata.title.'.$range)??data_get($setting, 'metadata.title.'.$range) }}"
+                        placeholder="Title">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control m-input" name="metadata[count][{{$range}}]"
+                                value="{{ old('metadata.count.'.$range)??data_get($setting, 'metadata.count.'.$range) }}"
+                                placeholder="Count">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control m-input" name="metadata[unit][{{$range}}]"
+                                value="{{ old('metadata.unit.'.$range)??data_get($setting, 'metadata.unit.'.$range) }}"
+                                placeholder="Unit">
+                        </td>
+                        </tr>
+                        @endforeach
+                        </tbody>
+                        </table>
                     </div>
-                    <div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
-                        <div class="m-form__actions m-form__actions--solid">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="la la-upload"></i>
-                                        Submit
-                                    </button>
-                                    <a href="{{ route('admin.dashboard') }}" class="btn btn-danger text-light">
-                                        <i class="la la-close"></i>
-                                        Cancel
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+            </div>--}}
 
+            <div class="form-group m-form__group row">
+                <div class="col-lg-12">
+                    <label>Footer Text</label>
+                    <textarea class="summernote_reg form-control m-input" name="footer_text"
+                        rows="7">{{ old("footer_text")??data_get($setting, "footer_text") }}</textarea>
+                </div>
+            </div>
+
+            <div class="form-group m-form__group row">
+                <div class="col-lg-12">
+                    <label>Order Now Link</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input type="url"
+                            class="form-control m-input"
+                            name="social[ordernow]"
+                            value="{{ old('social.ordernow')??data_get($setting, "social.ordernow") }}"
+                            placeholder="Order Now Link"
+                            pattern="https?://.+"
+                            title="Please enter a valid URL starting with http:// or https://">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <div class="col-lg-6">
+                    <label>Facebook Link</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input type="text" class="form-control m-input" name="social[facebook]"
+                            value="{{ old('social.facebook')??data_get($setting, "social.facebook") }}"
+                            placeholder="Facebook Link">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <label>Youtube Link</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input type="text" class="form-control m-input" name="social[youtube]"
+                            value="{{ old('social.youtube')??data_get($setting, "social.youtube") }}"
+                            placeholder="youtube link">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group m-form__group row">
+                <div class="col-lg-6">
+                    <label>Instagram Link</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input type="text" class="form-control m-input" name="social[instagram]"
+                            value="{{ old('social.instagram')??data_get($setting, "social.instagram") }}"
+                            placeholder="Instagram Link">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <label>Twitter Link</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input type="text" class="form-control m-input" name="social[twitter]"
+                            value="{{ old('social.twitter')??data_get($setting, "social.twitter") }}"
+                            placeholder="Twitter Link">
+                    </div>
+                </div>
+            </div>
+
+            <x-admin.seo :data="data_get($setting, 'seo', [])" />
+
+        </div>
+        <div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
+            <div class="m-form__actions m-form__actions--solid">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="la la-upload"></i>
+                            Submit
+                        </button>
+                        <a href="{{ route('admin.dashboard') }}" class="btn btn-danger text-light">
+                            <i class="la la-close"></i>
+                            Cancel
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
+        </form>
+
     </div>
+</div>
+</div>
 </div>
 @endsection

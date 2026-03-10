@@ -129,8 +129,12 @@
       }
 
     }
+          .blogtitle {
+        font-size: 20px !important;
+        height: 77px !important;
+      }
 
-    @media (max-width: 1950px) {
+    /* @media (max-width: 1950px) {
       .blogtitle {
         font-size: medium !important;
         height: 77px !important;
@@ -140,7 +144,7 @@
         height: 77px !important;
       }
 
-    }
+    } */
 
 
 /* Target screens between 768px and 991px ONLY */
@@ -151,6 +155,17 @@
   .mobftlog{
     display: none!important;
   }
+
+
+        .blogtitle {
+        font-size: medium !important;
+        height: 77px !important;
+      }
+
+      .blog__card--content .icon {
+        height: 77px !important;
+      }
+
 }
   </style>
 </head>
