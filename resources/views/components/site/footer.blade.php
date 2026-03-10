@@ -68,12 +68,13 @@
                <div class="box">
                   <h2>Book a Table</h2>
                   <p>{{ data_get($setting, 'footer_text') }}</p>
-                  <a href="tel:{{ data_get($setting, 'contact') }}"
-                     class="number">{{ data_get($setting, 'contact') }}</a>
+                  
                </div>
                <div class="box">
                   <h2>Our Address</h2>
                   <p>{{ data_get($setting, 'address') }}</p>
+            <a href="tel:{{ data_get($setting, 'contact') }}" class="number"><i class="fas fa-phone"></i> {{ data_get($setting, 'contact') }}</a>
+
                </div>
             </div>
          </div>
@@ -82,7 +83,6 @@
          <div class="box">
             <h2>Book a Table</h2>
             <p>{{ data_get($setting, 'footer_text') }}</p>
-            <a href="tel:{{ data_get($setting, 'contact') }}" class="number">{{ data_get($setting, 'contact') }}</a>
          </div>
       </div>
       <div class="footer__bottom">

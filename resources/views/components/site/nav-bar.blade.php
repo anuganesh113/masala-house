@@ -26,10 +26,10 @@
                               </a>
                            </li>
                            @endforeach
-                           <li class="border-menu primary">
+                           <li class="border-menu primary tb-tb">
                               <a href="" class="" data-bs-toggle="modal" data-bs-target="#bookatableModal">find a table</a>
                            </li>
-                           <li class="border-menu secondary">
+                           <li class="border-menu secondary  tb-tb">
                               <a href="{{ requesturl() }}" class="" target="_blank">order now</a>
                            </li>
                         </ul>
@@ -61,23 +61,25 @@
 
          <div class="mobile-nav__text">
             <div class="head">
-               <img src="{{ asset('site-assets/images/logo.png') }}" alt="">
+               <div class="mobftlog">
+               <img class="" src="{{ asset('site-assets/images/logo.png') }}" alt="">
+               </div>
                <div class="mobile-nav__top">
                   <div class="mobile-nav__social">
-                     <a target="_blank" href=""><i class="fab fa-facebook-f"></i></a>
-                     <a target="_blank" href=""><i class="fab fa-twitter"></i></a>
-                     <a target="_blank" href=""><i class="fab fa-instagram"></i></a>
-                     <a target="_blank" href=""><i class="fab fa-youtube"></i></a>
+                     <a target="_blank" href="{{ data_get($setting, 'social.facebook') }}"><i class="fab fa-facebook-f"></i></a>
+                     <a target="_blank" href="{{ data_get($setting, 'social.twitter') }}"><i class="fab fa-twitter"></i></a>
+                     <a target="_blank" href="{{ data_get($setting, 'social.instagram') }}"><i class="fab fa-instagram"></i></a>
+                     <a target="_blank" href="{{ data_get($setting, 'social.youtube') }}"><i class="fab fa-youtube"></i></a>
                   </div>
                </div>
             </div>
             <div class="body">
                <h3>Book a Table</h3>
                <p>Book a your table with us give us a call or send us a message </p>
-               <a href="tel:5258470411">(525) 847-0411</a>
+               <a href="tel:{{ data_get($setting, 'contact') }}">{{ data_get($setting, 'contact') }}</a>
             </div>
             <div class="foot">
-               <p>© 2023 Something Pvt Ltd. All Rights Reserved.</p>
+               <p>© {{ date('Y') }} Masal House. All Rights Reserved.</p>
             </div>
          </div>
       </div>
