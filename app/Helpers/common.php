@@ -42,6 +42,7 @@ if (!function_exists('adminProfileUrl')) {
     }
 }
 
+
 if (!function_exists('allowedExtensions')) {
     function allowedExtensions(array $extensions, string $type = 'image'): string
     {
