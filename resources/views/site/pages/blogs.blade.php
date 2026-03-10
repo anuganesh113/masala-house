@@ -70,7 +70,7 @@
 
 
 <!-- video section srat -->
-<section class="video {{isset($videos) && $videos ? '' : 'd-none'}}">
+<!-- <section class="video {{isset($videos) && $videos ? '' : 'd-none'}}">
     <div class="container-fluid">
         <div class="flex">
             <div class="section__title">
@@ -97,7 +97,7 @@
   
         </div>
     </div>
-</section>
+</section> -->
 <!-- video section end -->
 
 @endsection
