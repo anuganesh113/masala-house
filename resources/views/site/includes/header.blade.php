@@ -105,14 +105,17 @@
       .dnone {
         display: inherit !important;
       }
+
       .bt-fr {
         float: inherit !important;
         margin-bottom: 5px !important;
       }
+
       .mr-l {
         margin-left: inherit !important;
 
       }
+
       .wtc {
         width: 100% !important;
         text-align: center !important;
@@ -124,7 +127,31 @@
         top: 4.375rem !important;
 
       }
+
     }
+
+    @media (max-width: 1950px) {
+      .blogtitle {
+        font-size: medium !important;
+        height: 77px !important;
+      }
+
+      .blog__card--content .icon {
+        height: 77px !important;
+      }
+
+    }
+
+
+/* Target screens between 768px and 991px ONLY */
+@media (min-width: 768px) and (max-width: 1500px) {
+  .tb-tb {
+    margin-top: 10px !important;
+  }
+  .mobftlog{
+    display: none!important;
+  }
+}
   </style>
 </head>
 

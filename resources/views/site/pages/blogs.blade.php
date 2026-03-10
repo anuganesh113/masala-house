@@ -40,7 +40,7 @@
                             <span class="tags">{{ $blog->tag }}</span>
                         </div>
                         <div class="blog__card--content">
-                            <h3>{{ $blog->name }}</h3>
+                            <h3 class="blogtitle">{{ $blog->name }}</h3>
                             <a href="{{ route('site.blog', $blog->slug) }}" title="{{ $blog->name }}">
                                 <div class="icon"><i class='bx bx-arrow-back'></i></div>
                             </a>
