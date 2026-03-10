@@ -148,7 +148,7 @@ if (!function_exists('cssnonveg')) {
 
 
 
-function getYoutubeVideoId($link)
+function getidVideo($link)
 {
     // Regex pattern to match YouTube video IDs from common URL formats
     $pattern = '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/|youtube\.com\/shorts\/)([^"&?\/\s]{11})/i';
@@ -157,6 +157,7 @@ function getYoutubeVideoId($link)
         // The video ID is captured in the first capturing group
         return isset($matches[1]) ? $matches[1] : null;
     }
+    
     return 'Ggngkm9qgdw';
 }
 

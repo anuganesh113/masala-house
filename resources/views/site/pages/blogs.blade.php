@@ -89,7 +89,7 @@
                 <div class="video__card">
                     <a data-fancybox="video" href="{{ $link }}">
                         <img alt="Video poster" class="img-fluid"
-                            src="https://img.youtube.com/vi/{{ getYoutubeVideoId($link) }}/maxresdefault.jpg" />
+                            src="https://img.youtube.com/vi/{{ getidVideo($link) }}/maxresdefault.jpg" />
                     </a>
                 </div>
             </div>
