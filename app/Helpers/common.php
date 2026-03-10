@@ -144,5 +144,24 @@ if (!function_exists('cssnonveg')) {
 
 
 
+function getYoutubeVideoId($link)
+{
+    // Regex pattern to match YouTube video IDs from common URL formats
+    $pattern = '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/|youtube\.com\/shorts\/)([^"&?\/\s]{11})/i';
 
+    if (preg_match($pattern, $link, $matches)) {
+        // The video ID is captured in the first capturing group
+        return isset($matches[1]) ? $matches[1] : null;
+    }
+
+    // Return null if no match found
+    return null;
+}
+
+// // Example usage with your provided link:
+// $videoLink = 'https://www.youtube.com/shorts/Tm6iP_tWVoI';
+// $videoId = getYoutubeVideoId($videoLink);
+
+// echo "Extracted Video ID: " . $videoId; 
+// }
 

@@ -5,7 +5,19 @@
 <script src="{{ asset('site-assets/js/jquery.min.js') }}"></script>
 <script src="{{ asset('site-assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('site-assets/js/main.js') }}"></script>
+
 <script>
+  // Set min date to today using class
+  const today = new Date().toISOString().split('T')[0];
+  const dateInputs = document.querySelectorAll('.datepicker-field');
+  dateInputs.forEach(input => {
+    input.setAttribute('min', today);
+  });
+</script>
+
+<script>
+
+   
 
    $('.checkphone').on('keyup', function() {
       let value = this.value.replace(/\D/g, '');

@@ -41,7 +41,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Subject</th>
+                        <th>Seen</th>
                         <th>Created On</th>
                         <th>Action</th>
                     </tr>
@@ -53,13 +53,17 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ data_get($value, 'metadata.name') }}</td>
                         <td>{{ data_get($value, 'metadata.email') }}</td>
-                        <td>{{ data_get($value, 'metadata.subject') }}</td>
+                            <td>
+                            <span class="m-badge m-badge--{{ data_get($value, "seen") ? 'success' : 'danger' }} m-badge--wide">
+                                {{ data_get($value, "seen") ? "Seen" : "Not Seen" }}
+                            </span>
+                        </td>
                         <td class="center">@datetime(data_get($value, "created_at"))</td>
                         <td data-field="Actions" class="m-datatable__cell">
                             <span style="overflow: visible; width: 110px;">
                                 <a href="{{ route('admin.contact.view', data_get($value, "id")) }}"
                                    class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill"
-                                   data-toggle="modal" data-target="#admin_contact_details"
+                                   data-toggle="modal" data-target="#admin_contact_details{{ data_get($value, 'id') }}"
                                    onclick="loadContactDetail({{$value}})"
                                    title="View">
                                         <i class="la la-eye text-success"></i>
@@ -79,7 +83,9 @@
     </div>
 </div>
 
-<div class="modal fade" id="admin_contact_details" tabindex="-1" role="dialog"
+@foreach($contacts ?? [] as $value)
+
+<div class="modal fade" id="admin_contact_details{{ data_get($value, 'id') }}" tabindex="-1" role="dialog"
      aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -94,11 +100,14 @@
                 </button>
             </div>
             <div class="modal-body">
+                @foreach($value->metadata ?? [] as $key => $val)
+                   
                 <div class="form-group">
-                    <label class="form-control-label">Full Name:</label>
-                    <input type="text" name="name" readonly class="form-control" id="name">
+                    <label class="form-control-label">{{ ucfirst($key) }}:</label>
+                    <input type="text" name="{{ $key }}" readonly class="form-control" value="{{ $val }}">
                 </div>
-                <div class="form-group">
+                @endforeach
+                <!-- <div class="form-group">
                     <label class="form-control-label">Email:</label>
                     <input type="text" name="email" readonly class="form-control" id="email">
                 </div>
@@ -109,16 +118,19 @@
                 <div class="form-group">
                     <label class="form-control-label">Message:</label>
                     <textarea class="form-control m-input" name="message" readonly rows="5" id="message" ></textarea>
-                </div>
+                </div> -->
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">
-                    Close
-                </button>
+               
+                    <a href="{{ route('admin.contact.messageSeen', ['id' => $value->id]) }}" class="btn btn-primary" >
+                    Mark as Seen
+                </a>
             </div>
         </div>
     </div>
 </div>
+
+@endforeach
 @endsection
 
 @push("footer")
@@ -127,12 +139,12 @@
 
     <script type="text/javascript" charset="utf-8" async defer>
 
-        function loadContactDetail(data){
-            $(`input#name`).val(data.metadata.name);
-            $(`input#email`).val(data.metadata.email);
-            $(`input#subject`).val(data.metadata.subject);
-            $(`textarea#message`).val(data.metadata.message);
-        }
+        // function loadContactDetail(data){
+        //     $(`input#name`).val(data.metadata.name);
+        //     $(`input#email`).val(data.metadata.email);
+        //     $(`input#subject`).val(data.metadata.subject);
+        //     $(`textarea#message`).val(data.metadata.message);
+        // }
 
     </script>
 @endpush

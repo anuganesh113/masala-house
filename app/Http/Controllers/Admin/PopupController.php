@@ -14,6 +14,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Throwable;
 
@@ -33,7 +35,7 @@ class PopupController extends BaseController
     public function index(): View
     {
         $popups = $this->popupModel->query()
-            ->select(['id','name','title','image','order','status','created_at'])
+            ->Image()->select(['id', 'name', 'title', 'image', 'order', 'status', 'created_at'])
             ->orderBy('order')
             ->get();
 
@@ -119,5 +121,34 @@ class PopupController extends BaseController
         }
 
         return $this->jsonResponse(true, Message::POPUP_MESSAGE['DELETE_SUCCESS']);
+    }
+
+    public function videoindex()
+    {
+        $popups = $this->popupModel->query()
+            ->Video()
+            ->orderBy('order')
+            ->first();
+
+
+        return view('admin.pages.popups.videoindex', ['popups' => $popups]);
+    }
+
+
+    public function videocreate(Request $request)
+    {
+        
+        $data = $request->all();
+        if (isset($request->video_id) && !empty($request->video_id)) {
+            $popup = Popup::findOrFail($request->video_id);
+            $popup->update($data);
+            $message = 'Video updated successfully';
+        } else {
+            Popup::create($data);
+            $message = 'Video created successfully';
+        }
+       
+
+        return redirect()->back()->with('success', $message);
     }
 }

@@ -43,4 +43,8 @@ class Testimonial extends Model
     {
         return $this->belongsTo(MemberMessage::class, 'member_message_id');
     }
+           public function scopeStatus($query)
+    {
+        return $query->where('status',1);
+    }
 }

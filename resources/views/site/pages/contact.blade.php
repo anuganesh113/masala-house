@@ -27,7 +27,7 @@
    <div class="row mb-5">
       <div class="col-lg-6">
          <div class="map" style="width: 100%; height: 100%;">
-            <iframe src=" {!! data_get($setting, 'metadata.google_map_iframe') !!}" width="600" style="border:0;height: 60.1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src=" {!! data_get($setting, 'metadata.google_map_iframe') !!}" width="600" style="border:0;height: 77rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             
          </div>
       </div>
@@ -52,6 +52,24 @@
                   <label for="" class="form-label">Email <span  class="text-danger"> *</span></label>
                   <input type="email" name="contact[email]" class="form-control" placeholder="Email" required>
                </div>
+
+                     <div class="form__group">
+                  <label for="" class="form-label">Contact Number <span class="text-danger contact_number">*</span></label>
+                  <div class="input-group">
+                     <select class="form-control country-code" name="" style="max-width: 120px;">
+                        <option value="+1" selected >USA (+1)</option>
+                     </select>
+                     <input type="tel" name="contact[phone]" pattern="[0-9+\-\s]{10,15}" 
+            class="form-control checkphone" placeholder="Phone Number" required>
+                  </div>
+               </div>
+
+                  <div class="form__group">
+                  <label for="" class="form-label">Select Date<span class="text-danger">*</span></label>
+                  <input type="date" name="contact[date]" class="form-control datepicker-field" onkeydown="return false"  placeholder="Select date" required>
+               </div>
+
+
                <div class="form__group">
                   <label for="" class="form-label">Select time <span  class="text-danger"> *</span></label>
                   <input type="time" name="contact[time]" class="form-control" placeholder="Select time" required>
@@ -93,10 +111,10 @@
                <h2>Write to us</h2>
                <ul>
                   <li>
-                     <a href="mailto:info@gmail.com">info@gmail.com</a>
+                     <a href="mailto:info@gmail.com"><i class="fa-solid fa-envelope"></i> info@gmail.com</a>
                   </li>
                   <li>
-                     <a href="mailto:sales@gmail.com">sales@gmail.com</a>
+                     <a href="mailto:sales@gmail.com"><i class="fa-solid fa-envelope"></i> sales@gmail.com</a>
                   </li>
                </ul>
             </div>
@@ -107,15 +125,19 @@
                <ul>
                   <li>
                      <i class="fab fa-facebook-f"></i>
-                     <a target="_blank" href="">Masala house in Facebook</a>
+                     <a target="_blank" href="{!! data_get($setting, 'social.facebook') !!}">Masala house in Facebook</a>
                   </li>
                   <li>
                      <i class="fab fa-instagram"></i>
-                     <a target="_blank" href="">Masala house in Instagram</a>
+                     <a target="_blank" href="{!! data_get($setting, 'social.instagram') !!}">Masala house in Instagram</a>
                   </li>
                   <li>
-                     <i class="fab fa-tiktok"></i>
-                     <a target="_blank" href="">Masala house in Tiktok</a>
+                     <i class="fab fa-youtube"></i>
+                     <a target="_blank" href="{!! data_get($setting, 'social.youtube') !!}">Masala house in Youtube</a>
+                  </li>
+                     <li>
+                     <i class="fab fa-twitter"></i>
+                     <a target="_blank" href="{!! data_get($setting, 'social.twitter') !!}">Masala house in Twitter</a>
                   </li>
                </ul>
             </div>
@@ -124,8 +146,9 @@
             <div class="contact__info--box">
                <h2>Call us</h2>
                <ul>
+                  
                   <li>
-                     <a href="tel:5258470411">(525) 847-0411</a>
+                     <a href="tel:{!! data_get($setting, 'phone') !!}"> <i class="fa-solid fa-phone"></i> {!! data_get($setting, 'phone') !!}</a>
                   </li>
                </ul>
             </div>
