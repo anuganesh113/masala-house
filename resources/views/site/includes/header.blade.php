@@ -23,7 +23,6 @@
   <!-- owl carousel -->
   <link href="{{ asset('site-assets/css/owl.carousel.min.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('site-assets/css/owl.theme.default.min.css') }}" rel="stylesheet" type="text/css" />
-  @stack('header')
   <!-- css -->
   <link rel="stylesheet" href="{{ asset('site-assets/css/style.css?v1.1') }}">
   <style>
@@ -172,6 +171,8 @@
 
 }
   </style>
+  @stack('header')
+
 </head>
 
 <body>
