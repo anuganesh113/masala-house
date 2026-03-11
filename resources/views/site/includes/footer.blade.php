@@ -16,25 +16,20 @@
 </script>
 
 <script>
-
-   
-
    $('.checkphone').on('keyup', function() {
       let value = this.value.replace(/\D/g, '');
       if (value.length > 0 && value.length < 10) {
-         $('.contact_number').html('<span class="text-danger">Please enter a valid 10-digit phone number!</span>');
+         // $('.contact_number').html('<span class="text-danger">Please enter a valid 10-digit phone number!</span>');
       } else if (value.length === 10) {
          $('.contact_number').html('');
        }
    });
 
-
-
 $('.checkphone').on('input', function() {
     let value = this.value.replace(/\D/g, '');
     // If more than 10 digits, slice to 10 and show alert
     if (value.length > 10) {
-        alert('Phone number cannot exceed 10 digits!');
+      //   alert('Phone number cannot exceed 10 digits!');
         this.value = value.slice(0, 10);
     } 
     else if (value.length === 10) {
