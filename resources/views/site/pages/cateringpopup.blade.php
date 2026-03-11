@@ -66,6 +66,9 @@
       $('#namecatering').val(name);
       $('#bookacatering .modal-body h2').text('Book a ' + name);
       $('#bookacatering').modal('show');
+
+
+      
    });
 </script>
 

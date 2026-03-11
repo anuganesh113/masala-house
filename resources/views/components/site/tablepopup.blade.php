@@ -21,9 +21,7 @@
 
                <div class="form__group">
                   <label for="" class="form-label">Select Date<span class="text-danger">*</span></label>
-                  <input type="date"  name="table[date]" 
-       class="form-control datepicker" 
-       placeholder="Select date" 
+                  <input type="date"  name="table[date]" class="form-control datepicker-field" placeholder="Select date" 
        required>
                </div>
                <div class="form__group">

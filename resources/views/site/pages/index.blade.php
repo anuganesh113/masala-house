@@ -339,7 +339,7 @@
                     </div>
                     <div class="btn__group justify-content-lg-end mt-0">
                         <button class="l__button l__button--primary">Get Quote</button>
-                        <button class="l__button l__button--secondary">Contact us</button>
+                        <a href="/contact" class="l__button l__button--secondary">Contact us</a>
                     </div>
                 </div>
             </div>
