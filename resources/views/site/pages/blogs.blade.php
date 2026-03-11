@@ -39,10 +39,10 @@
                             />
                             <span class="tags">{{ $blog->tag }}</span>
                         </div>
-                        <div class="blog__card--content">
-                            <h3 class="blogtitle">{{ $blog->name }}</h3>
+                        <div class="blog__card--content" style="position: relative;">
+                            <h3 class="blogtitle" style="width: 100%;">{{ $blog->name }}</h3>
                             <a href="{{ route('site.blog', $blog->slug) }}" title="{{ $blog->name }}">
-                                <div class="icon"><i class='bx bx-arrow-back'></i></div>
+                                <div class="icon blogtitle"><i class='bx bx-arrow-back'></i></div>
                             </a>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
 
 
 <!-- video section srat -->
-<section class="video {{isset($videos) && $videos ? '' : 'd-none'}}">
+<section class="video mobvideo {{isset($videos) && $videos ? '' : 'd-none'}}">
     <div class="container-fluid">
         <div class="flex">
             <div class="section__title">

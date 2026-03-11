@@ -136,6 +136,6 @@ class WebsiteController extends BaseController
         ];
 
         Mail::to('info@masalahousepittsburg.com')->cc($details['email'])->send(new \App\Mail\Contact($details));
-        return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
+        return redirect()->back()->with('success-msg', 'Successfull!  We will inform you soon');
     }
 }

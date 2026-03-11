@@ -21,7 +21,7 @@
 	<table style="background: #f4f4f4; color: #313745; font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size:.95rem;line-height:1.3; margin: auto; max-width: 660px; width: 100%;">
 
 		<tr>
-			<td style="background: #000000; padding: 1.75rem 2rem; text-align: center">
+			<td style="background: #f38643; padding: 1.75rem 2rem; text-align: center">
 				<img src="{{asset('site-assets/images/logo.png')}}" alt="Masala House" style="height: 60px; margin: auto; width: auto;">
 			</td>
 		</tr>
@@ -34,7 +34,7 @@
 					Thank you for choosing us.
 				</p>
 				<p style="color: #313745; line-height: 1.65; margin: 1.5rem 0 0;">
-					Phone: <b>+{{$details['phone'] ?? '(525) 847-0411'}}</b> <br />
+					Phone: <b>+{{$details['phone'] ?? '525-847-0411'}}</b> <br />
 					Email: <b><a href="mailto:{{$details['siteemail'] ?? 'info@masalahousepittsburg.com'}}" target="_blank" style="color:#006dad;">
 							{{$details['siteemail'] ?? 'info@masalahousepittsburg.com'}}</a></b>
 				</p>
@@ -63,8 +63,8 @@
 								@isset($details['data'])
 								@foreach($details['data'] as $key => $value)
 								<tr>
-									<td style="width: 80px; font-weight: 600; vertical-align: top;">{{ucfirst($key)}} :</td>
-									<td>
+									<td style="width: 170px; font-weight: 600; vertical-align: top;">{{ucfirst($key)}} :</td>
+									<td >
 										{{$value}}
 									</td>
 								</tr>
