@@ -134,7 +134,7 @@
 
     }
           .blogtitle {
-        font-size: 20px !important;
+        font-size: 18px !important;
         height: 77px !important;
       }
 
