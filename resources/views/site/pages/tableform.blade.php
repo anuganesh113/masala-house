@@ -11,12 +11,12 @@
                     <div class="row g-4">
                         <div class="col-lg-4 mt-5">
                             <div class="form__group ">
-                                <input type="text" name="table[name]" placeholder="Full Name" required>
+                                <input type="text" name="table[name]" placeholder=" Your Full Name" required>
                             </div>
                         </div>
                         <div class="col-lg-4 mt-5">
                             <div class="form__group">
-                                <input type="email" name="table[email]" placeholder="Email" required>
+                                <input type="email" name="table[email]" placeholder="Your Email" required>
                             </div>
                         </div>
                         <div class="col-lg-4 mt-5">
@@ -46,8 +46,8 @@
                         </div>
                      </div>
                      <div class="col-lg-4 mt-5">
-                        <div class="form__group">
-                            <input type="number" max="100" min="1" class="checknumberper" name="table[persons]" placeholder="Number of persons">
+                        <div class="form__group"><span class="text-danger small no_person"></span>
+                            <input type="number" max="100" min="1" class="checknumberper" name="table[persons]" placeholder="Number of Persons" required>
                            
                         </div>
                      </div>

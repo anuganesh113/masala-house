@@ -127,6 +127,10 @@
         top: 4.375rem !important;
 
       }
+      .mobvideo{
+            margin-bottom: 5.5625rem!important;
+
+      }
 
     }
           .blogtitle {

@@ -9,12 +9,23 @@
                <input name="catering[namecatering]" value="" id="namecatering" type="hidden">
                <h2>book a catering service</h2>
                <div class="form__group">
-                  <label for="" class="form-label">Your name <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" name="catering[name]" placeholder="Your name" required>
+                  <label for="" class="form-label">Your Full Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" name="catering[name]" placeholder="Your Full Name" required>
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Your Email <span class="text-danger">*</span></label>
-                  <input type="email" class="form-control" name="catering[email]" placeholder="Your email" required>
+                  <input type="email" class="form-control" name="catering[email]" placeholder="Your Email" required>
+               </div>
+
+                     <div class="form__group">
+                  <label for="" class="form-label">Contact Number <em class="text-danger">*</em><span class="invalid-feedback phone-error-catering"> Please enter a valid 10-digit US phone number</span></label>
+                  <div class="input-group">
+                     <select class="form-control country-code" name="catering[countrycode]" style="max-width: 120px;">
+                        <option value="+1" selected>USA (+1)</option>
+                     </select>
+                     <input type="tel" name="catering[phone]" pattern="[0-9+\-\s]{10,15}"
+                        class="form-control checkphone cateinput" placeholder="Phone Number" required>
+                  </div>
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Select Date <span class="text-danger">*</span></label>
@@ -25,8 +36,8 @@
                   <input type="time" class="form-control" name="catering[time]" placeholder="Select time" required>
                </div>
                <div class="form__group">
-                  <label for="" class="form-label">Number of persons </label>
-                  <input type="number" max="100" class="form-control checknumberper" name="catering[persons]" placeholder="Number of persons">
+                  <label for="" class="form-label">Number of Persons<span class="text-danger small no_person"></span></label>
+                  <input type="number" max="100" class="form-control checknumberper" name="catering[persons]" placeholder="Number of Persons" required>
 
                   <!-- <select name="Number_of_persons" id="" class="form-select">
                      <option value="">Number of persons</option>
@@ -35,16 +46,7 @@
                      <option value="">5 - 10 persons</option>
                   </select> -->
                </div>
-               <div class="form__group">
-                  <label for="" class="form-label">Contact Number <em class="text-danger">*</em><span class="invalid-feedback phone-error-catering"> Please enter a valid 10-digit US phone number</span></label>
-                  <div class="input-group">
-                     <select class="form-control country-code" name="catering[countrycode]" style="max-width: 120px;">
-                        <option value="+1" selected>USA (+1)</option>
-                     </select>
-                     <input type="tel" name="catering[phone]" pattern="[0-9+\-\s]{10,15}"
-                        class="form-control checkphone cateinput" placeholder="Phone Number" required>
-                  </div>
-               </div>
+         
                <div class="form__group">
                   <div class="btn__group">
                      <button type="submit" class="l__button l__button--primary">Book now</button>

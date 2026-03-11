@@ -45,11 +45,11 @@
                <h6>Contact US</h6>
                <h2>Connect with Masala House</h2>
                <div class="form__group">
-                  <label for="" class="form-label">Your name <span class="text-danger"> *</span></label>
-                  <input type="text" name="contact[name]" class="form-control" placeholder="Your name" required>
+                  <label for="" class="form-label">Your  Full Name <span class="text-danger"> *</span></label>
+                  <input type="text" name="contact[name]" class="form-control" placeholder="Your Full Name" required>
                </div>
                <div class="form__group">
-                  <label for="" class="form-label">Email <span class="text-danger"> *</span></label>
+                  <label for="" class="form-label">Your Email <span class="text-danger"> *</span></label>
                   <input type="email" name="contact[email]" class="form-control" placeholder="Email" required>
                </div>
 

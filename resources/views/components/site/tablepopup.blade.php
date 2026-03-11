@@ -18,6 +18,16 @@
                   <label for="" class="form-label">Your Email<span class="text-danger">*</span></label>
                   <input type="email" name="table[email]" class="form-control" placeholder="Email" required>
                </div>
+                           <div class="form__group">
+                  <label for="" class="form-label">Contact Number <em class="text-danger">*</em><span class="invalid-feedback phone-error-table"> Please enter a valid 10-digit US phone number</span></label>
+                  <div class="input-group">
+                     <select class="form-control country-code" name="table[countrycode]" style="max-width: 120px;">
+                        <option value="+1" selected>USA (+1)</option>
+                     </select>
+                     <input type="tel" name="table[phone]" pattern="[0-9+\-\s]{10,15}"
+                        class="form-control checkphone tablepopup" placeholder="Phone Number" required>
+                  </div>
+               </div>
 
                <div class="form__group">
                   <label for="" class="form-label">Select Date<span class="text-danger">*</span></label>
@@ -29,8 +39,8 @@
                   <input type="time" name="table[time]" class="form-control" placeholder="Select time" required>
                </div>
                <div class="form__group">
-                  <label for="" class="form-label">Number of Persons </label>
-                  <input type="number" max="100" min="1" class="form-control checknumberper" name="table[persons]" placeholder="Number of persons">
+                  <label for="" class="form-label">Number of Persons <span class="text-danger  small no_person"></span></label>
+                  <input type="number" max="100" min="1" class="form-control checknumberper" name="table[persons]" placeholder="Number of Persons" required>
                   <!-- <select name="" id="" class="form-select">
                      <option value="">Number of persons</option>
                      <option value="">1 - 2 persons</option>
@@ -38,16 +48,7 @@
                      <option value="">5 - 10 persons</option>
                   </select> -->
                </div>
-               <div class="form__group">
-                  <label for="" class="form-label">Contact Number <em class="text-danger">*</em><span class="invalid-feedback phone-error-table"> Please enter a valid 10-digit US phone number</span></label>
-                  <div class="input-group">
-                     <select class="form-control country-code" name="table[countrycode]" style="max-width: 120px;">
-                        <option value="+1" selected>USA (+1)</option>
-                     </select>
-                     <input type="tel" name="table[phone]" pattern="[0-9+\-\s]{10,15}"
-                        class="form-control checkphone tablepopup" placeholder="Phone Number" required>
-                  </div>
-               </div>
+   
                <div class="form__group">
                   <div class="btn__group">
                      <button type="submit" class="l__button l__button--primary">Book now</button>
