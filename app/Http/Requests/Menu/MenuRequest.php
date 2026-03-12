@@ -33,7 +33,7 @@ class MenuRequest extends FormRequest
     protected function prepareForValidation()
     {
         $this->merge([
-            'slug' => $this->slug ? Str::slug($this->slug) :  Str::slug($this->name),
+            'slug' => $this->slug ? $this->slug :  Str::slug($this->name),
         ]);
     }
 
