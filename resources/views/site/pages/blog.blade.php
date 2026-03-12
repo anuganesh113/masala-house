@@ -117,6 +117,7 @@
     }
 
 
+
        .banner__page {
         position: relative;
         /* overflow: hidden; */

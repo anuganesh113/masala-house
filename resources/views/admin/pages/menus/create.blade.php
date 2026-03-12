@@ -58,6 +58,17 @@
 							</div>
 						</div>
 
+                            <div class="form-group m-form__group row">
+                            <div class="col-lg-12">
+                                <label>Menu Slug<span class="text-danger"></span></label>
+                                <input type="text"
+                                    class="form-control m-input"
+                                    placeholder="Menu Slug"
+                                    name="slug"
+                                    value="{{ old('slug')}}">
+                            </div>
+                        </div>
+
 						<x-admin.image-field :data="[
                             'required' => true
                         ]"/>
