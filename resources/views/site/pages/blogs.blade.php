@@ -198,7 +198,7 @@
         responsiveClass: true,
         autoplay: true,
         autoplayHoverPause: true,
-        autoplaySpeed: 1000,
+        autoplaySpeed: 1200,
         lazyLoad: true,
         navText: [
             '<i class="fas fa-chevron-left"></i>',
@@ -207,29 +207,29 @@
         responsive: {
             0: {
                 items: 2,
-                dots: true,
+                dots: false,
                 nav: false,
                 margin: 15,
             },
             767: {
                 items: 2.2,
-                dots: true,
+                dots: false,
                 nav: false,
             },
             1000: {
                 items: 2.2,
-                dots: true,
+                dots: false,
                 nav: false,
             },
             1200: {
                 items: 2.5,
-                dots: true,
+                dots: false,
                 nav: false,
                 margin: 40,
             },
             1300: {
                 items: 3.5,
-                dots: true,
+                dots: false,
                 nav: false,
                 margin: 40,
             },
