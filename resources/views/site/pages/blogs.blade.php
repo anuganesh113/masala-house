@@ -82,7 +82,7 @@
             </div>
         </div>
     </div>
-    <div class="video__box">
+    <div class="video__box" style="padding: 0 50px;">
         <div class="owl-carousel owl-theme video__carousel">
             @foreach($videos->metadata ?? []  as $key=>$link)
                <div class="item">
@@ -193,12 +193,12 @@
     }, );
 
     $('.video__carousel').owlCarousel({
-        loop: true,
+        loop: false,
         margin: 30,
         responsiveClass: true,
         autoplay: true,
         autoplayHoverPause: true,
-        autoplaySpeed: 1200,
+        autoplaySpeed: 400,
         lazyLoad: true,
         navText: [
             '<i class="fas fa-chevron-left"></i>',
@@ -206,32 +206,37 @@
         ],
         responsive: {
             0: {
-                items: 2,
-                dots: false,
+                items: 1,
+                dots: true,
                 nav: false,
-                margin: 15,
+                // margin: 15,
+            },
+                627: {
+                items: 2,
+                dots: true,
+                nav: false,
             },
             767: {
-                items: 2.2,
-                dots: false,
+                items: 2,
+                dots: true,
                 nav: false,
             },
             1000: {
-                items: 2.2,
-                dots: false,
+                items: 3,
+                dots: true,
                 nav: false,
             },
             1200: {
-                items: 2.5,
-                dots: false,
+                items: 3,
+                dots: true,
                 nav: false,
-                margin: 40,
+                // margin: 40,
             },
             1300: {
-                items: 3.5,
-                dots: false,
+                items: 3,
+                dots: true,
                 nav: false,
-                margin: 40,
+                // margin: 40,
             },
         },
     }, );

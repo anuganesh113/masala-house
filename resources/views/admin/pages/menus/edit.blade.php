@@ -86,7 +86,7 @@
 
                         <div class="form-group m-form__group">
                             <label>Excerpt</label>
-                            <textarea class=" form-control m-input"
+                            <textarea class="summernote_reg form-control m-input"
                                 name="excerpt"
                                 rows="15">{{ old('excerpt')??data_get($menu, "excerpt") }}</textarea>
                         </div>
