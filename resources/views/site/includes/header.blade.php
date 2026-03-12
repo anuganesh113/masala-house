@@ -23,7 +23,6 @@
   <!-- owl carousel -->
   <link href="{{ asset('site-assets/css/owl.carousel.min.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('site-assets/css/owl.theme.default.min.css') }}" rel="stylesheet" type="text/css" />
-  @stack('header')
   <!-- css -->
   <link rel="stylesheet" href="{{ asset('site-assets/css/style.css?v1.1') }}">
   <style>
@@ -99,7 +98,15 @@
         text-align: center !important;
       }
 
+
     }
+
+    @media only screen and (max-width: 766px) {
+      .mobfooter {
+        text-align: center;
+      }
+    }
+
 
     @media only screen and (max-width: 400px) {
       .dnone {
@@ -127,16 +134,18 @@
         top: 4.375rem !important;
 
       }
-      .mobvideo{
-            margin-bottom: 5.5625rem!important;
+
+      .mobvideo {
+        margin-bottom: 5.5625rem !important;
 
       }
 
     }
-          .blogtitle {
-        font-size: 18px !important;
-        height: 77px !important;
-      }
+
+    .blogtitle {
+      font-size: 18px !important;
+      height: 77px !important;
+    }
 
     /* @media (max-width: 1950px) {
       .blogtitle {
@@ -150,18 +159,28 @@
 
     } */
 
+    @media (min-width: 767px) and (max-width: 991px) {
+      .d-lg-none.mobfooter {
+        /* padding: 23px 94px 0px 55px; */
+        text-align: center;
 
-/* Target screens between 768px and 991px ONLY */
-@media (min-width: 768px) and (max-width: 1500px) {
-  .tb-tb {
-    margin-top: 10px !important;
-  }
-  .mobftlog{
-    display: none!important;
-  }
+      }
+
+    }
 
 
-        .blogtitle {
+    /* Target screens between 768px and 991px ONLY */
+    @media (min-width: 768px) and (max-width: 1500px) {
+      .tb-tb {
+        margin-top: 10px !important;
+      }
+
+      .mobftlog {
+        display: none !important;
+      }
+
+
+      .blogtitle {
         font-size: medium !important;
         height: 77px !important;
       }
@@ -170,8 +189,10 @@
         height: 77px !important;
       }
 
-}
+    }
   </style>
+  @stack('header')
+
 </head>
 
 <body>

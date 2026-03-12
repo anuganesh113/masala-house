@@ -42,8 +42,8 @@
          </ul>
       </div>
       <div class="row">
-         <div class="col-lg-12 col-md-6 col-sm-6 col-6">
-            <ul class="footer__top--nav d-block d-lg-none">
+         <div class="col-lg-12  ">
+            <ul class="footer__top--nav d-block d-lg-none mobfooter">
                <li>
                   <a href="{{ requesturl() }}">Order Now</a>
                </li>
@@ -58,7 +58,7 @@
 
             </ul>
          </div>
-         <div class="col-lg-12 col-md-6 col-sm-6 col-6">
+         <div class="col-lg-12  ">
             <div class="footer__middle">
                <div class="box">
                   <h2>Opening Hours</h2>

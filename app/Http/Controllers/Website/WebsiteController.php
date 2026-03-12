@@ -9,6 +9,7 @@ use App\Mail\Contact;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Inquiry;
+use App\Models\Menu;
 use App\Models\Page;
 use App\Services\WebsiteService;
 use Illuminate\Contracts\View\View;
@@ -46,7 +47,17 @@ class WebsiteController extends BaseController
 
     public function blog(string $slug): View|RedirectResponse
     {
-        $data['categories'] = Category::query()->get();
+      
+        $data['recentBlogs'] = Blog::where('slug', '!=', $slug)->where('status',1)
+                                    ->orderBy('created_at', 'desc')
+                                    ->limit(5)
+                                    ->get();
+
+      $data['categories'] = Category::with(['menus' => function ($query) {
+            $query->status();
+        }])->get();
+       $data['menus'] = Menu::with('category')->status()->get();
+
         $blog = Blog::query()->status()
             ->where(['slug' => $slug])
             ->firstOrFail();
@@ -65,8 +76,7 @@ class WebsiteController extends BaseController
             ->take(Pagination::SMALL_PAGE)
             ->get();
 
-        return view('site.pages.blog', [
-            ...$data,
+        return view('site.pages.blog', [...$data,
             'blog' => $blog,
         ]);
     }

@@ -49,7 +49,7 @@
 
                         <x-admin.image-field :data="[
                             'label' => 'Logo',
-                            'name' => 'logo',
+                            'name' => 'color_logo',
                             'path' => \App\Enums\UploadFilePath::LOGO_PATH,
                             'value' => data_get($setting, 'color_logo')
                         ]" />
