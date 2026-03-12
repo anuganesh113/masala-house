@@ -56,10 +56,26 @@
         margin-top: 15px !important;
     }
     
+     @media (max-width: 950px) {
+        .banner__page {
+               min-height: 250px !important;
+        }
+        .banner__page--content{
+            margin-top: 20px;
+        }
+        .mbabout{
+                padding-top: 10rem;
+        }
+    }
+
     @media (max-width: 576px) {
         .mt-15 {
             margin-top: 12px !important;
         }
+        .boxshadow.plt-50{
+                margin-bottom: 35px;
+        }
+        
     }
 
     .mt-14 {
@@ -104,7 +120,7 @@
        .banner__page {
         position: relative;
         /* overflow: hidden; */
-        min-height: 300px;
+        min-height: 425px;
     }
     
     .banner__page--img {
@@ -137,7 +153,7 @@
     </div>
 </section>
 
-<section class="about">
+<section class="about mbabout">
     <div class="container">
         <div class="row">
             <!-- Main Content Column -->
@@ -173,7 +189,7 @@
             <!-- Sidebar Column -->
             <div class="col-sm-4 col-lg-4">
                 <!-- Recent Blogs Widget -->
-                <div class="sidebar-widget section__title boxshadow plt-50">
+                <div class="sidebar-widget section__title boxshadow plt-50 mb-rect">
                     <h2 class="fxl blog">Recent Blogs</h2>
                     <ul class="recent-blogs-list">
                         @if(isset($recentBlogs) && count($recentBlogs) > 0)
@@ -198,7 +214,7 @@
                             @foreach($categories as $cat)
                                 @foreach($cat->menus->take(5) as $menu)
                                     <div class="menu-item mt-15">
-                                        <a href="{{requesturl()}}">{{ $menu->name }} - {{ ucfirst( $menu->type)}}</a>
+                                        <a href="{{requesturl()}}">{{ $menu->name }} - <em class="{{$menu->type== 'veg' ? 'green' : 'orange' }}">{{ checkVegetarian($menu->type)}}</em></a>
                                         <span class="{{$menu->type== 'veg' ? 'green' : 'orange' }}">${{ number_format($menu->price, 2) }}</span>
                                     </div>
                                 @endforeach
