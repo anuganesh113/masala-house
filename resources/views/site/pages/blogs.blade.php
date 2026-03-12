@@ -193,12 +193,12 @@
     }, );
 
     $('.video__carousel').owlCarousel({
-        loop: false,
+        loop: true,
         margin: 30,
         responsiveClass: true,
         autoplay: true,
         autoplayHoverPause: true,
-        autoplaySpeed: 600,
+        autoplaySpeed: 1000,
         lazyLoad: true,
         navText: [
             '<i class="fas fa-chevron-left"></i>',
@@ -207,29 +207,29 @@
         responsive: {
             0: {
                 items: 2,
-                dots: false,
+                dots: true,
                 nav: false,
                 margin: 15,
             },
             767: {
                 items: 2.2,
-                dots: false,
+                dots: true,
                 nav: false,
             },
             1000: {
                 items: 2.2,
-                dots: false,
+                dots: true,
                 nav: false,
             },
             1200: {
                 items: 2.5,
-                dots: false,
+                dots: true,
                 nav: false,
                 margin: 40,
             },
             1300: {
                 items: 3.5,
-                dots: false,
+                dots: true,
                 nav: false,
                 margin: 40,
             },
