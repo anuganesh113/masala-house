@@ -56,7 +56,7 @@
                 <div class="menu__list" id="menuNav{{ $loop->iteration }}">
                     <div class="section__title text-center">
                         <div class="container">
-                            <h5>Missing Indian Street Food ?</h5>
+                            <h5>Missing Indian {{ $category->name }} ?</h5>
                             <h2>Checkout Our Delicious {{ $category->name }} Collection</h2>
                         </div>
                     </div>
@@ -179,7 +179,7 @@
                     <h2>Hyderabad</h2>
                 </div>
                 <div class="tet-end">
-                    <p> Enjoy our extensive lunch buffet featuring over 20 items including appetizers, main courses, and
+                    <p> Enjoy our extensive lunch  featuring over 20 items including appetizers, main courses, and
                         desserts
                     </p>
                 </div>
