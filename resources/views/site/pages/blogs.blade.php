@@ -193,12 +193,12 @@
     }, );
 
     $('.video__carousel').owlCarousel({
-        loop: false,
+        loop: true,
         margin: 30,
         responsiveClass: true,
         autoplay: true,
         autoplayHoverPause: true,
-        autoplaySpeed: 600,
+        autoplaySpeed: 700,
         lazyLoad: true,
         navText: [
             '<i class="fas fa-chevron-left"></i>',
