@@ -215,7 +215,7 @@
                             @foreach($categories as $cat)
                                 @foreach($cat->menus->take(5) as $menu)
                                     <div class="menu-item mt-15">
-                                        <a href="{{requesturl()}}">{{ $menu->name }} - <em class="{{$menu->type== 'veg' ? 'green' : 'orange' }}">{{ checkVegetarian($menu->type)}}</em></a>
+                                        <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">{{ $menu->name }} - <em class="{{$menu->type== 'veg' ? 'green' : 'orange' }}">{{ checkVegetarian($menu->type)}}</em></a>
                                         <span class="{{$menu->type== 'veg' ? 'green' : 'orange' }}">${{ number_format($menu->price, 2) }}</span>
                                     </div>
                                 @endforeach

@@ -14,7 +14,7 @@
                                     <div class="menuFlex__card">
                                         <div class="img d-lg-none">
                                             <img src="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::MENUS_PATH, data_get($item, 'image'))) }}"
-                                                class="img-2" alt="">
+                                                class="img-2" alt="{{$item->name}}">
                                         </div>
                                         <div class="contents">
                                             <div class="menuFlex__card--title">
@@ -27,7 +27,7 @@
                                                 </p>
                                                 <span class="cat bg-green bt-fr">{{ checkVegetarian($item->type) }}</span>
 
-                                                <a class="order-btn wtc" href="{{ requesturl() }}"  target="_blank">order now</a>
+                                                <a class="order-btn wtc" href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">order now</a>
 
                                             </div>
                                      

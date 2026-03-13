@@ -121,10 +121,10 @@
                                 <div class="item">
                                     <div class="menu__card">
                                         <div class="menu__card--img">
-                                            <a href="{{ requesturl() }}">
+                                            <a href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">
                                                 <img class="owl-lazy"
                                                     data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($item, 'image'))) }}"
-                                                    alt="">
+                                                    alt="{{$item->name}}">
                                             </a>
                                             <div class="icon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
@@ -144,7 +144,7 @@
                                             </div>
                                         </div>
                                         <div class="menu__card--content">
-                                            <h3><a href="{{ requesturl() }}">{{ $item->name }} </a>
+                                            <h3><a href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">{{ $item->name }} </a>
 
                                             </h3>
                                             <div class="exploreour" style="min-height: 50px;">
@@ -154,7 +154,7 @@
                                             <div class="menu__card--footer">
                                                 <h6 class="menu_price_color">${{ $item->price }} </h6>
                                                 <span class="cat veg-btn-e bt-fr {{cssnonveg($item->type)}}">{{ checkVegetarian($item->type) }}</span>
-                                                <a class="menu__card--cta order-now-btn mt-2 mr-l wtc" href="{{ requesturl() }}"  target="_blank">Order Now</a>
+                                                <a class="menu__card--cta order-now-btn mt-2 mr-l wtc" href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">Order Now</a>
                                             </div>
 
                                         </div>
@@ -171,10 +171,10 @@
                                 <div class="item">
                                     <div class="menu__card">
                                         <div class="menu__card--img">
-                                            <a href="">
+                                            <a href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">
                                                 <img class="owl-lazy"
                                                     data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($item, 'image'))) }}"
-                                                    alt="">
+                                                    alt="{{$item->name}}">
                                             </a>
                                             <div class="icon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
@@ -194,7 +194,7 @@
                                             </div>
                                         </div>
                                         <div class="menu__card--content">
-                                            <h3><a href="{{ requesturl() }}">{{ $item->name }} </a>
+                                            <h3><a href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">{{ $item->name }} </a>
 
                                             </h3>
                                             <div class="exploreour" style="min-height: 50px;">
@@ -204,7 +204,7 @@
                                             <div class="menu__card--footer">
                                                 <h6 class="menu_price_color">${{ $item->price }} </h6>
                                                 <span class="cat veg-btn-e bt-fr {{cssnonveg($item->type)}}">{{ checkVegetarian($item->type) }}</span>
-                                                <a class="menu__card--cta order-now-btn mt-2 mr-l" href="{{ requesturl() }}"  target="_blank">Order Now</a>
+                                                <a class="menu__card--cta order-now-btn mt-2 mr-l" href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">Order Now</a>
                                             </div>
 
                                         </div>
