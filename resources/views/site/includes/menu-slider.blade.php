@@ -26,14 +26,14 @@
             <div class="menu__card--content">
                <div class="menu__card--header">
                   <h3>
-                     <a href="{{ requesturl() }}">{{ $menu->name }}</a>
+                     <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">{{ $menu->name }}</a>
                   </h3>
                   <div class="menu__card--price">${{ $menu->price }}</div>
                </div>
                {!! $menu->excerpt ?? '<p>no description available</p> ' !!}
                <div class="menu__card--footer">
                   <span class="cat veg-btn bt-fr {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
-                  <a class="menu__card--cta order-now-btn  mr-l wtc"  href="{{ requesturl() }}"  target="_blank">Order Now</a>
+                  <a class="menu__card--cta order-now-btn  mr-l wtc"  href="{{ requesturl() . '/' . $menu->slug  }}"  target="_blank">Order Now</a>
                </div>
             </div>
          </div>
