@@ -196,8 +196,15 @@
 @endsection
 
 @push('footer')
-    <!-- owl carousel -->
-    <script>
+<script>
+   $(document).ready(function() {
+       $('html, body').animate({
+           scrollTop: $('header').offset().top
+       }, 0);
+   });
+</script>
+  <script>
+  
         $('.menuList__carousel').owlCarousel({
             loop: true,
             margin: 0,

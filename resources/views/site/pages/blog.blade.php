@@ -196,7 +196,7 @@
                         @if(isset($recentBlogs) && count($recentBlogs) > 0)
                             @foreach($recentBlogs as $recentBlog)
                                 <li class="mt-15">
-                                    <a href="{{ route('site.blog', $blog->slug) }}">
+                                    <a href="{{ route('site.blog', $recentBlog->slug) }}">
                                         {{ $recentBlog->name }}
                                     </a>
                                 </li>
