@@ -3,7 +3,7 @@
       <div class="item" style="margin-right: -20px;">
          <div class="menu__card menu__card--family">
             <div class="menu__card--img">
-               <a href="{{ requesturl() }}">
+               <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">
                   <img class="owl-lazy"
                      data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
                      alt="{{ $menu->name }}">
