@@ -197,11 +197,22 @@
 
 @push('footer')
 <script>
+//    $(document).ready(function() {
+//        $('html, body').animate({
+//            scrollTop: $('header').offset().top
+//        }, 0);
+//    });
+
    $(document).ready(function() {
+
        $('html, body').animate({
-           scrollTop: $('header').offset().top
+           scrollTop: $('#menuNav1').offset().top
        }, 0);
+       $('.nav-links').removeClass('active'); 
+       $('a[href="#menuNav1"]').addClass('active'); 
    });
+
+
 </script>
   <script>
   

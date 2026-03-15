@@ -190,6 +190,12 @@
       }
 
     }
+
+    @media only screen and (min-width: 1550px) {
+           .gallery__boxres{
+        padding: 0 20px;
+}
+}
   </style>
   @stack('header')
 

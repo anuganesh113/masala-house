@@ -220,11 +220,11 @@
         </div>
     </div>
 
-    <div class="gallery__box">
+    <div class="gallery__box gallery__boxres" >
 
         <div class="owl-carousel owl-theme gallery__carousel">
             @foreach($galleries ?? [] as $image)
-            @foreach($image->gallery->slice(0, 1) ?? [] as $key => $item)
+            @foreach($image->gallery ?? [] as $key => $item)
 
             <div class="item ">
                 <div class="gallery__card gallery__card--big">
@@ -232,7 +232,7 @@
                 </div>
             </div>
 
-            @if(count($image->gallery) > 1)
+            <!-- @if(count($image->gallery) > 1)
            <div class="item">
                 <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 g-4">
                     @foreach($image->gallery->slice(1, 4) ?? [] as $key => $item)
@@ -246,7 +246,7 @@
 
                 </div>
             </div>
-            @endif
+            @endif -->
             @endforeach
             @endforeach
 
@@ -413,7 +413,7 @@
 
     $('.gallery__carousel').owlCarousel({
         loop: true,
-        margin: 24,
+        margin: 30,
         responsiveClass: true,
         autoplay: false,
         autoplayHoverPause: true,
@@ -424,23 +424,23 @@
         ],
         responsive: {
             0: {
-                items: 1.5,
-                dots: false,
+                items: 1,
+                dots: true,
                 nav: false,
             },
             767: {
-                items: 2.5,
-                dots: false,
+                items: 2,
+                dots: true,
                 nav: false,
             },
             1000: {
-                items: 2.5,
-                dots: false,
+                items: 2,
+                dots: true,
                 nav: false,
             },
             1200: {
-                items: 3.3,
-                dots: false,
+                items: 3,
+                dots: true,
                 nav: false,
             },
         },
