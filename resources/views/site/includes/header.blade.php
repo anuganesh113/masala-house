@@ -35,6 +35,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- css -->
   <link rel="stylesheet" href="{{ asset('site-assets/css/style.css?v1.1') }}">
   <style>
+
+    /* .dfdsfdsf.family__carousel .owl-stage-outer .owl-stage .owl-item.cloned {
+  width: 540px !important;
+} */
     /* Make success message brighter green */
     .toast-success {
       background-color: #28a745 !important;
@@ -137,6 +141,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         text-align: center !important;
       }
     }
+  @media (max-width: 1155px) {
+        .menu__item {
+        top: 4.375rem !important;
+
+      }
+      }
+
+
+
 
     @media (max-width: 991px) {
       .menu__item {

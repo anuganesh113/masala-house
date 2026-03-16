@@ -111,7 +111,7 @@
                     </ul>
                 </div>
                 <div class="whole-menu-section col-lg-8 col-xl-8 col-xxl-9">
-                    <div class="tab__contents">
+                    <div class="tab__contents" >
                         @foreach ($categories as $category)
                         <div id="tab{{ $loop->iteration }}"
                             class="tab__contents--text {{ $loop->first ? 'active' : '' }}">
@@ -320,42 +320,7 @@
         },
     }, );
 
-    $('.family__carousel').owlCarousel({
-        loop: true,
-        margin: 30,
-        responsiveClass: true,
-        autoplay: true,
-        autoplayHoverPause: true,
-        autoplaySpeed: 600,
-        lazyLoad: true,
-        navText: [
-            '<i class="fas fa-chevron-left"></i>',
-            '<i class="fas fa-chevron-right"></i>'
-        ],
-        responsive: {
-            0: {
-                items: 1.5,
-                dots: false,
-                nav: false,
-            },
-            767: {
-                items: 2.5,
-                dots: false,
-                nav: false,
-            },
-            1000: {
-                items: 3.2,
-                dots: false,
-                nav: false,
-            },
-            1200: {
-                items: 3.2,
-                dots: false,
-                nav: false,
-                margin: 60,
-            },
-        },
-    }, );
+
 
     $('.wholeMenu__carousel').owlCarousel({
         loop: true,
@@ -371,28 +336,28 @@
         ],
         responsive: {
             0: {
-                items: 1.5,
+                items: 1,
                 dots: true,
                 nav: false,
             },
             767: {
-                items: 2.2,
+                items: 2,
                 dots: true,
                 nav: false,
             },
             1000: {
-                items: 2.2,
+                items: 2,
                 dots: true,
                 nav: false,
             },
             1200: {
-                items: 2.5,
+                items: 3,
                 dots: true,
                 nav: false,
                 margin: 40,
             },
             1300: {
-                items: 3.5,
+                items: 3,
                 dots: true,
                 nav: false,
                 margin: 40,

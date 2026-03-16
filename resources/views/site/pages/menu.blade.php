@@ -1,6 +1,13 @@
 @extends('site.layouts.layout')
 @section('page_title',  'Menu')
 
+@push('header')
+<style>
+    .itemgrab__box{
+           padding-left:0.375rem; 
+    }
+    </style>
+@endpush
 @section('content')
 
     <!-- page banner start -->
@@ -185,7 +192,7 @@
                 </div>
             </div>
         </div>
-        <div class="grab__box">
+        <div class="grab__box itemgrab__box">
             <div class="owl-carousel owl-theme family family__carousel">
                 @include("site.includes.menu-slider")
             </div>
@@ -292,42 +299,7 @@
                 $('.textSlider__carousel .owl-item').eq(current).addClass('is-center-active');
             });
 
-        $('.family__carousel').owlCarousel({
-            loop: true,
-            margin: 30,
-            responsiveClass: true,
-            autoplay: true,
-            autoplayHoverPause: true,
-            autoplaySpeed: 600,
-            lazyLoad: true,
-            navText: [
-                '<i class="fas fa-chevron-left"></i>',
-                '<i class="fas fa-chevron-right"></i>'
-            ],
-            responsive: {
-                0: {
-                    items: 1.5,
-                    dots: false,
-                    nav: false,
-                },
-                767: {
-                    items: 2.5,
-                    dots: false,
-                    nav: false,
-                },
-                1000: {
-                    items: 3.5,
-                    dots: false,
-                    nav: false,
-                },
-                1200: {
-                    items: 3.5,
-                    dots: false,
-                    nav: false,
-                    margin: 60,
-                },
-            },
-        },);
+ 
     </script>
 
 
