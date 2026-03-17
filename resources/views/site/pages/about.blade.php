@@ -1,5 +1,5 @@
 @extends('site.layouts.layout')
-@section('page_title', 'about')
+@section('page_title', 'About-us')
 
 @section('content')
 
