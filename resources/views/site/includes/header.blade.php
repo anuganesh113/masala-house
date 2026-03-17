@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="csrf-token" content="{{ csrf_token() }}">
- <link rel="icon" type="image/x-icon" href="{{ asset('site-assets/images/favicon.jpg') }}">
+  <link rel="icon" type="image/x-icon" href="{{ asset('site-assets/images/favicon.jpg') }}">
   <meta name="google-site-verification" content="PVElXv82RpomDLSiiyhvSw8In_ACNXiFC_y-l6RwEXA" />
   <!-- Google Tag Manager -->
- <meta property="og:image" content="{{ asset('site-assets/images/logo-color.png') }}" />
+  <meta property="og:image" content="{{ asset('site-assets/images/logo-color.png') }}" />
   <script>
     (function(w, d, s, l, i) {
       w[l] = w[l] || [];
@@ -176,12 +176,42 @@
       }
     }
 
-    @media (max-width: 1155px) {
-      .menu__item {
-        top: 4.375rem !important;
+    @media (min-width: 250px) and (max-width: 400px) {
 
+      .mobile-menu,
+      .mobile-menu img {
+        width: 100%;
+        height: 100%;
       }
     }
+
+    @media (min-width: 200px) and (max-width: 300px) {
+
+      .footer__top img {
+        width: 26px;
+      }
+    }
+
+
+
+    @media (min-width: 400px) and (max-width: 520px) {
+      .dnone.dcontent {
+        display: contents;
+      }
+
+      .wtc.men-ord {
+        width: 65%;
+        text-align: center;
+      }
+
+      /* .orderdiv{
+            position: relative;
+      }
+      .cat.catvegg{
+    float: right;
+      }  */
+    }
+
 
 
 
@@ -203,18 +233,6 @@
       font-size: 18px !important;
       height: 77px !important;
     }
-
-    /* @media (max-width: 1950px) {
-      .blogtitle {
-        font-size: medium !important;
-        height: 77px !important;
-      }
-
-      .blog__card--content .icon {
-        height: 77px !important;
-      }
-
-    } */
 
     @media (min-width: 767px) and (max-width: 991px) {
       .d-lg-none.mobfooter {
@@ -248,9 +266,18 @@
 
     }
 
-    @media only screen and (min-width: 1550px) {
-      .gallery__boxres {
-        padding: 0 20px;
+
+
+    @media (max-width: 1155px) {
+      .menu__item {
+        top: 4.375rem !important;
+
+      }
+
+      @media only screen and (min-width: 1550px) {
+        .gallery__boxres {
+          padding: 0 20px;
+        }
       }
     }
   </style>
