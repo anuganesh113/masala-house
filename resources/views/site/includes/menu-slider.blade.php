@@ -44,17 +44,17 @@
 @push('footer')
 
 
-<!-- owl carousel script -->
+<!-- owl carousel family__carousel script -->
 <script>
 
 
-    $('.family__carousel').owlCarousel({
-        loop: true,
+    $('.family__carouselss').owlCarousel({
+        loop: false,
         margin: 30,
         responsiveClass: true,
-        autoplay: false,
+        autoplay: true,
         autoplayHoverPause: true,
-        autoplaySpeed: 1200,
+        autoplaySpeed: 400,
         lazyLoad: true,
         navText: [
             '<i class="fas fa-chevron-left"></i>',
@@ -63,6 +63,12 @@
         responsive: {
             0: {
                 items: 1,
+                dots: true,
+                nav: false,
+                // margin: 15,
+            },
+                627: {
+                items: 2,
                 dots: true,
                 nav: false,
             },
@@ -80,10 +86,17 @@
                 items: 3,
                 dots: true,
                 nav: false,
-                
+                // margin: 40,
+            },
+            1300: {
+                items: 3,
+                dots: true,
+                nav: false,
+                // margin: 40,
             },
         },
     }, );
+</script>
 
-    </script>
+   
     @endpush

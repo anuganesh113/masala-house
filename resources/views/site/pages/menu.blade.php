@@ -193,7 +193,7 @@
             </div>
         </div>
         <div class="grab__box itemgrab__box">
-            <div class="owl-carousel owl-theme family family__carousel">
+            <div class="owl-carousel owl-theme family family__carouselss">
                 @include("site.includes.menu-slider")
             </div>
         </div>

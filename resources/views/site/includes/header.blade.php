@@ -7,14 +7,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <meta name="google-site-verification" content="PVElXv82RpomDLSiiyhvSw8In_ACNXiFC_y-l6RwEXA" />
-<!-- Google Tag Manager --> 
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': 
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], 
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); 
-})(window,document,'script','dataLayer','GTM-K8WJ7LSJ');</script> 
-<!-- End Google Tag Manager -->
+  <meta name="google-site-verification" content="PVElXv82RpomDLSiiyhvSw8In_ACNXiFC_y-l6RwEXA" />
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-K8WJ7LSJ');
+  </script>
+  <!-- End Google Tag Manager -->
 
   @stack('seo-share')
 
@@ -35,6 +46,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- css -->
   <link rel="stylesheet" href="{{ asset('site-assets/css/style.css?v1.1') }}">
   <style>
+    .openpop-btn:hover {
+
+      background-color: #FF6F00;
+      border-color: inherit !important;
+
+    }
+
+    .openinghourspop ul li {
+      text-align: justify;
+      text-align-last: left;
+      /* Last line aligns left */
+      font-size: larger;
+    }
+
+    .openinghourspop h6,
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: #FF6F00;
+
+    }
 
     /* .dfdsfdsf.family__carousel .owl-stage-outer .owl-stage .owl-item.cloned {
   width: 540px !important;
@@ -141,12 +174,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         text-align: center !important;
       }
     }
-  @media (max-width: 1155px) {
-        .menu__item {
+
+    @media (max-width: 1155px) {
+      .menu__item {
         top: 4.375rem !important;
 
       }
-      }
+    }
 
 
 
@@ -214,10 +248,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     @media only screen and (min-width: 1550px) {
-           .gallery__boxres{
+      .gallery__boxres {
         padding: 0 20px;
-}
-}
+      }
+    }
   </style>
   @stack('header')
 

@@ -60,14 +60,16 @@
          </div>
          <div class="col-lg-12  ">
             <div class="footer__middle">
-               <div class="box">
+               <div class="box section__title ">
                   <h2>Opening Hours</h2>
                   <p>Monday - Sunday</p>
-                  <p>10AM - 10PM</p>
+                 
+                  @include('components.site._openingpopup')
+               
                </div>
                <div class="box">
                   <h2>Book a Table</h2>
-                  <p>{{ data_get($setting, 'footer_text') }}</p>
+                  <p>{!! data_get($setting, 'footer_text') !!}</p>
                   
                </div>
                <div class="box">
@@ -82,7 +84,7 @@
       <div class="footer__middle footer__middle--mb d-lg-none">
          <div class="box">
             <h2>Book a Table</h2>
-            <p>{{ data_get($setting, 'footer_text') }}</p>
+            <p>{!! data_get($setting, 'footer_text') !!}</p>
          </div>
       </div>
       <div class="footer__bottom">

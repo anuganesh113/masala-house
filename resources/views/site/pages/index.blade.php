@@ -67,7 +67,7 @@
         <h2>Family Together</h2>
         @include("site.includes.scroll")
     </div>
-    <div class="owl-carousel owl-theme family__carousel">
+    <div class="owl-carousel owl-theme family__carouselss">
         @include("site.includes.menu-slider")
 
     </div>
