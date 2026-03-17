@@ -49,7 +49,7 @@
 
 
     $('.family__carouselss').owlCarousel({
-        loop: false,
+        loop: true,
         margin: 30,
         responsiveClass: true,
         autoplay: true,
