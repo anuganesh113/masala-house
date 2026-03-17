@@ -54,7 +54,7 @@
         responsiveClass: true,
         autoplay: true,
         autoplayHoverPause: true,
-        autoplaySpeed: 400,
+        autoplaySpeed: 2000,
         lazyLoad: true,
         navText: [
             '<i class="fas fa-chevron-left"></i>',
