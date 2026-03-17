@@ -95,7 +95,7 @@
                                             <div class="item">
                                                 @foreach ($category->menus as $menu)
                                                     <div class="menuFlex__card dnone">
-                                                        <div class="menuFlex__card--img d-lg-none">
+                                                        <div class="menuFlex__card--img d-lg-none mobile-menu mb-2">
                                                             <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
                                                                 alt="{{ $menu->name }}">
                                                         </div>
@@ -107,42 +107,19 @@
                                                                 <span class="price">${{ $menu->price }} <br>
 
                                                             </div>
-                                                            <div class="menuFlex__card--content dnone" >
+                                                            <div class="menuFlex__card--content dnone dcontent" >
                                                                 <div class="menuFlex__card--text d-block popular_cont">
                                                                  
                                                                         {!! $menu->excerpt ?? '<P> no description available</P> ' !!}
 
-                                                                    <!-- <div class="menuFlex__card--quantity d-lg-none mt-4">
-                                                                        <h5>Quantity</h5>
-                                                                        <div class="box d" data-quantity="">
-                                                                            <button class="quantity-btn" data-quantity-minus="">
-                                                                                <i class='bx bx-minus'></i>
-                                                                            </button>
-                                                                            <input type="number" class="quantity-input"
-                                                                                data-quantity-target="" value="1" step="1" min="1"
-                                                                                max="" name="quantity" />
-                                                                            <button class="quantity-btn" data-quantity-plus="">
-                                                                                <i class='bx bx-plus'></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div> -->
+                   
                                                                 </div>
-                                                                <div class="menuFlex__card--quantity">
-                                                            <!-- <div class="box d-none d-lg-flex" data-quantity="">
-                                                            <button class="quantity-btn" data-quantity-minus="">
-                                                            <i class='bx bx-minus'></i>
-                                                            </button>
-                                                            <input type="number" class="quantity-input"
-                                                            data-quantity-target="" value="1" step="1" min="1" max=""
-                                                            name="quantity" />
-                                                            <button class="quantity-btn" data-quantity-plus="">
-                                                            <i class='bx bx-plus'></i>
-                                                            </button>
-                                                            </div> -->
-                                                                    <span class="cat {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
+                                                                <div class="menuFlex__card--quantity orderdiv">
+                                     
+                                                                    <span class="cat catvegg {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
                                                                     <span>
                                                                         <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank"
-                                                                            class="order-now-btn2 boxshadow wtc "
+                                                                            class="order-now-btn2 boxshadow wtc men-ord"
                                                                             style="margin-top: 20px; display: block;">Order Now </a>
                                                                     </span>
                                                                 </div>
@@ -157,7 +134,6 @@
 
                                             <!-- @include("site.includes.menu-flex") -->
                                         </div>
-                                        <!-- <a href="{{ url('checkout') }}" class="l__button l__button--primary">complete order</a> -->
                                     </div>
                                 </div>
                             </div>
