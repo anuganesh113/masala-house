@@ -1,7 +1,7 @@
 @foreach ($categories->take(1) as $category)
    @foreach ($category->menus->take(4) as $menu)
       <div class="item" style="margin-right: -20px;">
-         <div class="menu__card menu__card--family">
+         <div class="menu__card menu__card--family" style="width: 95%;">
             <div class="menu__card--img">
                <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">
                   <img class="owl-lazy"
@@ -40,3 +40,63 @@
       </div>
    @endforeach
 @endforeach
+
+@push('footer')
+
+
+<!-- owl carousel family__carousel script -->
+<script>
+
+
+    $('.family__carouselss').owlCarousel({
+        loop: false,
+        margin: 30,
+        responsiveClass: true,
+        autoplay: true,
+        autoplayHoverPause: true,
+        autoplaySpeed: 400,
+        lazyLoad: true,
+        navText: [
+            '<i class="fas fa-chevron-left"></i>',
+            '<i class="fas fa-chevron-right"></i>'
+        ],
+        responsive: {
+            0: {
+                items: 1,
+                dots: true,
+                nav: false,
+                // margin: 15,
+            },
+                627: {
+                items: 2,
+                dots: true,
+                nav: false,
+            },
+            767: {
+                items: 2,
+                dots: true,
+                nav: false,
+            },
+            1000: {
+                items: 3,
+                dots: true,
+                nav: false,
+            },
+            1200: {
+                items: 3,
+                dots: true,
+                nav: false,
+                // margin: 40,
+            },
+            1300: {
+                items: 3,
+                dots: true,
+                nav: false,
+                // margin: 40,
+            },
+        },
+    }, );
+</script>
+
+   
+    @endpush

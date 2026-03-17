@@ -33,6 +33,8 @@ class SettingRequest extends FormRequest
             'metadata.pan_no' => 'PAN number',
             'metadata.google_map_address' => 'Google map address',
             'metadata.google_map_iframe' => 'Google map iframe',
+            'metadata.opening_hours' => 'Opening Hours',
+
             'metadata.title.*' => 'Title',
             'metadata.count.*' => 'Count',
             'metadata.unit.*' => 'Unit',
@@ -56,6 +58,8 @@ class SettingRequest extends FormRequest
             'phone' => ['nullable'],
             'footer_text' => ['nullable', 'max:1000'],
             'metadata.google_map_address' => ['nullable', 'url', 'max:1000'],
+            'metadata.opening_hours' => ['nullable'],
+
             'metadata.google_map_iframe' => ['nullable', 'max:1000'],
             'metadata.title.*' => ['nullable', 'max:255'],
             'metadata.count.*' => ['nullable', 'max:255'],
@@ -78,6 +82,8 @@ class SettingRequest extends FormRequest
                 'pan_no' => data_get($this, 'metadata.pan_no'),
                 'google_map_address' => data_get($this, 'metadata.google_map_address'),
                 'google_map_iframe' => data_get($this, 'metadata.google_map_iframe'),
+                'opening_hours' => data_get($this, 'metadata.opening_hours'),
+
                 'title' => data_get($this, 'metadata.title'),
                 'count' => data_get($this, 'metadata.count'),
                 'unit' => data_get($this, 'metadata.unit'),
