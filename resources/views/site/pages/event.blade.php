@@ -44,7 +44,12 @@
                                     next big Event </p>
                             </div>
                             <div class="content">
-                                <p>Masala House was founded in 2015 by Chef Raj Sharma with a simple mission: to bring the authentic flavors of India to Pittsburg, California. Born and raised in Delhi, Chef Raj learned the art of Indian cooking from his grandmother, who taught him the importance of freshly ground spices and traditional cooking techniques</p>
+                                <p>Masala House was founded in 2015 by Chef Raj Sharma with a 
+                                    simple mission: to bring the authentic flavors of India to Pittsburg, 
+                                    California. Born and raised in Delhi, 
+                                    Chef Raj learned the art of Indian cooking from his grandmother,
+                                     who taught him the importance of freshly ground spices and 
+                                     traditional cooking techniques</p>
                             </div>
                             <div class="box">
                                 <h3>Service Contains</h3>
@@ -60,10 +65,11 @@
                                     next big Event </p>
                             </div>
                             <div class="content">
-                                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                    when an unknown printer took a galley of type and scrambled it to make a type
-                                    specimen book. It has survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged. It was popularis</p>
+                                <p>Masala House locations  offer specialized event services, 
+                                    including private celebrations, weddings, anniversaries, 
+                                    and corporate gatherings, featuring bespoke menus and tailored catering.
+                                     Venues often highlight rooftop views, live music, and themed nights 
+                                     like High Tea Buffets, retro nights, or curated wine dinners</p>
                             </div>
                             <div class="box">
                                 <h3>Service Contains</h3>
@@ -79,10 +85,11 @@
                                     next big Event </p>
                             </div>
                             <div class="content">
-                                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                    when an unknown printer took a galley of type and scrambled it to make a type
-                                    specimen book. It has survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged. It was popularis</p>
+                                <p>Marking the moments on everyone's calendar. 
+                                    Our Festive Events are designed to capture the spirit of the holidays 
+                                    and special seasonal occasions. With themed décor, custom menus,
+                                     and an atmosphere charged with excitement, we ensure your guest
+                                      list feels the magic of the moment.</p>
                             </div>
                             <div class="box">
                                 <h3>Service Contains</h3>
@@ -98,10 +105,14 @@
                                     next big Event </p>
                             </div>
                             <div class="content">
-                                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                    when an unknown printer took a galley of type and scrambled it to make a type
-                                    specimen book. It has survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged. It was popularis</p>
+                                <p>
+                              Life’s most important milestones, celebrated your way. From the first birthday 
+                              to the golden anniversary, we provide the setting for the moments that matter most.
+                                 We believe that life is a collection of moments worth celebrating.
+                                  Our "Personal Events" category is dedicated to the gatherings that
+                                   fill our hearts—birthday dinners, anniversary parties, engagement celebrations,
+                                    and everything in between. We handle the atmosphere so you can focus on the people
+                                </p>
                             </div>
                             <div class="box">
                                 <h3>Service Contains</h3>
