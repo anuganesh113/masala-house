@@ -127,6 +127,11 @@
       bottom: -5px;
     }
 
+       .org_color {
+      color: #FF6F00 !important;
+         font-size: x-large;
+    }
+
     .menu_price_color {
       color: #FF6F00 !important;
       font-size: 1.5rem !important;

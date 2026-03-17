@@ -1,4 +1,4 @@
-<h2 class="openinghours">ALL Hours</h2>
+<h2 class="openinghours"><i class="fa-solid fa-arrow-right org_color" ></i>Click Here </h2>
 <div class="modal fade" id="openinghours" tabindex="-1" aria-labelledby="openinghoursLabel" aria-hidden="true">
    <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
