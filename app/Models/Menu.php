@@ -43,14 +43,14 @@ class Menu extends Model
         'seo',
     ];
 
-    protected static function booted(): void
-    {
-        parent::boot();
+    // protected static function booted(): void
+    // {
+    //     parent::boot();
 
-        self::creating(static function ($menu): void {
-            $menu->slug = Str::slug($menu->name);
-        });
-    }
+    //     self::creating(static function ($menu): void {
+    //         $menu->slug = Str::slug($menu->name);
+    //     });
+    // }
 
     public function category(): BelongsTo
     {

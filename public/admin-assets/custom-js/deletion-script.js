@@ -107,6 +107,7 @@ function deleteBanners(id){
 }
 
 
+
 function deleteBlogs(id){
     if (confirm(`Are You Sure Want To Delete ?`)) {
         $.ajax({

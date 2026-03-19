@@ -13,7 +13,6 @@ if (!function_exists('setting')) {
     {
         return Setting::first();
     }
-
 }
 
 if (!function_exists('appName')) {
@@ -42,6 +41,7 @@ if (!function_exists('adminProfileUrl')) {
         return asset(sprintf('%s%s', UploadFilePath::ADMINS_PATH, General::DEFAULT_ADMIN));
     }
 }
+
 
 if (!function_exists('allowedExtensions')) {
     function allowedExtensions(array $extensions, string $type = 'image'): string
@@ -100,7 +100,13 @@ if (!function_exists('getYoutubeVideoIdFromLink')) {
 if (!function_exists('requesturl')) {
     function requesturl(): string
     {
-        return 'https://www.clover.com/online-ordering/masala-house-concord';
+        $settings = setting(); // Call the function first
+
+        if (isset($settings) && data_get($settings, 'social.ordernow')) {
+            return data_get($settings, 'social.ordernow');
+        } else {
+            return request()->url();
+        }
     }
 }
 if (!function_exists('footerPages')) {
@@ -113,8 +119,6 @@ if (!function_exists('footerPages')) {
             ->orderBy('order')
             ->get();
     }
-
-
 }
 
 if (!function_exists('checkVegetarian')) {
@@ -129,9 +133,32 @@ if (!function_exists('checkVegetarian')) {
 }
 
 
+if (!function_exists('cssnonveg')) {
+    function cssnonveg($item): bool|string
+    {
+        if (isset($item) && $item == 'veg') {
+            return '';
+        }
+
+        return 'cssnonveg';
+    }
+}
 
 
 
 
+
+function getidVideo($link)
+{
+    // Regex pattern to match YouTube video IDs from common URL formats
+    $pattern = '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/|youtube\.com\/shorts\/)([^"&?\/\s]{11})/i';
+
+    if (preg_match($pattern, $link, $matches)) {
+        // The video ID is captured in the first capturing group
+        return isset($matches[1]) ? $matches[1] : null;
+    }
+    
+    return 'Ggngkm9qgdw';
+}
 
 

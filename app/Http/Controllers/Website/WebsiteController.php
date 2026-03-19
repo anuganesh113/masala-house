@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Website;
 use App\Constants\General;
 use App\Enums\Pagination;
 use App\Http\Controllers\BaseController;
+use App\Mail\Contact;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Inquiry;
+use App\Models\Menu;
 use App\Models\Page;
 use App\Services\WebsiteService;
 use Illuminate\Contracts\View\View;
@@ -36,15 +39,25 @@ class WebsiteController extends BaseController
         }
 
         $data = $this->websiteService->page($page);
-   
-     
+
+
 
         return view(sprintf('site.pages.%s', data_get($page, 'template', 'common-page')), $data);
     }
 
     public function blog(string $slug): View|RedirectResponse
     {
-        $data['categories'] = Category::query()->get();
+      
+        $data['recentBlogs'] = Blog::where('slug', '!=', $slug)->where('status',1)
+                                    ->orderBy('created_at', 'desc')
+                                    ->limit(5)
+                                    ->get();
+
+      $data['categories'] = Category::with(['menus' => function ($query) {
+            $query->status();
+        }])->get();
+       $data['menus'] = Menu::with('category')->status()->get();
+
         $blog = Blog::query()->status()
             ->where(['slug' => $slug])
             ->firstOrFail();
@@ -63,27 +76,76 @@ class WebsiteController extends BaseController
             ->take(Pagination::SMALL_PAGE)
             ->get();
 
-        return view('site.pages.blog', [
-            ...$data,
+        return view('site.pages.blog', [...$data,
             'blog' => $blog,
         ]);
     }
 
     public function cateringBooking(Request $request)
     {
-       
+        $inquiry = new Inquiry();
+        $inquiry->metadata = json_encode($request->catering);
+        $inquiry->save();
+        $settingdata = $this->websiteService->settings();
         $details = [
-            'namecatering' => $request->namecatering,
-            'name' => $request->name,
+            'data' =>  json_decode($inquiry->metadata, true),
+            'email' => json_decode($inquiry->metadata, true)['email'],
+            'metadata' => $settingdata->metadata,
+            'social' => $settingdata->social,
+            'phone' => $settingdata->phone,
+            'address' => $settingdata->address,
+            'siteemail' => $settingdata->email,
+            'website' => 'https://masalahousepittsburg.com/',
 
-            'email' => $request->email,
 
-            'date' => $request->date,
-            'time' => $request->time,
-            'persons' => $request->Number_of_persons,
-            'phone' => $request->phone,
         ];
-       Mail::to($request->email)->send(new \App\Mail\Contact($details));
-         return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
+        Mail::to('info@masalahousepittsburg.com')->cc($details['email'])->send(new \App\Mail\Contact($details));
+        return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
+    }
+
+
+    public function tablebook(Request $request)
+    {
+
+        $inquiry = new Inquiry();
+        $inquiry->metadata = json_encode($request->table);
+        $inquiry->save();
+
+        $settingdata = $this->websiteService->settings();
+        $details = [
+            'data' =>  json_decode($inquiry->metadata, true),
+            'email' => json_decode($inquiry->metadata, true)['email'],
+            'metadata' => $settingdata->metadata,
+            'social' => $settingdata->social,
+            'phone' => $settingdata->phone,
+            'address' => $settingdata->address,
+            'siteemail' => $settingdata->email,
+            'website' => app()->make('url')->to('/'),
+
+        ];
+        Mail::to('info@masalahousepittsburg.com')->cc($details['email'])->send(new \App\Mail\Contact($details));
+        return redirect()->back()->with('success', 'Successfull!  We will inform you soon');
+    }
+
+
+    public function contactsave(Request $request)
+    {
+        $settingdata = $this->websiteService->settings();
+        $inquiry = new Inquiry();
+        $inquiry->metadata = json_encode($request->contact);
+        $inquiry->save();
+        $details = [
+            'data' =>  json_decode($inquiry->metadata, true),
+            'email' => json_decode($inquiry->metadata, true)['email'],
+            'metadata' => $settingdata->metadata,
+            'social' => $settingdata->social,
+            'phone' => $settingdata->phone,
+            'siteemail' => $settingdata->email,
+            'website' => app()->make('url')->to('/'),
+
+        ];
+
+        Mail::to('info@masalahousepittsburg.com')->cc($details['email'])->send(new \App\Mail\Contact($details));
+        return redirect()->back()->with('success-msg', 'Successfull!  We will inform you soon');
     }
 }

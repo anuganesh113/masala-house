@@ -1,9 +1,9 @@
 @foreach ($categories->take(1) as $category)
    @foreach ($category->menus->take(4) as $menu)
       <div class="item" style="margin-right: -20px;">
-         <div class="menu__card menu__card--family">
+         <div class="menu__card menu__card--family" style="width: 95%;">
             <div class="menu__card--img">
-               <a href="{{ requesturl() }}">
+               <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">
                   <img class="owl-lazy"
                      data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
                      alt="{{ $menu->name }}">
@@ -26,17 +26,77 @@
             <div class="menu__card--content">
                <div class="menu__card--header">
                   <h3>
-                     <a href="{{ requesturl() }}">{{ $menu->name }}</a>
+                     <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">{{ $menu->name }}</a>
                   </h3>
                   <div class="menu__card--price">${{ $menu->price }}</div>
                </div>
                {!! $menu->excerpt ?? '<p>no description available</p> ' !!}
                <div class="menu__card--footer">
-                  <span class="cat veg-btn">{{ checkVegetarian($menu->type) }}</span>
-                  <a class="menu__card--cta order-now-btn"  style="margin-left: -10px;"  href="{{ requesturl() }}">Order Now</a>
+                  <span class="cat veg-btn bt-fr {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
+                  <a class="menu__card--cta order-now-btn  mr-l wtc"  href="{{ requesturl() . '/' . $menu->slug  }}"  target="_blank">Order Now</a>
                </div>
             </div>
          </div>
       </div>
    @endforeach
 @endforeach
+
+@push('footer')
+
+
+<!-- owl carousel family__carousel script -->
+<script>
+
+
+    $('.family__carouselss').owlCarousel({
+        loop: true,
+        margin: 30,
+        responsiveClass: true,
+        autoplay: true,
+        autoplayHoverPause: true,
+        autoplaySpeed: 2000,
+        lazyLoad: true,
+        navText: [
+            '<i class="fas fa-chevron-left"></i>',
+            '<i class="fas fa-chevron-right"></i>'
+        ],
+        responsive: {
+            0: {
+                items: 1,
+                dots: true,
+                nav: false,
+                // margin: 15,
+            },
+                627: {
+                items: 2,
+                dots: true,
+                nav: false,
+            },
+            767: {
+                items: 2,
+                dots: true,
+                nav: false,
+            },
+            1000: {
+                items: 3,
+                dots: true,
+                nav: false,
+            },
+            1200: {
+                items: 3,
+                dots: true,
+                nav: false,
+                // margin: 40,
+            },
+            1300: {
+                items: 3,
+                dots: true,
+                nav: false,
+                // margin: 40,
+            },
+        },
+    }, );
+</script>
+
+   
+    @endpush

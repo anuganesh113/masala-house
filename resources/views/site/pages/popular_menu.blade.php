@@ -13,8 +13,8 @@
                                 @foreach ($category->menusOrdered->take(4) as $item)
                                     <div class="menuFlex__card">
                                         <div class="img d-lg-none">
-                                            <img src="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::CATEGORIES_PATH, data_get($category, 'image'))) }}"
-                                                class="img-2" alt="">
+                                            <img src="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::MENUS_PATH, data_get($item, 'image'))) }}"
+                                                class="img-2" alt="{{$item->name}}">
                                         </div>
                                         <div class="contents">
                                             <div class="menuFlex__card--title">
@@ -25,8 +25,9 @@
                                                 <p class="text">
                                                     {!!strip_tags(substr($item->excerpt, 0, 180))!!}
                                                 </p>
-                                                <a class="order-btn" href="{{ requesturl() }}">order now</a>
-                                                <span class="cat bg-green" style="float: right;">{{ checkVegetarian($item->type) }}</span>
+                                                <span class="cat bg-green bt-fr">{{ checkVegetarian($item->type) }}</span>
+
+                                                <a class="order-btn wtc" href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">order now</a>
 
                                             </div>
                                      
@@ -53,8 +54,8 @@
                                                     {!!strip_tags(substr($item->excerpt, 0, 180))!!}
 
                                                 </p>
-                                                <a href="{{ requesturl() }}">order now</a>
-                                                <span class="cat bg-green" style="float: right;">{{ checkVegetarian($item->type) }}</span>
+                                                <a class="wtc" href="{{ requesturl() }}" target="_blank">order now</a>
+                                                <span class="cat bg-green bt-fr {{cssnonveg($item->type)}}">{{ checkVegetarian($item->type) }}</span>
 
                                             </div>
                                         </div>

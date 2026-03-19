@@ -8,7 +8,9 @@ use App\Http\Controllers\BaseController;
 use App\Models\Contact;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -33,5 +35,13 @@ class ContactController extends BaseController
         $contact->delete();
 
         return $this->jsonResponse(General::TRUE, Message::CONTACT_MESSAGE['DELETE_SUCCESS'], Response::HTTP_ACCEPTED);
+    }
+
+     public function messageSeen(Request $request,  $id)
+    {
+        $contact = $this->contactModel->find($id);
+        $contact->update(['seen' => true]);
+
+        return  Redirect::back()->with('success', 'Message marked as seen');
     }
 }

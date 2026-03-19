@@ -13,11 +13,13 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\EditorUploadController;
 use App\Http\Controllers\Admin\FacilityController;
+use App\Http\Controllers\Admin\FAQController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\InquiryController;
 use App\Http\Controllers\Admin\MemberMessageController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\PopupController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TestimonialController;
@@ -67,12 +69,21 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
         $route->get('dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
 
         $route->resource('admins', AdminController::class)->except(['show']);
+        // $route->resource('faqs', FAQController::class)->except(['show']);
+
 
         $route->resource('advertises', AdvertiseController::class)->except(['show']);
 
         $route->resource('blogs', BlogController::class)->except(['show']);
 
         $route->resource('banners', BannerController::class)->except(['show']);
+        $route->resource('popups', PopupController::class)->except(['show']);
+        $route->resource('videos', PopupController::class)->except(['show']);
+         $route->get('videos', [PopupController::class, 'videoindex'])->name('videos.index');
+        $route->post('videos/create', [PopupController::class, 'videocreate'])->name('videos.create');
+
+        
+
 
         $route->resource('brands', BrandController::class)->except(['show']);
 
@@ -81,6 +92,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
             $route->get('contacts', 'index')->name('contacts');
             $route->get('contact/{contact}/view', 'create')->name('contact.view');
             $route->post('contact/{contact}/delete', 'delete')->name('contact.delete');
+           
+            $route->get('contact/{id}/seen', 'messageSeen')->name('contact.messageSeen');
         });
 
         /********************************** Courses Controller Route ********************************/

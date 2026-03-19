@@ -26,6 +26,8 @@ final class UploadFilePath extends Enum
     const GALLERIES_PATH = 'uploads/galleries/';
 
     const MEMBERS_PATH = 'uploads/members/';
+    const BRANDS_PATH = 'uploads/brands/';
+
 
     const MENUS_PATH = 'uploads/menus/';
     const CATEGORIES_PATH = 'uploads/categories/';
@@ -40,4 +42,5 @@ final class UploadFilePath extends Enum
     const TESTIMONIALS_PATH = 'uploads/testimonials/';
 
     const LOGO_PATH = 'uploads/logo/';
+    const POPUPS_PATH = 'uploads/popups/';
 }

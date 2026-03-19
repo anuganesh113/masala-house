@@ -40,7 +40,7 @@
                                 <select class="form-control m-input m-input--square" name="member_message_id">
                                     <option selected value="">-- SELECT --</option>
                                     @foreach($members??[] as $value)
-                                        <option value="{{ $value->id }}" @checked([$value->id == $testimonial->member_message_id])>
+                                        <option value="{{ $value->id }}" {{ $value->id == $testimonial->member_message_id ? 'selected' : '' }}>
                                             {{ ucwords($value->name) }}
                                         </option>
                                     @endforeach
@@ -57,7 +57,7 @@
 
                         <div class="form-group m-form__group">
                             <label>Message<span class="text-danger">*</span></label>
-                            <textarea class="tinymce form-control m-input" name="message"
+                            <textarea class="summernote_reg form-control m-input" name="message"
                                       rows="15">{{ old('message') ?? $testimonial->message }}</textarea>
                         </div>
 
@@ -95,6 +95,6 @@
 @endsection
 
 @push("footer")
-    <script src="https://cdn.tiny.cloud/1/{{ env('TINYMCE_API_KEY') }}/tinymce/5/tinymce.min.js" referrerpolicy="origin" defer></script>
-    <script src="{{ asset('admin-assets/custom-js/tinymce-script.js') }}" defer></script>
+    <script src="https://cdn.tiny.cloud/1/{{ env('summernote_reg_API_KEY') }}/summernote_reg/5/summernote_reg.min.js" referrerpolicy="origin" defer></script>
+    <script src="{{ asset('admin-assets/custom-js/summernote_reg-script.js') }}" defer></script>
 @endpush

@@ -35,8 +35,8 @@
                                 <h2>Food Tray Service</h2>
                             </div>
                             <div class="content">
-                                <p>Perfect for DIY events in Concord and the East Bay, you can order freshly
-                                    prepared food trays, ready to serve at your Concord location. Choose from a
+                                <p>Perfect for DIY events in Pittsburg and the East Bay, you can order freshly
+                                    prepared food trays, ready to serve at your Pittsburg location. Choose from a
                                     variety of authentic Indian and Nepali dishes, with pricing based on tray size.
                                     Delivery is available throughout Contra Costa and the surrounding areas, making
                                     it easy to enjoy flavorful cuisine at your next gathering.</p>
@@ -46,12 +46,15 @@
                                 @include("site.includes.events-faq")
                             </div>
                             <div class="btn__group">
-                                <button class="l__button l__button--primary">Reserve</button>
+                                <!-- <button class="l__button l__button--primary">Reserve</button> -->
                                 <!-- <button class="l__button l__button--secondary" data-name="Food Tray Service">Contact us</button> -->
 
-                                <a href="" class="l__button l__button--secondary bookacatering"
+                                <a href="" class="l__button l__button--primary bookacatering"
                                  data-name="Food Tray Service"
-                                data-bs-toggle="modal" data-bs-target="#bookacatering">Contact us</a>
+                                data-bs-toggle="modal" data-bs-target="#bookacatering">Reserve</a>
+                                <a href="/contact" class="l__button l__button--secondary" target="_blank"> Contact us </a>
+
+
                                 
                             </div>
                         </div>
@@ -74,8 +77,8 @@
                                 <h2>Food Tray</h2>
                             </div>
                             <div class="content">
-                                <p>Perfect for DIY events in Concord and the East Bay, you can order freshly
-                                    prepared food trays, ready to serve at your Concord location. Choose from a
+                                <p>Perfect for DIY events in Pittsburg and the East Bay, you can order freshly
+                                    prepared food trays, ready to serve at your Pittsburg location. Choose from a
                                     variety of authentic Indian and Nepali dishes, with pricing based on tray size.
                                     Delivery is available throughout Contra Costa and the surrounding areas, making
                                     it easy to enjoy flavorful cuisine at your next gathering.</p>
@@ -85,10 +88,11 @@
                                 @include("site.includes.events-faq")
                             </div>
                             <div class="btn__group">
-                                <button class="l__button l__button--primary">Reserve</button>
-                                 <a href="" class="l__button l__button--secondary bookacatering"
+                                <!-- <button class="l__button l__button--primary">Reserve</button> -->
+                                 <a href="" class="l__button l__button--primary bookacatering"
                                  data-name="Food Tray"
-                                data-bs-toggle="modal" data-bs-target="#bookacatering">Contact us</a>
+                                data-bs-toggle="modal" data-bs-target="#bookacatering">Reserve</a>
+                                    <a href="/contact" class="l__button l__button--secondary" target="_blank"> Contact us </a>
                             </div>
                         </div>
                     </div>
@@ -115,10 +119,11 @@
     <div class="container">
         <div class="section__title catering__title text-center">
             <h5>Welcome to Masala House Catering!</h5>
-            <h2>Why Choose Our Concord Catering Services</h2>
-            <p>Experience the best of Indian and Nepali catering with Masala House in Concord, CA</p>
+            <h2>Why Choose Our Pittsburg Catering Services</h2>
+            <p>Experience the best of Indian and Nepali catering with Masala House in Pittsburg, CA</p>
         </div>
     </div>
+    
     <div class="container-fluid">
         <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-xxl-5 g-4">
 
@@ -158,7 +163,7 @@
                 <div class="area__card">
                     <h3>Central County</h3>
                     <ul>
-                        <li>Concord</li>
+                        <li>Pittsburg</li>
                         <li>Pleasant Hill</li>
                         <li>Walnut Creek</li>
                         <li>Clayton</li>
@@ -182,7 +187,7 @@
                 <div class="area__card">
                     <h3>South County</h3>
                     <ul>
-                        <li>Concord</li>
+                        <li>Pittsburg</li>
                         <li>Pleasant Hill</li>
                         <li>Walnut Creek</li>
                         <li>Clayton</li>
@@ -226,81 +231,20 @@
         </div>
     </div>
     <div class="map">
-        {!! data_get($setting, 'metadata.google_map_iframe') !!}
+     <iframe src=" {!! data_get($setting, 'metadata.google_map_iframe') !!}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </section>
 <!-- our location section end -->
 
 
-
-<div class="modal fade bookingForm" id="bookacatering" tabindex="-1" aria-labelledby="bookatableModalLabel" aria-hidden="true">
-   <div class="modal-dialog modal-dialog-centered modal-xl">
-      <div class="modal-content">
-         <div class="modal-body">
-            <form action="{{ route('site.catering.booking') }}" method="post" class="form">
-                @csrf
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class='bx bx-x'></i></button>
-               <h5>Reservation</h5>
-               <input name="namecatering" value="" id="namecatering" type="hidden">
-               <h2>book a catering service</h2>
-               <div class="form__group">
-                  <label for="" class="form-label">Your name</label>
-                  <input type="text" class="form-control" name="name" placeholder="Your name" required>
-               </div>
-                    <div class="form__group">
-                  <label for="" class="form-label">Your Email</label>
-                  <input type="email" class="form-control" name="email" placeholder="Your email" required>
-               </div>
-               <div class="form__group">
-                  <label for="" class="form-label">Select date</label>
-                  <input type="date" class="form-control" name="date" placeholder="Select date">
-               </div>
-               <div class="form__group">
-                  <label for="" class="form-label">Select time</label>
-                  <input type="time" class="form-control" name="time" placeholder="Select time">
-               </div>
-               <div class="form__group">
-                  <label for="" class="form-label">Number of persons</label>
-                  <select name="Number_of_persons" id="" class="form-select">
-                     <option value="">Number of persons</option>
-                     <option value="">1 - 2 persons</option>
-                     <option value="">2 - 5 persons</option>
-                     <option value="">5 - 10 persons</option>
-                  </select>
-               </div>
-               <div class="form__group">
-                  <label for="" class="form-label">Contact Number</label>
-                  <input type="text" class="form-control" name="phone" placeholder="Contact Number">
-               </div>
-               <div class="form__group">
-                  <div class="btn__group">
-                     <button type="submit" class="l__button l__button--primary">Book now</button>
-                    
-                  </div>
-               </div>
-            </form>
-         </div>
-      </div>
-   </div>
-</div>
-
+@include('site.pages.cateringpopup')
 
 
 @endsection
 
 @push('footer')
 
-<script>
-    $('.bookacatering').click(function(e) {
-        e.preventDefault();
-        var name = $(this).data('name');
-        $('#namecatering').val(name);
-        $('#bookacatering .modal-body h2').text('Book a ' + name);
-        $('#bookacatering').modal('show');
-    });
 
-
-    </script>
 <!-- owl carousel -->
 <script>
     $('.textSlider__carousel').owlCarousel({

@@ -52,4 +52,5 @@ class DBTables
     public const TESTIMONIALS = 'testimonials';
 
     public const USERS = 'users';
+    public const POPUPS = 'popups';
 }

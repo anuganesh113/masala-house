@@ -1,6 +1,13 @@
 @extends('site.layouts.layout')
-@section('page_title', config()->get('app.name'))
+@section('page_title',  'Menu')
 
+@push('header')
+<style>
+    .itemgrab__box{
+           padding-left:0.375rem; 
+    }
+    </style>
+@endpush
 @section('content')
 
     <!-- page banner start -->
@@ -24,12 +31,12 @@
         <section class="menu__item">
             <div class="container-fluid">
                 <div class="row align-items-center">
-                    <div class="col-xl-9">
+                    <div class="col-xl-12">
                         <div class="menu__box">
                             <ul class="nav" id="navbar">
                                 @foreach ($categories as $category)
                                     @if($category->menus->count() > 0)
-                                        <li class="">
+                                        <li class="" style="margin-right: inherit;">
                                             <a href="#menuNav{{ $loop->iteration }}" class="nav-links">
                                                 {{ $category->name }}
                                             </a>
@@ -42,11 +49,11 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-xl-3">
+                    <!-- <div class="col-xl-3">
                         <a href="{{ requesturl() }}" class="l__button l__button--primary">
                             <i class='bx bx-carts'></i> Order Now
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -56,7 +63,7 @@
                 <div class="menu__list" id="menuNav{{ $loop->iteration }}">
                     <div class="section__title text-center">
                         <div class="container">
-                            <h5>Missing Indian Street Food ?</h5>
+                            <h5>Missing Indian {{ $category->name }} ?</h5>
                             <h2>Checkout Our Delicious {{ $category->name }} Collection</h2>
                         </div>
                     </div>
@@ -87,10 +94,10 @@
 
                                             <div class="item">
                                                 @foreach ($category->menus as $menu)
-                                                    <div class="menuFlex__card">
-                                                        <div class="menuFlex__card--img d-lg-none">
-                                                            <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::CATEGORIES_PATH, data_get($menu, 'image'))) }}"
-                                                                alt="">
+                                                    <div class="menuFlex__card dnone">
+                                                        <div class="menuFlex__card--img d-lg-none mobile-menu mb-2">
+                                                            <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
+                                                                alt="{{ $menu->name }}">
                                                         </div>
                                                         <div class="menuFlex__card--box">
                                                             <div class="menuFlex__card--title">
@@ -100,42 +107,19 @@
                                                                 <span class="price">${{ $menu->price }} <br>
 
                                                             </div>
-                                                            <div class="menuFlex__card--content">
+                                                            <div class="menuFlex__card--content dnone dcontent" >
                                                                 <div class="menuFlex__card--text d-block popular_cont">
                                                                  
                                                                         {!! $menu->excerpt ?? '<P> no description available</P> ' !!}
 
-                                                                    <!-- <div class="menuFlex__card--quantity d-lg-none mt-4">
-                                                                        <h5>Quantity</h5>
-                                                                        <div class="box d" data-quantity="">
-                                                                            <button class="quantity-btn" data-quantity-minus="">
-                                                                                <i class='bx bx-minus'></i>
-                                                                            </button>
-                                                                            <input type="number" class="quantity-input"
-                                                                                data-quantity-target="" value="1" step="1" min="1"
-                                                                                max="" name="quantity" />
-                                                                            <button class="quantity-btn" data-quantity-plus="">
-                                                                                <i class='bx bx-plus'></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div> -->
+                   
                                                                 </div>
-                                                                <div class="menuFlex__card--quantity">
-                                                                    <!-- <div class="box d-none d-lg-flex" data-quantity="">
-                                                                                                                                                        <button class="quantity-btn" data-quantity-minus="">
-                                                                                                                                                            <i class='bx bx-minus'></i>
-                                                                                                                                                        </button>
-                                                                                                                                                        <input type="number" class="quantity-input"
-                                                                                                                                                            data-quantity-target="" value="1" step="1" min="1" max=""
-                                                                                                                                                            name="quantity" />
-                                                                                                                                                        <button class="quantity-btn" data-quantity-plus="">
-                                                                                                                                                            <i class='bx bx-plus'></i>
-                                                                                                                                                        </button>
-                                                                                                                                                    </div> -->
-                                                                    <span class="cat">{{ checkVegetarian($menu->type) }}</span>
+                                                                <div class="menuFlex__card--quantity orderdiv">
+                                     
+                                                                    <span class="cat catvegg {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
                                                                     <span>
-                                                                        <a href="{{ requesturl() }}" target="_blank"
-                                                                            class="order-now-btn2"
+                                                                        <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank"
+                                                                            class="order-now-btn2 boxshadow wtc men-ord"
                                                                             style="margin-top: 20px; display: block;">Order Now </a>
                                                                     </span>
                                                                 </div>
@@ -144,19 +128,12 @@
 
 
                                                     </div>
-                                                    <!-- <div style="float: right;position: relative;bottom: 30px;" >
-                                                                                                                                                                                                                                                                                            <a href="{{ requesturl() }}" class="l__button l__button--primary  br-btn pd-0-1 mb-2"
-                                                                                                                                                                                                                                                                                            style="position: inherit!important;"
-                                                                                                                                                                                                                                                                                            >Order Now</a>
-
-                                                                                                                                                                                                                                                                                    </div> -->
 
                                                 @endforeach
                                             </div>
 
                                             <!-- @include("site.includes.menu-flex") -->
                                         </div>
-                                        <!-- <a href="{{ url('checkout') }}" class="l__button l__button--primary">complete order</a> -->
                                     </div>
                                 </div>
                             </div>
@@ -185,14 +162,14 @@
                     <h2>Hyderabad</h2>
                 </div>
                 <div class="tet-end">
-                    <p> Enjoy our extensive lunch buffet featuring over 20 items including appetizers, main courses, and
+                    <p> Enjoy our extensive lunch  featuring over 20 items including appetizers, main courses, and
                         desserts
                     </p>
                 </div>
             </div>
         </div>
-        <div class="grab__box">
-            <div class="owl-carousel owl-theme family family__carousel">
+        <div class="grab__box itemgrab__box">
+            <div class="owl-carousel owl-theme family family__carouselss">
                 @include("site.includes.menu-slider")
             </div>
         </div>
@@ -202,8 +179,26 @@
 @endsection
 
 @push('footer')
-    <!-- owl carousel -->
-    <script>
+<script>
+//    $(document).ready(function() {
+//        $('html, body').animate({
+//            scrollTop: $('header').offset().top
+//        }, 0);
+//    });
+
+   $(document).ready(function() {
+
+       $('html, body').animate({
+           scrollTop: $('#menuNav1').offset().top
+       }, 0);
+       $('.nav-links').removeClass('active'); 
+       $('a[href="#menuNav1"]').addClass('active'); 
+   });
+
+
+</script>
+  <script>
+  
         $('.menuList__carousel').owlCarousel({
             loop: true,
             margin: 0,
@@ -280,42 +275,7 @@
                 $('.textSlider__carousel .owl-item').eq(current).addClass('is-center-active');
             });
 
-        $('.family__carousel').owlCarousel({
-            loop: true,
-            margin: 30,
-            responsiveClass: true,
-            autoplay: true,
-            autoplayHoverPause: true,
-            autoplaySpeed: 600,
-            lazyLoad: true,
-            navText: [
-                '<i class="fas fa-chevron-left"></i>',
-                '<i class="fas fa-chevron-right"></i>'
-            ],
-            responsive: {
-                0: {
-                    items: 1.5,
-                    dots: false,
-                    nav: false,
-                },
-                767: {
-                    items: 2.5,
-                    dots: false,
-                    nav: false,
-                },
-                1000: {
-                    items: 3.5,
-                    dots: false,
-                    nav: false,
-                },
-                1200: {
-                    items: 3.5,
-                    dots: false,
-                    nav: false,
-                    margin: 60,
-                },
-            },
-        },);
+ 
     </script>
 
 

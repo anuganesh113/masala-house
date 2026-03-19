@@ -31,7 +31,7 @@ class Setting extends Model
      */
     protected $fillable = [
         'name',
-        'logo',
+        'white_logo',
         'email',
         'address',
         'contact',
@@ -40,5 +40,6 @@ class Setting extends Model
         'metadata',
         'social',
         'seo',
+        'color_logo'
     ];
 }
