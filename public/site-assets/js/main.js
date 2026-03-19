@@ -107,7 +107,7 @@ $('.partner__carousel').owlCarousel({
   smartSpeed: 6000,
   dots: false,
   nav: false,
-  autoWidth:true,
+  autoWidth: true,
   responsive: {
     0: {
       items: 2,
@@ -117,6 +117,83 @@ $('.partner__carousel').owlCarousel({
     },
     1000: {
       items: 10,
+    },
+  },
+},
+);
+
+$('.family__carousel').owlCarousel({
+  loop: true,
+  margin: 40,
+  // responsiveClass: true,
+  autoplay: true,
+  // slideTransition: 'linear',
+  // autoplaySpeed: 6000,
+  // smartSpeed: 6000,
+  // dots: false,
+  // nav: true,
+  // autoWidth: true,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    600: {
+      items: 2,
+    },
+    1000: {
+      items: 3,
+    },
+  },
+},
+);
+
+$('.wholeMenu__carousel ').owlCarousel({
+  loop: true,
+  margin: 40,
+  // responsiveClass: true,
+  autoplay: true,
+  // slideTransition: 'linear',
+  // autoplaySpeed: 6000,
+  // smartSpeed: 6000,
+  // dots: false,
+  // nav: true,
+  // autoWidth: true,
+  responsive: {
+    0: {
+      items: 1,
+      margin: 20,
+    },
+    600: {
+      items: 2,
+    },
+    1000: {
+      items: 3,
+    },
+  },
+},
+);
+
+$('.wmenuList__carousel').owlCarousel({
+  loop: true,
+  margin: 40,
+  // responsiveClass: true,
+  autoplay: true,
+  // slideTransition: 'linear',
+  // autoplaySpeed: 6000,
+  // smartSpeed: 6000,
+  // dots: false,
+  // nav: true,
+  // autoWidth: true,
+  responsive: {
+    0: {
+      items: 1,
+      margin: 20,
+    },
+    600: {
+      items: 2,
+    },
+    1000: {
+      items: 3,
     },
   },
 },

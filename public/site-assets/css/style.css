@@ -435,6 +435,10 @@ img {
   right: 100%;
 }
 
+.owl-dots {
+  display: none;
+}
+
 .owl-dots button span {
   height: 0.25rem !important;
   width: 3.75rem !important;
@@ -6555,3 +6559,9 @@ img {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+@media (max-width: 767px) {
+  .owl-item .item {
+    padding: 10px !important;
+  }
+}

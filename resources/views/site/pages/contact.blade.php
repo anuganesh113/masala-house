@@ -80,7 +80,8 @@
             </div>
             <div class="col-lg-3 col-md-6">
                <div class="contact__info--box">
-                  <h2>Write to us</h2>
+                  
+               <h2>Write to us</h2>
                   <ul>
                      <li>
                         <a href="mailto:info@gmail.com">info@gmail.com</a>
@@ -94,6 +95,7 @@
             <div class="col-lg-3 col-md-6">
                <div class="contact__info--box">
                   <h2>Follow us</h2>
+
                   <ul>
                      <li>
                         <i class="fab fa-facebook-f"></i>
