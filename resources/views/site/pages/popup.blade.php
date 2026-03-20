@@ -2,7 +2,7 @@
    <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
          <div class="modal-body">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"><i class='bx bx-x'></i></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
             
          
             <h2>{{ data_get($popup, 'title') }}</h2>

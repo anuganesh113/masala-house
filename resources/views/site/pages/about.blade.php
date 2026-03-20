@@ -220,7 +220,7 @@
         </div>
     </div>
 
-    <div class="gallery__box gallery__boxres" >
+    <div class="menu__index gallery__box gallery__boxres" >
 
         <div class="owl-carousel owl-theme gallery__carousel">
             @foreach($galleries ?? [] as $image)
@@ -425,14 +425,14 @@
         responsive: {
             0: {
                 items: 1,
-                dots: true,
-                nav: false,
+                dots: false,
+                nav: true,
             },
 
                   500: {
-                items: 2,
-                dots: true,
-                nav: false,
+                items: 1,
+                dots: false,
+                nav: true,
             },
             767: {
                 items: 2,
