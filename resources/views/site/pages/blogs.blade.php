@@ -82,7 +82,7 @@
             </div>
         </div>
     </div>
-    <div class="video__box" style="padding: 0 50px;">
+    <div class="menu__index video__box" style="padding: 0 50px;">
         <div class="owl-carousel owl-theme video__carousel">
             @foreach($videos->metadata ?? []  as $key=>$link)
                <div class="item">
@@ -207,8 +207,8 @@
         responsive: {
             0: {
                 items: 1,
-                dots: true,
-                nav: false,
+                dots: false,
+                nav: true,
                 // margin: 15,
             },
                 627: {
