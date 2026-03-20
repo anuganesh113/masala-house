@@ -148,7 +148,8 @@
 
                                             </h3>
                                             <div class="exploreour" style="min-height: 50px;">
-                                               <p> {!! substr($item->excerpt, 0, 100) ?? 'No description available' !!}</p>
+                                         <p> {!! $item->excerpt ? substr($item->excerpt, 0, 100) : 'No Excerpt available' !!}</p>
+
                                             </div>
 
                                             <div class="menu__card--footer">
