@@ -428,6 +428,12 @@
                 dots: true,
                 nav: false,
             },
+
+                  500: {
+                items: 2,
+                dots: true,
+                nav: false,
+            },
             767: {
                 items: 2,
                 dots: true,
