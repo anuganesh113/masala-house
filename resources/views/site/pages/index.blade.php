@@ -150,7 +150,7 @@
                                             <div class="exploreour" style="min-height: 50px;">
                                              
 
-                                         <p> {!! $item->excerpt !!}</p>
+                                          {!! $item->excerpt !!}
                                             </div>
 
                                             <div class="menu__card--footer">
