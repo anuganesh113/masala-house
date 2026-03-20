@@ -150,7 +150,7 @@
                                             <div class="exploreour" style="min-height: 50px;">
                                              
 
-                                          {!! $item->excerpt !!}
+                                         <p> {!! $item->excerpt !!}</p>
                                             </div>
 
                                             <div class="menu__card--footer">
@@ -200,8 +200,7 @@
 
                                             </h3>
                                             <div class="exploreour" style="min-height: 50px;">
-                                                
-                                             {!! $item->excerpt  !!}
+                                            <p> {!! $item->excerpt  !!}</p>
 
                                             </div>
 
