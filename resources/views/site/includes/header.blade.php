@@ -192,6 +192,15 @@
         width: 100%;
         height: 100%;
       }
+
+   .tab__buttons--btn.catmenu  {
+ width: max-content;
+   }
+   .buttonscatmenu .owl-stage-outer .owl-stage{
+        display: flex;
+   }
+
+
     }
 
     @media (min-width: 200px) and (max-width: 300px) {

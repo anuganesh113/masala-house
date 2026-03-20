@@ -63,14 +63,14 @@
         responsive: {
             0: {
                 items: 1,
-                dots: true,
+                dots: false,
                 nav: false,
                 // margin: 15,
             },
                 627: {
                 items: 2,
-                dots: true,
-                nav: false,
+                dots: false,
+                nav: true,
             },
             767: {
                 items: 2,

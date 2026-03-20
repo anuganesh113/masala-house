@@ -97,11 +97,11 @@
         <div class="tab">
             <div class="row">
                 <div class="col-lg-4 col-xl-4 col-xxl-3">
-                    <ul class="tab__buttons">
+                    <ul class="tab__buttons buttonscatmenu">
                         @foreach ($categories as $category)
                         @if(isset($category->menus) && $category->menus->count() > 0)
 
-                        <li class="tab__buttons--btn {{ $loop->first ? 'active' : '' }}"
+                        <li class="tab__buttons--btn catmenu  {{ $loop->first ? 'active' : '' }}"
                             data-target="#tab{{ $loop->iteration }}">
                             <span></span> {{ $category->name }}
                         </li>
@@ -148,7 +148,9 @@
 
                                             </h3>
                                             <div class="exploreour" style="min-height: 50px;">
-                                                {!! $item->excerpt ?? '<p>No description available</p>' !!}
+                                             
+
+                                         <p> {!!   strip_tags(Str::words($item->excerpt, 10))    !!}</p>
                                             </div>
 
                                             <div class="menu__card--footer">
@@ -198,7 +200,8 @@
 
                                             </h3>
                                             <div class="exploreour" style="min-height: 50px;">
-                                                {!! $item->excerpt ?? '<p>No description available</p>' !!}
+                                            <p> {!!   strip_tags(Str::words($item->excerpt, 10))    !!}</p>
+
                                             </div>
 
                                             <div class="menu__card--footer">
@@ -337,13 +340,13 @@
         responsive: {
             0: {
                 items: 1,
-                dots: true,
-                nav: false,
+                dots: false,
+                nav: true,
             },
             767: {
                 items: 2,
-                dots: true,
-                nav: false,
+                dots: false,
+                nav: true,
             },
             1000: {
                 items: 2,
