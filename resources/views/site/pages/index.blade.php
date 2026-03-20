@@ -33,8 +33,8 @@
                     <h2> Wonderful Dining Experience & Indian Food</h2>
                 </div>
                 <div class="content">
-                    <p>Masala House was founded in 2015 by Chef Raj Sharma with a simple mission: to bring the authentic flavors of India to Pittsburg, 
-                        California. Born and raised in Delhi, Chef Raj learned the art of Indian cooking from his grandmother, 
+                    <p>Masala House was founded in 2015 by Chef Raj Sharma with a simple mission: to bring the authentic flavors of India to Pittsburg,
+                        California. Born and raised in Delhi, Chef Raj learned the art of Indian cooking from his grandmother,
                         who taught him the importance of freshly ground spices and traditional cooking techniques.</p>
                 </div>
                 <div class="btn__group">
@@ -111,7 +111,7 @@
                     </ul>
                 </div>
                 <div class="whole-menu-section col-lg-8 col-xl-8 col-xxl-9">
-                    <div class="tab__contents" >
+                    <div class="tab__contents">
                         @foreach ($categories as $category)
                         <div id="tab{{ $loop->iteration }}"
                             class="tab__contents--text {{ $loop->first ? 'active' : '' }}">
@@ -121,7 +121,7 @@
                                 <div class="item">
                                     <div class="menu__card">
                                         <div class="menu__card--img">
-                                            <a href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">
+                                            <a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">
                                                 <img class="owl-lazy"
                                                     data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($item, 'image'))) }}"
                                                     alt="{{$item->name}}">
@@ -144,19 +144,19 @@
                                             </div>
                                         </div>
                                         <div class="menu__card--content">
-                                            <h3 class="titlehgt"><a href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">{{ $item->name }} </a>
+                                            <h3 class="titlehgt"><a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">{{ $item->name }} </a>
 
                                             </h3>
-                                            <div class="exploreour" style="min-height: 50px;">
-                                             
+                                            <div class="exploreour catexploreour" style="min-height: 50px;">
 
-                                         <p> {!! $item->excerpt !!}</p>
+
+                                                <p> {!! $item->excerpt !!}</p>
                                             </div>
 
                                             <div class="menu__card--footer">
                                                 <h6 class="menu_price_color">${{ $item->price }} </h6>
                                                 <span class="cat veg-btn-e bt-fr {{cssnonveg($item->type)}}">{{ checkVegetarian($item->type) }}</span>
-                                                <a class="menu__card--cta order-now-btn mt-2 mr-l wtc" href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">Order Now</a>
+                                                <a class="menu__card--cta order-now-btn mt-2 mr-l wtc" href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">Order Now</a>
                                             </div>
 
                                         </div>
@@ -173,7 +173,7 @@
                                 <div class="item">
                                     <div class="menu__card">
                                         <div class="menu__card--img">
-                                            <a href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">
+                                            <a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">
                                                 <img class="owl-lazy"
                                                     data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($item, 'image'))) }}"
                                                     alt="{{$item->name}}">
@@ -196,18 +196,18 @@
                                             </div>
                                         </div>
                                         <div class="menu__card--content">
-                                            <h3 class="titlehgt"><a href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">{{ $item->name }} </a>
+                                            <h3 class="titlehgt"><a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">{{ $item->name }} </a>
 
                                             </h3>
-                                            <div class="exploreour" style="min-height: 50px;">
-                                            <p> {!! $item->excerpt  !!}</p>
+                                            <div class="exploreour catexploreour" style="min-height: 50px;">
+                                                <p> {!! $item->excerpt !!}</p>
 
                                             </div>
 
                                             <div class="menu__card--footer">
                                                 <h6 class="menu_price_color">${{ $item->price }} </h6>
                                                 <span class="cat veg-btn-e bt-fr {{cssnonveg($item->type)}}">{{ checkVegetarian($item->type) }}</span>
-                                                <a class="menu__card--cta order-now-btn mt-2 mr-l" href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">Order Now</a>
+                                                <a class="menu__card--cta order-now-btn mt-2 mr-l" href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">Order Now</a>
                                             </div>
 
                                         </div>
@@ -279,13 +279,19 @@
 
 <!-- owl carousel script -->
 <script>
+    const paragraphs = document.querySelectorAll('.catexploreour p');
+    paragraphs.forEach(box => {
+        const words = box.innerText.trim().split(/\s+/);
+        if (words.length > 20) {
+            box.innerText = words.slice(0, 10).join(' ') + '...';
+        }
+    });
 
-
-     document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
         var modal = new bootstrap.Modal(document.getElementById('popupModal'));
         modal.show();
     });
-    
+
 
     $('.banner__carousel').owlCarousel({
         loop: true,

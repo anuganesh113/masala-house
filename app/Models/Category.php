@@ -47,12 +47,12 @@ class Category extends Model
 
     public function menus(): HasMany
     {
-        return $this->hasMany(Menu::class, 'category_id');
+        return $this->hasMany(Menu::class, 'category_id')->where('status',1);
     }
 
     public function menusOrdered(): HasMany
     {
-        return $this->hasMany(Menu::class)->orderBy('id', 'desc');
+        return $this->hasMany(Menu::class)->where('status',1)->orderBy('id', 'desc');
     }
         public function familyOrdered(): HasMany
     {
