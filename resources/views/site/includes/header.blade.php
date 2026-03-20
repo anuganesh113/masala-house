@@ -47,9 +47,6 @@
   <!-- css -->
   <link rel="stylesheet" href="{{ asset('site-assets/css/style.css?v1.1') }}">
   <style>
-    .titlehgt{
-      height: 52px;
-    }
     .openpop-btn:hover {
 
       background-color: #FF6F00;
@@ -152,17 +149,6 @@
       .reservationbtn {
         text-align: center !important;
       }
-
-      .cat.veg-btn.bt-fr.cssnonveg{
-        margin-bottom: 2px;
-
-      }
-      /* .order-btn.wtc{
-        width: 70%!important;
-      }
-      .popular_cont p {
-         width: 70%!important;
-      } */
 
 
     }
