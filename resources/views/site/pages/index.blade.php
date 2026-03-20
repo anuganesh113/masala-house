@@ -144,11 +144,11 @@
                                             </div>
                                         </div>
                                         <div class="menu__card--content">
-                                            <h3><a href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">{{ $item->name }} </a>
+                                            <h3 class="titlehgt"><a href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">{{ $item->name }} </a>
 
                                             </h3>
                                             <div class="exploreour" style="min-height: 50px;">
-                                                {!! $item->excerpt ?? '<p>No description available</p>' !!}
+                                               <p> {!! substr($item->excerpt, 0, 100) ?? 'No description available' !!}</p>
                                             </div>
 
                                             <div class="menu__card--footer">
@@ -194,11 +194,11 @@
                                             </div>
                                         </div>
                                         <div class="menu__card--content">
-                                            <h3><a href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">{{ $item->name }} </a>
+                                            <h3 class="titlehgt"><a href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">{{ $item->name }} </a>
 
                                             </h3>
                                             <div class="exploreour" style="min-height: 50px;">
-                                                {!! $item->excerpt ?? '<p>No description available</p>' !!}
+                                                  <p> {!! $item->excerpt ? substr($item->excerpt, 0, 100) : 'No Excerpt available' !!}</p>
                                             </div>
 
                                             <div class="menu__card--footer">
