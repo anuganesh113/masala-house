@@ -148,7 +148,7 @@
 
                                             </h3>
                                             <div class="exploreour" style="min-height: 50px;">
-                                         <p> {!! $item->excerpt ? substr($item->excerpt, 0, 100) : 'No Excerpt available' !!}</p>
+                                          {!! $item->excerpt ?? '<p>No description available</p>' !!}
 
                                             </div>
 
@@ -199,7 +199,7 @@
 
                                             </h3>
                                             <div class="exploreour" style="min-height: 50px;">
-                                                  <p> {!! $item->excerpt ? substr($item->excerpt, 0, 100) : 'No Excerpt available' !!}</p>
+                                                    {!! $item->excerpt ?? '<p>No description available</p>' !!}
                                             </div>
 
                                             <div class="menu__card--footer">
