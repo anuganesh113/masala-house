@@ -150,7 +150,7 @@
                                             <div class="exploreour" style="min-height: 50px;">
                                              
 
-                                         <p> {!!   strip_tags(Str::words($item->excerpt, 10))    !!}</p>
+                                         <p> {!! strip_tags(Str::limit($item->excerpt, 125, '...')) !!}</p>
                                             </div>
 
                                             <div class="menu__card--footer">
@@ -200,7 +200,7 @@
 
                                             </h3>
                                             <div class="exploreour" style="min-height: 50px;">
-                                            <p> {!!   strip_tags(Str::words($item->excerpt, 10))    !!}</p>
+                                            <p> {!! strip_tags(Str::limit($item->excerpt, 125, '...')) !!}</p>
 
                                             </div>
 
