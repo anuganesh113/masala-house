@@ -47,6 +47,10 @@
   <!-- css -->
   <link rel="stylesheet" href="{{ asset('site-assets/css/style.css?v1.1') }}">
   <style>
+
+      .titlehgt{
+      height: 52px;
+    }
     .openpop-btn:hover {
 
       background-color: #FF6F00;
