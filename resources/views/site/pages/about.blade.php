@@ -232,6 +232,9 @@
                 </div>
             </div>
 
+
+            @endforeach
+            @endforeach
             <!-- @if(count($image->gallery) > 1)
            <div class="item">
                 <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 g-4">
@@ -247,9 +250,6 @@
                 </div>
             </div>
             @endif -->
-            @endforeach
-            @endforeach
-
         </div>
     </div>
 </section>
