@@ -1,6 +1,9 @@
-@extends('site.layouts.layout')
-
-@section('page_title', 'blogs')
+@extends('site.layouts.layout',[
+    'title' =>   data_get($page, "seo.title") ?? 'Blogs',
+    'description' =>  data_get($page, "seo.keywords") ?? description(),
+     $page ?  $page->full_image_link : banner() ,
+    'keywords' =>  data_get($page, "seo.keywords") ?? keywords(),
+])
 
 @push('header')
 <link rel="stylesheet" href="{{ asset ('site-assets/css/fancybox.css') }}">

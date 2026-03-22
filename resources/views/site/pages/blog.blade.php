@@ -1,5 +1,10 @@
-@extends('site.layouts.layout')
-@section('page_title', data_get($blog, 'name'))
+@extends('site.layouts.layout',[
+    'title' =>  data_get($blog, 'name') ?? 'Contact-us',
+    'description' => data_get($blog, 'description') ?? description(),
+    'image' => $blog ? $blog->full_image_link  :  banner(),
+    'keywords' =>  data_get($blog, 'keywords') ?? keywords(),
+])
+
 
 
 @push('header')
