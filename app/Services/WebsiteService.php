@@ -99,7 +99,7 @@ class WebsiteService
                 $data['services'] = Service::query()->get();
                 $data['compliments'] = Testimonial::query()
                     ->with(['member:id,name,designation'])
-                    ->whereNotNull('member_message_id')
+                 
                     ->select(['id', 'member_message_id', 'name', 'designation', 'message'])
                     ->where('status', Status::ACTIVE)
                     ->inRandomOrder()->take(5)
