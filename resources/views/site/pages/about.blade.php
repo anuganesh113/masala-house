@@ -99,24 +99,24 @@
             <h2>Meet Our Chefs</h2>
         </div>
     </div>
-    <div class="chef__box p__tb">
-        <div class="owl-carousel owl-theme chef__carousel">
+    <div class="menu__index chef__box p__tb">
+        <div class="owl-carousel owl-theme  chef_carousel ">
 
             @foreach($members ?? [] as $member)
             <div class="item">
                 <div class="container">
                     <div class="chef__card">
                         <div class="row">
-                            <div class="col-lg-7 order-2 order-lg-1">
+                            <div class="col-lg-6 order-2 order-lg-1">
                                 <div class="chef__card--content">
                                     <h6>{{ data_get($member, 'name') }}</h6>
                                     <h3>{{ data_get($member, 'designation') }}</h3>
-                                    <div class="content">
+                                    <div class="content ">
                                         {!! data_get($member, 'message') !!}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-5 order-1 order-lg-2">
+                            <div class="col-lg-6 order-1 order-lg-2">
                                 <div class="chef__card--img mb-4 mb-lg-0">
                                     <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MEMBERS_PATH, data_get($member, 'image'))) }}"
                                         alt="{{ data_get($member, 'name') }}" />
@@ -232,6 +232,9 @@
                 </div>
             </div>
 
+
+            @endforeach
+            @endforeach
             <!-- @if(count($image->gallery) > 1)
            <div class="item">
                 <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 g-4">
@@ -247,9 +250,6 @@
                 </div>
             </div>
             @endif -->
-            @endforeach
-            @endforeach
-
         </div>
     </div>
 </section>
@@ -259,11 +259,11 @@
 
 @push('footer')
 <script>
-    $('.chef__carousel').owlCarousel({
+    $('.chef_carousel ').owlCarousel({
         loop: false,
-        margin: 25,
+        margin: 30,
         responsiveClass: true,
-        autoplay: true,
+        autoplay: false,
         autoplayHoverPause: true,
         autoplaySpeed: 600,
         navText: [
