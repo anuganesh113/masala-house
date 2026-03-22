@@ -169,8 +169,8 @@ if (!function_exists('title')) {
 
         $settings = setting(); // Call the function first
 
-        if (isset($settings) && data_get($settings, 'seo.name')) {
-            return data_get($settings, 'seo.name');
+        if (isset($settings) && data_get($settings, 'seo.title')) {
+            return data_get($settings, 'seo.title');
         } else {
             return 'masalahouse';
         }
