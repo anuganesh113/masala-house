@@ -220,7 +220,7 @@
         </div>
     </div>
 
-    <div class="menu__index gallery__box gallery__boxres" >
+    <div class="menu__index gallery__box gallery__boxres pb-0" >
 
         <div class="owl-carousel owl-theme gallery__carousel">
             @foreach($galleries ?? [] as $image)
