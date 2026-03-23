@@ -1,6 +1,6 @@
 @extends('site.layouts.layout',[
     'title' =>   data_get($page, "seo.title") ?? 'Menu',
-    'description' =>  data_get($page, "seo.keywords") ?? description(),
+    'description' =>  strip_tags(data_get($page, "seo.description") ?? description()),
     'image' =>   $page ?  $page->full_image_link : banner() ,
     'keywords' =>  data_get($page, "seo.keywords") ?? keywords(),
 ])

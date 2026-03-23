@@ -1,7 +1,7 @@
 @extends('site.layouts.layout')
-@section('page_title', config()->get('app.name'))
 
-@push('seo-share')
+
+<!-- @push('seo-share')
 <meta name="title" content="{{ data_get($setting, 'seo.title') }}" />
 <meta name="keywords" content="{{ data_get($setting, 'seo.keywords') }}" />
 <meta name="description" content="{{ data_get($setting, 'seo.description') }}" />
@@ -14,7 +14,7 @@
 <meta property="og:image"
     content="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::LOGO_PATH, data_get($setting, 'logo'))) }}" />
 <meta property="og:image:alt" content="{{ data_get($setting, 'name') }}" />
-@endpush
+@endpush -->
 
 @section('content')
 
@@ -23,7 +23,7 @@
 <!-- experience section start -->
 <section class="experience">
     <div class="experience__img">
-        <img src="{{ asset('site-assets/images/index/exp-bg-3.png') }}" alt="">
+        <img src="{{ asset('site-assets/images/index/exp-bg-3.png') }}" alt="about-img">
     </div>
     <div class="container-fluid">
         <div class="row">
@@ -47,8 +47,8 @@
         </div>
     </div>
     <div class="experience__img--bottom">
-        <img src="{{ asset('site-assets/images/index/exp-bg-1.png') }}" class="img-1" alt="">
-        <img src="{{ asset('site-assets/images/index/exp-bg-2.png') }}" class="img-2" alt="">
+        <img src="{{ asset('site-assets/images/index/exp-bg-1.png') }}" class="img-1" alt="img-1">
+        <img src="{{ asset('site-assets/images/index/exp-bg-2.png') }}" class="img-2" alt="img-2">
     </div>
 </section>
 <!-- experience section end -->
@@ -240,7 +240,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="cta__left">
-                    <img src="{{ asset('site-assets/images/cta/cta-1.png') }}" alt="">
+                    <img src="{{ asset('site-assets/images/cta/cta-1.png') }}" alt="cta-1">
                 </div>
             </div>
             <div class="col-md-6">
@@ -252,8 +252,8 @@
             </div>
             <div class="col-md-3">
                 <div class="cta__right">
-                    <img src="{{ asset('site-assets/images/cta/cta-2.png') }}" class="first" alt="">
-                    <img src="{{ asset('site-assets/images/cta/cta-3.png') }}" class="second" alt="">
+                    <img src="{{ asset('site-assets/images/cta/cta-2.png') }}" class="first" alt="first">
+                    <img src="{{ asset('site-assets/images/cta/cta-3.png') }}" class="second" alt="second">
                 </div>
             </div>
         </div>

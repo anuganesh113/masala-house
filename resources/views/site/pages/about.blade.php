@@ -1,6 +1,6 @@
 @extends('site.layouts.layout',[
     'title' =>   data_get($page, "seo.title") ?? 'About-us',
-    'description' =>  data_get($page, "seo.keywords") ?? description(),
+    'description' =>  data_get($page, "seo.description") ?? description(),
     'image' =>   $page ?  $page->full_image_link : banner() ,
     'keywords' =>  data_get($page, "seo.keywords") ?? keywords(),
 ])
@@ -12,7 +12,7 @@
 <!-- page banner start -->
 <section class="banner banner__page">
     <div class="banner__page--img">
-        <img src="{{ asset ('site-assets/images/about/about-banner.png') }}" alt="">
+        <img src="{{ asset ('site-assets/images/about/about-banner.png') }}" alt="banner">
     </div>
     <div class="banner__page--content">
         <h1>Our story</h1>
@@ -88,7 +88,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="about__img d-none d-lg-block">
-                    <img src="{{ asset('site-assets/images/about/about.png') }}" alt="">
+                    <img src="{{ asset('site-assets/images/about/about.png') }}" alt="about">
                 </div>
             </div>
         </div>

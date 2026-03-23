@@ -1,8 +1,8 @@
 @extends('site.layouts.layout',[
-    'title' =>  data_get($blog, 'name') ?? 'Contact-us',
-    'description' => data_get($blog, 'description') ?? description(),
+    'title' =>   data_get($blog, "seo.title") ?? data_get($blog, 'name'),
+    'description' =>  data_get($blog, "seo.description")  ?? strip_tags(data_get($blog, 'description')),
     'image' => $blog ? $blog->full_image_link  :  banner(),
-    'keywords' =>  data_get($blog, 'keywords') ?? keywords(),
+    'keywords' =>  data_get($blog, "seo.keywords")  ?? data_get($blog, 'keywords'),
 ])
 
 
@@ -142,7 +142,7 @@
                 <div class="boxshadow plt-50" style="position: sticky;top: 6.5rem;z-index: 3;">
                     <div class="about__img position-static mb-4 d-block">
                         <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::BLOGS_PATH, data_get($blog, 'image'))) }}"
-                            alt="{{ data_get($blog, 'alt', data_get($blog, 'name')) }}"
+                            alt="{{ $blog->name ?? '' }}"
                             loading="lazy" />
                     </div>
 
@@ -189,7 +189,7 @@
 
                 <!-- Featured Menu Items Widget -->
                 <div class="sidebar-widget section__title boxshadow plt-50">
-                    <h2 class="fxl blog">Check out our Indian Authentic Collection of Foods</h2>
+                    <h1 class="fxl blog">Check out our Indian Authentic Collection of Foods</h1>
                     <div class="menu-item blogitems-list">
                         @if(isset($categories) && count($categories) > 0)
                         @foreach($categories as $cat)
