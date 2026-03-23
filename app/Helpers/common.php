@@ -97,18 +97,7 @@ if (!function_exists('getYoutubeVideoIdFromLink')) {
     }
 }
 
-if (!function_exists('requesturl')) {
-    function requesturl(): string
-    {
-        $settings = setting(); // Call the function first
 
-        if (isset($settings) && data_get($settings, 'social.ordernow')) {
-            return data_get($settings, 'social.ordernow');
-        } else {
-            return request()->url();
-        }
-    }
-}
 if (!function_exists('footerPages')) {
     function footerPages(): array|Collection
     {
@@ -127,7 +116,6 @@ if (!function_exists('checkVegetarian')) {
         if (isset($item) && $item == 'veg') {
             return 'Vegetarian';
         }
-
         return 'Non-Vegetarian';
     }
 }
@@ -145,9 +133,6 @@ if (!function_exists('cssnonveg')) {
 }
 
 
-
-
-
 function getidVideo($link)
 {
     // Regex pattern to match YouTube video IDs from common URL formats
@@ -161,6 +146,19 @@ function getidVideo($link)
     return 'Ggngkm9qgdw';
 }
 
+
+if (!function_exists('requesturl')) {
+    function requesturl(): string
+    {
+        $settings = setting(); // Call the function first
+
+        if (isset($settings) && data_get($settings, 'social.ordernow')) {
+            return data_get($settings, 'social.ordernow');
+        } else {
+            return request()->url();
+        }
+    }
+}
 
 
 if (!function_exists('title')) {
@@ -205,8 +203,6 @@ if (!function_exists('keywords')) {
 if (!function_exists('banner')) {
     function banner()
     {
-
-
         return asset('site-assets/images/logo-color.png');
     }
 }
