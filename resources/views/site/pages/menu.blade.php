@@ -1,6 +1,9 @@
-@extends('site.layouts.layout')
-@section('page_title',  'Menu')
-
+@extends('site.layouts.layout',[
+    'title' =>   data_get($page, "seo.title") ?? 'Menu',
+    'description' =>  strip_tags(data_get($page, "seo.description") ?? description()),
+    'image' =>   $page ?  $page->full_image_link : banner() ,
+    'keywords' =>  data_get($page, "seo.keywords") ?? keywords(),
+])
 @push('header')
 <style>
     .itemgrab__box{
@@ -32,7 +35,7 @@
             <div class="container-fluid">
                 <div class="row align-items-center">
                     <div class="col-xl-12">
-                        <div class="menu__box">
+                        <div class="menu__box menubox">
                             <ul class="nav" id="navbar">
                                 @foreach ($categories as $category)
                                     @if($category->menus->count() > 0)
@@ -49,6 +52,7 @@
                             </ul>
                         </div>
                     </div>
+                    
                     <!-- <div class="col-xl-3">
                         <a href="{{ requesturl() }}" class="l__button l__button--primary">
                             <i class='bx bx-carts'></i> Order Now

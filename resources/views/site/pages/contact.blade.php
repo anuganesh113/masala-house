@@ -1,5 +1,10 @@
-@extends('site.layouts.layout')
-@section('page_title', 'contact')
+@extends('site.layouts.layout',[
+    'title' =>   data_get($page, "seo.title") ?? 'Contact-us',
+   'description' =>  strip_tags(data_get($page, "seo.description") ?? description()),
+    'image' => banner() ? null : null,
+    'keywords' =>  data_get($page, "seo.keywords") ?? keywords(),
+])
+
 
 @section('content')
 

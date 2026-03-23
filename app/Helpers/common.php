@@ -97,18 +97,7 @@ if (!function_exists('getYoutubeVideoIdFromLink')) {
     }
 }
 
-if (!function_exists('requesturl')) {
-    function requesturl(): string
-    {
-        $settings = setting(); // Call the function first
 
-        if (isset($settings) && data_get($settings, 'social.ordernow')) {
-            return data_get($settings, 'social.ordernow');
-        } else {
-            return request()->url();
-        }
-    }
-}
 if (!function_exists('footerPages')) {
     function footerPages(): array|Collection
     {
@@ -127,7 +116,6 @@ if (!function_exists('checkVegetarian')) {
         if (isset($item) && $item == 'veg') {
             return 'Vegetarian';
         }
-
         return 'Non-Vegetarian';
     }
 }
@@ -145,9 +133,6 @@ if (!function_exists('cssnonveg')) {
 }
 
 
-
-
-
 function getidVideo($link)
 {
     // Regex pattern to match YouTube video IDs from common URL formats
@@ -157,8 +142,67 @@ function getidVideo($link)
         // The video ID is captured in the first capturing group
         return isset($matches[1]) ? $matches[1] : null;
     }
-    
+
     return 'Ggngkm9qgdw';
 }
 
 
+if (!function_exists('requesturl')) {
+    function requesturl(): string
+    {
+        $settings = setting(); // Call the function first
+
+        if (isset($settings) && data_get($settings, 'social.ordernow')) {
+            return data_get($settings, 'social.ordernow');
+        } else {
+            return request()->url();
+        }
+    }
+}
+
+
+if (!function_exists('title')) {
+    function title()
+    {
+        $settings = setting(); // Call the function first
+
+        if (isset($settings) && data_get($settings, 'seo.title')) {
+            return data_get($settings, 'seo.title');
+        } else {
+            return 'masalahouse';
+        }
+    }
+}
+if (!function_exists('description')) {
+    function description()
+    {
+
+        $settings = setting(); // Call the function first
+
+        if (isset($settings) && data_get($settings, 'seo.description')) {
+            return data_get($settings, 'seo.description');
+        } else {
+            return 'masalahouse';
+        }
+    }
+}
+
+if (!function_exists('keywords')) {
+    function keywords()
+    {
+        $settings = setting(); // Call the function first
+
+        if (isset($settings) && data_get($settings, 'seo.keywords')) {
+            return data_get($settings, 'seo.keywords');
+        } else {
+            return 'masalahouse';
+        }
+    }
+}
+
+if (!function_exists('banner')) {
+    function banner()
+    {
+        return asset('site-assets/images/logo-color.png');
+    }
+}

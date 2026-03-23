@@ -41,7 +41,7 @@
                                     <div class="menuFlex__card">
                                         <div class="img d-lg-none">
                                             <img src="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::CATEGORIES_PATH, data_get($category, 'image'))) }}"
-                                                class="img-2" alt="">
+                                                class="img-2" alt="{{$item->name}}">
                                         </div>
                                         <div class="contents">
                                             <div class="menuFlex__card--title">

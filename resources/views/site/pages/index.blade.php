@@ -1,7 +1,7 @@
 @extends('site.layouts.layout')
-@section('page_title', config()->get('app.name'))
 
-@push('seo-share')
+
+<!-- @push('seo-share')
 <meta name="title" content="{{ data_get($setting, 'seo.title') }}" />
 <meta name="keywords" content="{{ data_get($setting, 'seo.keywords') }}" />
 <meta name="description" content="{{ data_get($setting, 'seo.description') }}" />
@@ -14,7 +14,7 @@
 <meta property="og:image"
     content="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::LOGO_PATH, data_get($setting, 'logo'))) }}" />
 <meta property="og:image:alt" content="{{ data_get($setting, 'name') }}" />
-@endpush
+@endpush -->
 
 @section('content')
 
@@ -23,7 +23,7 @@
 <!-- experience section start -->
 <section class="experience">
     <div class="experience__img">
-        <img src="{{ asset('site-assets/images/index/exp-bg-3.png') }}" alt="">
+        <img src="{{ asset('site-assets/images/index/exp-bg-3.png') }}" alt="about-img">
     </div>
     <div class="container-fluid">
         <div class="row">
@@ -33,8 +33,8 @@
                     <h2> Wonderful Dining Experience & Indian Food</h2>
                 </div>
                 <div class="content">
-                    <p>Masala House was founded in 2015 by Chef Raj Sharma with a simple mission: to bring the authentic flavors of India to Pittsburg, 
-                        California. Born and raised in Delhi, Chef Raj learned the art of Indian cooking from his grandmother, 
+                    <p>Masala House was founded in 2015 by Chef Raj Sharma with a simple mission: to bring the authentic flavors of India to Pittsburg,
+                        California. Born and raised in Delhi, Chef Raj learned the art of Indian cooking from his grandmother,
                         who taught him the importance of freshly ground spices and traditional cooking techniques.</p>
                 </div>
                 <div class="btn__group">
@@ -47,8 +47,8 @@
         </div>
     </div>
     <div class="experience__img--bottom">
-        <img src="{{ asset('site-assets/images/index/exp-bg-1.png') }}" class="img-1" alt="">
-        <img src="{{ asset('site-assets/images/index/exp-bg-2.png') }}" class="img-2" alt="">
+        <img src="{{ asset('site-assets/images/index/exp-bg-1.png') }}" class="img-1" alt="img-1">
+        <img src="{{ asset('site-assets/images/index/exp-bg-2.png') }}" class="img-2" alt="img-2">
     </div>
 </section>
 <!-- experience section end -->
@@ -97,11 +97,11 @@
         <div class="tab">
             <div class="row">
                 <div class="col-lg-4 col-xl-4 col-xxl-3">
-                    <ul class="tab__buttons">
+                    <ul class="tab__buttons buttonscatmenu">
                         @foreach ($categories as $category)
                         @if(isset($category->menus) && $category->menus->count() > 0)
 
-                        <li class="tab__buttons--btn {{ $loop->first ? 'active' : '' }}"
+                        <li class="tab__buttons--btn catmenu  {{ $loop->first ? 'active' : '' }}"
                             data-target="#tab{{ $loop->iteration }}">
                             <span></span> {{ $category->name }}
                         </li>
@@ -111,17 +111,18 @@
                     </ul>
                 </div>
                 <div class="whole-menu-section col-lg-8 col-xl-8 col-xxl-9">
-                    <div class="tab__contents" >
+                    <div class="tab__contents">
                         @foreach ($categories as $category)
                         <div id="tab{{ $loop->iteration }}"
                             class="tab__contents--text {{ $loop->first ? 'active' : '' }}">
 
                             <div class="owl-carousel owl-theme wholeMenu__carousel">
                                 @foreach ($category->menus as $item)
+                              
                                 <div class="item">
                                     <div class="menu__card">
                                         <div class="menu__card--img">
-                                            <a href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">
+                                            <a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">
                                                 <img class="owl-lazy"
                                                     data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($item, 'image'))) }}"
                                                     alt="{{$item->name}}">
@@ -144,17 +145,17 @@
                                             </div>
                                         </div>
                                         <div class="menu__card--content">
-                                            <h3><a href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">{{ $item->name }} </a>
+                                            <h3 class="titlehgt"><a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">{{ $item->name }} </a>
 
                                             </h3>
-                                            <div class="exploreour" style="min-height: 50px;">
-                                                {!! $item->excerpt ?? '<p>No description available</p>' !!}
+                                            <div class="exploreour catexploreour itemexcerpthover" style="min-height: 50px;">
+                                                {!! $item->excerpt !!}
                                             </div>
 
                                             <div class="menu__card--footer">
                                                 <h6 class="menu_price_color">${{ $item->price }} </h6>
                                                 <span class="cat veg-btn-e bt-fr {{cssnonveg($item->type)}}">{{ checkVegetarian($item->type) }}</span>
-                                                <a class="menu__card--cta order-now-btn mt-2 mr-l wtc" href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">Order Now</a>
+                                                <a class="menu__card--cta order-now-btn mt-2 mr-l wtc" href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">Order Now</a>
                                             </div>
 
                                         </div>
@@ -164,14 +165,15 @@
 
                             </div>
 
-                            <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
+                            <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block " style="{{ count($category->menusOrdered) > 3 ? '' : 'display: none!important;' }}">
 
-
+     
                                 @foreach ($category->menusOrdered as $item)
+                              
                                 <div class="item">
                                     <div class="menu__card">
                                         <div class="menu__card--img">
-                                            <a href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">
+                                            <a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">
                                                 <img class="owl-lazy"
                                                     data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($item, 'image'))) }}"
                                                     alt="{{$item->name}}">
@@ -194,17 +196,18 @@
                                             </div>
                                         </div>
                                         <div class="menu__card--content">
-                                            <h3><a href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">{{ $item->name }} </a>
+                                            <h3 class="titlehgt"><a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">{{ $item->name }} </a>
 
                                             </h3>
-                                            <div class="exploreour" style="min-height: 50px;">
-                                                {!! $item->excerpt ?? '<p>No description available</p>' !!}
+                                            <div class="exploreour catexploreour itemexcerpthover" style="min-height: 50px;">
+                                               {!! $item->excerpt !!}
+
                                             </div>
 
                                             <div class="menu__card--footer">
                                                 <h6 class="menu_price_color">${{ $item->price }} </h6>
                                                 <span class="cat veg-btn-e bt-fr {{cssnonveg($item->type)}}">{{ checkVegetarian($item->type) }}</span>
-                                                <a class="menu__card--cta order-now-btn mt-2 mr-l" href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">Order Now</a>
+                                                <a class="menu__card--cta order-now-btn mt-2 mr-l" href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">Order Now</a>
                                             </div>
 
                                         </div>
@@ -237,7 +240,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="cta__left">
-                    <img src="{{ asset('site-assets/images/cta/cta-1.png') }}" alt="">
+                    <img src="{{ asset('site-assets/images/cta/cta-1.png') }}" alt="cta-1">
                 </div>
             </div>
             <div class="col-md-6">
@@ -249,8 +252,8 @@
             </div>
             <div class="col-md-3">
                 <div class="cta__right">
-                    <img src="{{ asset('site-assets/images/cta/cta-2.png') }}" class="first" alt="">
-                    <img src="{{ asset('site-assets/images/cta/cta-3.png') }}" class="second" alt="">
+                    <img src="{{ asset('site-assets/images/cta/cta-2.png') }}" class="first" alt="first">
+                    <img src="{{ asset('site-assets/images/cta/cta-3.png') }}" class="second" alt="second">
                 </div>
             </div>
         </div>
@@ -276,13 +279,19 @@
 
 <!-- owl carousel script -->
 <script>
+    // const paragraphs = document.querySelectorAll('.catexploreour p');
+    // paragraphs.forEach(box => {
+    //     const words = box.innerText.trim().split(/\s+/);
+    //     if (words.length > 20) {
+    //         box.innerText = words.slice(0, 10).join(' ') + '...';
+    //     }
+    // });
 
-
-     document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
         var modal = new bootstrap.Modal(document.getElementById('popupModal'));
         modal.show();
     });
-    
+
 
     $('.banner__carousel').owlCarousel({
         loop: true,
@@ -337,13 +346,13 @@
         responsive: {
             0: {
                 items: 1,
-                dots: true,
-                nav: false,
+                dots: false,
+                nav: true,
             },
             767: {
                 items: 2,
-                dots: true,
-                nav: false,
+                dots: false,
+                nav: true,
             },
             1000: {
                 items: 2,

@@ -54,7 +54,7 @@
       <div class="mobile-nav__content">
 
          <div class="logo-box">
-            <a href="/"><img src="{{ asset('site-assets/images/logo.png') }}" alt=""></a>
+            <a href="/"><img src="{{ asset('site-assets/images/logo.png') }}" alt="logo"></a>
             <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
          </div>
          <div class="mobile-nav__container"></div>
@@ -62,7 +62,7 @@
          <div class="mobile-nav__text">
             <div class="head">
                <div class="mobftlog">
-               <img class="" src="{{ asset('site-assets/images/logo.png') }}" alt="">
+               <img class="" src="{{ asset('site-assets/images/logo.png') }}" alt="logo">
                </div>
                <div class="mobile-nav__top">
                   <div class="mobile-nav__social">

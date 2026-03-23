@@ -166,7 +166,7 @@
                                     <input type="text"
                                            class="form-control m-input"
                                            name="template"
-                                           value="{{ old('template') ?? data_get($page, 'template') }}" placeholder="Page">
+                                           value="{{ old('template') ?? data_get($page, 'template') }}" placeholder="Page" readonly>
                                 </div>
                             </div>
                             <div class="col-lg-4">

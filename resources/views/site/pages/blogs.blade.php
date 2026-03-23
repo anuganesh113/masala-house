@@ -1,6 +1,9 @@
-@extends('site.layouts.layout')
-
-@section('page_title', 'blogs')
+@extends('site.layouts.layout',[
+    'title' =>   data_get($page, "seo.title") ?? 'Blogs',
+    'description' =>  strip_tags(data_get($page, "seo.description") ?? description()),
+     $page ?  $page->full_image_link : banner() ,
+    'keywords' =>  data_get($page, "seo.keywords") ?? keywords(),
+])
 
 @push('header')
 <link rel="stylesheet" href="{{ asset ('site-assets/css/fancybox.css') }}">
@@ -10,7 +13,7 @@
 <!-- page banner start -->
 <section class="banner banner__page">
     <div class="banner__page--img">
-        <img src="{{ asset ('site-assets/images/about/about-banner.png') }}" alt="">
+        <img src="{{ asset ('site-assets/images/about/about-banner.png') }}" alt="banner">
     </div>
     <div class="banner__page--content">
         <h1>Our Blogs </h1>
@@ -82,7 +85,7 @@
             </div>
         </div>
     </div>
-    <div class="video__box" style="padding: 0 50px;">
+    <div class="menu__index video__box" style="padding: 0 50px;">
         <div class="owl-carousel owl-theme video__carousel">
             @foreach($videos->metadata ?? []  as $key=>$link)
                <div class="item">
@@ -196,7 +199,7 @@
         loop: false,
         margin: 30,
         responsiveClass: true,
-        autoplay: true,
+        autoplay: false,
         autoplayHoverPause: true,
         autoplaySpeed: 400,
         lazyLoad: true,
@@ -207,8 +210,8 @@
         responsive: {
             0: {
                 items: 1,
-                dots: true,
-                nav: false,
+                dots: false,
+                nav: true,
                 // margin: 15,
             },
                 627: {

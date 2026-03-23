@@ -1,12 +1,18 @@
-@extends('site.layouts.layout')
-@section('page_title', 'About-us')
+@extends('site.layouts.layout',[
+    'title' =>   data_get($page, "seo.title") ?? 'About-us',
+    'description' =>  data_get($page, "seo.description") ?? description(),
+    'image' =>   $page ?  $page->full_image_link : banner() ,
+    'keywords' =>  data_get($page, "seo.keywords") ?? keywords(),
+])
+
+
 
 @section('content')
 
 <!-- page banner start -->
 <section class="banner banner__page">
     <div class="banner__page--img">
-        <img src="{{ asset ('site-assets/images/about/about-banner.png') }}" alt="">
+        <img src="{{ asset ('site-assets/images/about/about-banner.png') }}" alt="banner">
     </div>
     <div class="banner__page--content">
         <h1>Our story</h1>
@@ -82,7 +88,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="about__img d-none d-lg-block">
-                    <img src="{{ asset('site-assets/images/about/about.png') }}" alt="">
+                    <img src="{{ asset('site-assets/images/about/about.png') }}" alt="about">
                 </div>
             </div>
         </div>
@@ -99,24 +105,24 @@
             <h2>Meet Our Chefs</h2>
         </div>
     </div>
-    <div class="chef__box p__tb">
-        <div class="owl-carousel owl-theme chef__carousel">
+    <div class="menu__index chef__box p__tb">
+        <div class="owl-carousel owl-theme  chef_carousel ">
 
             @foreach($members ?? [] as $member)
             <div class="item">
                 <div class="container">
                     <div class="chef__card">
                         <div class="row">
-                            <div class="col-lg-7 order-2 order-lg-1">
+                            <div class="col-lg-6 order-2 order-lg-1">
                                 <div class="chef__card--content">
                                     <h6>{{ data_get($member, 'name') }}</h6>
                                     <h3>{{ data_get($member, 'designation') }}</h3>
-                                    <div class="content">
+                                    <div class="content ">
                                         {!! data_get($member, 'message') !!}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-5 order-1 order-lg-2">
+                            <div class="col-lg-6 order-1 order-lg-2">
                                 <div class="chef__card--img mb-4 mb-lg-0">
                                     <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MEMBERS_PATH, data_get($member, 'image'))) }}"
                                         alt="{{ data_get($member, 'name') }}" />
@@ -220,7 +226,7 @@
         </div>
     </div>
 
-    <div class="gallery__box gallery__boxres" >
+    <div class="menu__index gallery__box gallery__boxres pb-0" >
 
         <div class="owl-carousel owl-theme gallery__carousel">
             @foreach($galleries ?? [] as $image)
@@ -232,6 +238,9 @@
                 </div>
             </div>
 
+
+            @endforeach
+            @endforeach
             <!-- @if(count($image->gallery) > 1)
            <div class="item">
                 <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-2 g-4">
@@ -247,9 +256,6 @@
                 </div>
             </div>
             @endif -->
-            @endforeach
-            @endforeach
-
         </div>
     </div>
 </section>
@@ -259,11 +265,11 @@
 
 @push('footer')
 <script>
-    $('.chef__carousel').owlCarousel({
+    $('.chef_carousel ').owlCarousel({
         loop: false,
-        margin: 25,
+        margin: 30,
         responsiveClass: true,
-        autoplay: true,
+        autoplay: false,
         autoplayHoverPause: true,
         autoplaySpeed: 600,
         navText: [
@@ -425,8 +431,14 @@
         responsive: {
             0: {
                 items: 1,
-                dots: true,
-                nav: false,
+                dots: false,
+                nav: true,
+            },
+
+                  500: {
+                items: 1,
+                dots: false,
+                nav: true,
             },
             767: {
                 items: 2,
