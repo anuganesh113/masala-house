@@ -166,7 +166,6 @@ function getidVideo($link)
 if (!function_exists('title')) {
     function title()
     {
-
         $settings = setting(); // Call the function first
 
         if (isset($settings) && data_get($settings, 'seo.title')) {
@@ -193,7 +192,6 @@ if (!function_exists('description')) {
 if (!function_exists('keywords')) {
     function keywords()
     {
-
         $settings = setting(); // Call the function first
 
         if (isset($settings) && data_get($settings, 'seo.keywords')) {
