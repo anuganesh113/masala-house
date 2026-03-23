@@ -44,6 +44,9 @@
   <link rel="stylesheet" href="{{ asset('site-assets/css/override.css?v1.1') }}">
 
   <style>
+    .menu__box.menubox .nav li a.active {
+  color: #FF6F00 !important;
+}
 
   </style>
   @stack('header')
