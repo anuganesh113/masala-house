@@ -118,6 +118,7 @@
 
                             <div class="owl-carousel owl-theme wholeMenu__carousel">
                                 @foreach ($category->menus as $item)
+                              
                                 <div class="item">
                                     <div class="menu__card">
                                         <div class="menu__card--img">
@@ -166,10 +167,11 @@
 
                             </div>
 
-                            <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block">
+                            <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block " style="{{ count($category->menusOrdered) > 3 ? '' : 'display: none!important;' }}">
 
-
+     
                                 @foreach ($category->menusOrdered as $item)
+                              
                                 <div class="item">
                                     <div class="menu__card">
                                         <div class="menu__card--img">
