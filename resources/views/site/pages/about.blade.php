@@ -1,5 +1,11 @@
-@extends('site.layouts.layout')
-@section('page_title', 'About-us')
+@extends('site.layouts.layout',[
+    'title' =>   data_get($page, "seo.title") ?? 'About-us',
+    'description' =>  data_get($page, "seo.keywords") ?? description(),
+    'image' =>   $page ?  $page->full_image_link : banner() ,
+    'keywords' =>  data_get($page, "seo.keywords") ?? keywords(),
+])
+
+
 
 @section('content')
 
@@ -220,7 +226,7 @@
         </div>
     </div>
 
-    <div class="menu__index gallery__box gallery__boxres" >
+    <div class="menu__index gallery__box gallery__boxres pb-0" >
 
         <div class="owl-carousel owl-theme gallery__carousel">
             @foreach($galleries ?? [] as $image)

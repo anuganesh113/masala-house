@@ -1,6 +1,9 @@
-@extends('site.layouts.layout')
-@section('page_title',  'Menu')
-
+@extends('site.layouts.layout',[
+    'title' =>   data_get($page, "seo.title") ?? 'Menu',
+    'description' =>  data_get($page, "seo.keywords") ?? description(),
+    'image' =>   $page ?  $page->full_image_link : banner() ,
+    'keywords' =>  data_get($page, "seo.keywords") ?? keywords(),
+])
 @push('header')
 <style>
     .itemgrab__box{

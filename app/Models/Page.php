@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Casts\SEOCast;
 use App\Constants\DBTables;
+use App\Enums\UploadFilePath;
 use App\Models\Scopes\StatusScopeTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -68,5 +69,14 @@ class Page extends Model
     public function child(): HasMany
     {
         return $this->hasMany(Page::class, 'page_id');
+    }
+
+        public function getFullImageLinkAttribute(): ?string
+    {
+        if (empty($this->image_one)) {
+            return null;
+        }
+
+        return asset(sprintf('%s%s', UploadFilePath::PAGES_PATH, $this->image_one));
     }
 }
