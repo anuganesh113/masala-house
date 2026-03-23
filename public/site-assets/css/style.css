@@ -6564,4 +6564,18 @@ img {
   .owl-item .item {
     padding: 10px !important;
   }
+
+  .menuFlex__card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__top {
+    flex-direction: column;
+  }
+
+  .menu__card--content a.order-now-btn {
+    margin-top: 40px;
+  }
+
 }
