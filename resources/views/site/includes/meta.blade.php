@@ -10,5 +10,4 @@
  <meta name="author" content="MasalaHouse">
  <meta property="og:title" content="{{ $title ?? (title() ?? 'masala-house') }}" />
  <meta property="og:description" content="{{ $description ?? (description() ?? (title() ?? 'masala-house')) }}" />
- <meta property="og:image" content="{{ asset('site-assets/images/logo-color.png') }}" />
   <meta property="og:image" content="{{ url($image ?? banner()) }}" />
