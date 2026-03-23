@@ -1,6 +1,6 @@
 @extends('site.layouts.layout',[
     'title' =>   data_get($page, "seo.title") ?? 'Catering',
-    'description' =>  data_get($page, "seo.keywords") ?? description(),
+    'description' =>  strip_tags(data_get($page, "seo.description") ?? description()),
      'image' =>   $page ?  $page->full_image_link : banner() ,
     'keywords' =>  data_get($page, "seo.keywords") ?? keywords(),
 ])
@@ -11,7 +11,7 @@
 <section class="banner banner__page">
     <div class="banner__page--img">
         <img src="{{ asset ('site-assets/images/about/about-banner.png') }}"
-            alt="" />
+            alt="Catering" />
     </div>
     <div class="banner__page--content">
         <h1>{{ data_get($page, 'title') }}</h1>

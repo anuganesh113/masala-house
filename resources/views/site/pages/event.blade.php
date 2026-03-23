@@ -16,7 +16,7 @@
             <div class="col-lg-6">
                 <div class="event__left" style="background-image: url('../../site-assets/images/events.png');">
                     <!-- <div class="event__img">
-                                                                                                                                                        <img src="{{ asset ('site-assets/images/events.png') }}" alt="">
+                                                                                                                                                        <img src="{{ asset ('site-assets/images/events.png') }}" alt="events">
                                                                                                                                                     </div> -->
                     <ul class="tab__buttons">
                         <li class="tab__buttons--btn active eventtabbtn" data-event-name="lunch-combo" data-target="#eventTab1">
