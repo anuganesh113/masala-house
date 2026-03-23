@@ -148,10 +148,8 @@
                                             <h3 class="titlehgt"><a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">{{ $item->name }} </a>
 
                                             </h3>
-                                            <div class="exploreour catexploreour" style="min-height: 50px;">
-
-
-                                                <p> {!! $item->excerpt !!}</p>
+                                            <div class="exploreour catexploreour itemexcerpthover" style="min-height: 50px;">
+                                                {!! $item->excerpt !!}
                                             </div>
 
                                             <div class="menu__card--footer">
@@ -201,8 +199,8 @@
                                             <h3 class="titlehgt"><a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">{{ $item->name }} </a>
 
                                             </h3>
-                                            <div class="exploreour catexploreour" style="min-height: 50px;">
-                                                <p> {!! $item->excerpt !!}</p>
+                                            <div class="exploreour catexploreour itemexcerpthover" style="min-height: 50px;">
+                                               {!! $item->excerpt !!}
 
                                             </div>
 
@@ -281,13 +279,13 @@
 
 <!-- owl carousel script -->
 <script>
-    const paragraphs = document.querySelectorAll('.catexploreour p');
-    paragraphs.forEach(box => {
-        const words = box.innerText.trim().split(/\s+/);
-        if (words.length > 20) {
-            box.innerText = words.slice(0, 10).join(' ') + '...';
-        }
-    });
+    // const paragraphs = document.querySelectorAll('.catexploreour p');
+    // paragraphs.forEach(box => {
+    //     const words = box.innerText.trim().split(/\s+/);
+    //     if (words.length > 20) {
+    //         box.innerText = words.slice(0, 10).join(' ') + '...';
+    //     }
+    // });
 
     document.addEventListener('DOMContentLoaded', function() {
         var modal = new bootstrap.Modal(document.getElementById('popupModal'));
