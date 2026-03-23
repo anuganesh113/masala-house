@@ -199,7 +199,7 @@
         loop: false,
         margin: 30,
         responsiveClass: true,
-        autoplay: true,
+        autoplay: false,
         autoplayHoverPause: true,
         autoplaySpeed: 400,
         lazyLoad: true,
