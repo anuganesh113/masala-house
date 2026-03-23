@@ -35,7 +35,7 @@
             <div class="container-fluid">
                 <div class="row align-items-center">
                     <div class="col-xl-12">
-                        <div class="menu__box">
+                        <div class="menu__box menubox">
                             <ul class="nav" id="navbar">
                                 @foreach ($categories as $category)
                                     @if($category->menus->count() > 0)

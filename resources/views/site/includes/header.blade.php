@@ -4,7 +4,7 @@
 <head>
   @include('site.includes.meta')
 
-   <meta name="google-site-verification" content="PVElXv82RpomDLSiiyhvSw8In_ACNXiFC_y-l6RwEXA" />
+  <meta name="google-site-verification" content="PVElXv82RpomDLSiiyhvSw8In_ACNXiFC_y-l6RwEXA" />
   <script>
     (function(w, d, s, l, i) {
       w[l] = w[l] || [];
@@ -44,7 +44,15 @@
   <link rel="stylesheet" href="{{ asset('site-assets/css/override.css?v1.1') }}">
 
   <style>
+    .menu__box.menubox .nav li a.active {
+      color: #FF6F00 !important;
+    }
 
+    .itemexcerpthover:hover p {
+      height: 100px;
+      margin-bottom: 15px !important;
+    }
+    
   </style>
   @stack('header')
 
