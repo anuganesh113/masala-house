@@ -52,6 +52,7 @@
                             </ul>
                         </div>
                     </div>
+                    
                     <!-- <div class="col-xl-3">
                         <a href="{{ requesturl() }}" class="l__button l__button--primary">
                             <i class='bx bx-carts'></i> Order Now
