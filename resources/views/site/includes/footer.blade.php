@@ -6,6 +6,7 @@
 <script src="{{ asset('site-assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('site-assets/js/main.js') }}"></script>
 
+
 <script>
   // Set min date to today using class
   const today = new Date().toISOString().split('T')[0];
