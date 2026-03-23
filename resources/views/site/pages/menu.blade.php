@@ -1,9 +1,4 @@
-@extends('site.layouts.layout',[
-    'title' =>   data_get($page, "seo.title") ?? 'Menu',
-    'description' =>  strip_tags(data_get($page, "seo.description") ?? description()),
-    'image' =>   $page ?  $page->full_image_link : banner() ,
-    'keywords' =>  data_get($page, "seo.keywords") ?? keywords(),
-])
+@extends('site.layouts.layout')
 @push('header')
 <style>
     .itemgrab__box{
@@ -52,7 +47,7 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <!-- <div class="col-xl-3">
                         <a href="{{ requesturl() }}" class="l__button l__button--primary">
                             <i class='bx bx-carts'></i> Order Now
