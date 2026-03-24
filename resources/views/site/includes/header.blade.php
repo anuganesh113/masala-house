@@ -52,7 +52,14 @@
       height: 100px;
       margin-bottom: 15px !important;
     }
-    
+
+    @media (max-width: 767px) {
+      .menuFlex__card.dnone {
+        flex-direction: inherit;
+        align-items: center;
+      }
+
+    }
   </style>
   @stack('header')
 
