@@ -12,6 +12,8 @@ use BenSampo\Enum\Enum;
 final class UploadFilePath extends Enum
 {
     const ADMINS_PATH = 'uploads/profiles/admins/';
+    const EVENT_PATH = 'uploads/events/';
+
 
     const ADVERTISES_PATH = 'uploads/advertises/';
 
