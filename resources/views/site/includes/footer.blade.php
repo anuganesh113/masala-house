@@ -1,24 +1,18 @@
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K8WJ7LSJ"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script src="{{ asset('site-assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('site-assets/js/jquery.min.js') }}"></script>
 <script src="{{ asset('site-assets/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('site-assets/js/main.js') }}"></script>
-
-<script>
-  // Set min date to today using class
+<script src="{{ asset('site-assets/js/main.js') }}"></script><script>
   const today = new Date().toISOString().split('T')[0];
   const dateInputs = document.querySelectorAll('.datepicker-field');
   dateInputs.forEach(input => {
     input.setAttribute('min', today);
   });
 </script>
-
 <script>
    $('.checkphone').on('keyup', function() {
       let value = this.value.replace(/\D/g, '');
@@ -94,14 +88,11 @@ $('.checkphone').on('input', function() {
          header.classList.remove("sticky");
       }
    }
-
-   </script>
-   <script>
-
+</script>
+<script>
   @if(Session::has('success'))
         toastr.success("{{ Session::get('success') }}", "Success!");
     @endif
-
     // Configure Toastr options (optional)
     toastr.options = {
         "closeButton": true,
@@ -121,10 +112,6 @@ $('.checkphone').on('input', function() {
         "hideMethod": "fadeOut"
     }
 </script>
-
 @stack('footer')
-
-
-
 </body>
 </head>
