@@ -44,6 +44,42 @@
   <link rel="stylesheet" href="{{ asset('site-assets/css/override.css?v1.1') }}">
 
   <style>
+    /* .menuboxshadow {
+      box-shadow:
+        inset 20px 0 20px -10px rgba(0, 0, 0, 0.1),
+    
+        inset -20px 0 20px -10px rgba(0, 0, 0, 0.1),
+    
+        inset 0 20px 20px -10px rgba(0, 0, 0, 0.1),
+   
+        inset 0 -20px 20px -10px rgba(0, 0, 0, 0.1);
+    
+      padding: 20px 15px;
+      border-radius: 7px;
+
+      
+    } */
+    .menuboxshadow {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 1.5rem;
+      border: 1px solid rgb(221 221 221);
+      padding: 20px 15px;
+    }
+ .menuboxshadow:hover {
+  background: rgb(243, 220, 203);
+}
+
+/* .menuboxshadow:hover .menuFlex__card--img  .menuFlex__card--box .menuFlex__card--title .name {
+  background: rgb(243, 220, 203);
+} */
+
+   
+
+    .owl-theme.menuList__carousel .owl-stage-outer .owl-stage {
+      transform: none !important;
+      transition: none !important;
+    }
+
     .menu__box.menubox .nav li a.active {
       color: #FF6F00 !important;
     }
