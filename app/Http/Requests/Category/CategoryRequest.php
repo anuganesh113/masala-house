@@ -39,6 +39,11 @@ class CategoryRequest extends FormRequest
                 Rule::requiredIf($this->route()->getActionMethod() === 'store'),
                 File::types(Mimes::IMG)->max(Max::IMAGE),
             ],
+            'icon' => [
+                Rule::requiredIf($this->route()->getActionMethod() === 'store'),
+                File::types(Mimes::IMG)->max(Max::IMAGE),
+            ],
+            
 
         ];
     }
@@ -50,6 +55,10 @@ class CategoryRequest extends FormRequest
         if ($this->hasFile('image')) {
             $response['image'] = $this->uploadImage($this->file('image'), UploadFilePath::CATEGORIES_PATH);
         }
+         if ($this->hasFile('icon')) {
+            $response['icon'] = $this->uploadImage($this->file('icon'), UploadFilePath::CATEGORIES_PATH);
+        }
+        
 
         return $response;
     }

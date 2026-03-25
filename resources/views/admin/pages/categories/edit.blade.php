@@ -28,11 +28,11 @@
 				</div>
 
 				<form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed"
-                      action="{{ route('admin.categories.update', $category->id) }}"
-                      method="POST"
-                      enctype="multipart/form-data" >
+					action="{{ route('admin.categories.update', $category->id) }}"
+					method="POST"
+					enctype="multipart/form-data">
 
-                    @method('PATCH')
+					@method('PATCH')
 					@csrf
 
 					<div class="m-portlet__body">
@@ -40,20 +40,26 @@
 							<div class="col-lg-12">
 								<label>Category Name<span class="text-danger">*</span></label>
 								<input type="text"
-                                       class="form-control m-input"
-                                       placeholder="Category Name"
-                                       name="name"
-                                       value="{{ old('name')??data_get($category, "name") }}"
-                                />
+									class="form-control m-input"
+									placeholder="Category Name"
+									name="name"
+									value="{{ old('name')??data_get($category, "name") }}" />
 							</div>
 						</div>
 					</div>
 
-				
+
+					<x-admin.image-field :data="[
+                            'label' => 'First Image',
+                            'name' => 'icon',
+                            'path' => \App\Enums\UploadFilePath::CATEGORIES_PATH,
+                            'value' => data_get($category, 'icon')
+                        ]" />
 
 
-                            <x-admin.image-field :data="['path'=>App\Enums\UploadFilePath::CATEGORIES_PATH, 'value'=>data_get($category, 'image')]" />
-				
+					<x-admin.image-field :data="['path'=>App\Enums\UploadFilePath::CATEGORIES_PATH, 'value'=>data_get($category, 'image')]" />
+
+
 
 					<div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
 						<div class="m-form__actions m-form__actions--solid">
@@ -82,6 +88,6 @@
 @endsection
 
 @push("footer")
-    <script src="https://cdn.tiny.cloud/1/{{ env('summernote_reg_API_KEY') }}/summernote_reg/5/summernote_reg.min.js" referrerpolicy="origin" defer></script>
-    <script src="{{ asset('admin-assets/custom-js/summernote_reg-script.js') }}" defer></script>
+<script src="https://cdn.tiny.cloud/1/{{ env('summernote_reg_API_KEY') }}/summernote_reg/5/summernote_reg.min.js" referrerpolicy="origin" defer></script>
+<script src="{{ asset('admin-assets/custom-js/summernote_reg-script.js') }}" defer></script>
 @endpush

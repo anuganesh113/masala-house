@@ -52,7 +52,10 @@ class CategoryController extends BaseController
             $this->categoryModel->query()->create($data);
         } catch (Exception $error) {
             $this->databaseManager->rollBack();
-               @unlink(sprintf('%s%s', UploadFilePath::CATEGORIES_PATH, data_get($data, 'image')));
+            @unlink(sprintf('%s%s', UploadFilePath::CATEGORIES_PATH, data_get($data, 'image')));
+            @unlink(sprintf('%s%s', UploadFilePath::CATEGORIES_PATH, data_get($data, 'icon')));
+
+
 
             return back()->withInput($request->all())->with('error', $error->getMessage());
         }
@@ -73,16 +76,19 @@ class CategoryController extends BaseController
     {
         $this->databaseManager->beginTransaction();
         try {
-            $data = $request->prepareData();
-               $backup = $category->only(['image']);
-            $category->update($data);
-                   if ($request->hasFile('image')) {
-                @unlink(sprintf('%s%s', UploadFilePath::CATEGORIES_PATH, data_get($backup, 'image')));
-            }
 
+            $data = $request->prepareData();
+            $backup = $category->only(['image']);
+            $category->update($data);
+            if ($request->hasFile('image')) {
+                @unlink(sprintf('%s%s', UploadFilePath::CATEGORIES_PATH, data_get($backup, 'image')));
+                @unlink(sprintf('%s%s', UploadFilePath::CATEGORIES_PATH, data_get($data, 'icon')));
+            }
         } catch (Exception $error) {
             $this->databaseManager->rollBack();
-               @unlink(sprintf('%s%s', UploadFilePath::CATEGORIES_PATH, data_get($data, 'image')));
+            @unlink(sprintf('%s%s', UploadFilePath::CATEGORIES_PATH, data_get($data, 'image')));
+            @unlink(sprintf('%s%s', UploadFilePath::CATEGORIES_PATH, data_get($data, 'icon')));
+
 
             return back()->withInput($request->all())->with('error', $error->getMessage());
         }
@@ -94,9 +100,10 @@ class CategoryController extends BaseController
     public function destroy(Category $category): JsonResponse
     {
         try {
-              $backup = $category->only(['image']);
+            $backup = $category->only(['image']);
             $category->delete();
-              @unlink(sprintf('%s%s', UploadFilePath::CATEGORIES_PATH, data_get($backup, 'image')));
+            @unlink(sprintf('%s%s', UploadFilePath::CATEGORIES_PATH, data_get($backup, 'image')));
+            @unlink(sprintf('%s%s', UploadFilePath::CATEGORIES_PATH, data_get($backup, 'icon')));
         } catch (Exception $error) {
             return $this->jsonResponse(General::FALSE, $error->getMessage(), Response::HTTP_BAD_REQUEST);
         }

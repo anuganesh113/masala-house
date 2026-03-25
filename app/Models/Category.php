@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Casts\SEOCast;
 use App\Constants\DBTables;
+use App\Enums\UploadFilePath;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
@@ -25,6 +26,7 @@ class Category extends Model
         'name',
         'slug',
         'image',
+        'icon',
         'description',
         'metadata',
         'seo',
@@ -47,22 +49,29 @@ class Category extends Model
 
     public function menus(): HasMany
     {
-        return $this->hasMany(Menu::class, 'category_id')->where('status',1);
+        return $this->hasMany(Menu::class, 'category_id')->where('status', 1);
     }
 
     public function menusOrdered(): HasMany
     {
-        return $this->hasMany(Menu::class)->where('status',1)->orderBy('id', 'desc');
+        return $this->hasMany(Menu::class)->where('status', 1)->orderBy('id', 'desc');
     }
-        public function familyOrdered(): HasMany
+    public function familyOrdered(): HasMany
     {
         return $this->hasMany(Menu::class)->orderBy('id', 'desc');
     }
 
-           public function scopeStatus($query)
+    public function scopeStatus($query)
     {
-        return $query->where('status',1);
+        return $query->where('status', 1);
     }
-    
-    
+
+    public function getFullIconLinkAttribute(): ?string
+    {
+        if (empty($this->icon)) {
+            return  asset('site-assets/images/menu-2.png');
+        }
+
+        return asset(sprintf('%s%s', UploadFilePath::CATEGORIES_PATH, $this->icon));
+    }
 }
