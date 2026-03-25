@@ -98,7 +98,7 @@
 
                                 <div class="item">
                                     @foreach ($category->menus as $menu)
-                                    <div class="menuFlex__card dnone">
+                                    <div class="menuFlex__card dnone menuboxshadow">
                                         <div class="menuFlex__card--img d-lg-none mobile-menu mb-2">
                                             <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
                                                 alt="{{ $menu->name }}">
@@ -136,7 +136,7 @@
                                     @endforeach
                                 </div>
 
-                                <!-- @include("site.includes.menu-flex") -->
+                           
                             </div>
                         </div>
                     </div>
