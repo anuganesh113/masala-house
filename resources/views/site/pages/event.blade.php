@@ -14,27 +14,28 @@
     <div class="tab">
         <div class="row g-0">
             <div class="col-lg-6">
-                <div class="event__left eventimg" >
+               <div class="event__left" style="background-image: url('../../site-assets/images/events.png');">
                     <!-- <div class="event__img">
                                                                                                                                                         <img src="{{ asset ('site-assets/images/events.png') }}" alt="events">
                                                                                                                                                     </div> -->
                     <ul class="tab__buttons">
                         <li class="tab__buttons--btn active eventtabbtn"
-                         data-image="{{ asset('site-assets/images/events.png') }}" data-event-name="lunch-combo" data-target="#eventTab1">
+                      
+                          data-event-name="lunch-combo" data-target="#eventTab1">
                             <span></span> Lunch Combo
                         </li>
                         <li class="tab__buttons--btn eventtabbtn"
-                         data-image="{{ asset('site-assets/images/events.png') }}"
+                      
                         data-event-name="wedding-events" data-target="#eventTab2">
                             <span></span> Wedding Events
                         </li>
                         <li class="tab__buttons--btn eventtabbtn"  
-                         data-image="{{ asset('site-assets/images/events.png') }}"
+                      
                         data-event-name="festive-events" data-target="#eventTab3">
                             <span></span> Festive Events
                         </li>
                         <li class="tab__buttons--btn eventtabbtn" 
-                         data-image="{{ asset('site-assets/images/events.png') }}"
+                      
                         data-event-name="personal-events" data-target="#eventTab4">
                             <span></span> Personal Events
                         </li>
@@ -138,7 +139,7 @@
 </section>
 
 @push('footer')
-<script>
+<!-- <script>
     $(document).ready(function() {
         var defaultImage = $('.eventtabbtn.active').data('image');
         if (defaultImage) {
@@ -161,5 +162,5 @@
   
         });
     });
-</script>
+</script> -->
 @endpush
