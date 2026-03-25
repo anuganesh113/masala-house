@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\EditorUploadController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\FacilityController;
 use App\Http\Controllers\Admin\FAQController;
 use App\Http\Controllers\Admin\GalleryController;
@@ -104,6 +105,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
         $route->resource('facilities', FacilityController::class)->except(['show']);
 
         $route->resource('categories', CategoryController::class)->except(['show']);
+        $route->resource('events', EventController::class)->except(['show']);
+        $route->get('events/{id}', [EventController::class, 'delete'])->name('event.delete');
+
 
         $route->resource('galleries', GalleryController::class)->except(['show']);
         $route->post('gallery/{album}/{gallery}/delete', [GalleryController::class, 'destroyGallery'])
