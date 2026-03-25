@@ -1,5 +1,5 @@
 @extends("admin.layouts.layout")
-@section("page_title", "Edit Category")
+@section("page_title", "Edit Event")
 
 @section("content")
 <div class="m-content">
@@ -16,19 +16,19 @@
 							<span class="m-portlet__head-icon m--hide">
 								<i class="la la-gear"></i>
 							</span>
-							<h3 class="m-portlet__head-text">Edit Category</h3>
+							<h3 class="m-portlet__head-text">Edit Event</h3>
 						</div>
 					</div>
 					<div class="m-portlet__head-tools">
 						<a class="btn btn-info m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill"
-							href="{{ route('admin.categories.index') }}">
-							<i class="la la-list"></i> Category List
+							href="{{ route('admin.events.index') }}">
+							<i class="la la-list"></i> Event List
 						</a>
 					</div>
 				</div>
 
 				<form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed"
-					action="{{ route('admin.categories.update', $category->id) }}"
+					action="{{ route('admin.events.update', $event->id) }}"
 					method="POST"
 					enctype="multipart/form-data">
 
@@ -37,29 +37,38 @@
 
 					<div class="m-portlet__body">
 						<div class="form-group m-form__group row">
-							<div class="col-lg-12">
-								<label>Category Name<span class="text-danger">*</span></label>
+							<div class="col-lg-10">
+								<label> Name<span class="text-danger">*</span></label>
 								<input type="text"
 									class="form-control m-input"
-									placeholder="Category Name"
+									placeholder=" Name"
 									name="name"
-									value="{{ old('name')??data_get($category, "name") }}" />
+									value="{{ old('name')??data_get($event, "name") }}" />
+							</div>
+							<div class="col-lg-2">
+								<x-admin.radio-status :data="['value' => data_get($event, 'status')]" />
 							</div>
 						</div>
 					</div>
 
 
-					<x-admin.image-field :data="[
-                            'label' => 'First Image',
-                            'name' => 'icon',
-                            'path' => \App\Enums\UploadFilePath::CATEGORIES_PATH,
-                            'value' => data_get($category, 'icon')
-                        ]" />
+
+					<x-admin.image-field :data="['path'=>App\Enums\UploadFilePath::EVENT_PATH, 'value'=>data_get($event, 'image')]" />
 
 
-					<x-admin.image-field :data="['path'=>App\Enums\UploadFilePath::CATEGORIES_PATH, 'value'=>data_get($category, 'image')]" />
+					<div class="form-group m-form__group">
+						<label>Excerpt<span class="text-danger">*</span></label>
+						<textarea class=" form-control m-input" name="excerpt"
+							rows="10">{{ old('excerpt')??data_get($event, "excerpt") }}</textarea>
+					</div>
 
+					<div class="form-group m-form__group">
+						<label>Description<span class="text-danger">*</span></label>
+						<textarea class="summernote_reg form-control m-input" name="description"
+							rows="25">{{ old('description')??data_get($event, "description") }}</textarea>
+					</div>
 
+					<x-admin.seo :data="data_get($event, 'seo')" />
 
 					<div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
 						<div class="m-form__actions m-form__actions--solid">
@@ -69,7 +78,7 @@
 										<i class="la la-upload"></i>
 										Submit
 									</button>
-									<a href="{{ route('admin.categories.index') }}"
+									<a href="{{ route('admin.events.index') }}"
 										class="btn btn-danger text-light">
 										<i class="la la-close"></i>
 										Cancel

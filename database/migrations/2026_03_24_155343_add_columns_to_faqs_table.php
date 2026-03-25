@@ -15,7 +15,7 @@ return new class extends Migration
             $table->json('metadata')->nullable();
             $table->json('seo')->nullable();
             $table->string('model_id')->nullable();
-            $table->string('model_name')->nullable();
+            $table->string('model_type')->nullable();
         });
     }
 
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->dropColumn('metadata');
             $table->dropColumn('seo');
             $table->dropColumn('model_id');
-            $table->dropColumn('model_name');
+            $table->dropColumn('model_type');
         });
     }
 };

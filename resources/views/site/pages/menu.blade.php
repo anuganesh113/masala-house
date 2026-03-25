@@ -78,7 +78,7 @@
                         <div class="image d-none d-lg-block">
                             <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::CATEGORIES_PATH, data_get($category, 'image'))) }}"
                                 class="img-1" alt="">
-                            <img src="{{ asset('site-assets/images/menu-2.png') }}" class="img-2" alt="">
+                            <img src="{{ $category->full_icon_link }}" class="img-2" alt="">
                         </div>
                     </div>
                     <div class="col-lg-7">

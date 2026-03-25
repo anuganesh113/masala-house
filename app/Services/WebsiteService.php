@@ -80,7 +80,7 @@ class WebsiteService
                 break;
 
             case 'faqs':
-                $data['faqs'] = FAQ::query()->status()->whereNull('event_id')->orderBy('order')->get();
+                $data['faqs'] = FAQ::query()->status()->whereNull('model_id')->orderBy('order')->get();
                 break;
 
             case 'gallery':

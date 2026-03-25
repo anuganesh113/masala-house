@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Category;
+namespace App\Http\Requests\Event;
 
 use App\Constants\DBTables;
 use App\Enums\Max;
@@ -11,12 +11,11 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\File;
 
-/**
- * Class CategoryRequest
- */
-class CategoryRequest extends FormRequest
+
+class EventRequest extends FormRequest
 {
     use FileUpload;
+
 
     /**
      * Determine if the user is authorized to make this request.
@@ -39,26 +38,16 @@ class CategoryRequest extends FormRequest
                 Rule::requiredIf($this->route()->getActionMethod() === 'store'),
                 File::types(Mimes::IMG)->max(Max::IMAGE),
             ],
-            'icon' => [
-                Rule::requiredIf($this->route()->getActionMethod() === 'store'),
-                File::types(Mimes::IMG)->max(Max::IMAGE),
-            ],
-            
 
         ];
     }
-
     public function prepareData(): array
     {
-        $response = $this->only(['name']);
+        $response = $this->only(['name', 'slug', 'image', 'excerpt', 'description', 'status', 'seo']);
 
         if ($this->hasFile('image')) {
-            $response['image'] = $this->uploadImage($this->file('image'), UploadFilePath::CATEGORIES_PATH);
+            $response['image'] = $this->uploadImage($this->file('image'), UploadFilePath::EVENT_PATH);
         }
-         if ($this->hasFile('icon')) {
-            $response['icon'] = $this->uploadImage($this->file('icon'), UploadFilePath::CATEGORIES_PATH);
-        }
-        
 
         return $response;
     }
