@@ -20,25 +20,25 @@
                                                                                                                                                     </div> -->
                     <ul class="tab__buttons">
                         <li class="tab__buttons--btn active eventtabbtn"
-                        data-photo="{{ asset ('site-assets/images/events.png') }}"
+                        data-image="{{ asset ('site-assets/images/events.png') }}"
                       
                           data-event-name="lunch-combo" data-target="#eventTab1">
                             <span></span> Lunch Combo
                         </li>
                         <li class="tab__buttons--btn eventtabbtn"
-                        data-photo="{{ asset ('site-assets/images/events.png') }}"
+                        data-image="{{ asset ('site-assets/images/events.png') }}"
                       
                         data-event-name="wedding-events" data-target="#eventTab2">
                             <span></span> Wedding Events
                         </li>
                         <li class="tab__buttons--btn eventtabbtn"  
-                        data-photo="{{ asset ('site-assets/images/events.png') }}"
+                        data-image="{{ asset ('site-assets/images/events.png') }}"
                       
                         data-event-name="festive-events" data-target="#eventTab3">
                             <span></span> Festive Events
                         </li>
                         <li class="tab__buttons--btn eventtabbtn" 
-                        data-photo="{{ asset ('site-assets/images/events.png') }}"
+                        data-image="{{ asset ('site-assets/images/events.png') }}"
                       
                         data-event-name="personal-events" data-target="#eventTab4">
                             <span></span> Personal Events
@@ -145,20 +145,20 @@
 @push('footer')
 <script>
     $(document).ready(function() {
-        var defaultphoto = $('.eventtabbtn.active').data('photo');
+        var defaultImage = $('.eventtabbtn.active').data('image');
         if (defaultImage) {
-            $('.eventimg').css('background-image', 'url("' + defaultphoto + '")');
+            $('.eventimg').css('background-image', 'url("' + defaultImage + '")');
         }
         $('.eventtabbtn').click(function() {
             var target = $(this).data('target');
             var eventName = $(this).data('event-name');
-            var photo = $(this).data('photo');
+            var image = $(this).data('photo');
             $('.eventtabbtn').removeClass('active');
             $(this).addClass('active');
             $('.tab__contents--text').removeClass('active');
             $(target).addClass('active');
-            if (photo) {
-                $('.eventimg').css('background-image', 'url("' + photo + '")');
+            if (image) {
+                $('.eventimg').css('background-image', 'url("' + image + '")');
             } else {
                 $('.eventimg').css('background-image', 'url("../../site-assets/images/events.png")');
             }
