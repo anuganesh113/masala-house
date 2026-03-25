@@ -123,8 +123,8 @@
                                     <div class="menu__card">
                                         <div class="menu__card--img">
                                             <a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">
-                                                <img class="owl-lazy"
-                                                    data-src="{{$item->full_image_link}}"
+                                                <img class=""
+                                                    data-src="{{$item->full_image_link}}" src="{{$item->full_image_link}}"
                                                     alt="{{$item->name}}">
                                             </a>
                                             <div class="icon">
@@ -174,8 +174,8 @@
                                     <div class="menu__card">
                                         <div class="menu__card--img">
                                             <a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">
-                                                <img class="owl-lazy"
-                                                    data-src="{{$item->full_image_link}}"
+                                                <img class=""
+                                                    data-src="{{$item->full_image_link}}" src="{{$item->full_image_link}}"
                                                     alt="{{$item->name}}">
                                             </a>
                                             <div class="icon">

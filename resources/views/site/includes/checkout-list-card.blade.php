@@ -9,7 +9,6 @@
             <h3>Spicy pani puri</h3>
             <span><i class="fa-solid fa-trash-can"></i></span>
          </div>
-         
          <div class="body">
             <div class="cat d-none d-lg-inline-block">Vegitarian</div>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and t</p>
