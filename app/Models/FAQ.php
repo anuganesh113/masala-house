@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\SEOCast;
 use App\Constants\DBTables;
 use App\Models\Scopes\StatusScopeTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -19,6 +20,11 @@ class FAQ extends Model
      */
     protected $table = DBTables::FAQS;
 
+    protected $casts = [
+        'metadata' => 'json',
+        'seo' => SEOCast::class,
+    ];
+
     /**
      * @var string[]
      */
@@ -27,10 +33,19 @@ class FAQ extends Model
         'answer',
         'order',
         'status',
+        'model_id',
+        'model_type',
+        'seo',
+        'metadata',
+
     ];
 
     public function event(): BelongsTo
     {
-        return $this->belongsTo(Event::class, 'event_id');
+        return $this->belongsTo(Event::class, 'model_id');
+    }
+    public function scopeModelname($query)
+    {
+        return $query->where('model_type', $query);
     }
 }

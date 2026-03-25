@@ -48,4 +48,10 @@ class Event extends Model
     {
         return $this->hasMany(FAQ::class, 'model_id');
     }
+
+      public function scopeStatus($query)
+    {
+        return $query->where('status', 1);
+    }
+
 }

@@ -27,9 +27,9 @@
 				</div>
 
 				<form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed"
-                      action="{{ route('admin.faqs.store') }}"
-                      method="POST"
-                      enctype="multipart/form-data">
+					action="{{ route('admin.faqs.store') }}"
+					method="POST"
+					enctype="multipart/form-data">
 
 					@csrf
 
@@ -38,36 +38,53 @@
 							<div class="col-lg-12">
 								<label>Question<span class="text-danger">*</span></label>
 								<input type="text"
-                                       name="question"
-                                       class="form-control m-input"
-                                       placeholder="Question"
-                                       value="{{ old('question') }}">
+									name="question"
+									class="form-control m-input"
+									placeholder="Question"
+									value="{{ old('question') }}">
 							</div>
 						</div>
+					</div>
 
-						<div class="form-group m-form__group">
-                            <label>Answer<span class="text-danger">*</span></label>
-                            <textarea class="form-control m-input summernote_reg"
-                                      name="answer"
-                                      placeholder="Answer"
-                                      rows="15">{{ old('answer') }}</textarea>
-                        </div>
+					<div class="row">
+						<div class="form-group m-form__group col-lg-8">
+							<label>Answer<span class="text-danger">*</span></label>
+							<textarea class="form-control m-input summernote_reg"
+								name="answer"
+								placeholder="Answer"
+								rows="15">{{ old('answer') }}</textarea>
+						</div>
 
-						
-                        <div class="form-group m-form__group row">
-                            <div class="col-lg-6">
-                                <label>Order<span class="text-danger">*</span></label>
-                                <input type="number"
-                                       name="order"
-                                       class="form-control m-input"
-                                       placeholder="Order"
-                                       value="{{ old('order') ?? 1 }}"
-                                />
-                            </div>
-                            <div class="col-lg-6">
-                                <x-admin.radio-status />
-                            </div>
-                        </div>
+
+						<div class="col-lg-4">
+							<div class="form-group m-form__group ">
+								<div class="col-lg-12">
+									<label>Order<span class="text-danger">*</span></label>
+									<input type="number"
+										name="order"
+										class="form-control m-input"
+										placeholder="Order"
+										value="{{ old('order') ?? 1 }}" />
+								</div>
+
+								<div class="col-lg-12 mt-4">
+									<input type="hidden" name="model_type" value="event">
+									<label>Select Event<span class="text-danger">*</span></label>
+									          <select class="form-control m-input m-input--square" name="model_id">
+                                    <option selected value="">-- SELECT --</option>
+                                    @foreach($events??[] as $value)
+                                        <option value="{{ data_get($value, 'id') }}" >
+                                            {{ ucwords(data_get($value, 'name')) }}
+                                        </option>
+                                    @endforeach
+                                </select>
+								</div>
+
+								<div class="col-lg-12 mt-4">
+									<x-admin.radio-status />
+								</div>
+							</div>
+						</div>
 					</div>
 
 					<div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
@@ -97,6 +114,6 @@
 @endsection
 
 @push("footer")
-    <script src="https://cdn.tiny.cloud/1/{{ env('summernote_reg_API_KEY') }}/summernote_reg/5/summernote_reg.min.js" referrerpolicy="origin" defer></script>
-    <script src="{{ asset('admin-assets/custom-js/summernote_reg-script.js') }}" defer></script>
+<script src="https://cdn.tiny.cloud/1/{{ env('summernote_reg_API_KEY') }}/summernote_reg/5/summernote_reg.min.js" referrerpolicy="origin" defer></script>
+<script src="{{ asset('admin-assets/custom-js/summernote_reg-script.js') }}" defer></script>
 @endpush
