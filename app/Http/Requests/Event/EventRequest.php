@@ -41,10 +41,9 @@ class EventRequest extends FormRequest
 
         ];
     }
-
     public function prepareData(): array
     {
-        $response = $this->only(['name']);
+        $response = $this->only(['name', 'slug', 'image', 'excerpt', 'description', 'status', 'seo']);
 
         if ($this->hasFile('image')) {
             $response['image'] = $this->uploadImage($this->file('image'), UploadFilePath::EVENT_PATH);

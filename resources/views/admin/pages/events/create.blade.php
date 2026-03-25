@@ -27,28 +27,49 @@
 				</div>
 
 				<form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed"
-                      action="{{ route('admin.events.store') }}"
-                      method="POST"
-                      enctype="multipart/form-data">
+					action="{{ route('admin.events.store') }}"
+					method="POST"
+					enctype="multipart/form-data">
 
 					@csrf
 
 					<div class="m-portlet__body">
 						<div class="form-group m-form__group row">
-							<div class="col-lg-12">
+							<div class="col-lg-10">
 								<label> Name<span class="text-danger">*</span></label>
 								<input type="text"
-                                       name="name"
-                                       class="form-control m-input"
-                                       placeholder=" Name"
-                                       value="{{ old('name') }}"
-                                />
+									name="name"
+									class="form-control m-input"
+									placeholder=" Name"
+									value="{{ old('name') }}" />
+							</div>
+							<div class="col-lg-2">
+								<x-admin.radio-status />
 							</div>
 						</div>
 					</div>
 
-				     <x-admin.image-field :data="['required'=>true]" />
-					 
+					<x-admin.image-field :data="['required'=>true]" />
+
+
+
+
+					<div class="form-group m-form__group">
+						<label>Excerpt<span class="text-danger">*</span></label>
+						<textarea class=" form-control m-input" name="excerpt"
+							rows="10">{{ old('excerpt') }}</textarea>
+					</div>
+
+					<div class="form-group m-form__group">
+						<label>Description<span class="text-danger">*</span></label>
+						<textarea class="summernote_reg form-control m-input" name="description"
+							rows="25">{{ old('description')}}</textarea>
+					</div>
+
+
+					<x-admin.seo :data="[]" />
+
+
 					<div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
 						<div class="m-form__actions m-form__actions--solid">
 							<div class="row">
@@ -76,6 +97,6 @@
 @endsection
 
 @push("footer")
-    <script src="https://cdn.tiny.cloud/1/{{ env('summernote_reg_API_KEY') }}/summernote_reg/5/summernote_reg.min.js" referrerpolicy="origin" defer></script>
-    <script src="{{ asset('admin-assets/custom-js/summernote_reg-script.js') }}" defer></script>
+<script src="https://cdn.tiny.cloud/1/{{ env('summernote_reg_API_KEY') }}/summernote_reg/5/summernote_reg.min.js" referrerpolicy="origin" defer></script>
+<script src="{{ asset('admin-assets/custom-js/summernote_reg-script.js') }}" defer></script>
 @endpush

@@ -23,7 +23,9 @@ class Event extends Model
         'slug',
         'image',
         'description',
+        'excerpt',
         'metadata',
+        'status',
         'seo',
     ];
 

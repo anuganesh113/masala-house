@@ -51,6 +51,8 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Event Status</th>
+
                         <th>Created On</th>
                         <th>Action</th>
                     </tr>
@@ -61,6 +63,14 @@
                     <tr id="events-{{ $value->id }}">
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ data_get($value, 'name') }}</td>
+
+
+                        <td>
+                            <span class="m-badge m-badge--{{ data_get($value, 'status') ?'success' : 'danger' }} m-badge--wide">
+                                {{ data_get($value, 'status') ? 'Active' : 'Inactive' }}
+                            </span>
+                        </td>
+
                         <td class="center">@datetime(data_get($value, "created_at"))</td>
                         <td data-field="Actions" class="m-datatable__cell">
                             <span style="overflow: visible; width: 110px;">
@@ -68,12 +78,12 @@
                                     class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit">
                                     <i class="la la-edit text-success"></i>
                                 </a>
-                         <a href="{{ route('admin.event.delete', $value->id) }}" 
-   onclick="return confirm('Are you sure you want to delete this event?')"
-   class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" 
-   title="Delete">
-    <i class="la la-trash text-danger"></i>
-</a>
+                                <a href="{{ route('admin.event.delete', $value->id) }}"
+                                    onclick="return confirm('Are you sure you want to delete this event?')"
+                                    class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill"
+                                    title="Delete">
+                                    <i class="la la-trash text-danger"></i>
+                                </a>
                             </span>
                         </td>
                     </tr>
