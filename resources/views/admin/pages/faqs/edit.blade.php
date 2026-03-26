@@ -68,7 +68,7 @@
                                     </div>
 
                                     <div class="col-lg-12 mt-4">
-                                        <input type="hidden" name="model_type" value="event">
+                                      
                                         <label>Select Event<span class="text-danger">*</span></label>
                                         <select class="form-control m-input m-input--square" name="model_id">
                                             <option selected value="">-- SELECT --</option>

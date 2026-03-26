@@ -53,6 +53,21 @@
 							</div>
 							<div class="col-lg-2">
 								<x-admin.radio-status />
+
+
+								<div class="col-lg-12 mt-4">
+									<input type="hidden" name="model_type" value="event">
+									<label>Select Event Type<span class="text-danger">*</span></label>
+								    <select class="form-control m-input m-input--square" name="type">
+                                    <option selected value="">-- SELECT --</option>
+                               
+                                        <option value="1" >Event</option>
+                                        <option value="2" >Catering</option>
+
+										
+                                  
+                                </select>
+								</div>
 							</div>
 						</div>
 					</div>
