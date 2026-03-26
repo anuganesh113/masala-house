@@ -19,6 +19,22 @@ class FAQRequest extends FormRequest
         return true;
     }
 
+        public function attributes(): array
+    {
+        return [
+            'model_id' => 'Select Event',
+        ];
+    }
+
+
+        public function messages(): array
+    {
+        return [
+            'name.model_id' => 'Event Name.',
+           
+        ];
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
