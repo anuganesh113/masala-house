@@ -2398,7 +2398,7 @@ img {
   color: #080808;
   font-size: 2rem;
   font-weight: 500;
-  background-color: #fcf5f5;
+  /* background-color: #fcf5f5; */
   position: relative;
   z-index: 1;
   margin-bottom: 0;
@@ -3340,7 +3340,7 @@ img {
 
 .popular .menuFlex__card .img {
   flex: 0 0 4.5rem;
-  border-radius: 999px;
+  /* border-radius: 999px; */
   overflow: hidden;
 }
 
@@ -3473,7 +3473,7 @@ img {
 
 @media (max-width: 767px) {
   .popular .menuFlex__card {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     padding: 1.25rem 1.25rem;
   }
@@ -6578,4 +6578,17 @@ img {
     margin-top: 40px;
   }
 
+}
+
+.popular_cont p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 330px) {
+  .popular .menuFlex__card {
+    flex-direction: column;
+  }
 }

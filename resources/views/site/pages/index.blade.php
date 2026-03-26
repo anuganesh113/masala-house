@@ -124,7 +124,7 @@
                                         <div class="menu__card--img">
                                             <a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">
                                                 <img class="owl-lazy"
-                                                    data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($item, 'image'))) }}"
+                                                    data-src="https://masalahousepittsburg.com/uploads/menus/masala-house-files-4chwztqlinw.jpg"
                                                     alt="{{$item->name}}">
                                             </a>
                                             <div class="icon">
@@ -175,7 +175,7 @@
                                         <div class="menu__card--img">
                                             <a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">
                                                 <img class="owl-lazy"
-                                                    data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($item, 'image'))) }}"
+                                                    data-src="https://masalahousepittsburg.com/uploads/menus/masala-house-files-4chwztqlinw.jpg"
                                                     alt="{{$item->name}}">
                                             </a>
                                             <div class="icon">
