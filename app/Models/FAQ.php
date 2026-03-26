@@ -44,8 +44,5 @@ class FAQ extends Model
     {
         return $this->belongsTo(Event::class, 'model_id');
     }
-    public function scopeModelname($query)
-    {
-        return $query->where('model_type', $query);
-    }
+
 }
