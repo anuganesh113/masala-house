@@ -51,6 +51,9 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Event Type</th>
+
+
                         <th>Event Status</th>
 
                         <th>Created On</th>
@@ -63,6 +66,9 @@
                     <tr id="events-{{ $value->id }}">
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ data_get($value, 'name') }}</td>
+
+
+                        <td>{{$value->type == 1 ? 'Event' : 'Catering' }}</td>
 
 
                         <td>
