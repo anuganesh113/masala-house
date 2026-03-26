@@ -44,6 +44,20 @@
   <link rel="stylesheet" href="{{ asset('site-assets/css/override.css?v1.1') }}">
 
   <style>
+    .menuboxshadow {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 1.5rem;
+      border: 1px solid rgb(221 221 221);
+      padding: 20px 15px;
+    }
+    .menuboxshadow:hover {
+      background: rgb(243, 220, 203);
+    }
+    .owl-theme.menuList__carousel .owl-stage-outer .owl-stage {
+      transform: none !important;
+      transition: none !important;
+    }
+
     .menu__box.menubox .nav li a.active {
       color: #FF6F00 !important;
     }
@@ -51,6 +65,27 @@
     .itemexcerpthover:hover p {
       height: 100px;
       margin-bottom: 15px !important;
+    }
+
+    @media (max-width: 767px) {
+      .menuFlex__card.dnone {
+        flex-direction: inherit;
+        align-items: center;
+      }
+
+    }
+
+    .menuimgrespo {
+      position: relative;
+      height: 10.25rem !important;
+
+
+    }
+
+    .menuimgrespo img {
+      height: 158px !important;
+      object-fit: fill;
+      border-radius: 10px;
     }
     
   </style>

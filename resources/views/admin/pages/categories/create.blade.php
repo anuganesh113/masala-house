@@ -46,8 +46,15 @@
 							</div>
 						</div>
 					</div>
+					      <x-admin.image-field :data="[
+                            'label' => 'First Image',
+                            'name' => 'icon',
+                           
+                        ]" />
 
 				     <x-admin.image-field :data="['required'=>true]" />
+					 
+					
 					 
 					<div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
 						<div class="m-form__actions m-form__actions--solid">

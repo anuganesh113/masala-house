@@ -6,6 +6,7 @@ use App\Constants\General;
 use App\Constants\Message;
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\FAQ\FAQRequest;
+use App\Models\Event;
 use App\Models\FAQ;
 use Exception;
 use Illuminate\Contracts\View\View;
@@ -34,7 +35,8 @@ class FAQController extends BaseController
 
     public function create(): View
     {
-        return view('admin.pages.faqs.create');
+         $data['events'] = Event::status()->get();
+        return view('admin.pages.faqs.create',  $data);
     }
 
     /**
@@ -75,12 +77,10 @@ class FAQController extends BaseController
 
     public function edit(FAQ $faq): View|RedirectResponse
     {
-        if ($faq->event_id !== null) {
-            return back()->with('error', Message::GENERAL_MESSAGE['UNAUTHORIZED_ACTION']);
-        }
-
+ 
+        $events = Event::status()->get();
         return view('admin.pages.faqs.edit', [
-            'faq' => $faq,
+            'faq' => $faq, 'events' => $events 
         ]);
     }
 

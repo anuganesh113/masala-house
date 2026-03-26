@@ -1,5 +1,5 @@
 @extends("admin.layouts.layout")
-@section("page_title", "Create FAQs")
+@section("page_title", "Create Event")
 
 @section("content")
 <div class="m-content">
@@ -15,19 +15,19 @@
 							<span class="m-portlet__head-icon m--hide">
 								<i class="la la-gear"></i>
 							</span>
-							<h3 class="m-portlet__head-text">Create FAQs</h3>
+							<h3 class="m-portlet__head-text">Create Event</h3>
 						</div>
 					</div>
 					<div class="m-portlet__head-tools">
 						<a class="btn btn-info m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill"
-							href="{{ route('admin.faqs.index') }}">
-							<i class="la la-list"></i> FAQs List
+							href="{{ route('admin.events.index') }}">
+							<i class="la la-list"></i> Events List
 						</a>
 					</div>
 				</div>
 
 				<form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed"
-					action="{{ route('admin.faqs.store') }}"
+					action="{{ route('admin.events.store') }}"
 					method="POST"
 					enctype="multipart/form-data">
 
@@ -35,57 +35,63 @@
 
 					<div class="m-portlet__body">
 						<div class="form-group m-form__group row">
-							<div class="col-lg-12">
-								<label>Question<span class="text-danger">*</span></label>
+							<div class="col-lg-10">
+								<label>Event Name<span class="text-danger">*</span></label>
 								<input type="text"
-									name="question"
-									class="form-control m-input"
-									placeholder="Question"
-									value="{{ old('question') }}">
+									name="name"
+									class="form-control m-input mb-2"
+									placeholder=" Name"
+									value="{{ old('name') }}" />
+
+		                          <label>Event Title<span class="text-danger ">*</span></label>
+								<input type="text"
+									name="metadata[title]"
+									class="form-control m-input mt-2"
+									placeholder="Title"
+									value="{{ old('name') }}" />
+						
 							</div>
-						</div>
-					</div>
+							<div class="col-lg-2">
+								<x-admin.radio-status />
 
-					<div class="row">
-						<div class="form-group m-form__group col-lg-8">
-							<label>Answer<span class="text-danger">*</span></label>
-							<textarea class="form-control m-input summernote_reg"
-								name="answer"
-								placeholder="Answer"
-								rows="15">{{ old('answer') }}</textarea>
-						</div>
-
-
-						<div class="col-lg-4">
-							<div class="form-group m-form__group ">
-								<div class="col-lg-12">
-									<label>Order<span class="text-danger">*</span></label>
-									<input type="number"
-										name="order"
-										class="form-control m-input"
-										placeholder="Order"
-										value="{{ old('order') ?? 1 }}" />
-								</div>
 
 								<div class="col-lg-12 mt-4">
-									<!-- <input type="hidden" name="model_type" value="event"> -->
-									<label>Select Event<span class="text-danger">*</span></label>
-									          <select class="form-control m-input m-input--square" name="model_id">
+									<input type="hidden" name="model_type" value="event">
+									<label>Select Event Type<span class="text-danger">*</span></label>
+								    <select class="form-control m-input m-input--square" name="type">
                                     <option selected value="">-- SELECT --</option>
-                                    @foreach($events??[] as $value)
-                                        <option value="{{ data_get($value, 'id') }}" >
-                                            {{ ucwords(data_get($value, 'name')) }}
-                                        </option>
-                                    @endforeach
+                               
+                                        <option value="1" >Event</option>
+                                        <option value="2" >Catering</option>
+
+										
+                                  
                                 </select>
 								</div>
-
-								<div class="col-lg-12 mt-4">
-									<x-admin.radio-status />
-								</div>
 							</div>
 						</div>
 					</div>
+
+					<x-admin.image-field :data="['required'=>true]" />
+
+
+
+
+					<div class="form-group m-form__group">
+						<label>Excerpt<span class="text-danger">*</span></label>
+						<textarea class=" form-control m-input" name="excerpt"
+							rows="10">{{ old('excerpt') }}</textarea>
+					</div>
+
+					<div class="form-group m-form__group">
+						<label>Description<span class="text-danger">*</span></label>
+						<textarea class="summernote_reg form-control m-input" name="description"
+							rows="25">{{ old('description')}}</textarea>
+					</div>
+
+
+					<x-admin.seo :data="[]" />
+
 
 					<div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
 						<div class="m-form__actions m-form__actions--solid">
@@ -95,7 +101,7 @@
 										<i class="la la-upload"></i>
 										Submit
 									</button>
-									<a href="{{ route('admin.faqs.index') }}"
+									<a href="{{ route('admin.events.index') }}"
 										class="btn btn-danger text-light">
 										<i class="la la-close"></i>
 										Cancel

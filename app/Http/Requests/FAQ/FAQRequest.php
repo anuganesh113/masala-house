@@ -19,6 +19,22 @@ class FAQRequest extends FormRequest
         return true;
     }
 
+        public function attributes(): array
+    {
+        return [
+            'model_id' => 'Select Event',
+        ];
+    }
+
+
+        public function messages(): array
+    {
+        return [
+            'name.model_id' => 'Event Name.',
+           
+        ];
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -28,19 +44,19 @@ class FAQRequest extends FormRequest
     {
         return [
             'question' => ['required', 'max:255'],
-            'answer' => ['required'],
+            'answer' => ['required', 'max:1000'],
+            'model_id' => ['required'],
+
             'status' => ['required', Rule::in(Status::getValues())],
             'order' => ['required', 'numeric', 'min:1', 'max:9999999'],
         ];
     }
 
-    public function prepareData(): array
+ public function prepareData(): array
     {
-        return [
-            'question' => data_get($this, 'question'),
-            'answer' => data_get($this, 'answer'),
-            'status' => data_get($this, 'status'),
-            'order' => data_get($this, 'order'),
-        ];
+        $response = $this->only(['question', 'answer', 'model_id', 'model_type', 'status', 'order']);
+
+
+        return $response;
     }
 }

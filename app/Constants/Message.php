@@ -82,6 +82,16 @@ class Message
         'DELETE_SUCCESS' => 'Popup Delete Success',
     ];
 
+            /**
+     * @var array
+     */
+    public const EVENT_MESSAGE = [
+        'CREATE_SUCCESS' => 'Event Create Success',
+        'UPDATE_SUCCESS' => 'Event Update Success',
+        'DELETE_SUCCESS' => 'Event Delete Success',
+    ];
+
+
 
     /**
      * @var array
