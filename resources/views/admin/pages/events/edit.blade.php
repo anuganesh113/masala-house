@@ -38,12 +38,21 @@
 					<div class="m-portlet__body">
 						<div class="form-group m-form__group row">
 							<div class="col-lg-10">
-								<label> Name<span class="text-danger">*</span></label>
+								<label>Event Name<span class="text-danger">*</span></label>
 								<input type="text"
-									class="form-control m-input"
+									class="form-control m-input mb-3"
 									placeholder=" Name"
 									name="name"
 									value="{{ old('name')??data_get($event, "name") }}" />
+
+
+
+								<label>Event Title<span class="text-danger ">*</span></label>
+								<input type="text"
+									name="metadata[title]"
+									class="form-control m-input mt-2"
+									placeholder="Title"
+									value="{{ old('metadata.title')??data_get($event, "metadata.title") }}" />
 							</div>
 							<div class="col-lg-2">
 								<x-admin.radio-status :data="['value' => data_get($event, 'status')]" />
