@@ -47,6 +47,9 @@ class EventRequest extends FormRequest
             'metadata.title.min' => 'Title must be at least 3 characters.',
             'metadata.title.max' => 'Title cannot exceed 255 characters.',
             'slug.unique' => 'This slug is already taken.',
+            'type.required' => 'Please  Select a  Event Type.',
+
+            
         ];
     }
 
@@ -65,12 +68,14 @@ class EventRequest extends FormRequest
             ],
             'metadata.title' => ['required'],
             'metadata.title.*' => ['required', 'max:255'],
+            'type' => ['required', 'max:255'],
+
 
         ];
     }
     public function prepareData(): array
     {
-        $response = $this->only(['name', 'slug', 'image', 'excerpt', 'description', 'status', 'seo', 'metadata']);
+        $response = $this->only(['name', 'slug', 'image', 'excerpt', 'description', 'status', 'seo', 'metadata' ,'type']);
         if ($this->hasFile('image')) {
             $response['image'] = $this->uploadImage($this->file('image'), UploadFilePath::EVENT_PATH);
         }

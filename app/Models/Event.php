@@ -24,6 +24,7 @@ class Event extends Model
         'image',
         'description',
         'excerpt',
+        'type',
         'metadata',
         'status',
         'seo',
