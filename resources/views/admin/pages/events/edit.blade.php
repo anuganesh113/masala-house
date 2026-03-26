@@ -66,7 +66,7 @@
 										<option selected value="">-- SELECT --</option>
 
 										<option value="1" {{ $event && $event->type == 1 ? 'selected' : '' }}>Event</option>
-										<option value="2" {{ $event && $event->type == 1 ? 'selected' : '' }}>Catering</option>
+										<option value="2" {{ $event && $event->type == 2 ? 'selected' : '' }}>Catering</option>
 
 
 

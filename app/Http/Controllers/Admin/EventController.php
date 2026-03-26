@@ -27,7 +27,7 @@ class EventController extends Controller
     public function index(): View
     {
         $data['events'] = $this->eventModel->query()
-            ->select(['id', 'name','status', 'created_at'])
+            ->select(['id', 'name','status', 'created_at' ,'type'])
             ->latest()
             ->get();
 
