@@ -106,21 +106,16 @@
                                         <div class="menuFlex__card--box">
                                             <div class="menuFlex__card--title">
                                                 <h3 class="name">{{ $menu->name }} </h3>
-
-
                                                 <span class="price">${{ $menu->price }} <br>
 
                                             </div>
                                             <div class="menuFlex__card--content dnone dcontent">
                                                 <div class="menuFlex__card--text d-block popular_cont">
-
                                                     {!! $menu->excerpt ?? '<P> no description available</P> ' !!}
-
-
                                                 </div>
                                                 <div class="menuFlex__card--quantity orderdiv">
-
-                                                    <span class="cat catvegg {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
+                                                    <span class="foronly_mobilresponsive" style="color: rgb(229.5, 99.9, 0);font-weight: 900;">${{ $menu->price }}</span>
+                                                    <span class="cat catvegg float-end  mt-0 {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
                                                     <span>
                                                         <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank"
                                                             class="order-now-btn2 boxshadow wtc men-ord"

@@ -50,9 +50,11 @@
       border: 1px solid rgb(221 221 221);
       padding: 20px 15px;
     }
+
     .menuboxshadow:hover {
       background: rgb(243, 220, 203);
     }
+
     .owl-theme.menuList__carousel .owl-stage-outer .owl-stage {
       transform: none !important;
       transition: none !important;
@@ -60,6 +62,17 @@
 
     .menu__box.menubox .nav li a.active {
       color: #FF6F00 !important;
+    }
+
+    .menuimgrespo {
+      position: relative;
+      height: 10.25rem !important;
+    }
+
+    .menuimgrespo img {
+      height: 145px !important;
+      object-fit: cover;
+      border-radius: 10px;
     }
 
     .itemexcerpthover:hover p {
@@ -73,21 +86,38 @@
         align-items: center;
       }
 
+      .menuFlex__card--title {
+        display: inline-block;
+      }
+
+      .menuFlex__card--title .price {
+        display: none;
+      }
     }
 
-    .menuimgrespo {
-      position: relative;
-      height: 10.25rem !important;
-
-
+    .menu__list--box .menuFlex__card .cat {
+      padding: 5px 3px 5px 10px;
     }
 
-    .menuimgrespo img {
-      height: 158px !important;
-      object-fit: fill;
-      border-radius: 10px;
+    @media (min-width: 767px) {
+      .menuFlex__card--title {
+        display: inline-block;
+      }
+
+      .menuFlex__card--title .price {
+        display: none;
+      }
     }
-    
+
+
+    .menuboxshadow:hover .menuFlex__card--box .name {
+      background: rgb(243, 220, 203);
+    }
+
+    .menuboxshadow:hover .menuFlex__card--box .popular_cont p,
+    .menuboxshadow:focus .menuFlex__card--box .popular_cont p {
+      display: inline-block;
+    }
   </style>
   @stack('header')
 
