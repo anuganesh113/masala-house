@@ -435,9 +435,6 @@ img {
   right: 100%;
 }
 
-.owl-dots {
-  display: none;
-}
 
 .owl-dots button span {
   height: 0.25rem !important;
@@ -6582,7 +6579,7 @@ img {
 
 .popular_cont p {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
