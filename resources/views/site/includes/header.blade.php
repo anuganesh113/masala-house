@@ -93,6 +93,16 @@
       .menuFlex__card--title .price {
         display: none;
       }
+
+      .owl-carousel.wholeMenu__carousel .owl-dots button span {
+        height: 0.95rem !important;
+        width: 0.95rem !important;
+      }
+
+      .owl-carousel.wholeMenu__carousel button.owl-dot {
+        padding: 0px 3px !important;
+      }
+
     }
 
     .menu__list--box .menuFlex__card .cat {
@@ -107,6 +117,10 @@
       .menuFlex__card--title .price {
         display: none;
       }
+
+
+
+
     }
 
 
@@ -116,7 +130,11 @@
 
     .menuboxshadow:hover .menuFlex__card--box .popular_cont p,
     .menuboxshadow:focus .menuFlex__card--box .popular_cont p {
-      display: inline-block;
+      display: inline-flex;
+    }
+
+    .menuboxshadow:hover .menuimgrespo {
+      height: 12.25rem !important;
     }
   </style>
   @stack('header')
