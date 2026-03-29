@@ -136,6 +136,11 @@
     .menuboxshadow:hover .menuimgrespo {
       height: 12.25rem !important;
     }
+
+    /* @media only screen and (max-device-width: 480px) {
+     
+      }
+    } */
   </style>
   @stack('header')
 
