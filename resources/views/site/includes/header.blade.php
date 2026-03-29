@@ -151,6 +151,7 @@
       }
       .order-now-btn2.boxshadow.wtc.men-ord{
             margin: auto;
+            width: auto;
             margin-top: 10px;
       }
       .menuFlex__card--img {
