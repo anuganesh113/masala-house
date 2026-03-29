@@ -156,7 +156,14 @@
       }
       .menuFlex__card--img {
       width: auto;
+      width: 317px;
       }
+      .menuimgrespo{
+        height: 16.25rem !important;
+      }
+      .menuimgrespo img {
+    height: 248px !important;
+}
 
 
     }
