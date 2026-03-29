@@ -87,7 +87,7 @@
           .owl-carousel.wholeMenu__carousel button.owl-dot {
               padding: 0px 3px !important;
           }
-
+          
       }
 
       @media (min-width: 400px) and (max-width: 520px) {
@@ -113,6 +113,9 @@
               width: auto;
               width: 317px;
           }
+           .dnone.dcontent p{
+            width: 317px;
+           }
 
           .menuimgrespo {
               height: 16.25rem !important;
