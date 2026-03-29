@@ -137,10 +137,28 @@
       height: 12.25rem !important;
     }
 
-    /* @media only screen and (max-device-width: 480px) {
-     
+        @media (min-width: 400px) and (max-width: 520px) {
+      .dnone.dcontent {
+        display: contents;
       }
-    } */
+
+      .wtc.men-ord {
+        text-align: center;
+      }
+
+       .menuFlex__card.dnone.menuboxshadow {
+        flex-direction: column;
+      }
+      .order-now-btn2.boxshadow.wtc.men-ord{
+            margin: auto;
+            margin-top: 10px;
+      }
+      .menuFlex__card--img {
+      width: auto;
+      }
+
+
+    }
   </style>
   @stack('header')
 

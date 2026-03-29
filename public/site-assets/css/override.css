@@ -164,33 +164,7 @@
 
 
 
-    @media (min-width: 400px) and (max-width: 520px) {
-      .dnone.dcontent {
-        display: contents;
-      }
 
-      .wtc.men-ord {
-        text-align: center;
-      }
-
-       .menuFlex__card.dnone.menuboxshadow {
-        flex-direction: column;
-      }
-      .order-now-btn2.boxshadow.wtc.men-ord{
-            margin: auto;
-            margin-top: 10px;
-      }
-      .menuFlex__card--img {
-      width: auto;
-      }
-
-      /* .orderdiv{
-            position: relative;
-      }
-      .cat.catvegg{
-    float: right;
-      }  */
-    }
 
 
 
