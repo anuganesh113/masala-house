@@ -81,6 +81,14 @@ class WebsiteController extends BaseController
         ]);
     }
 
+
+    public function product(Request $request): View
+    {
+  
+
+        return view('site.pages.showproduct');
+    }
+
     public function cateringBooking(Request $request)
     {
         $inquiry = new Inquiry();

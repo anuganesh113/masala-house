@@ -19,6 +19,8 @@ Route::group(['as' => 'site.'], function ($route) {
           $route->post('catering-booking', 'cateringBooking')->name('catering.booking');
           $route->post('contact-store', 'contactsave')->name('contact.save');
           $route->post('table-book', 'tablebook')->name('table.book');
+        $route->get('product/show', 'product')->name('product');
+
 
 
     });
