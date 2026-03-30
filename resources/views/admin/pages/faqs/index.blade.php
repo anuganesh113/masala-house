@@ -51,7 +51,7 @@
                     <tr>
                         <th>#</th>
                         <th>Question</th>
-                        <th>Event</th>
+                      
                         <th>FAQ Status</th>
                         <th>Created On</th>
                         <th>Action</th>
@@ -64,7 +64,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ data_get($value, "question") }}</td>
                            
-                               <td>{{ $value->event->name ?? '' }}</td>
+                           
                             <td>
                                 <span class="m-badge m-badge--{{ data_get($value, "status") ? 'success' : 'danger' }} m-badge--wide">
                                     {{ data_get($value, "status") ? "Active" : "Inactive" }}
