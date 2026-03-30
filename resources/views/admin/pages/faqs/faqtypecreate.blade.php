@@ -43,7 +43,7 @@
 									name="question"
 									class="form-control m-input"
 									placeholder="Question"
-									value="{{ old('question') ?? $faq->question ?? '' }}" />
+									value="{{ old('question') ?? $faq->question ?? '' }}"  />
 							</div>
 						</div>
 					

@@ -79,7 +79,7 @@ class FAQController extends BaseController
 
     public function edit(FAQ $faq): View|RedirectResponse
     {
-        
+
 
         $events = Event::status()->get();
         return view('admin.pages.faqs.edit', [
@@ -115,19 +115,29 @@ class FAQController extends BaseController
         $data['menu'] = Menu::where('id', request()->segment(5))->first();
         return view('admin.pages.faqs.faqtypecreate',  $data);
     }
-        public function faqtypeedit(Request $request, $id)
+    public function faqtypeedit(Request $request, $id)
     {
 
         $data['faq'] = Faq::find($id);
         $data['menu'] = Menu::where('id', $data['faq']->model_id)->first();
-       
+
 
         return view('admin.pages.faqs.faqtypecreate',  $data);
     }
 
     public function faqtypestore(Request $request)
     {
-        $data = $request->all();  
+        $request->validate([
+            'question' => 'required|max:1000',
+            'answer' => 'required|max:1000',
+
+        ], [
+            'question.required' => 'The question field is required.',
+            'answer.required' => 'The answer field is required.',
+
+        ]);
+
+        $data = $request->all();
         if (isset($request->faq_id) &&  $request->faq_id) {
             $faq = Faq::find($request->faq_id);
             $faq->save();
@@ -136,6 +146,4 @@ class FAQController extends BaseController
         }
         return redirect()->route('admin.faqtype', ['type' =>  $faq->model_type, 'id' => $faq->model_id])->with('success', Message::FAQ_MESSAGE['CREATE_SUCCESS']);
     }
-
-
 }
