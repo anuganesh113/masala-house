@@ -68,7 +68,7 @@ class EventRequest extends FormRequest
             ],
             'metadata.title' => ['required'],
             'metadata.title.*' => ['required', 'max:255'],
-            // 'type' => ['required', 'max:255'],
+            'type' => ['required', 'max:255'],
 
 
         ];
