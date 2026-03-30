@@ -106,7 +106,7 @@ class FAQController extends BaseController
 
     public function faqtype(Request $request)
     {
-        $data['faqs'] = Faq::where('model_type', 'menu')->where('model_id', $request->segment(4))->get();
+        $data['faqs'] = Faq::where('model_type',  request()->segment(3))->where('model_id', request()->segment(4))->get();
         return view('admin.pages.faqs.faqtype', $data);
     }
 
