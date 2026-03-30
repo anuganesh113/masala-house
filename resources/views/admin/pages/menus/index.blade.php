@@ -56,7 +56,7 @@
                         <th>Menu Status</th>
                         <th>Menu Type</th>
                         <th>Created On</th>
-                        <th>Add FAQ</th>
+                        <th>Add FAQS</th>
 
                         <th>Action</th>
                     </tr>
@@ -82,6 +82,7 @@
                             <td class="center">@datetime(data_get($value, "created_at"))</td>
 
                             <td >
+                                  {{findfaqcount('menu', $value->id)}}
                                     <a href="{{ route('admin.faqtype', ['type' => 'menu', 'id' => $value->id]) }}"
                                        class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Faq">
                                       

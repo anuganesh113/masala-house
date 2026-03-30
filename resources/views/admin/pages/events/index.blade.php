@@ -55,7 +55,7 @@
 
 
                         <th>Event Status</th>
-                        <th>Faq </th>
+                        <th>Add Faqs</th>
 
                         <th>Created On</th>
                         <th>Action</th>
@@ -79,6 +79,7 @@
                         </td>
 
                         <td>
+                            {{findfaqcount('event', $value->id)}}
                             <a href="{{ route('admin.faqtype', ['type' => 'event', 'id' => $value->id]) }}"
                                 class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Faq">
 
