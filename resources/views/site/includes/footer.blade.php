@@ -4,7 +4,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script src="{{ asset('site-assets/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('site-assets/js/jquery.min.js') }}"></script>
 <script src="{{ asset('site-assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('site-assets/js/main.js') }}"></script><script>
   const today = new Date().toISOString().split('T')[0];
