@@ -204,3 +204,27 @@ dob.setFullYear(dob.getFullYear() - 2);
 dob.setMonth(11);
 dob.setDate(31);
 $("input[name=birth_date]").attr("max", dob.toISOString().substring(0, 10));
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.tab');
+  const contents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Remove active classes
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+
+      // Add active class to clicked tab
+      tab.classList.add('active');
+
+      // Show corresponding content
+      const targetId = tab.getAttribute('data-target');
+      const targetContent = document.getElementById(targetId);
+      if (targetContent) {
+        targetContent.classList.add('active');
+      }
+    });
+  });
+});
+

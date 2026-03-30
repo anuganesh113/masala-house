@@ -1,0 +1,215 @@
+﻿diff --git a/resources/views/site/pages/showproduct.blade.php b/resources/views/site/pages/showproduct.blade.php
+index 0e1f875..d3f6ca5 100644
+--- a/resources/views/site/pages/showproduct.blade.php
++++ b/resources/views/site/pages/showproduct.blade.php
+@@ -1,6 +1,8 @@
+ @extends('site.layouts.layout')
+ 
+-
++@push('header')
++<link rel="stylesheet" href="{{ asset('site-assets/css/fancybox.css') }}">
++@endpush
+ 
+ @section('content')
+ <section class="banner banner__page">
+@@ -11,9 +13,197 @@
+         <h1>Product</h1>
+         <p>Product show</p>
+     </div>
++
++
++
+ </section>
++    <div class="mobile-container">
++
++        <!-- Main Content (Scrollable) -->
++        <main class="content-scroll">
++            <section class="hero-image-container">
++                <div class="hero-image-wrapper">
++                    <a href="https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&q=80&w=800" data-type="image" data-fancybox="gallery" class="hero-image-link" aria-label="Zoom image">
++                        <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&q=80&w=800"
++                            alt="Chaat Papdi" class="hero-image">
++                        <div class="zoom-btn">
++                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" class="zoom-icon">
++                                <path d="M15 15L21 21M10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
++                            </svg>
++                        </div>
++                    </a>
++                </div>
++            </section>
++
++            <section class="product-info">
++                <h1 class="product-title">Chaat Papdi</h1>
++                <p class="product-short-desc">
++                    Crispy wafers layered with potatoes, chickpeas, yogurt, tamarind and mint chutneys, and sev. A
++                    delightful mix of...
++                </p>
++                <div class="price-row">
++                    <span class="price">$8.99</span>
++                    <span class="tag-vegetarian">Vegetarian</span>
++                </div>
++            </section>
+ 
++            <!-- Tabs Section -->
++            <section class="tabs-container">
++                <div class="tabs-header">
++                    <button class="tab active" data-target="overview">Overview</button>
++                    <div class="tab-divider"></div>
++                    <button class="tab" data-target="faq">FAQ</button>
++                    <div class="tab-divider"></div>
++                    <button class="tab" data-target="order">Order Now</button>
++                </div>
+ 
++                <div class="tab-content-wrapper">
++                    <!-- Overview Tab Content -->
++                    <div class="tab-content active" id="overview">
++                        <h2 class="section-title">Chaat Papdi</h2>
++                        <p class="long-desc">
++                            Chaat Papdi consists of crispy wafers topped with diced boiled potatoes, chickpeas, yogurt,
++                            tamarind chutney, mint chutney, green chilles, and is garnished with sev, chopped cilantro,
++                            and a mix of Indian spices. It offers a delightful combination of sweet, tangy, and spicy
++                            flavors with a variety of textures.
++                        </p>
++
++                        <div class="details-grid">
++                            <div class="ingredients-section">
++                                <h3 class="subsection-title">Ingredients</h3>
++                                <ul class="ingredients-list">
++                                    <li class="ingredient-item">
++                                        <span class="icon-check">
++                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
++                                                <path
++                                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
++                                            </svg>
++                                        </span>
++                                        Crispy wafers
++                                    </li>
++                                    <li class="ingredient-item">
++                                        <span class="icon-check">
++                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
++                                                <path
++                                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
++                                            </svg>
++                                        </span>
++                                        Diced boiled potatoes
++                                    </li>
++                                    <li class="ingredient-item">
++                                        <span class="icon-check">
++                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
++                                                <path
++                                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
++                                            </svg>
++                                        </span>
++                                        Chickpeas
++                                    </li>
++                                    <li class="ingredient-item">
++                                        <span class="icon-check">
++                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
++                                                <path
++                                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
++                                            </svg>
++                                        </span>
++                                        Yogurt
++                                    </li>
++                                    <li class="ingredient-item">
++                                        <span class="icon-check">
++                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
++                                                <path
++                                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
++                                            </svg>
++                                        </span>
++                                        Tamarind chutney
++                                    </li>
++                                </ul>
++                            </div>
++
++                            <div class="nutrition-section">
++                                <h3 class="subsection-title">Nutrition Facts</h3>
++                                <div class="nutrition-grid">
++                                    <div class="nutrition-card">
++                                        <div class="nutrient-icon" style="color: #ea580c;">
++                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
++                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
++                                                stroke-linejoin="round">
++                                                <path
++                                                    d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z">
++                                                </path>
++                                            </svg>
++                                        </div>
++                                        <span class="nutrient-value">280</span>
++                                        <span class="nutrient-label">Calories</span>
++                                    </div>
++                                    <div class="nutrition-card">
++                                        <div class="nutrient-icon" style="color: #94a3b8;">
++                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
++                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
++                                                stroke-linejoin="round">
++                                                <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"></path>
++                                            </svg>
++                                        </div>
++                                        <span class="nutrient-value">10g</span>
++                                        <span class="nutrient-label">Fat</span>
++                                    </div>
++                                    <div class="nutrition-card">
++                                        <div class="nutrient-icon" style="color: #b91c1c;">
++                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
++                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
++                                                stroke-linejoin="round">
++                                                <circle cx="12" cy="12" r="10"></circle>
++                                                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
++                                                <line x1="9" y1="9" x2="9.01" y2="9"></line>
++                                                <line x1="15" y1="9" x2="15.01" y2="9"></line>
++                                            </svg>
++                                        </div>
++                                        <span class="nutrient-value">29g</span>
++                                        <span class="nutrient-label">Carbs</span>
++                                    </div>
++                                    <div class="nutrition-card">
++                                        <div class="nutrient-icon" style="color: #64748b;">
++                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
++                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
++                                                stroke-linejoin="round">
++                                                <path d="M18 8h1a4 4 0 010 8h-1"></path>
++                                                <path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"></path>
++                                                <line x1="6" y1="1" x2="6" y2="4"></line>
++                                                <line x1="10" y1="1" x2="10" y2="4"></line>
++                                                <line x1="14" y1="1" x2="14" y2="4"></line>
++                                            </svg>
++                                        </div>
++                                        <span class="nutrient-value">6g</span>
++                                        <span class="nutrient-label">Protein</span>
++                                    </div>
++                                </div>
++                            </div>
++                        </div>
++                    </div>
++
++                    <!-- FAQ Tab Content -->
++                    <div class="tab-content" id="faq">
++                        <h2 class="section-title">Frequently Asked Questions</h2>
++                        <p class="long-desc">Additional details regarding the menu item will be shown here.</p>
++                    </div>
++
++                    <!-- Order Now Tab Content -->
++                    <div class="tab-content" id="order">
++                        <h2 class="section-title">Order Now</h2>
++                        <p class="long-desc">Place your order easily using our instant checkout.</p>
++                    </div>
++                </div>
++            </section>
++        </main>
++    </div>
+ 
++@endsection
+ 
+-@endsection
+\ No newline at end of file
++@push('footer')
++<script src="{{ asset('site-assets/js/facybox.js') }}"></script>
++<script>
++    if (typeof Fancybox !== "undefined") {
++        Fancybox.bind('[data-fancybox="gallery"]');
++    }
++</script>
++@endpush
+\ No newline at end of file
