@@ -15,7 +15,7 @@
 							<span class="m-portlet__head-icon m--hide">
 								<i class="la la-gear"></i>
 							</span>
-							<h3 class="m-portlet__head-text">Create FAQs</h3>
+							<h3 class="m-portlet__head-text">Create FAQs {{ $menu->name ?? '' }}</h3>
 						</div>
 					</div>
 					<div class="m-portlet__head-tools">
@@ -27,11 +27,13 @@
 				</div>
 
 				<form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed"
-					action="{{ route('admin.faqs.store') }}"
+					action="{{ isset($faq) ? route('admin.faqtypestore', $faq->id) : route('admin.faqtypestore') }}"
 					method="POST"
 					enctype="multipart/form-data">
-
 					@csrf
+                    <input type="hidden" name="model_type" value="{{  $faq->model_type ?? request()->segment(4) }}">
+                    <input type="hidden" name="model_id" value="{{ $menu->id ?? '' }}">
+                    <input type="hidden" name="faq_id" value="{{ $faq->id ?? '' }}">
 
 					<div class="m-portlet__body">
 						<div class="form-group m-form__group row">
@@ -41,49 +43,32 @@
 									name="question"
 									class="form-control m-input"
 									placeholder="Question"
-									value="{{ old('question') }}">
+									value="{{ old('question') ?? $faq->question ?? '' }}" />
 							</div>
 						</div>
-					</div>
-
-					<div class="row">
-						<div class="form-group m-form__group col-lg-8">
+					
+						<div class="form-group m-form__group col-lg-12">
 							<label>Answer<span class="text-danger">*</span></label>
 							<textarea class="form-control m-input summernote_reg"
 								name="answer"
 								placeholder="Answer"
-								rows="15">{{ old('answer') }}</textarea>
+								rows="15">{{ old('answer') ?? $faq->answer ?? '' }}</textarea>
 						</div>
-
-
-						<div class="col-lg-4">
-							<div class="form-group m-form__group ">
-								<div class="col-lg-12">
+							<div class="form-group m-form__group  row">
+								<div class="col-lg-8">
 									<label>Order<span class="text-danger">*</span></label>
 									<input type="number"
 										name="order"
 										class="form-control m-input"
 										placeholder="Order"
-										value="{{ old('order') ?? 1 }}" />
+										value="{{ old('order') ?? $faq->order ?? 1 }}" />
 								</div>
 
-								<div class="col-lg-12 mt-4">
-									<label>Select Event<span class="text-danger">*</span></label>
-									          <select class="form-control m-input m-input--square" name="model_id">
-                                    <option selected value="">-- SELECT --</option>
-                                    @foreach($events??[] as $value)
-                                        <option value="{{ data_get($value, 'id') }}" >
-                                            {{ ucwords(data_get($value, 'name')) }}
-                                        </option>
-                                    @endforeach
-                                </select>
-								</div>
-
-								<div class="col-lg-12 mt-4">
+								<div class="col-lg-4 mt-4">
 									<x-admin.radio-status />
 								</div>
 							</div>
-						</div>
+						
 					</div>
 
 					<div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">

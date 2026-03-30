@@ -45,4 +45,9 @@ class FAQ extends Model
         return $this->belongsTo(Event::class, 'model_id');
     }
 
+       public function faqs(): BelongsTo
+    {
+        return $this->belongsTo(Faq::class, 'model_id');
+    }
+
 }
