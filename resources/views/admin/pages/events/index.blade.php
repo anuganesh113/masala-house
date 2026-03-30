@@ -55,6 +55,7 @@
 
 
                         <th>Event Status</th>
+                        <th>Faq </th>
 
                         <th>Created On</th>
                         <th>Action</th>
@@ -75,6 +76,14 @@
                             <span class="m-badge m-badge--{{ data_get($value, 'status') ?'success' : 'danger' }} m-badge--wide">
                                 {{ data_get($value, 'status') ? 'Active' : 'Inactive' }}
                             </span>
+                        </td>
+
+                        <td>
+                            <a href="{{ route('admin.faqtype', ['type' => 'event', 'id' => $value->id]) }}"
+                                class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Faq">
+
+                                <i class="la la-long-arrow-right text-danger"></i>
+                            </a>
                         </td>
 
                         <td class="center">@datetime(data_get($value, "created_at"))</td>

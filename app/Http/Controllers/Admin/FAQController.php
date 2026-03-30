@@ -31,13 +31,12 @@ class FAQController extends BaseController
     public function index(): View
     {
         $data['faqs'] = $this->faqModel->query()->wherenull('model_type')->get();
-
         return view('admin.pages.faqs.index', $data);
     }
 
     public function create(): View
     {
-        $data['events'] = Event::status()->get();
+        $data['events'] = Event::where('type',1)->status()->get();
         return view('admin.pages.faqs.create',  $data);
     }
 
@@ -81,7 +80,7 @@ class FAQController extends BaseController
     {
 
 
-        $events = Event::status()->get();
+        $events = Event::status()->where('type', 1)->get();
         return view('admin.pages.faqs.edit', [
             'faq' => $faq,
             'events' => $events
@@ -106,20 +105,30 @@ class FAQController extends BaseController
 
     public function faqtype(Request $request)
     {
+
         $data['faqs'] = Faq::where('model_type',  request()->segment(3))->where('model_id', request()->segment(4))->get();
         return view('admin.pages.faqs.faqtype', $data);
     }
 
     public function faqtypecreate(Request $request)
     {
-        $data['menu'] = Menu::where('id', request()->segment(5))->first();
+        $req =  request()->segment(4);
+        if ($req == 'menu') {
+            $data['model'] = Menu::where('id', request()->segment(5))->first();
+        } else {
+            $data['model'] = Event::where('id', request()->segment(5))->first();
+        }
         return view('admin.pages.faqs.faqtypecreate',  $data);
     }
     public function faqtypeedit(Request $request, $id)
     {
-
+        $req =  request()->segment(5);
         $data['faq'] = Faq::find($id);
-        $data['menu'] = Menu::where('id', $data['faq']->model_id)->first();
+        if ($req == 'menu') {
+            $data['model'] = Menu::where('id', $data['faq']->model_id)->first();
+        } else {
+            $data['model'] = Event::where('id', $data['faq']->model_id)->first();
+        }
 
 
         return view('admin.pages.faqs.faqtypecreate',  $data);
@@ -129,7 +138,7 @@ class FAQController extends BaseController
     {
         $request->validate([
             'question' => 'required|max:1000',
-            'answer' => 'required|max:1000',
+            'answer' => 'required|max:3000',
 
         ], [
             'question.required' => 'The question field is required.',

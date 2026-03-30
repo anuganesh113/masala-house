@@ -67,7 +67,7 @@
 										value="{{ old('order') ?? 1 }}" />
 								</div>
 
-								<div class="col-lg-12 mt-4">
+								<!-- <div class="col-lg-12 mt-4">
 									<label>Select Event<span class="text-danger">*</span></label>
 									          <select class="form-control m-input m-input--square" name="model_id">
                                     <option selected value="">-- SELECT --</option>
@@ -77,7 +77,7 @@
                                         </option>
                                     @endforeach
                                 </select>
-								</div>
+								</div> -->
 
 								<div class="col-lg-12 mt-4">
 									<x-admin.radio-status />

@@ -15,7 +15,7 @@
 							<span class="m-portlet__head-icon m--hide">
 								<i class="la la-gear"></i>
 							</span>
-							<h3 class="m-portlet__head-text">Create FAQs {{ $menu->name ?? '' }}</h3>
+							<h3 class="m-portlet__head-text">Create FAQs {{ $model->name ?? '' }}</h3>
 						</div>
 					</div>
 					<div class="m-portlet__head-tools">
@@ -32,7 +32,7 @@
 					enctype="multipart/form-data">
 					@csrf
                     <input type="hidden" name="model_type" value="{{  $faq->model_type ?? request()->segment(4) }}">
-                    <input type="hidden" name="model_id" value="{{ $menu->id ?? '' }}">
+                    <input type="hidden" name="model_id" value="{{ $model->id ?? '' }}">
                     <input type="hidden" name="faq_id" value="{{ $faq->id ?? '' }}">
 
 					<div class="m-portlet__body">

@@ -58,7 +58,7 @@
 								<x-admin.radio-status :data="['value' => data_get($event, 'status')]" />
 
 
-
+<!-- 
 								<div class="col-lg-12 mt-4">
 									<input type="hidden" name="model_type" value="event">
 									<label>Select Event Type<span class="text-danger">*</span></label>
@@ -71,7 +71,7 @@
 
 
 									</select>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
