@@ -226,5 +226,24 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Quantity Stepper Logic
+  const qtyInput = document.getElementById('product-qty');
+  const qtyPlus = document.getElementById('qty-plus');
+  const qtyMinus = document.getElementById('qty-minus');
+
+  if (qtyInput && qtyPlus && qtyMinus) {
+    qtyPlus.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value) || 1;
+      qtyInput.value = val + 1;
+    });
+
+    qtyMinus.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value) || 1;
+      if (val > 1) {
+        qtyInput.value = val - 1;
+      }
+    });
+  }
 });
 
