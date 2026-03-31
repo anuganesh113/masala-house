@@ -1,16 +1,17 @@
-@foreach ($categories->take(1) as $category)
+
     <section class="popular p__tb">
         <div class="container">
             <div class="section__title text-center">
-                <h5>Quick Grab , Choose from our delicious collection</h5>
-                <h2>{{ $category->name }}</h2>
+                <h5> {{ $settings['section_2_heading'] ?? 'Quick Grab , Choose from our delicious collection'  }}  </h5>
+                <h2>{{ $settings['section_2_title'] ?? 'Street Foods' }}</h2>
             </div>
+           
             <div class="row">
                 <div class="col-lg-7 offset-lg-5">
                     <div class="popular__box">
                         <div class="owl-carousel owl-theme popular__carousel">
                             <div class="item" style="padding: 40px">
-                                @foreach ($category->menusOrdered->take(4) as $item)
+                                @foreach ($section_2 as $item)
                                     <div class="menuFlex__card">
                                         <div class="img d-lg-none">
                                             <img src="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::MENUS_PATH, data_get($item, 'image'))) }}"
@@ -37,10 +38,10 @@
                             </div>
                             <div class="item" style="padding: 40px">
 
-                                @foreach ($category->menus->take(4) as $item)
+                                @foreach ($section_2 as $item)
                                     <div class="menuFlex__card">
                                         <div class="img d-lg-none">
-                                            <img src="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::CATEGORIES_PATH, data_get($category, 'image'))) }}"
+                                            <img src="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::MENUS_PATH, data_get($item, 'image'))) }}"
                                                 class="img-2" alt="{{$item->name}}">
                                         </div>
                                         <div class="contents">
@@ -54,7 +55,7 @@
                                                     {!!strip_tags(substr($item->excerpt, 0, 180))!!}
 
                                                 </p>
-                                                <a class="wtc" href="{{ requesturl() }}" target="_blank">order now</a>
+                                                <a class="wtc" href="{{ requesturl() . '/' . $item->slug }}" target="_blank">order now</a>
                                                 <span class="cat bg-green bt-fr {{cssnonveg($item->type)}}">{{ checkVegetarian($item->type) }}</span>
 
                                             </div>
@@ -71,4 +72,3 @@
         </div>
     </section>
 
-@endforeach
