@@ -18,12 +18,13 @@
 
 @section('content')
 
+
 <x-site.banner />
 
 <!-- experience section start -->
 <section class="experience">
     <div class="experience__img">
-        <img src="{{ asset('site-assets/images/index/exp-bg-3.png') }}" alt="about-img">
+        <img src="{{ asset('uploads/pages/' . $about->image_two) }}" alt="about-img">
     </div>
     <div class="container-fluid">
         <div class="row">
@@ -33,9 +34,7 @@
                     <h2> Wonderful Dining Experience & Indian Food</h2>
                 </div>
                 <div class="content">
-                    <p>Masala House was founded in 2015 by Chef Raj Sharma with a simple mission: to bring the authentic flavors of India to Pittsburg,
-                        California. Born and raised in Delhi, Chef Raj learned the art of Indian cooking from his grandmother,
-                        who taught him the importance of freshly ground spices and traditional cooking techniques.</p>
+                    {!!   $about->excerpt ??  $about->description !!}
                 </div>
                 <div class="btn__group">
                     <button class="l__button l__button--primary" data-bs-toggle="modal"
@@ -63,8 +62,8 @@
 <!-- family together section start -->
 <section class="family p__tb--t">
     <div class="section__title text-center">
-        <h5>Grab a grand orders for your family </h5>
-        <h2>Family Together</h2>
+        <h5>{{ $settings['section_2_heading'] ?? 'Grab a grand orders for your family'  }}  </h5>
+        <h2>  {{ $settings['section_2_title'] ?? 'Family Together'  }} </h2>
         @include("site.includes.scroll")
     </div>
     <div class="owl-carousel owl-theme family__carouselss">

@@ -1,5 +1,5 @@
-@foreach ($categories->take(1) as $category)
-   @foreach ($category->menus->take(4) as $menu)
+
+    @foreach ($section_3 as $menu)
       <div class="item" style="margin-right: -20px;">
          <div class="menu__card menu__card--family" style="width: 95%;">
             <div class="menu__card--img">
@@ -41,7 +41,7 @@
          </div>
       </div>
    @endforeach
-@endforeach
+
 
 @push('footer')
 

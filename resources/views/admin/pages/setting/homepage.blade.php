@@ -52,11 +52,11 @@
                                 }
                                 @endphp
 
-                                <div class="col-lg-12 mt-4">
+                                <div class="col-lg-12 mt-4" >
                                     <label>Select Menus for II Section <span class="text-danger">*</span> </label>
-                                    <div class="">
+                                    <div class="" style="max-height: 350px;overflow-y: scroll;padding: 5px 10px;">
                                         @foreach($menus as $menu)
-                                        <input type="checkbox" class="form-check-input" name="section_2_menu[]" value="{{ $menu->id }}"
+                                        <input type="checkbox" class="" name="section_2_menu[]" value="{{ $menu->id }}"
                                             @if (in_array($menu->id, $arr_categories)) checked="checked" @endif
                                         > &nbsp;&nbsp;{{ $menu->name }}
                                         <br>
@@ -94,11 +94,11 @@
                                 }
                                 @endphp
 
-                                <div class="col-lg-12 mt-4">
+                                <div class="col-lg-12 mt-4" >
                                     <label>Select Menus for III Section <span class="text-danger">*</span> </label>
-                                    <div class="">
+                                    <div class=""  style="max-height: 350px;overflow-y: scroll;padding: 5px 10px;">
                                         @foreach($menus as $menu)
-                                        <input type="checkbox" class="form-check-input" name="section_3_menu[]" value="{{ $menu->id }}"
+                                        <input type="checkbox" class="" name="section_3_menu[]" value="{{ $menu->id }}"
                                             @if (in_array($menu->id, $arr_3_categories)) checked="checked" @endif
                                         > &nbsp;&nbsp;{{ $menu->name }}
                                         <br>
