@@ -184,13 +184,97 @@
                     <!-- FAQ Tab Content -->
                     <div class="tab-content" id="faq">
                         <h2 class="section-title">Frequently Asked Questions</h2>
-                        <p class="long-desc">Additional details regarding the menu item will be shown here.</p>
+                        <div class="faq-accordion">
+                            <div class="faq-item">
+                                <details name="faq">
+                                    <summary>
+                                        Is this dish very spicy?
+                                        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                        </svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        Chaat Papdi offers a beautifully balanced flavor profile. It has a mild tanginess from the tamarind chutney and a refreshing kick from the mint chutney, making it extremely pleasant and not overwhelmingly spicy. Perfect for all palates!
+                                    </div>
+                                </details>
+                            </div>
+                            <div class="faq-item">
+                                <details name="faq">
+                                    <summary>
+                                        Can I order this vegan or gluten-free?
+                                        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                        </svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        Because our authentic recipe uses yogurt, this specific dish is vegetarian but not vegan. Additionally, the crispy papdi wafers contain gluten. However, we have an extensive menu of alternative items that cater to vegan and gluten-free diets!
+                                    </div>
+                                </details>
+                            </div>
+                            <div class="faq-item">
+                                <details name="faq">
+                                    <summary>
+                                        How long does it take to prepare?
+                                        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                        </svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        As one of our most popular street-food style appetizers, Chaat Papdi is prepared rapidly to ensure the wafers remain perfectly crisp. You can typically expect it to arrive at your table within 5 to 10 minutes of ordering.
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Order Now Tab Content -->
                     <div class="tab-content" id="order">
-                        <h2 class="section-title">Order Now</h2>
-                        <p class="long-desc">Place your order easily using our instant checkout.</p>
+                        <h2 class="section-title">Customize & Order</h2>
+                        <div class="order-container">
+                            <div class="order-section">
+                                <h3 class="subsection-title">Quantity</h3>
+                                <div class="quantity-stepper">
+                                    <button class="qty-btn" id="qty-minus" aria-label="Decrease quantity">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        </svg>
+                                    </button>
+                                    <input type="number" id="product-qty" value="1" min="1" readonly>
+                                    <button class="qty-btn" id="qty-plus" aria-label="Increase quantity">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="order-section">
+                                <h3 class="subsection-title">Extra Add-ons</h3>
+                                <div class="addons-list">
+                                    <label class="addon-item">
+                                        <input type="checkbox" name="addon" value="mint">
+                                        <span class="addon-name">Extra Mint Chutney</span>
+                                        <span class="addon-price">+$0.50</span>
+                                    </label>
+                                    <label class="addon-item">
+                                        <input type="checkbox" name="addon" value="yogurt">
+                                        <span class="addon-name">Side of Sweet Yogurt</span>
+                                        <span class="addon-price">+$1.00</span>
+                                    </label>
+                                    <label class="addon-item">
+                                        <input type="checkbox" name="addon" value="sev">
+                                        <span class="addon-name">Extra Crispy Sev</span>
+                                        <span class="addon-price">+$0.75</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="action-footer">
+                                <button class="btn-add-cart">Add to Cart</button>
+                                <button class="btn-order-now">Checkout Now</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
