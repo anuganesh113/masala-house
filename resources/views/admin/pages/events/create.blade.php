@@ -56,7 +56,7 @@
 
 
 								<div class="col-lg-12 mt-4">
-									<input type="hidden" name="model_type" value="event">
+									<!-- <input type="hidden" name="model_type" value="event"> -->
 									<label>Select Event Type<span class="text-danger">*</span></label>
 								    <select class="form-control m-input m-input--square" name="type">
                                     <option selected value="">-- SELECT --</option>

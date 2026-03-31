@@ -54,11 +54,39 @@
                             </div>
                         </div>
                     </div>
+
+
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label">Ceo Message </label>
                         <div class="col-lg-9">
                             <textarea name="ceo_message" id="ceo_message" cols="30" rows="10" class="form-control"
                                 style="height: 200px;"> {{ $setting['ceo_message'] ?? '' }}</textarea>
+                        </div>
+                    </div>
+
+
+
+                    @php
+
+                    $arr_categories = [];
+                    if (isset($setting['home_page_menu']) && !empty($setting['home_page_menu'])) {
+                    $arr_categories = json_decode($setting['home_page_menu']);
+                    }
+                    @endphp
+
+
+                    <div class="form-group row">
+
+                        <div class="form-group allcategories">
+                            <label>Select your Menu</label>
+                            <br>
+                            @foreach($menus as $menu)
+                            <input type="checkbox" name="home_page_menu[]" value="{{ $menu->id }}"
+                                @if (in_array($menu->id, $arr_categories)) checked="checked" @endif
+                            > &nbsp;&nbsp;{{ $menu->name }}
+                            <br>
+                            @endforeach
+
                         </div>
                     </div>
 
