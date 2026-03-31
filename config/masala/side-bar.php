@@ -53,4 +53,9 @@ return [
         'route' => 'testimonials',
         'name' => 'Testimonials',
     ],
+
+      [
+        'route' => 'events',
+        'name' => 'Events',
+    ],
 ];
