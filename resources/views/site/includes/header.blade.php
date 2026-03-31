@@ -40,8 +40,8 @@
   <link href="{{ asset('site-assets/css/owl.carousel.min.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('site-assets/css/owl.theme.default.min.css') }}" rel="stylesheet" type="text/css" />
   <!-- css -->
-  <link rel="stylesheet" href="{{ asset('site-assets/css/style.css?v1.1') }}">
-  <link rel="stylesheet" href="{{ asset('site-assets/css/override.css?v1.1') }}">
+  <link rel="stylesheet" href="{{ asset('site-assets/css/style.css?v1.2') }}">
+  <link rel="stylesheet" href="{{ asset('site-assets/css/override.css?v1.2') }}">
 
 
 
