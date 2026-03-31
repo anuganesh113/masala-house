@@ -27,6 +27,7 @@ class WebsiteController extends BaseController
     public function index(): View
     {
         $data = $this->websiteService->index();
+      
         return view('site.pages.index', $data);
     }
 
