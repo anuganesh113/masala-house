@@ -7,7 +7,7 @@
 @section('content')
 <section class="banner banner__page">
     <div class="banner__page--img">
-        <img src="{{asset('site-assets/images/about/about-banner.png')}}" alt="product banner">
+        <img src="{{asset('site-assets/images/menu-1.png')}}" alt="product banner">
     </div>
     <div class="banner__page--content">
         <h1>Product</h1>
@@ -59,16 +59,30 @@
 
                 <div class="tab-content-wrapper">
                     <!-- Overview Tab Content -->
-                    <div class="tab-content active" id="overview">
+                    <div class="tab-content active long-desc" id="overview">
                         <h2 class="section-title">Chaat Papdi</h2>
-                        <p class="long-desc">
+                        <div class=" long-desc">
+                        <p >
                             Chaat Papdi consists of crispy wafers topped with diced boiled potatoes, chickpeas, yogurt,
                             tamarind chutney, mint chutney, green chilles, and is garnished with sev, chopped cilantro,
                             and a mix of Indian spices. It offers a delightful combination of sweet, tangy, and spicy
                             flavors with a variety of textures.
                         </p>
 
-                        <div class="details-grid">
+                        <ul>
+                            <li>
+                                Chaat Papdi is a popular street food from India, enjoyed across the country with regional variations.
+                            </li>
+                              <li>
+                                Chaat Papdi is a popular street food from India, enjoyed across the country with regional variations.
+                            </li>
+                              <li>
+                                Chaat Papdi is a popular street food from India, enjoyed across the country with regional variations.
+                            </li>
+                        </ul>
+                        </div>
+
+                        <!-- <div class="details-grid">
                             <div class="ingredients-section">
                                 <h3 class="subsection-title">Ingredients</h3>
                                 <ul class="ingredients-list">
@@ -178,7 +192,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <!-- FAQ Tab Content -->
@@ -229,8 +243,8 @@
 
                     <!-- Order Now Tab Content -->
                     <div class="tab-content" id="order">
-                        <h2 class="section-title">Customize & Order</h2>
-                        <div class="order-container">
+                        <h2 class="section-title">Order Now</h2>
+                        <!-- <div class="order-container">
                             <div class="order-section">
                                 <h3 class="subsection-title">Quantity</h3>
                                 <div class="quantity-stepper">
@@ -274,7 +288,7 @@
                                 <button class="btn-add-cart">Add to Cart</button>
                                 <button class="btn-order-now">Checkout Now</button>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </section>
