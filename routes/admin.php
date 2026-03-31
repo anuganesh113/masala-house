@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\PopupController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\WebsiteController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
@@ -31,7 +32,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
     $route->get('login', [AdminLoginController::class, 'showLoginForm'])->name('login');
 
     $route->group(['middleware' => ['guest:admin', 'auth.session']], function ($route) {
-    $route->post('checked', [AdminLoginController::class, 'login'])->name('checked');
+        $route->post('checked', [AdminLoginController::class, 'login'])->name('checked');
 
 
         /********************************** AdminLogin Controller Route ********************************/
@@ -51,7 +52,6 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
             $route->get('password/reset/{token}', 'showResetForm')->name('showResetForm');
             $route->post('password/reset', 'reset')->name('reset');
         });
-
     });
 
     $route->group(['middleware' => ['auth:admin']], function ($route) {
@@ -74,7 +74,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
 
         $route->get('faq/{type}/{id}/', [FAQController::class, 'faqtype'])
             ->name('faqtype');
-       $route->get('faq/create/{type}/{id}/', [FAQController::class, 'faqtypecreate'])->name('faqtypecreate');
+        $route->get('faq/create/{type}/{id}/', [FAQController::class, 'faqtypecreate'])->name('faqtypecreate');
 
         $route->post('faq/create/faqtypestore/', [FAQController::class, 'faqtypestore'])->name('faqtypestore');
         $route->get('faq/edit/{id}/{type}', [FAQController::class, 'faqtypeedit'])->name('faqtypeedit');
@@ -87,10 +87,18 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
         $route->resource('banners', BannerController::class)->except(['show']);
         $route->resource('popups', PopupController::class)->except(['show']);
         $route->resource('videos', PopupController::class)->except(['show']);
-         $route->get('videos', [PopupController::class, 'videoindex'])->name('videos.index');
+        $route->get('videos', [PopupController::class, 'videoindex'])->name('videos.index');
         $route->post('videos/create', [PopupController::class, 'videocreate'])->name('videos.create');
 
-        
+
+
+        $route->get('home/page', [WebsiteController::class, 'setting'])->name('home.page');
+        $route->post('setting/home/page', [WebsiteController::class, 'settingUpdate'])->name('settingUpdate');
+
+
+
+
+
 
 
         $route->resource('brands', BrandController::class)->except(['show']);
@@ -100,7 +108,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
             $route->get('contacts', 'index')->name('contacts');
             $route->get('contact/{contact}/view', 'create')->name('contact.view');
             $route->post('contact/{contact}/delete', 'delete')->name('contact.delete');
-           
+
             $route->get('contact/{id}/seen', 'messageSeen')->name('contact.messageSeen');
         });
 

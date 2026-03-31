@@ -5,10 +5,10 @@ return [
         'route' => 'advertises',
         'name' => 'Advertise'
     ],
-    [
-        'route' => 'banners',
-        'name' => 'Banners',
-    ],
+    // [
+    //     'route' => 'banners',
+    //     'name' => 'Banners',
+    // ],
     [
         'route' => 'blogs',
         'name' => 'Blogs',
@@ -41,6 +41,7 @@ return [
         'route' => 'menus',
         'name' => 'Menu',
     ],
+    
     [
         'route' => 'pages',
         'name' => 'Pages',
@@ -54,8 +55,8 @@ return [
         'name' => 'Testimonials',
     ],
 
-      [
-        'route' => 'events',
-        'name' => 'Events',
-    ],
+    //   [
+    //     'route' => 'events',
+    //     'name' => 'Events',
+    // ],
 ];

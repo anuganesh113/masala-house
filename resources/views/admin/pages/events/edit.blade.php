@@ -60,7 +60,7 @@
 
 
 								<div class="col-lg-12 mt-4">
-									<input type="hidden" name="model_type" value="event">
+									<!-- <input type="hidden" name="model_type" value="event"> -->
 									<label>Select Event Type<span class="text-danger">*</span></label>
 									<select class="form-control m-input m-input--square" name="type">
 										<option selected value="">-- SELECT --</option>
@@ -120,6 +120,8 @@
 	</div>
 </div>
 @endsection
+
+
 
 @push("footer")
 <script src="https://cdn.tiny.cloud/1/{{ env('summernote_reg_API_KEY') }}/summernote_reg/5/summernote_reg.min.js" referrerpolicy="origin" defer></script>

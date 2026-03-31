@@ -240,6 +240,53 @@
         </div>
     </li>
 
+        <li class="m-menu__item m-menu__item--submenu {{ request()->is('admin/banners*') || request()->is('admin/events*') || request()->is('admin/faq/event*') || request()->is('admin/home/page*')  ? 'm-menu__item--open' : '' }}"
+        aria-haspopup="true" m-menu-submenu-toggle="hover">
+        <a href="javascript:;" class="m-menu__link m-menu__toggle">
+            <i class="m-menu__link-icon flaticon-apps"></i>
+            <span class="m-menu__link-text">HomePage</span>
+            <i class="m-menu__ver-arrow la la-angle-right"></i>
+        </a>
+        <div class="m-menu__submenu ">
+            <span class="m-menu__arrow"></span>
+            <ul class="m-menu__subnav">
+
+                <li class="m-menu__item  m-menu__item--submenu"
+                    aria-haspopup="true" m-menu-submenu-toggle="hover">
+                    <a href="{{ route('admin.banners.index') }}" class="m-menu__link m-menu__toggle">
+                        <i class="m-menu__link-bullet m-menu__link-bullet--dot {{ request()->is('admin/banners*') || request()->is('admin/events*') || request()->is('admin/home/page*')  ? 'text-secondary' : '' }}">
+                            <span></span>
+                        </i>
+                        <span class="m-menu__link-text {{ request()->is('admin/banners*') ? 'text-secondary' : '' }}">Banners</span>
+                    </a>
+                </li>
+
+                    <li class="m-menu__item  m-menu__item--submenu"
+                    aria-haspopup="true" m-menu-submenu-toggle="hover">
+                    <a href="{{ route('admin.events.index') }}" class="m-menu__link m-menu__toggle">
+                        <i class="m-menu__link-bullet m-menu__link-bullet--dot {{ request()->is('admin/events*') || request()->is('admin/faq/event*') ? 'text-secondary' : '' }}">
+                            <span></span>
+                        </i>
+                        <span class="m-menu__link-text {{ request()->is('admin/events*') || request()->is('admin/faq/event*') ? 'text-secondary' : '' }}">Events</span>
+                    </a>
+                </li>
+
+                            <li class="m-menu__item  m-menu__item--submenu"
+                    aria-haspopup="true" m-menu-submenu-toggle="hover">
+                    <a href="{{ route('admin.home.page') }}" class="m-menu__link m-menu__toggle">
+                        <i class="m-menu__link-bullet m-menu__link-bullet--dot {{ request()->is('admin/home/page*')  ? 'text-secondary' : '' }}">
+                            <span></span>
+                        </i>
+                        <span class="m-menu__link-text {{ request()->is('admin/home/page*')  ? 'text-secondary' : '' }}">Home Page</span>
+                    </a>
+                </li>
+
+                
+
+            </ul>
+        </div>
+    </li>
+
     <li class="m-menu__item " aria-haspopup="true" title="Website">
         <a href="{{ route('admin.contacts') }}" class="m-menu__link" title="Admin Dashboard">
             <i class="m-menu__link-icon flaticon-email {{ request()->is('admin/contact*') ? 'text-secondary' : '' }}"></i>
