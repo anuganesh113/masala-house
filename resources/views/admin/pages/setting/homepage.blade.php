@@ -1,106 +1,152 @@
 @extends("admin.layouts.layout")
+@section("page_title", "Home Page")
 
-@section('title', 'Ceo Setting')
+@section("content")
+<div class="m-content">
 
-@section('content')
+    @include("admin.includes.errors")
 
-<!-- Page Wrapper -->
-<div class="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="m-portlet">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+                            <span class="m-portlet__head-icon m--hide">
+                                <i class="la la-gear"></i>
+                            </span>
+                            <h3 class="m-portlet__head-text">Home Page</h3>
+                        </div>
+                    </div>
 
-    <!-- Page Content -->
-    <div class="content container-fluid">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
+                </div>
 
-                <!-- Page Header -->
-                <div class="page-header">
+                <form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed"
+                    action="{{ route('admin.settingUpdate') }}"
+                    method="POST"
+                    enctype="multipart/form-data">
+
+                    @csrf
+
+                    <div class="m-portlet__body">
+                        <div class="form-group m-form__group row">
+                            <div class="col-md-6">
+                                <label>II Section Heading<span class="text-danger"></span></label>
+                                <input type="text"
+                                    name="section_2_heading"
+                                    class="form-control m-input mb-2"
+                                    placeholder="II Section Heading"
+                                    value="{{ old('section_2_heading') }}" />
+                                <label>II Section Title<span class="text-danger "></span></label>
+                                <input type="text"
+                                    name="section_2_title"
+                                    class="form-control m-input mt-2"
+                                    placeholder="Title"
+                                    value="{{ old('section_2_title') }}" />
+
+                                @php
+
+                                $arr_categories = [];
+                                if (isset($setting['section_2_menu']) && !empty($setting['section_2_menu'])) {
+                                $arr_categories = json_decode($setting['section_2_menu']);
+                                }
+                                @endphp
+
+                                <div class="col-lg-12 mt-4">
+                                    <label>Select Menus for II Section <span class="text-danger">*</span> </label>
+                                    <div class="">
+                                        @foreach($menus as $menu)
+                                        <input type="checkbox" class="form-check-input" name="section_2_menu[]" value="{{ $menu->id }}"
+                                            @if (in_array($menu->id, $arr_categories)) checked="checked" @endif
+                                        > &nbsp;&nbsp;{{ $menu->name }}
+                                        <br>
+                                        @endforeach
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <label>III Section Heading<span class="text-danger"></span></label>
+                                <input type="text"
+                                    name="section_3_heading"
+                                    class="form-control m-input mb-2"
+                                    placeholder="III Section Heading"
+                                    value="{{ old('section_3_heading') }}" />
+
+                                <label>III Section Title<span class="text-danger ">*</span></label>
+                                <input type="text"
+                                    name="section_3_title"
+                                    class="form-control m-input mt-2"
+                                    placeholder="Title"
+                                    value="{{ old('section_3_title') }}" />
+
+
+
+                                    @php
+
+                                $arr_3_categories = [];
+                                if (isset($setting['section_3_menu']) && !empty($setting['section_3_menu'])) {
+                                $arr_3_categories = json_decode($setting['section_3_menu']);
+                                }
+                                @endphp
+
+                                <div class="col-lg-12 mt-4">
+                                    <label>Select Menus for III Section <span class="text-danger">*</span> </label>
+                                    <div class="">
+                                        @foreach($menus as $menu)
+                                        <input type="checkbox" class="form-check-input" name="section_3_menu[]" value="{{ $menu->id }}"
+                                            @if (in_array($menu->id, $arr_3_categories)) checked="checked" @endif
+                                        > &nbsp;&nbsp;{{ $menu->name }}
+                                        <br>
+                                        @endforeach
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
+                <div class="m-form__actions m-form__actions--solid">
                     <div class="row">
-                        <div class="col-sm-12">
-                            <h3 class="page-title">Hear from our Ceo</h3>
+                        <div class="col-lg-6">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="la la-upload"></i>
+                                Submit
+                            </button>
+
                         </div>
                     </div>
                 </div>
-                <!-- /Page Header -->
-                <form method="post" action="{{ route('admin.settingUpdate') }}" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">Ceo Title</label>
-                        <div class="col-lg-9">
-                            <input name="ceo_title" class="form-control" type="text"
-                                value="{{ $setting['ceo_title'] ?? '' }} ">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">Ceo Position</label>
-                        <div class="col-lg-9">
-                            <input name="ceo_position" class="form-control" type="text"
-                                value="{{ $setting['ceo_position'] ?? '' }} ">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">Ceo Image</label>
-                        <div class="col-lg-5">
-                            <input type="file" class="form-control" name="ceo_image">
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="img-thumbnail float-right">
-                                @if (isset($setting['ceo_image']))
-                                <img src="{{ asset('uploads/setting/website/' . $setting['ceo_image']) }}"
-                                    alt="{{ $setting['ceo_image'] ?? 'Ceo' }}" height="50">
-                                @endif
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">Ceo Message </label>
-                        <div class="col-lg-9">
-                            <textarea name="ceo_message" id="ceo_message" cols="30" rows="10" class="form-control"
-                                style="height: 200px;"> {{ $setting['ceo_message'] ?? '' }}</textarea>
-                        </div>
-                    </div>
-
-
-
-                    @php
-
-                    $arr_categories = [];
-                    if (isset($setting['home_page_menu']) && !empty($setting['home_page_menu'])) {
-                    $arr_categories = json_decode($setting['home_page_menu']);
-                    }
-                    @endphp
-
-
-                    <div class="form-group row">
-
-                        <div class="form-group allcategories">
-                            <label>Select your Menu</label>
-                            <br>
-                            @foreach($menus as $menu)
-                            <input type="checkbox" name="home_page_menu[]" value="{{ $menu->id }}"
-                                @if (in_array($menu->id, $arr_categories)) checked="checked" @endif
-                            > &nbsp;&nbsp;{{ $menu->name }}
-                            <br>
-                            @endforeach
-
-                        </div>
-                    </div>
-
-                    <div class="submit-section">
-                        <button class="btn btn-primary submit-btn">Save</button>
-                    </div>
-                </form>
             </div>
+
+            </form>
+
         </div>
     </div>
-    <!-- /Page Content -->
-
 </div>
-<!-- /Page Wrapper -->
+</div>
 @endsection
 
 

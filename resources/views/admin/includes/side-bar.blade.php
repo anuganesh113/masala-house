@@ -240,7 +240,7 @@
         </div>
     </li>
 
-        <li class="m-menu__item m-menu__item--submenu {{ request()->is('admin/banners*') || request()->is('admin/events*') || request()->is('admin/faq/event*') ? 'm-menu__item--open' : '' }}"
+        <li class="m-menu__item m-menu__item--submenu {{ request()->is('admin/banners*') || request()->is('admin/events*') || request()->is('admin/faq/event*') || request()->is('admin/home/page*')  ? 'm-menu__item--open' : '' }}"
         aria-haspopup="true" m-menu-submenu-toggle="hover">
         <a href="javascript:;" class="m-menu__link m-menu__toggle">
             <i class="m-menu__link-icon flaticon-apps"></i>
@@ -254,14 +254,14 @@
                 <li class="m-menu__item  m-menu__item--submenu"
                     aria-haspopup="true" m-menu-submenu-toggle="hover">
                     <a href="{{ route('admin.banners.index') }}" class="m-menu__link m-menu__toggle">
-                        <i class="m-menu__link-bullet m-menu__link-bullet--dot {{ request()->is('admin/banners*') || request()->is('admin/events*') ? 'text-secondary' : '' }}">
+                        <i class="m-menu__link-bullet m-menu__link-bullet--dot {{ request()->is('admin/banners*') || request()->is('admin/events*') || request()->is('admin/home/page*')  ? 'text-secondary' : '' }}">
                             <span></span>
                         </i>
                         <span class="m-menu__link-text {{ request()->is('admin/banners*') ? 'text-secondary' : '' }}">Banners</span>
                     </a>
                 </li>
 
-                          <li class="m-menu__item  m-menu__item--submenu"
+                    <li class="m-menu__item  m-menu__item--submenu"
                     aria-haspopup="true" m-menu-submenu-toggle="hover">
                     <a href="{{ route('admin.events.index') }}" class="m-menu__link m-menu__toggle">
                         <i class="m-menu__link-bullet m-menu__link-bullet--dot {{ request()->is('admin/events*') || request()->is('admin/faq/event*') ? 'text-secondary' : '' }}">
@@ -270,6 +270,18 @@
                         <span class="m-menu__link-text {{ request()->is('admin/events*') || request()->is('admin/faq/event*') ? 'text-secondary' : '' }}">Events</span>
                     </a>
                 </li>
+
+                            <li class="m-menu__item  m-menu__item--submenu"
+                    aria-haspopup="true" m-menu-submenu-toggle="hover">
+                    <a href="{{ route('admin.home.page') }}" class="m-menu__link m-menu__toggle">
+                        <i class="m-menu__link-bullet m-menu__link-bullet--dot {{ request()->is('admin/home/page*')  ? 'text-secondary' : '' }}">
+                            <span></span>
+                        </i>
+                        <span class="m-menu__link-text {{ request()->is('admin/home/page*')  ? 'text-secondary' : '' }}">Home Page</span>
+                    </a>
+                </li>
+
+                
 
             </ul>
         </div>

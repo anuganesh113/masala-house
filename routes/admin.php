@@ -92,8 +92,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
 
 
 
-        $route->get('homepage', [WebsiteController::class, 'setting'])->name('setting');
-        $route->post('setting/homepage', [WebsiteController::class, 'settingUpdate'])->name('settingUpdate');
+        $route->get('home/page', [WebsiteController::class, 'setting'])->name('home.page');
+        $route->post('setting/home/page', [WebsiteController::class, 'settingUpdate'])->name('settingUpdate');
 
 
 

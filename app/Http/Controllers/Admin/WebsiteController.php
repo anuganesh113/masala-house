@@ -16,7 +16,7 @@ class WebsiteController extends Controller
       $data                 = array();
         $alldata              = Website::get()->toArray();
         $data['setting'] = array_column($alldata, 'value', 'name');
-        $data['menus'] = Menu::get();
+        $data['menus'] = Menu::status()->get();
         return view('admin.pages.setting.homepage', $data);
 
       
@@ -27,7 +27,8 @@ class WebsiteController extends Controller
             $updatedata = $request->except(['_token']);
 
 
-            $updatedata['home_page_menu'] = json_encode($updatedata['home_page_menu']);
+            $updatedata['section_2_menu'] = json_encode($updatedata['section_2_menu']);
+            $updatedata['section_3_menu'] = json_encode($updatedata['section_3_menu']);
         foreach ($updatedata as $key => $data) {
             Website::updateOrCreate(
                 ['name' => $key],
