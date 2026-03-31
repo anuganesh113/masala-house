@@ -56,6 +56,8 @@
                         <th>Menu Status</th>
                         <th>Menu Type</th>
                         <th>Created On</th>
+                        <th>Add FAQS</th>
+
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -78,11 +80,21 @@
                                 </span>
                             </td>
                             <td class="center">@datetime(data_get($value, "created_at"))</td>
+
+                            <td >
+                                  {{findfaqcount('menu', $value->id)}}
+                                    <a href="{{ route('admin.faqtype', ['type' => 'menu', 'id' => $value->id]) }}"
+                                       class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Faq">
+                                      
+                                        <i class="la la-long-arrow-right text-danger"></i>
+                                    </a>
+                            </td>
                             <td data-field="Actions" class="m-datatable__cell">
                                 <span style="overflow: visible; width: 110px;">
                                     <a href="{{ route('admin.menus.edit', $value) }}"
                                         class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit">
                                         <i class="la la-edit text-success"></i>
+                                    </a>
                                     <a href="javascript:;" onclick="deleteMenus({{ $value->id }})"
                                        class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
                                         <i class="la la-trash text-danger"></i>

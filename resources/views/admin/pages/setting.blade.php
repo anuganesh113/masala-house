@@ -198,13 +198,13 @@
             <x-admin.seo :data="data_get($setting, 'seo', [])" />
 
 
-                <div class="form-group m-form__group row">
+            <!-- <div class="form-group m-form__group row">
                 <div class="col-lg-12">
                     <label>Opening Hours</label>
                     <textarea class="summernote_reg form-control m-input" name="metadata[opening_hours]"
                         rows="7">{{ old('metadata.opening_hours')??data_get($setting, "metadata.opening_hours") }}</textarea>
                 </div>
-            </div>
+            </div> -->
 
 
 

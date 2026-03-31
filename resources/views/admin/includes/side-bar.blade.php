@@ -273,7 +273,7 @@
         </a>
     </li>
 
-    @if(Route::has('admin.events.index'))
+    <!-- @if(Route::has('admin.events.index'))
     <li class="m-menu__item m-menu__item" aria-haspopup="true">
         <a href="{{ route('admin.events.index') }}" class="m-menu__link">
             <i class="m-menu__link-icon flaticon-browser {{ request()->is('admin/events*') ? 'text-secondary' : '' }}"></i>
@@ -284,7 +284,7 @@
             </span>
         </a>
     </li>
-    @endif
+    @endif -->
 
 
 

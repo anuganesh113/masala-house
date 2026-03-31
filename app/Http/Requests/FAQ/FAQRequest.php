@@ -45,7 +45,7 @@ class FAQRequest extends FormRequest
         return [
             'question' => ['required', 'max:255'],
             'answer' => ['required', 'max:1000'],
-            'model_id' => ['required'],
+            // 'model_id' => ['required'],
 
             'status' => ['required', Rule::in(Status::getValues())],
             'order' => ['required', 'numeric', 'min:1', 'max:9999999'],

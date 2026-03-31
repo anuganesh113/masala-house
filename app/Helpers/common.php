@@ -2,6 +2,7 @@
 
 use App\Constants\General;
 use App\Enums\UploadFilePath;
+use App\Models\FAQ;
 use App\Models\Page;
 use App\Models\Setting;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -204,5 +205,27 @@ if (!function_exists('banner')) {
     function banner()
     {
         return asset('site-assets/images/logo-color.png');
+    }
+}
+
+
+if (!function_exists('findfaqcount')) {
+    function findfaqcount($model = null, $id = null)
+    {
+   
+        if($model == 'event') {
+            $model = FAQ::where('model_type', 'event')->where('model_id', $id)->count();
+            return $model;
+        } else if($model == 'menu') {
+            $model = FAQ::where('model_type', 'menu')->where('model_id', $id)->count();
+            return $model;
+        } else {
+            return 0;
+        }
+        if (empty($model) || empty($id) || !class_exists($model)) {
+            return 0;
+        }
+        
+       
     }
 }

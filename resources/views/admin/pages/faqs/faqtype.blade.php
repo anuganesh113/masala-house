@@ -34,8 +34,9 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-xl-4 order-1 order-xl-2 m--align-right">
-                        <a href="{{ route('admin.faqs.create') }}"
+                        <a href="{{ route('admin.faqtypecreate', ['type' => request()->segment(3), 'id' => request()->segment(4)]) }}"
                             class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
                             <span>
                                 <i class="la la-plus"></i>
@@ -51,7 +52,7 @@
                     <tr>
                         <th>#</th>
                         <th>Question</th>
-                      
+                    
                         <th>FAQ Status</th>
                         <th>Created On</th>
                         <th>Action</th>
@@ -60,30 +61,29 @@
                 <tbody>
 
                     @foreach($faqs??[] as $value)
-                        <tr id="faqs-{{ $value->id }}">
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ data_get($value, "question") }}</td>
-                           
-                           
-                            <td>
-                                <span class="m-badge m-badge--{{ data_get($value, "status") ? 'success' : 'danger' }} m-badge--wide">
-                                    {{ data_get($value, "status") ? "Active" : "Inactive" }}
-                                </span>
-                            </td>
-                            <td class="center">@datetime(data_get($value, "created_at"))</td>
-                            <td data-field="Actions" class="m-datatable__cell">
-                                <span style="overflow: visible; width: 110px;">
-                                    <a href="{{ route('admin.faqs.edit', data_get($value, "id")) }}"
-                                        class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit">
-                                        <i class="la la-edit text-success"></i>
-                                    </a>
-                                    <a href="javascript:;" onclick="deleteFAQS({{ data_get($value, "id") }})"
-                                        class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
-                                        <i class="la la-trash text-danger"></i>
-                                    </a>
-                                </span>
-                            </td>
-                        </tr>
+                    <tr id="faqs-{{ $value->id }}">
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ data_get($value, "question") }}</td>
+
+                        <td>
+                            <span class="m-badge m-badge--{{ data_get($value, "status") ? 'success' : 'danger' }} m-badge--wide">
+                                {{ data_get($value, "status") ? "Active" : "Inactive" }}
+                            </span>
+                        </td>
+                        <td class="center">@datetime(data_get($value, "created_at"))</td>
+                        <td data-field="Actions" class="m-datatable__cell">
+                            <span style="overflow: visible; width: 110px;">
+                                <a href="{{ route('admin.faqtypeedit', [ 'id' => $value->id,  'type' =>  $value->model_type,]) }}"
+                                    class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit">
+                                    <i class="la la-edit text-success"></i>
+                                </a>
+                                <a href="javascript:;" onclick="deleteFAQS({{ data_get($value, "id") }})"
+                                    class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
+                                    <i class="la la-trash text-danger"></i>
+                                </a>
+                            </span>
+                        </td>
+                    </tr>
                     @endforeach
 
                 </tbody>
@@ -94,6 +94,6 @@
 @endsection
 
 @push("footer")
-    <script src="{{ asset('admin-assets/js/html-table.js') }}" type="text/javascript" charset="utf-8" defer></script>
-    <script src="{{ asset('admin-assets/custom-js/deletion-script.js') }}" type="text/javascript" charset="utf-8" defer></script>
+<script src="{{ asset('admin-assets/js/html-table.js') }}" type="text/javascript" charset="utf-8" defer></script>
+<script src="{{ asset('admin-assets/custom-js/deletion-script.js') }}" type="text/javascript" charset="utf-8" defer></script>
 @endpush
