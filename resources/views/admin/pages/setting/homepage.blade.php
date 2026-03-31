@@ -36,13 +36,13 @@
                                     name="section_2_heading"
                                     class="form-control m-input mb-2"
                                     placeholder="II Section Heading"
-                                    value="{{ old('section_2_heading') }}" />
+                                    value="{{ $setting['section_2_heading'] ?? '' }}" />
                                 <label>II Section Title<span class="text-danger "></span></label>
                                 <input type="text"
                                     name="section_2_title"
                                     class="form-control m-input mt-2"
                                     placeholder="Title"
-                                    value="{{ old('section_2_title') }}" />
+                                    value="{{ $setting['section_2_title'] ?? '' }}" />
 
                                 @php
 
@@ -75,14 +75,14 @@
                                     name="section_3_heading"
                                     class="form-control m-input mb-2"
                                     placeholder="III Section Heading"
-                                    value="{{ old('section_3_heading') }}" />
+                                    value="{{ $setting['section_3_heading'] ?? '' }}" />
 
                                 <label>III Section Title<span class="text-danger ">*</span></label>
                                 <input type="text"
                                     name="section_3_title"
                                     class="form-control m-input mt-2"
                                     placeholder="Title"
-                                    value="{{ old('section_3_title') }}" />
+                                    value="{{ $setting['section_3_title'] ?? '' }}" *>  
 
 
 
