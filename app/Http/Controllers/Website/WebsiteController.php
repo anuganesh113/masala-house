@@ -83,11 +83,19 @@ class WebsiteController extends BaseController
     }
 
 
-    public function product(Request $request): View
+    public function product(Request $request , string $slug , int $id): View
     {
+      
+       $data['menu'] = Menu::findOrFail($id);
+   
+
+       $data['similarMenus'] = Menu::status()->where('id', '!=', $id)->where('category_id', $data['menu']->category->id)->get();
+        $data['cat_name'] = $data['menu']->category->name;
+       
+      
   
 
-        return view('site.pages.showproduct');
+        return view('site.pages.showproduct', $data);
     }
 
     public function cateringBooking(Request $request)

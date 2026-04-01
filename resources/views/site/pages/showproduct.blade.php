@@ -7,11 +7,11 @@
 @section('content')
 <section class="banner banner__page">
     <div class="banner__page--img sinlge">
-        <img src="{{asset('site-assets/images/menu-1.png')}}" alt="product banner">
+        <img src="{{$menu->full_image_link}}" alt="product banner">
     </div>
     <div class="banner__page--content">
-        <h1>Product</h1>
-        <p>Product show</p>
+        <h1>{{$cat_name ?? 'Category Name'}}</h1>
+        <p>{{ $menu->name ?? 'Product Name' }}</p>
     </div>
 
 </section>
@@ -24,8 +24,8 @@
         <main class="content-scroll">
             <section class="hero-image-container">
                 <div class="hero-image-wrapper">
-                    <a href="{{ asset('site-assets/images/menu-1.png') }}" data-type="image" data-fancybox="gallery" class="hero-image-link" aria-label="Zoom image">
-                        <img src="{{ asset('site-assets/images/menu-1.png') }}"
+                    <a href="{{$menu->full_image_link}}" data-type="image" data-fancybox="gallery" class="hero-image-link" aria-label="Zoom image">
+                        <img src="{{$menu->full_image_link}}"
                             alt="Product Image" class="hero-image">
                         <div class="zoom-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" class="zoom-icon">
@@ -37,14 +37,13 @@
             </section>
 
             <section class="product-info">
-                <h1 class="product-title">Chaat Papdi</h1>
+                <h1 class="product-title">{{$menu->name ?? 'Product Name'}}</h1>
                 <p class="product-short-desc">
-                    Crispy wafers layered with potatoes, chickpeas, yogurt, tamarind and mint chutneys, and sev. A
-                    delightful mix of...
+                    {!!$menu->description ??  $menu->excerpt ?? 'Short product description goes here. This should be a brief summary that highlights the key features and appeal of the dish, enticing customers to learn more.'!!}
                 </p>
                 <div class="price-row">
-                    <span class="price">$8.99</span>
-                    <span class="tag-vegetarian">Vegetarian</span>
+                    <span class="price">${{$menu->price ?? '0.00'}}</span>
+                    <span class="cat tag-vegetarian  {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
                 </div>
             </section>
 
@@ -55,32 +54,19 @@
                     <div class="tab-divider"></div>
                     <button class="tab" data-target="faq">FAQ</button>
                     <div class="tab-divider"></div>
-                    <button class="tab" data-target="order">Order Now</button>
+                    <button class="tab" data-target="order"><a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank" class="btn bg-orange text-white">Order Now</a>       </button>
                 </div>
 
                 <div class="tab-content-wrapper">
                     <!-- Overview Tab Content -->
                     <div class="tab-content active long-desc" id="overview">
-                        <h2 class="section-title">Chaat Papdi</h2>
+                        <h2 class="section-title">{{$menu->name ?? 'Product Name'}}</h2>
                         <div class=" long-desc">
-                            <p>
-                                Chaat Papdi consists of crispy wafers topped with diced boiled potatoes, chickpeas, yogurt,
-                                tamarind chutney, mint chutney, green chilles, and is garnished with sev, chopped cilantro,
-                                and a mix of Indian spices. It offers a delightful combination of sweet, tangy, and spicy
-                                flavors with a variety of textures.
-                            </p>
 
-                            <ul>
-                                <li>
-                                    Chaat Papdi is a popular street food from India, enjoyed across the country with regional variations.
-                                </li>
-                                <li>
-                                    Chaat Papdi is a popular street food from India, enjoyed across the country with regional variations.
-                                </li>
-                                <li>
-                                    Chaat Papdi is a popular street food from India, enjoyed across the country with regional variations.
-                                </li>
-                            </ul>
+                            {!!$menu->description ?? $menu->excerpt ?? 'Detailed product description goes here. This section can include information about the ingredients, preparation method, taste profile, and any other relevant details that would help customers understand what makes this dish special.' !!}
+
+
+
                         </div>
 
                         <!-- <div class="details-grid">
@@ -243,9 +229,9 @@
                     </div>
 
                     <!-- Order Now Tab Content -->
-                    <div class="tab-content" id="order">
+                    <!-- <div class="tab-content" id="order">
                         <h2 class="section-title">Order Now</h2>
-                        <!-- <div class="order-container">
+                         <div class="order-container">
                             <div class="order-section">
                                 <h3 class="subsection-title">Quantity</h3>
                                 <div class="quantity-stepper">
@@ -289,8 +275,8 @@
                                 <button class="btn-add-cart">Add to Cart</button>
                                 <button class="btn-order-now">Checkout Now</button>
                             </div>
-                        </div> -->
-                    </div>
+                        </div> 
+                    </div> -->
                 </div>
             </section>
         </main>
@@ -301,20 +287,17 @@
     <div class="container-fluid">
         <div class="flex">
             <div class="section__title text-center" style="margin: auto;">
-                <h4>Similar Items of Stress Food</h4>
-                <h2>Stress Food</h2>
+                <h4>Similar Items of {{$menu->name ?? 'Similar Items' }}</h4>
+                <h2>{{$menu->name ?? 'Similar Items' }}</h2>
             </div>
 
         </div>
     </div>
     <div class="grab__box itemgrab__box" style="padding-left: 1.375rem;">
         <div class="owl-carousel owl-theme family family_caro" style="padding: 0;">
-            @php
-            $menus = App\Models\Menu::query()->status()->get();
 
-            @endphp
 
-            @foreach ($menus as $menu)
+            @foreach ($similarMenus as $menu)
             <div class="item" style="margin-right: -20px;">
                 <div class="menu__card menu__card--family" style="width: 95%;">
                     <div class="menu__card--img">

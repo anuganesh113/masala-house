@@ -64,6 +64,9 @@
           }
       }
 
+         .bg-orange{
+        background: #FF6F00 !important; 
+      }
 
       @media (max-width: 767px) {
 
