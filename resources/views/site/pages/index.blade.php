@@ -62,8 +62,8 @@
 <!-- family together section start -->
 <section class="family p__tb--t">
     <div class="section__title text-center">
-        <h5>{{ $settings['section_2_heading'] ?? 'Grab a grand orders for your family'  }}  </h5>
-        <h2>  {{ $settings['section_2_title'] ?? 'Family Together'  }} </h2>
+        <h5>{{ $settings['section_3_heading'] ?? 'Grab a grand orders for your family'  }}  </h5>
+        <h2>  {{ $settings['section_3_title'] ?? 'Family Together'  }} </h2>
         @include("site.includes.scroll")
     </div>
     <div class="owl-carousel owl-theme family__carouselss">

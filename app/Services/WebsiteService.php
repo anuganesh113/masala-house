@@ -58,7 +58,7 @@ class WebsiteService
         } else {
             $data['section_3'] = Menu::status()->get();
         }
-      
+
 
 
 
@@ -121,6 +121,20 @@ class WebsiteService
                 $data['categories'] = Category::with(['menus' => function ($query) {
                     $query->status();
                 }])->get();
+
+                $alldata = Website::get()->toArray();
+                $arrangedData = array_column($alldata, 'value', 'name');
+                $data['settings'] = $arrangedData;
+
+                if (isset($arrangedData['section_3_menu']) && $arrangedData['section_3_menu']) {
+                    $arrangedData['section_3_menu'] = json_decode($arrangedData['section_3_menu'], true);
+                    foreach ($arrangedData['section_3_menu'] as $key => $value) {
+                        $data['section_3'][$key] = Menu::where('id', $value)->status()->first();
+                    }
+                } else {
+                    $data['section_3'] = Menu::status()->get();
+                }
+
                 break;
 
             case 'catering':
