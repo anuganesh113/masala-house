@@ -6,9 +6,9 @@
           padding: 20px 15px;
       }
 
-      .menuboxshadow:hover {
+      /* .menuboxshadow:hover {
           background: rgb(243, 220, 203);
-      }
+      } */
 
       .owl-theme.menuList__carousel .owl-stage-outer .owl-stage {
           transform: none !important;
@@ -40,7 +40,7 @@
       }
 
 
-      .menuboxshadow:hover .menuFlex__card--box .name {
+      /* .menuboxshadow:hover .menuFlex__card--box .name {
           background: rgb(243, 220, 203);
       }
 
@@ -51,7 +51,7 @@
 
       .menuboxshadow:hover .menuimgrespo {
           height: 12.25rem !important;
-      }
+      } */
 
 
       @media (min-width: 767px) {
