@@ -70,6 +70,6 @@ class AdminLoginController extends BaseController
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return to_route('admin.showLoginForm');
+        return to_route('admin.login');
     }
 }

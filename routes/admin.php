@@ -28,7 +28,7 @@ use App\Http\Controllers\Admin\WebsiteController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
-
+    $route->get('/', [AdminLoginController::class, 'showLoginForm'])->name('login');
     $route->get('login', [AdminLoginController::class, 'showLoginForm'])->name('login');
 
     $route->group(['middleware' => ['guest:admin', 'auth.session']], function ($route) {
