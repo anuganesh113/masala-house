@@ -64,11 +64,14 @@
           }
       }
 
+         .bg-orange{
+        background: #FF6F00 !important; 
+      }
 
       @media (max-width: 767px) {
 
       .banner__page--img.sinlge {
-            height: 8rem;
+            height: 16rem;
       }
           .hero-image-wrapper .hero-image {
             height: 350px !important;    

@@ -100,8 +100,10 @@
                                     @foreach ($category->menus as $menu)
                                     <div class="menuFlex__card dnone menuboxshadow">
                                         <div class="menuFlex__card--img d-lg-none mobile-menu mb-2 menuimgrespo">
-                                            <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
-                                                alt="{{ $menu->name }}">
+                                            <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}" >
+                                                <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
+                                                    alt="{{ $menu->name }}">
+                                            </a>
                                         </div>
                                         <div class="menuFlex__card--box">
                                             <div class="menuFlex__card--title">
@@ -116,10 +118,16 @@
                                                 <div class="menuFlex__card--quantity orderdiv">
                                                     <span class="foronly_mobilresponsive" style="color: rgb(229.5, 99.9, 0);font-weight: 900;">${{ $menu->price }}</span>
                                                     <span class="cat catvegg float-end  mt-0 {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
+                                                
                                                     <span>
                                                         <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank"
                                                             class="order-now-btn2 boxshadow wtc men-ord"
                                                             style="margin-top: 20px; display: block;">Order Now </a>
+                                                    </span>
+                                                    <span>
+                                                        <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}"
+                                                            class="order-now-btn2 boxshadow wtc men-ord"
+                                                            style="margin-top: 20px; display: block;"><i class="fas fa-eye"></i> View Details </a>
                                                     </span>
                                                 </div>
                                             </div>
