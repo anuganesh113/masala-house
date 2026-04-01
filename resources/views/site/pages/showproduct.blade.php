@@ -305,7 +305,7 @@
             @foreach ($similarMenus as $menu)
             <div class="item" style="margin-right: -20px;">
                 <div class="menu__card menu__card--family" style="width: 95%;">
-                        <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}" target="_blank">
+                        <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}">
                     <div class="menu__card--img">
                     
                             <img class="owl-lazy"
