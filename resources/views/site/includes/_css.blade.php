@@ -66,6 +66,13 @@
 
 
       @media (max-width: 767px) {
+
+      .banner__page--img.sinlge {
+            height: 8rem;
+      }
+          .hero-image-wrapper .hero-image {
+            height: 350px !important;    
+}
           .menuFlex__card.dnone {
               flex-direction: inherit;
               align-items: center;
@@ -89,6 +96,7 @@
           }
           
       }
+
 
       @media (min-width: 400px) and (max-width: 520px) {
           .dnone.dcontent {
