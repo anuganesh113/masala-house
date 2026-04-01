@@ -16,7 +16,7 @@
 
 
 
-</section>
+
     <div class="mobile-container">
 
         <!-- Main Content (Scrollable) -->
@@ -28,7 +28,7 @@
                             alt="Product Image" class="hero-image">
                         <div class="zoom-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" class="zoom-icon">
-                                <path d="M15 15L21 21M10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15 15L21 21M10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
                     </a>
@@ -62,24 +62,24 @@
                     <div class="tab-content active long-desc" id="overview">
                         <h2 class="section-title">Chaat Papdi</h2>
                         <div class=" long-desc">
-                        <p >
-                            Chaat Papdi consists of crispy wafers topped with diced boiled potatoes, chickpeas, yogurt,
-                            tamarind chutney, mint chutney, green chilles, and is garnished with sev, chopped cilantro,
-                            and a mix of Indian spices. It offers a delightful combination of sweet, tangy, and spicy
-                            flavors with a variety of textures.
-                        </p>
+                            <p>
+                                Chaat Papdi consists of crispy wafers topped with diced boiled potatoes, chickpeas, yogurt,
+                                tamarind chutney, mint chutney, green chilles, and is garnished with sev, chopped cilantro,
+                                and a mix of Indian spices. It offers a delightful combination of sweet, tangy, and spicy
+                                flavors with a variety of textures.
+                            </p>
 
-                        <ul>
-                            <li>
-                                Chaat Papdi is a popular street food from India, enjoyed across the country with regional variations.
-                            </li>
-                              <li>
-                                Chaat Papdi is a popular street food from India, enjoyed across the country with regional variations.
-                            </li>
-                              <li>
-                                Chaat Papdi is a popular street food from India, enjoyed across the country with regional variations.
-                            </li>
-                        </ul>
+                            <ul>
+                                <li>
+                                    Chaat Papdi is a popular street food from India, enjoyed across the country with regional variations.
+                                </li>
+                                <li>
+                                    Chaat Papdi is a popular street food from India, enjoyed across the country with regional variations.
+                                </li>
+                                <li>
+                                    Chaat Papdi is a popular street food from India, enjoyed across the country with regional variations.
+                                </li>
+                            </ul>
                         </div>
 
                         <!-- <div class="details-grid">
@@ -204,7 +204,7 @@
                                     <summary>
                                         Is this dish very spicy?
                                         <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                                         </svg>
                                     </summary>
                                     <div class="faq-answer">
@@ -217,7 +217,7 @@
                                     <summary>
                                         Can I order this vegan or gluten-free?
                                         <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                                         </svg>
                                     </summary>
                                     <div class="faq-answer">
@@ -230,7 +230,7 @@
                                     <summary>
                                         How long does it take to prepare?
                                         <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                                         </svg>
                                     </summary>
                                     <div class="faq-answer">
@@ -294,11 +294,130 @@
             </section>
         </main>
     </div>
+</section>
+
+<section class="grab" style="background: #fff4ea;">
+    <div class="container-fluid">
+        <div class="flex">
+            <div class="section__title text-center" style="margin: auto;">
+                <h4>Similar Items of Stress Food</h4>
+                <h2>Stress Food</h2>
+            </div>
+
+        </div>
+    </div>
+    <div class="grab__box itemgrab__box" style="padding-left: 1.375rem;">
+        <div class="owl-carousel owl-theme family family_caro" style="padding: 0;">
+            @php
+            $menus = App\Models\Menu::query()->status()->get();
+
+            @endphp
+
+            @foreach ($menus as $menu)
+            <div class="item" style="margin-right: -20px;">
+                <div class="menu__card menu__card--family" style="width: 95%;">
+                    <div class="menu__card--img">
+                        <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">
+                            <img class="owl-lazy"
+                                data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
+                                alt="{{ $menu->name }}">
+                        </a>
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512"
+                                height="512" x="0" y="0" viewBox="0 0 48 48" style="enable-background:new 0 0 512 512"
+                                xml:space="preserve" class="">
+                                <g>
+                                    <g fill="#000">
+                                        <path
+                                            d="M22.286 0c-.94 0-1.7.767-1.7 1.714h-.014V15.43a1.714 1.714 0 1 1-3.429 0V1.714h-.013C17.13.767 16.368 0 15.429 0c-.94 0-1.701.767-1.701 1.714h-.013V15.43a1.714 1.714 0 1 1-3.429 0V1.714C10.286.767 9.524 0 8.586 0c-.94 0-1.702.767-1.702 1.714h-.027v17.143c0 2.109 2.116 3.921 5.143 4.715v21a3.429 3.429 0 0 0 6.857 0v-21C21.884 22.778 24 20.966 24 18.857V1.714h-.013C23.987.767 23.225 0 22.286 0zM40.286 0c-6.154 0-11.142 10.745-11.142 24 0 1.164.038 2.309.113 3.429h5.03V44.57a3.429 3.429 0 0 0 6.857 0V.07a5.295 5.295 0 0 0-.858-.07z"
+                                            fill="#000000" opacity="1" data-original="#000000" class=""></path>
+                                    </g>
+                                </g>
+                            </svg>
+
+                        </div>
+                    </div>
+                    <div class="menu__card--content">
+                        <div class="menu__card--header">
+                            <h3 class="titlehgt">
+                                <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">{{ $menu->name }}</a>
+                            </h3>
+                            <div class="menu__card--price">${{ $menu->price }}</div>
+                        </div>
+                        <div class="itemexcerpthover">
+                            {!! $menu->excerpt !!}
+                        </div>
+                        <div class="menu__card--footer">
+                            <span class="cat veg-btn bt-fr {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
+                            <a class="menu__card--cta order-now-btn  mr-l wtc" href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+
+
+
+        </div>
+    </div>
+</section>
 
 @endsection
 
 @push('footer')
 <script src="{{ asset('site-assets/js/facybox.js') }}"></script>
+
+<script>
+    $('.family_caro').owlCarousel({
+        loop: true,
+        margin: 30,
+        responsiveClass: true,
+        autoplay: true,
+        autoplayHoverPause: true,
+        autoplaySpeed: 2000,
+        lazyLoad: true,
+        navText: [
+            '<i class="fas fa-chevron-left"></i>',
+            '<i class="fas fa-chevron-right"></i>'
+        ],
+        responsive: {
+            0: {
+                items: 1,
+                dots: false,
+                nav: false,
+                // margin: 15,
+            },
+            627: {
+                items: 2,
+                dots: false,
+                nav: false,
+            },
+            767: {
+                items: 2,
+                dots: false,
+                nav: false,
+            },
+            1000: {
+                items: 3,
+                dots: false,
+                nav: false,
+            },
+            1200: {
+                items: 4,
+                dots: false,
+                nav: false,
+                // margin: 40,
+            },
+            1300: {
+                items: 4,
+                dots: false,
+                nav: false,
+                // margin: 40,
+            },
+        },
+    }, );
+</script>
+
 <script>
     if (typeof Fancybox !== "undefined") {
         Fancybox.bind('[data-fancybox="gallery"]', {
@@ -308,48 +427,47 @@
         });
     }
 
-    
-document.addEventListener('DOMContentLoaded', () => {
-  const tabs = document.querySelectorAll('.tab');
-  const contents = document.querySelectorAll('.tab-content');
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      // Remove active classes
-      tabs.forEach(t => t.classList.remove('active'));
-      contents.forEach(c => c.classList.remove('active'));
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.tab-content');
 
-      // Add active class to clicked tab
-      tab.classList.add('active');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active classes
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
 
-      // Show corresponding content
-      const targetId = tab.getAttribute('data-target');
-      const targetContent = document.getElementById(targetId);
-      if (targetContent) {
-        targetContent.classList.add('active');
-      }
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                // Show corresponding content
+                const targetId = tab.getAttribute('data-target');
+                const targetContent = document.getElementById(targetId);
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                }
+            });
+        });
+
+        // Quantity Stepper Logic
+        const qtyInput = document.getElementById('product-qty');
+        const qtyPlus = document.getElementById('qty-plus');
+        const qtyMinus = document.getElementById('qty-minus');
+
+        if (qtyInput && qtyPlus && qtyMinus) {
+            qtyPlus.addEventListener('click', () => {
+                let val = parseInt(qtyInput.value) || 1;
+                qtyInput.value = val + 1;
+            });
+
+            qtyMinus.addEventListener('click', () => {
+                let val = parseInt(qtyInput.value) || 1;
+                if (val > 1) {
+                    qtyInput.value = val - 1;
+                }
+            });
+        }
     });
-  });
-
-  // Quantity Stepper Logic
-  const qtyInput = document.getElementById('product-qty');
-  const qtyPlus = document.getElementById('qty-plus');
-  const qtyMinus = document.getElementById('qty-minus');
-
-  if (qtyInput && qtyPlus && qtyMinus) {
-    qtyPlus.addEventListener('click', () => {
-      let val = parseInt(qtyInput.value) || 1;
-      qtyInput.value = val + 1;
-    });
-
-    qtyMinus.addEventListener('click', () => {
-      let val = parseInt(qtyInput.value) || 1;
-      if (val > 1) {
-        qtyInput.value = val - 1;
-      }
-    });
-  }
-});
-
 </script>
 @endpush
