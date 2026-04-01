@@ -1,4 +1,9 @@
-@extends('site.layouts.layout')
+@extends('site.layouts.layout',[
+    'title' =>   data_get($menu, "seo.title") ?? data_get($menu, 'name'),
+    'description' =>  data_get($menu, "seo.description")  ?? strip_tags(data_get($menu, 'description')),
+    'image' => $menu ? $menu->full_image_link  :  banner(),
+    'keywords' =>  data_get($menu, "seo.keywords")  ?? data_get($menu, 'keywords'),
+])
 
 @push('header')
 <link rel="stylesheet" href="{{ asset('site-assets/css/fancybox.css') }}">
@@ -11,7 +16,7 @@
     </div>
     <div class="banner__page--content">
         <h1>{{$cat_name ?? 'Category Name'}}</h1>
-        <p>{{ $menu->name ?? 'Product Name' }}</p>
+        <p> <a href="{{url('/') }}" class="text-white"><i class="fas fa-home"></i></a> / {{$cat_name ?? 'Category Name'}} / {{ $menu->name ?? 'Product Name' }}</p>
     </div>
 
 </section>
@@ -300,12 +305,13 @@
             @foreach ($similarMenus as $menu)
             <div class="item" style="margin-right: -20px;">
                 <div class="menu__card menu__card--family" style="width: 95%;">
+                        <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}" target="_blank">
                     <div class="menu__card--img">
-                        <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">
+                    
                             <img class="owl-lazy"
                                 data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
                                 alt="{{ $menu->name }}">
-                        </a>
+                        
                         <div class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512"
                                 height="512" x="0" y="0" viewBox="0 0 48 48" style="enable-background:new 0 0 512 512"
@@ -321,6 +327,8 @@
 
                         </div>
                     </div>
+                        </a>
+
                     <div class="menu__card--content">
                         <div class="menu__card--header">
                             <h3 class="titlehgt">
