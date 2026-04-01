@@ -6,7 +6,7 @@
 
 @section('content')
 <section class="banner banner__page">
-    <div class="banner__page--img">
+    <div class="banner__page--img sinlge">
         <img src="{{asset('site-assets/images/menu-1.png')}}" alt="product banner">
     </div>
     <div class="banner__page--content">
@@ -14,7 +14,8 @@
         <p>Product show</p>
     </div>
 
-
+</section>
+<section>
 
 
     <div class="mobile-container">
