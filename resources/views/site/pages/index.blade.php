@@ -18,8 +18,13 @@
 
 @section('content')
 
-
+<style>
+  .experience::before {
+    content: "{{ $settings['below_experience_text'] ?? 'EXPERIENCE' }}";
+  }
+</style>
 <x-site.banner />
+
 
 <!-- experience section start -->
 <section class="experience">
@@ -30,8 +35,9 @@
         <div class="row">
             <div class="col-lg-7 offset-lg-5 col-xl-6 offset-xl-6">
                 <div class="section__title">
-                    <h4>Since 2015</h4>
-                    <h2> Wonderful Dining Experience & Indian Food</h2>
+               
+                    <h4> {{ $about->metadata['sub_heading'] ?? 'Since 2015' }} </h4>
+                    <h2> {{ $about->metadata['sub_title'] ?? 'Wonderful Dining Experience & Indian Food' }} </h2>
                 </div>
                 <div class="content">
                     {!!   $about->excerpt ??  $about->description !!}

@@ -37,6 +37,8 @@ class PageRequest extends FormRequest
             'image_two' => 'image two',
             'image_two_alt' => 'image two alt',
             'images.*' => 'images',
+            'metadata.sub_heading' => ['nullable'],
+            'metadata.sub_title' => ['nullable'],
         ];
     }
 
@@ -73,6 +75,8 @@ class PageRequest extends FormRequest
             'template' => ['required', 'max:255'],
             'order' => ['nullable', 'numeric', 'min:1'],
             'status' => ['required', Rule::in(Status::getValues())],
+            'metadata.sub_heading' => ['nullable', 'max:255'],
+            'metadata.sub_title' => ['nullable', 'max:255'],
         ];
     }
 
@@ -81,6 +85,13 @@ class PageRequest extends FormRequest
         $response = [
             'page_id' => data_get($this, 'parent'),
             ...$this->only(['title','name','image_one_alt','image_two_alt','excerpt','description','template','order','status','seo']),
+            'metadata' => [
+                'sub_heading' => data_get($this, 'metadata.sub_heading'),
+                'sub_title' => data_get($this, 'metadata.sub_title'),
+              
+
+              
+            ],
         ];
 
         if ($this->hasFile('image_one')) {

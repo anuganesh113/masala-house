@@ -22,11 +22,23 @@ class WebsiteController extends Controller
 
     public function settingUpdate(Request $request)
     {
+       
         $updatedata = $request->except(['_token']);
+        if($request->file('section_2_background_image')){
+            $file= $request->file('section_2_background_image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('uploads/home/'), $filename);
+            $updatedata['section_2_background_image'] = $filename;
+        }
+        
+        if (isset($updatedata['section_2_menu'])) {
+            $updatedata['section_2_menu'] = json_encode($updatedata['section_2_menu']);
+        }
+        if (isset($updatedata['section_3_menu'])) {
+            $updatedata['section_3_menu'] = json_encode($updatedata['section_3_menu']);
+        }
 
 
-        $updatedata['section_2_menu'] = json_encode($updatedata['section_2_menu']);
-        $updatedata['section_3_menu'] = json_encode($updatedata['section_3_menu']);
         foreach ($updatedata as $key => $data) {
             Website::updateOrCreate(
                 ['name' => $key],
