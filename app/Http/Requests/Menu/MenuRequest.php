@@ -47,11 +47,7 @@ class MenuRequest extends FormRequest
         $id = $this->menu->id ?? '';
         return [
             'category_id' => ['required', Rule::exists(DBTables::CATEGORIES, 'id')],
-            'name' => [
-                'required',
-                'max:255',
-                Rule::unique(DBTables::MENUS)->ignore($this->route()->parameter('menu')),
-            ],
+            'name' => ['required','max:255',],
             'image' => [
                 'nullable',
                 File::types(Mimes::IMG)->max(Max::IMAGE),
