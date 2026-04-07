@@ -10,7 +10,7 @@
 <!-- page banner start -->
 <section class="banner banner__page">
     <div class="banner__page--img">
-        <img src="{{ asset ('site-assets/images/about/about-banner.png') }}"
+        <img src="{{ $page ?  $page->breadcrumbs_image_link : asset ('site-assets/images/about/about-banner.png') }}"
             alt="Catering" />
     </div>
     <div class="banner__page--content">
