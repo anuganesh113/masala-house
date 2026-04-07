@@ -39,6 +39,7 @@ class PageRequest extends FormRequest
             'images.*' => 'images',
             'metadata.sub_heading' => ['nullable'],
             'metadata.sub_title' => ['nullable'],
+            'metadata.breadcrumbs' => ['nullable'],
         ];
     }
 
@@ -51,7 +52,8 @@ class PageRequest extends FormRequest
     {
         return [
             'name' => [
-                'required', 'max:255',
+                'required',
+                'max:255',
                 Rule::unique(DBTables::PAGES, 'name')->ignore($this->page),
             ],
             'title' => ['nullable', 'max:255'],
@@ -60,6 +62,10 @@ class PageRequest extends FormRequest
                 Rule::exists(DBTables::PAGES, 'id'),
             ],
             'image_one' => [
+                'nullable',
+                File::types(Mimes::IMG)->max(Max::IMAGE),
+            ],
+            'metadata.breadcrumbs' => [
                 'nullable',
                 File::types(Mimes::IMG)->max(Max::IMAGE),
             ],
@@ -84,18 +90,20 @@ class PageRequest extends FormRequest
     {
         $response = [
             'page_id' => data_get($this, 'parent'),
-            ...$this->only(['title','name','image_one_alt','image_two_alt','excerpt','description','template','order','status','seo']),
+            ...$this->only(['title', 'name', 'image_one_alt', 'image_two_alt', 'excerpt', 'description', 'template', 'order', 'status', 'seo']),
             'metadata' => [
                 'sub_heading' => data_get($this, 'metadata.sub_heading'),
                 'sub_title' => data_get($this, 'metadata.sub_title'),
-              
-
-              
+                'breadcrumbs' => data_get($this, 'metadata.breadcrumbs'),
             ],
         ];
 
         if ($this->hasFile('image_one')) {
             $response['image_one'] = $this->uploadImage($this->file('image_one'), UploadFilePath::PAGES_PATH);
+        }
+
+        if ($this->hasFile('metadata.breadcrumbs')) {
+            $response['metadata']['breadcrumbs'] = $this->uploadImage($this->file('metadata.breadcrumbs'), UploadFilePath::PAGES_PATH);
         }
 
         if ($this->hasFile('image_two')) {

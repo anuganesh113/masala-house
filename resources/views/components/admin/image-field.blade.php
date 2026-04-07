@@ -2,7 +2,7 @@
     <div class="col-lg-6">
         @if(isset($sample) && !empty($sample))
         <a href="{{ $sample }}" target="_blank">
-           Click here to view :: <em>Sample for background image</em>
+           Click here to view :: <em>Sample for background image :: {{ $hint ?? '' }}</em>
         </a>
         <br>
         @endif

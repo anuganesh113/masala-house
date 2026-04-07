@@ -204,8 +204,18 @@
                                 <x-admin.radio-status :data="['value' => data_get($page, 'status')]"/>
                             </div>
                         </div>
+                        
 
                         <x-admin.seo :data="data_get($page, 'seo', [])" />
+
+                        <x-admin.image-field :data="[
+                            'label' => 'Breadcrumbs Image',
+                            'name' => 'metadata[breadcrumbs]',
+                            'path' => \App\Enums\UploadFilePath::PAGES_PATH,
+                            'value' => data_get($page, 'metadata.breadcrumbs') ?? '',
+                            'hint' => '1905 px wide and 400 px high.',
+                            'sample' => asset('site-assets/images/about/about-banner.png'),
+                        ]" />
 
 					</div>
 					<div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
