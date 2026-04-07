@@ -145,12 +145,34 @@
                             </div>
                         </div>
 
+                <div class="form-group m-form__group">
+                    <label>Sub Heading</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input type="text" class="form-control m-input" name="metadata[sub_heading]"
+                            value="{{ old('metadata.sub_heading')??data_get($page, "metadata.sub_heading") }}"
+                            placeholder="Sub Heading">
+                    </div>
+                </div>
+
+                <div class="form-group m-form__group">
+                    <label>Sub Title</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input type="text" class="form-control m-input" name="metadata[sub_title]"
+                            value="{{ old('metadata.sub_title')??data_get($page, "metadata.sub_title") }}"
+                            placeholder="Sub Title">
+                    </div>
+                </div>
+
                         <div class="form-group m-form__group">
                             <label>Excerpt</label>
                             <textarea class="summernote_reg form-control m-input"
                                       name="excerpt"
                                       rows="15">{{ old("excerpt") ?? data_get($page, "excerpt") }}</textarea>
                         </div>
+
+          
+
+
 
                         <div class="form-group m-form__group">
                             <label>Description</label>
