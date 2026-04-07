@@ -18,8 +18,13 @@
 
 @section('content')
 
-
+<style>
+  .experience::before {
+    content: "{{ $settings['below_experience_text'] ?? 'EXPERIENCE' }}";
+  }
+</style>
 <x-site.banner />
+
 
 <!-- experience section start -->
 <section class="experience">

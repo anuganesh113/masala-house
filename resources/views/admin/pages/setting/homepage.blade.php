@@ -21,6 +21,7 @@
 
                 </div>
 
+
                 <form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed"
                     action="{{ route('admin.settingUpdate') }}"
                     method="POST"
@@ -28,8 +29,34 @@
 
                     @csrf
 
+                    <div class="form-group m-form__group row">
+
+                        <label>BANNER Below EXPERIENCE TEXT<span class="text-danger"></span></label>
+
+                          
+                                <input type="text"
+                                    name="below_experience_text"
+                                    class="form-control m-input mb-2"
+                                    placeholder="below_experience_text EXPERIENCE"
+                                    value="{{ $setting['below_experience_text'] ?? '' }}" />
+
+                    </div>
+
+
+
                     <div class="m-portlet__body">
+                        <x-admin.image-field :data="[
+                            'label' => 'II Section Background Image',
+                            'name' => 'section_2_background_image',
+                            'path' => \App\Enums\UploadFilePath::HOME_PATH,
+                            'value' => data_get($setting, 'section_2_background_image') ?? '',
+                            'hint' => 'Recommended size: 370x370',
+                            'sample' => asset('site-assets/images/menu.png'),
+                        ]" />
                         <div class="form-group m-form__group row">
+
+
+
                             <div class="col-md-6">
                                 <label>II Section Heading<span class="text-danger"></span></label>
                                 <input type="text"
@@ -52,7 +79,7 @@
                                 }
                                 @endphp
 
-                                <div class="col-lg-12 mt-4" >
+                                <div class="col-lg-12 mt-4">
                                     <label>Select Menus for II Section <span class="text-danger">*</span> </label>
                                     <div class="" style="max-height: 350px;overflow-y: scroll;padding: 5px 10px;">
                                         @foreach($menus as $menu)
@@ -66,6 +93,9 @@
 
                                     </div>
                                 </div>
+
+
+
                             </div>
 
                             <div class="col-md-6">
@@ -82,11 +112,11 @@
                                     name="section_3_title"
                                     class="form-control m-input mt-2"
                                     placeholder="Title"
-                                    value="{{ $setting['section_3_title'] ?? '' }}" *>  
+                                    value="{{ $setting['section_3_title'] ?? '' }}" *>
 
 
 
-                                    @php
+                                @php
 
                                 $arr_3_categories = [];
                                 if (isset($setting['section_3_menu']) && !empty($setting['section_3_menu'])) {
@@ -94,16 +124,15 @@
                                 }
                                 @endphp
 
-                                <div class="col-lg-12 mt-4" >
+                                <div class="col-lg-12 mt-4">
                                     <label>Select Menus for III Section <span class="text-danger">*</span> </label>
-                                    <div class=""  style="max-height: 350px;overflow-y: scroll;padding: 5px 10px;">
+                                    <div class="" style="max-height: 350px;overflow-y: scroll;padding: 5px 10px;">
                                         @foreach($menus as $menu)
                                         <input type="checkbox" class="" name="section_3_menu[]" value="{{ $menu->id }}"
                                             @if (in_array($menu->id, $arr_3_categories)) checked="checked" @endif
                                         > &nbsp;&nbsp;{{ $menu->name }}
                                         <br>
                                         @endforeach
-
 
 
                                     </div>
@@ -114,19 +143,6 @@
 
                     </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
             <div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
                 <div class="m-form__actions m-form__actions--solid">
                     <div class="row">

@@ -1,5 +1,15 @@
 
-    <section class="popular p__tb">
+    @php
+
+    if(isset($settings['section_2_background_image']) && !empty($settings['section_2_background_image'])){
+        $bg = asset(sprintf('%s%s', App\Enums\UploadFilePath::HOME_PATH, $settings['section_2_background_image']));
+    } else {
+        $bg = asset('site-assets/images/menu.png');
+    }
+
+    @endphp
+    
+    <section class="popular p__tb" style="background-image: url({{ $bg }});">
         <div class="container">
             <div class="section__title text-center">
                 <h5> {{ $settings['section_2_heading'] ?? 'Quick Grab , Choose from our delicious collection'  }}  </h5>

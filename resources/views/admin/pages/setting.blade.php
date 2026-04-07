@@ -198,13 +198,32 @@
             <x-admin.seo :data="data_get($setting, 'seo', [])" />
 
 
-            <!-- <div class="form-group m-form__group row">
-                <div class="col-lg-12">
+            <div class="form-group m-form__group row">
+                <!-- <div class="col-lg-12">
                     <label>Opening Hours</label>
                     <textarea class="summernote_reg form-control m-input" name="metadata[opening_hours]"
                         rows="7">{{ old('metadata.opening_hours')??data_get($setting, "metadata.opening_hours") }}</textarea>
+                </div> -->
+
+                     <div class="col-lg-12 mb-3">
+                    <label>Opening Days</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input type="text" class="form-control m-input" name="metadata[opening_days]"
+                            value="{{ old('metadata.opening_days')??data_get($setting, "metadata.opening_days") }}"
+                            placeholder="Opening Days">
+                    </div>
                 </div>
-            </div> -->
+
+                <div class="col-lg-12 mb-3">
+                    <label>Opening Time</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input type="text" class="form-control m-input" name="metadata[opening_time]"
+                            value="{{ old('metadata.opening_time')??data_get($setting, "metadata.opening_time") }}"
+                            placeholder="Opening Time">
+                    </div>
+                </div>
+            </div>
+
 
 
 
