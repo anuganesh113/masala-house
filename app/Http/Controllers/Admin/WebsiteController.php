@@ -25,8 +25,14 @@ class WebsiteController extends Controller
         $updatedata = $request->except(['_token']);
 
 
-        $updatedata['section_2_menu'] = json_encode($updatedata['section_2_menu']);
-        $updatedata['section_3_menu'] = json_encode($updatedata['section_3_menu']);
+        if (isset($updatedata['section_2_menu'])) {
+            $updatedata['section_2_menu'] = json_encode($updatedata['section_2_menu']);
+        }
+        if (isset($updatedata['section_3_menu'])) {
+            $updatedata['section_3_menu'] = json_encode($updatedata['section_3_menu']);
+        }
+
+
         foreach ($updatedata as $key => $data) {
             Website::updateOrCreate(
                 ['name' => $key],

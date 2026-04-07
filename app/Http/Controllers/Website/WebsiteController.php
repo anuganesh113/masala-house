@@ -112,7 +112,7 @@ class WebsiteController extends BaseController
             'phone' => $settingdata->phone,
             'address' => $settingdata->address,
             'siteemail' => $settingdata->email,
-            'website' => 'https://masalahousepittsburg.com/',
+            'website' => request()->url(),
 
 
         ];
@@ -137,7 +137,7 @@ class WebsiteController extends BaseController
             'phone' => $settingdata->phone,
             'address' => $settingdata->address,
             'siteemail' => $settingdata->email,
-            'website' => app()->make('url')->to('/'),
+            'website' => request()->url(),
 
         ];
         Mail::to('info@masalahousepittsburg.com')->cc($details['email'])->send(new \App\Mail\Contact($details));
