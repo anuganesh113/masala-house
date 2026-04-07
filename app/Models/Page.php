@@ -71,12 +71,20 @@ class Page extends Model
         return $this->hasMany(Page::class, 'page_id');
     }
 
-        public function getFullImageLinkAttribute(): ?string
+    public function getFullImageLinkAttribute(): ?string
     {
         if (empty($this->image_one)) {
             return null;
         }
 
         return asset(sprintf('%s%s', UploadFilePath::PAGES_PATH, $this->image_one));
+    }
+
+    public function getBreadcrumbsImageLinkAttribute(): ?string
+    {
+        if (empty($this->metadata['breadcrumbs'] ?? null)) {
+            return asset('site-assets/images/about/about-banner.png');
+        }
+        return asset(sprintf('%s%s', UploadFilePath::PAGES_PATH, $this->metadata['breadcrumbs']));
     }
 }
