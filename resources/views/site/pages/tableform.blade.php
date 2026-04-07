@@ -36,7 +36,7 @@
                      <div class="col-lg-4 mt-5">
                         <div class="form__group">
                            
-                            <input type="date" name="table[date]" class="datepicker-field" placeholder="Select date" required>
+                            <input type="date" name="table[date]" class="datepicker-field" placeholder="Select date" required  onkeydown="return false">
                         </div>
                      </div>
                      <div class="col-lg-4 mt-5">

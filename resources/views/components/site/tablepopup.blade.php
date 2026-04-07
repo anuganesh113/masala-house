@@ -32,7 +32,7 @@
                <div class="form__group">
                   <label for="" class="form-label">Select Date<span class="text-danger">*</span></label>
                   <input type="date"  name="table[date]" class="form-control datepicker-field" placeholder="Select date" 
-       required>
+       required  onkeydown="return false">   
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Select Time<span class="text-danger">*</span></label>
