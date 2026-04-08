@@ -114,6 +114,34 @@
           }
       }
 
+      @media (max-width: 500px) {
+          .viewmapmenu.up {
+              display: none;
+          }
+
+          .mapbtn {
+              margin: auto;
+              margin-top: 15px;
+          }
+      }
+
+      @media (min-width: 500px) {
+          .mapbtn.down {
+              display: none;
+
+          }
+
+          .mapbtn.up {
+              margin-left: auto;
+
+          }
+
+
+
+      }
+
+
+
 
       @media (max-width: 778px) {
 
@@ -138,6 +166,15 @@
               display: none;
           }
       } */
+
+      .viewmapmenu {
+          border-radius: 15px;
+          color: green !important;
+          background: #abdda5 !important;
+          font-size: 13px;
+          padding: 3px 53px;
+          margin-bottom: 7px;
+      }
 
       .bg-orange {
           background: #FF6F00 !important;

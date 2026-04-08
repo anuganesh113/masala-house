@@ -174,6 +174,21 @@ if (!function_exists('title')) {
         }
     }
 }
+
+if (!function_exists('google_map_address')) {
+    function google_map_address()
+    {
+        $settings = setting(); // Call the function first
+
+        if (isset($settings) && data_get($settings, 'metadata.google_map_address')) {
+            return data_get($settings, 'metadata.google_map_address');
+        } else {
+            return  url('/');
+        }
+    }
+}
+
+
 if (!function_exists('description')) {
     function description()
     {
