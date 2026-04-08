@@ -49,20 +49,24 @@
                 <div class="price-row">
                     <span class="price">${{$menu->price ?? '0.00'}}</span>
                     <span class="cat tag-vegetarian  {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
+                  
+                  
                 </div>
+                
             </section>
 
             <!-- Tabs Section -->
             <section class="tabs-container">
                 <div class="tabs-header">
-                    <button class="tab active" data-target="overview">Overview</button>
+                    <button class="tab active" data-target="overview"><i class="fas fa-file-alt"></i> Overview</button>
                     <div class="tab-divider"></div>
-                    <button class="tab" data-target="faq">FAQ</button>
+                    <button class="tab" data-target="faq"><i class="fas fa-question-circle"></i> FAQ</button>
                     <div class="tab-divider"></div>
-                    <button class="tab" data-target="order"><a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank" class="btn bg-orange text-white">Order Now</a>       </button>
+                    <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank" class="btn bg-orange text-white"> <i class="fas fa-shopping-cart"></i> Order Now</a>      
+                           
                 </div>
 
-                <div class="tab-content-wrapper">
+                <div class="tab-content-wrapper" style="background: #fff4ea;border-radius: 25px;">
                     <!-- Overview Tab Content -->
                     <div class="tab-content active long-desc" id="overview">
                         <h2 class="section-title">{{$menu->name ?? 'Product Name'}}</h2>
@@ -292,8 +296,9 @@
     <div class="container-fluid">
         <div class="flex">
             <div class="section__title text-center" style="margin: auto;">
-                <h4>Similar Items of {{$menu->name ?? 'Similar Items' }}</h4>
-                <h2>{{$menu->name ?? 'Similar Items' }}</h2>
+                <!-- <h4>Similar Items of {{$menu->name ?? 'Similar Items' }}</h4> -->
+            
+                <h2>{{ 'Similar Items' }}</h2>
             </div>
 
         </div>

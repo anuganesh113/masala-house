@@ -72,13 +72,13 @@
             </div>
         </div>
         <div class="container-fluid">
-            <div class="menu__list--box">
+            <div class="menu__list--box deskview">
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="image d-none d-lg-block">
                             <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::CATEGORIES_PATH, data_get($category, 'image'))) }}"
-                                class="img-1" alt="">
-                            <img src="{{ $category->full_icon_link }}" class="img-2" alt="">
+                                class="img-1" alt="{{$category->name}} ">
+                            <img src="{{ $category->full_icon_link }}" class="img-2" alt="{{$category->name}}">
                         </div>
                     </div>
                     <div class="col-lg-7">
@@ -99,16 +99,20 @@
                                 <div class="item">
                                     @foreach ($category->menus as $menu)
                                     <div class="menuFlex__card dnone menuboxshadow">
-                                        <div class="menuFlex__card--img d-lg-none mobile-menu mb-2 menuimgrespo">
+                                        <div class="menuFlex__card--img  mobile-menu mb-2 menuimgrespo">
                                             <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}" >
                                                 <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
                                                     alt="{{ $menu->name }}">
                                             </a>
+                                            
                                         </div>
                                         <div class="menuFlex__card--box">
                                             <div class="menuFlex__card--title">
-                                                <h3 class="name">{{ $menu->name }} </h3>
-                                                <span class="price">${{ $menu->price }} <br>
+                                                <h3 class="name">{{ $menu->name }} 
+                                                   
+                                                    
+                                            </h3>
+                                                <span class="menu__card--price mob">${{ $menu->price }} <br>
 
                                             </div>
                                             <div class="menuFlex__card--content dnone dcontent">
@@ -117,20 +121,21 @@
                                                 </div>
                                                 <div class="menuFlex__card--quantity orderdiv">
                                                     <span class="foronly_mobilresponsive" style="color: rgb(229.5, 99.9, 0);font-weight: 900;">${{ $menu->price }}</span>
-                                                    <span class="cat catvegg float-end  mt-0 {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
+                                                    <span class="cat catvegg float-end mobresp  mt-0 {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
                                                 
                                                     <span>
                                                         <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank"
-                                                            class="order-now-btn2 boxshadow wtc men-ord"
-                                                            style="margin-top: 20px; display: block;">Order Now </a>
+                                                            class="order-now-btn2 boxshadow mobile wtc men-ord"
+                                                            style=" display: block;"><i class="fas fa-shopping-cart"></i> Order Now </a>
                                                     </span>
                                                     <span>
                                                         <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}"
-                                                            class="order-now-btn2 boxshadow wtc men-ord"
-                                                            style="margin-top: 20px; display: block;"><i class="fas fa-eye"></i> View Details </a>
+                                                            class="order-now-btn2 boxshadow mobile wtc men-ord menuviewbtn"
+                                                            style=" display: block;"><i class="fas fa-search"></i> View Details </a>
                                                     </span>
                                                 </div>
                                             </div>
+                                             <span class="cat mt-0  desviewresp {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
                                         </div>
 
 
