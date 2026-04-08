@@ -130,7 +130,7 @@
                                             <a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">
                                                 <img class=""
                                                     data-src="{{$item->full_image_link}}" src="{{$item->full_image_link}}"
-                                                    alt="{{$item->name}}">
+                                                    alt="{{ $item->image_alt ?? $item->name }}">
                                             </a>
                                             <div class="icon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
@@ -181,7 +181,7 @@
                                             <a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">
                                                 <img class=""
                                                     data-src="{{$item->full_image_link}}" src="{{$item->full_image_link}}"
-                                                    alt="{{$item->name}}">
+                                                    alt="{{ $item->image_alt ?? $item->name }}">
                                             </a>
                                             <div class="icon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"

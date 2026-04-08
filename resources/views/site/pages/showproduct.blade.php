@@ -1,8 +1,8 @@
 @extends('site.layouts.layout',[
-    'title' =>   data_get($menu, "seo.title") ?? data_get($menu, 'name'),
-    'description' =>  data_get($menu, "seo.description")  ?? strip_tags(data_get($menu, 'description')),
-    'image' => $menu ? $menu->full_image_link  :  banner(),
-    'keywords' =>  data_get($menu, "seo.keywords")  ?? data_get($menu, 'keywords'),
+'title' => data_get($menu, "seo.title") ?? data_get($menu, 'name'),
+'description' => data_get($menu, "seo.description") ?? strip_tags(data_get($menu, 'description')),
+'image' => $menu ? $menu->full_image_link : banner(),
+'keywords' => data_get($menu, "seo.keywords") ?? data_get($menu, 'keywords'),
 ])
 
 @push('header')
@@ -44,25 +44,44 @@
             <section class="product-info">
                 <h1 class="product-title">{{$menu->name ?? 'Product Name'}}</h1>
                 <p class="product-short-desc">
-                    {!!$menu->description ??  $menu->excerpt ?? 'Short product description goes here. This should be a brief summary that highlights the key features and appeal of the dish, enticing customers to learn more.'!!}
+                    {!!$menu->description ?? $menu->excerpt ?? 'Short product description goes here. This should be a brief summary that highlights the key features and appeal of the dish, enticing customers to learn more.'!!}
                 </p>
                 <div class="price-row">
                     <span class="price">${{$menu->price ?? '0.00'}}</span>
                     <span class="cat tag-vegetarian  {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
+
+
                 </div>
+
             </section>
 
             <!-- Tabs Section -->
             <section class="tabs-container">
                 <div class="tabs-header">
-                    <button class="tab active" data-target="overview">Overview</button>
+                    <button class="tab active" data-target="overview"><i class="fas fa-file-alt"></i> Overview</button>
                     <div class="tab-divider"></div>
-                    <button class="tab" data-target="faq">FAQ</button>
+                    <button class="tab" data-target="faq"><i class="fas fa-question-circle"></i> FAQ</button>
                     <div class="tab-divider"></div>
-                    <button class="tab" data-target="order"><a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank" class="btn bg-orange text-white">Order Now</a>       </button>
+                    <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank" class="btn bg-orange text-white"> <i class="fas fa-shopping-cart"></i> Order Now</a>
+                    <div class="mapbtn up">
+                        <a href="{{google_map_address()}}" target="_blank" class="btn viewmapmenu up">
+
+                            <i class="fas fa-location-dot"></i> Location <br>
+                            <em>view on map</em>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="mapbtn down" >
+                    <a href="{{google_map_address()}}" target="_blank" class="btn viewmapmenu down">
+
+                        <i class="fas fa-location-dot"></i> Location <br>
+                        <em>view on map</em>
+                    </a>
+
                 </div>
 
-                <div class="tab-content-wrapper">
+                <div class="tab-content-wrapper" style="background: #fff4ea;border-radius: 25px;">
                     <!-- Overview Tab Content -->
                     <div class="tab-content active long-desc" id="overview">
                         <h2 class="section-title">{{$menu->name ?? 'Product Name'}}</h2>
@@ -292,8 +311,9 @@
     <div class="container-fluid">
         <div class="flex">
             <div class="section__title text-center" style="margin: auto;">
-                <h4>Similar Items of {{$menu->name ?? 'Similar Items' }}</h4>
-                <h2>{{$menu->name ?? 'Similar Items' }}</h2>
+                <!-- <h4>Similar Items of {{$menu->name ?? 'Similar Items' }}</h4> -->
+
+                <h2>{{ 'Similar Items' }}</h2>
             </div>
 
         </div>
@@ -305,29 +325,29 @@
             @foreach ($similarMenus as $menu)
             <div class="item" style="margin-right: -20px;">
                 <div class="menu__card menu__card--family" style="width: 95%;">
-                        <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}">
-                    <div class="menu__card--img">
-                    
+                    <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}">
+                        <div class="menu__card--img">
+
                             <img class="owl-lazy"
                                 data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
                                 alt="{{ $menu->name }}">
-                        
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512"
-                                height="512" x="0" y="0" viewBox="0 0 48 48" style="enable-background:new 0 0 512 512"
-                                xml:space="preserve" class="">
-                                <g>
-                                    <g fill="#000">
-                                        <path
-                                            d="M22.286 0c-.94 0-1.7.767-1.7 1.714h-.014V15.43a1.714 1.714 0 1 1-3.429 0V1.714h-.013C17.13.767 16.368 0 15.429 0c-.94 0-1.701.767-1.701 1.714h-.013V15.43a1.714 1.714 0 1 1-3.429 0V1.714C10.286.767 9.524 0 8.586 0c-.94 0-1.702.767-1.702 1.714h-.027v17.143c0 2.109 2.116 3.921 5.143 4.715v21a3.429 3.429 0 0 0 6.857 0v-21C21.884 22.778 24 20.966 24 18.857V1.714h-.013C23.987.767 23.225 0 22.286 0zM40.286 0c-6.154 0-11.142 10.745-11.142 24 0 1.164.038 2.309.113 3.429h5.03V44.57a3.429 3.429 0 0 0 6.857 0V.07a5.295 5.295 0 0 0-.858-.07z"
-                                            fill="#000000" opacity="1" data-original="#000000" class=""></path>
-                                    </g>
-                                </g>
-                            </svg>
 
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512"
+                                    height="512" x="0" y="0" viewBox="0 0 48 48" style="enable-background:new 0 0 512 512"
+                                    xml:space="preserve" class="">
+                                    <g>
+                                        <g fill="#000">
+                                            <path
+                                                d="M22.286 0c-.94 0-1.7.767-1.7 1.714h-.014V15.43a1.714 1.714 0 1 1-3.429 0V1.714h-.013C17.13.767 16.368 0 15.429 0c-.94 0-1.701.767-1.701 1.714h-.013V15.43a1.714 1.714 0 1 1-3.429 0V1.714C10.286.767 9.524 0 8.586 0c-.94 0-1.702.767-1.702 1.714h-.027v17.143c0 2.109 2.116 3.921 5.143 4.715v21a3.429 3.429 0 0 0 6.857 0v-21C21.884 22.778 24 20.966 24 18.857V1.714h-.013C23.987.767 23.225 0 22.286 0zM40.286 0c-6.154 0-11.142 10.745-11.142 24 0 1.164.038 2.309.113 3.429h5.03V44.57a3.429 3.429 0 0 0 6.857 0V.07a5.295 5.295 0 0 0-.858-.07z"
+                                                fill="#000000" opacity="1" data-original="#000000" class=""></path>
+                                        </g>
+                                    </g>
+                                </svg>
+
+                            </div>
                         </div>
-                    </div>
-                        </a>
+                    </a>
 
                     <div class="menu__card--content">
                         <div class="menu__card--header">
