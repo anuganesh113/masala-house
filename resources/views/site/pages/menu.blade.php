@@ -16,13 +16,15 @@
 <!-- page banner start -->
 <section class="banner banner__page">
     <div class="banner__page--img">
-        <img src="{{ $page ?  $page->breadcrumbs_image_link : asset ('site-assets/images/about/about-banner.png') }}" alt="">
+        <img src="{{ $page ?  $page->breadcrumbs_image_link : asset ('site-assets/images/about/about-banner.png') }}" alt="{{$page->name}}">
     </div>
     <div class="banner__page--content">
         <h1>Our menu</h1>
         <p>Check out our Indian Authentic Collection of Foods </p>
     </div>
 </section>
+
+
 <!-- page banner end -->
 
 <!-- menu checkout start -->
@@ -102,7 +104,7 @@
                                         <div class="menuFlex__card--img  mobile-menu mb-2 menuimgrespo">
                                             <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}" >
                                                 <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
-                                                    alt="{{ $menu->name }}">
+                                                    alt="{{  $menu->image_alt ?? $menu->name }}">
                                             </a>
                                             
                                         </div>

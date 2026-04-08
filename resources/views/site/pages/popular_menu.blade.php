@@ -25,7 +25,7 @@
                                     <div class="menuFlex__card">
                                         <div class="img d-lg-none">
                                             <img src="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::MENUS_PATH, data_get($item, 'image'))) }}"
-                                                class="img-2" alt="{{$item->name}}">
+                                                class="img-2" alt="{{ $item->image_alt ?? $item->name }}">
                                         </div>
                                         <div class="contents">
                                             <div class="menuFlex__card--title">
@@ -52,7 +52,7 @@
                                     <div class="menuFlex__card">
                                         <div class="img d-lg-none">
                                             <img src="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::MENUS_PATH, data_get($item, 'image'))) }}"
-                                                class="img-2" alt="{{$item->name}}">
+                                                class="img-2" alt="{{ $item->image_alt ?? $item->name }}">
                                         </div>
                                         <div class="contents">
                                             <div class="menuFlex__card--title">

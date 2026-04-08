@@ -6,7 +6,7 @@
                <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">
                   <img class="owl-lazy"
                      data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
-                     alt="{{ $menu->name }}">
+                     alt="{{ $menu->image_alt ?? $menu->name }}">
                </a>
                <div class="icon">
                   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512"
