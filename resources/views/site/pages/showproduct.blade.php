@@ -66,18 +66,30 @@
                     <div class="mapbtn up">
                         <a href="{{google_map_address()}}" target="_blank" class="btn viewmapmenu up">
 
-                            <i class="fas fa-location-dot"></i> Location <br>
-                            <em>view on map</em>
+                            <i class="fas fa-location-dot locationm" ></i>
+                            
+                            <em style="text-align: -webkit-auto;"><b> Location</b> 
+                                <br>
+                          <em style="font-size: 9px;">   view on map </em>
+                        </em>
+                           <i class="fas fa-arrow-up-right-from-square fromsquare"  ></i>
                         </a>
 
                     </div>
                 </div>
                 <div class="mapbtn down" >
-                    <a href="{{google_map_address()}}" target="_blank" class="btn viewmapmenu down">
+                    <a href="{{google_map_address()}}" target="_blank" class="btn viewmapmenu down"
 
-                        <i class="fas fa-location-dot"></i> Location <br>
-                        <em>view on map</em>
-                    </a>
+ 
+                        >
+
+                            <i class="fas fa-location-dot locationm" ></i>
+                            
+                            <em style="text-align: -webkit-auto;"><b> Location</b> 
+                                <br>
+                           view on map</em>
+                           <i class="fas fa-arrow-up-right-from-square fromsquare"  ></i>
+                        </a>
 
                 </div>
 
