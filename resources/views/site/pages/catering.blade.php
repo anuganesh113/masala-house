@@ -11,7 +11,7 @@
 <section class="banner banner__page">
     <div class="banner__page--img">
         <img src="{{ $page ?  $page->breadcrumbs_image_link : asset ('site-assets/images/about/about-banner.png') }}"
-            alt="Catering" />
+            alt="{{ $page->name ?? 'Catering' }}" />
     </div>
     <div class="banner__page--content">
         <h1>{{ data_get($page, 'title') }}</h1>
