@@ -31,7 +31,7 @@
                 <div class="hero-image-wrapper">
                     <a href="{{$menu->full_image_link}}" data-type="image" data-fancybox="gallery" class="hero-image-link" aria-label="Zoom image">
                         <img src="{{$menu->full_image_link}}"
-                            alt="Product Image" class="hero-image">
+                            alt="{{$menu->image_alt ?? $menu->name}}" class="hero-image">
                         <div class="zoom-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" class="zoom-icon">
                                 <path d="M15 15L21 21M10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -66,18 +66,30 @@
                     <div class="mapbtn up">
                         <a href="{{google_map_address()}}" target="_blank" class="btn viewmapmenu up">
 
-                            <i class="fas fa-location-dot"></i> Location <br>
-                            <em>view on map</em>
+                            <i class="fas fa-location-dot locationm" ></i>
+                            
+                            <em style="text-align: -webkit-auto;"><b> Location</b> 
+                                <br>
+                          <em style="font-size: 9px;">   view on map </em>
+                        </em>
+                           <i class="fas fa-arrow-up-right-from-square fromsquare"  ></i>
                         </a>
 
                     </div>
                 </div>
                 <div class="mapbtn down" >
-                    <a href="{{google_map_address()}}" target="_blank" class="btn viewmapmenu down">
+                    <a href="{{google_map_address()}}" target="_blank" class="btn viewmapmenu down"
 
-                        <i class="fas fa-location-dot"></i> Location <br>
-                        <em>view on map</em>
-                    </a>
+ 
+                        >
+
+                            <i class="fas fa-location-dot locationm" ></i>
+                            
+                            <em style="text-align: -webkit-auto;"><b> Location</b> 
+                                <br>
+                           view on map</em>
+                           <i class="fas fa-arrow-up-right-from-square fromsquare"  ></i>
+                        </a>
 
                 </div>
 
@@ -330,7 +342,7 @@
 
                             <img class="owl-lazy"
                                 data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
-                                alt="{{ $menu->name }}">
+                                alt="{{ $menu->image_alt ?? $menu->name }}">
 
                             <div class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512"

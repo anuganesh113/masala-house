@@ -1,4 +1,16 @@
   <style>
+    .locationm{
+        position: relative;
+        top: 7px;
+        right: 12px;
+        font-size: 19px;
+    }
+    .fromsquare{
+        position: relative;
+        left: 30px;
+        top: 10px;
+        font-size: 19px;
+    }
       .menuboxshadow {
           background: rgba(255, 255, 255, 0.92);
           border-radius: 1.5rem;
@@ -123,6 +135,17 @@
               margin: auto;
               margin-top: 15px;
           }
+          .viewmapmenu.down{
+            display: flex;
+          }
+       
+      }
+
+      @media (max-width: 400px) {
+          .wtc.men-ord {
+            margin-top: 15px;;
+              /* Your styles for mobile wtc */
+          }
       }
 
       @media (min-width: 500px) {
@@ -135,6 +158,12 @@
               margin-left: auto;
 
           }
+          .viewmapmenu.up{
+            display: flex;
+          }
+
+         
+          
 
 
 
