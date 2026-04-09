@@ -32,7 +32,7 @@
 
 
 <!-- menu list start -->
-<section class="menu__wrapper">
+<section class="menu__wrapper" style="background-color: #313131;">
     <section class="menu__item">
         <div class="container-fluid">
             <div class="row align-items-center">
@@ -161,7 +161,7 @@
 <!-- menu list end -->
 
 <!-- text slider section start -->
-<section class="textSlider mb-0" style="margin-top: -4rem;">
+<section class="textSlider mb-0" style="margin-top: 0rem;">
     @include("site.includes.text-slider")
 </section>
 <!-- text slider section end -->
@@ -189,7 +189,7 @@
     </div>
 </section>
 <!-- qucik grab section end -->
-
+<!-- @include('components.site.popmodel', ['id' => $page->id])  -->
 @endsection
 
 @push('footer')

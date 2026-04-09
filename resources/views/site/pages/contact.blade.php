@@ -177,7 +177,7 @@
       </div>
    </section>
    <!-- contact info end -->
-
+@include('components.site.popmodel', ['id' => $page->id]) 
 @endsection
 
 @push('footer')
