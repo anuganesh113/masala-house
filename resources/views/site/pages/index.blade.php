@@ -127,7 +127,7 @@
                                 <div class="item">
                                     <div class="menu__card">
                                         <div class="menu__card--img">
-                                            <a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">
+                                            <a href="{{ route('site.product', ['slug' => $item->slug , 'id' => $item->id]) }}" target="_blank">
                                                 <img class=""
                                                     data-src="{{$item->full_image_link}}" src="{{$item->full_image_link}}"
                                                     alt="{{ $item->image_alt ?? $item->name }}">

@@ -102,7 +102,7 @@
     </div>
 </section>
 <!-- video section end -->
-
+@include('components.site.popmodel', ['id' => $page->id]) 
 @endsection
 
 @push('footer')

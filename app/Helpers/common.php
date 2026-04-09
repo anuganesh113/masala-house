@@ -227,11 +227,11 @@ if (!function_exists('banner')) {
 if (!function_exists('findfaqcount')) {
     function findfaqcount($model = null, $id = null)
     {
-   
-        if($model == 'event') {
+
+        if ($model == 'event') {
             $model = FAQ::where('model_type', 'event')->where('model_id', $id)->count();
             return $model;
-        } else if($model == 'menu') {
+        } else if ($model == 'menu') {
             $model = FAQ::where('model_type', 'menu')->where('model_id', $id)->count();
             return $model;
         } else {
@@ -240,7 +240,18 @@ if (!function_exists('findfaqcount')) {
         if (empty($model) || empty($id) || !class_exists($model)) {
             return 0;
         }
-        
-       
+    }
+}
+
+if (!function_exists('googlesiteverification')) {
+    function googlesiteverification()
+    {
+        if (url('/') == 'https://masalahousepittsburg.com') {
+            return 'PVElXv82RpomDLSiiyhvSw8In_ACNXiFC_y-l6RwEXA';
+        } else if (url('/') == 'https://masalahouseconcord.com') {
+            return 'IyLE8ME610THleFQzEQG4wIUNigDiuE-ES5hcaKKmXM';
+        } else {
+            return '';
+        }
     }
 }

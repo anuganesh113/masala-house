@@ -3,7 +3,7 @@
       <div class="item" style="margin-right: -20px;">
          <div class="menu__card menu__card--family" style="width: 95%;">
             <div class="menu__card--img">
-               <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">
+               <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}" target="_blank">
                   <img class="owl-lazy"
                      data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
                      alt="{{ $menu->image_alt ?? $menu->name }}">
@@ -28,14 +28,20 @@
                   <h3 class="titlehgt">
                      <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">{{ $menu->name }}</a>
                   </h3>
-                  <div class="menu__card--price">${{ $menu->price }}</div>
+                  <div class="menu__card--price">${{ $menu->price }}
+                    <em class="cat {{cssnonveg($menu->type)}} " style="float:inline-end">{{ checkVegetarian($menu->type) }}</em>
+                    </div>
                </div>
                <div class="itemexcerpthover">
                {!! $menu->excerpt !!}
                </div>
                <div class="menu__card--footer">
-                  <span class="cat veg-btn bt-fr {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
-                  <a class="menu__card--cta order-now-btn  mr-l wtc"  href="{{ requesturl() . '/' . $menu->slug  }}"  target="_blank">Order Now</a>
+                  <span class="btn veg-btn bt-fr menuviewbtn br-25 iisection">
+                     <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}" target="_blank" style="color: inherit;font-size: 18px;">
+                        <i class="fas fa-search"></i> View Details
+                     </a>
+                  </span>
+                  <a class="menu__card--cta order-now-btn  mr-l wtc"  href="{{ requesturl() . '/' . $menu->slug  }}"  target="_blank"><i class="fas fa-shopping-cart"></i> Order Now</a>
                </div>
             </div>
          </div>
@@ -54,7 +60,7 @@
         loop: true,
         margin: 30,
         responsiveClass: true,
-        autoplay: true,
+        autoplay: false,
         autoplayHoverPause: true,
         autoplaySpeed: 2000,
         lazyLoad: true,

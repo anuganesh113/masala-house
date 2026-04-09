@@ -242,7 +242,7 @@
 
 
 @include('site.pages.cateringpopup')
-
+@include('components.site.popmodel', ['id' => $page->id]) 
 
 @endsection
 

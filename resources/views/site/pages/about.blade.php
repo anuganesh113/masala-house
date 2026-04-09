@@ -259,12 +259,21 @@
         </div>
     </div>
 </section>
+
+
+
+
+
+@include('components.site.popmodel', ['id' => $page->id]) 
+
 <!-- gallery section end -->
 
 @endsection
 
 @push('footer')
 <script>
+
+
     $('.chef_carousel ').owlCarousel({
         loop: false,
         margin: 30,
