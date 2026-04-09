@@ -246,9 +246,9 @@ if (!function_exists('findfaqcount')) {
 if (!function_exists('googlesiteverification')) {
     function googlesiteverification()
     {
-        if (url('/') == 'https://masalahouseconcord.com') {
-            return 'IyLE8ME610THleFQzEQG4wIUNigDiuE-ES5hcaKKmXM';
-        } else if (url('/') == 'http://masalahouseconcord.test') {
+        if (url('/') == 'https://masalahousepittsburg.com') {
+            return 'PVElXv82RpomDLSiiyhvSw8In_ACNXiFC_y-l6RwEXA';
+        } else if (url('/') == 'https://masalahouseconcord.com') {
             return 'IyLE8ME610THleFQzEQG4wIUNigDiuE-ES5hcaKKmXM';
         } else {
             return '';

@@ -3,8 +3,8 @@
 
 <head>
   @include('site.includes.meta')
-
-  <meta name="google-site-verification" content="PVElXv82RpomDLSiiyhvSw8In_ACNXiFC_y-l6RwEXA" />
+ <meta name="google-site-verification" content="{{googlesiteverification()}}" />
+  <!-- <meta name="google-site-verification" content="PVElXv82RpomDLSiiyhvSw8In_ACNXiFC_y-l6RwEXA" /> -->
   <script>
     (function(w, d, s, l, i) {
       w[l] = w[l] || [];
