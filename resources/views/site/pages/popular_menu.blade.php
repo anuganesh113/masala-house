@@ -29,16 +29,25 @@
                                         </div>
                                         <div class="contents">
                                             <div class="menuFlex__card--title">
-                                                <h3 class="name">{{ $item->name }}</h3>
+                                                <h3 class="name">{{ $item->name }}
+                                              <span class="cat bg-green bt-fr mobdnone" style="margin-left: 10px;">{{ checkVegetarian($item->type) }}</span>
+
+                                                </h3>
                                                 <span class="price">${{ $item->price }}</span>
                                             </div>
                                             <div class="popular_cont">
                                                 <p class="text">
                                                     {!!strip_tags(substr($item->excerpt, 0, 180))!!}
                                                 </p>
-                                                <span class="cat bg-green bt-fr">{{ checkVegetarian($item->type) }}</span>
+                                               <div class="d-lg-none"> 
+                                                <span class="cat bg-green" >{{ checkVegetarian($item->type) }}</span>
 
-                                                <a class="order-btn wtc" href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank">order now</a>
+                                                
+                                                </div>
+                                             
+                                                <a class="order-btn wtc mt-2" href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank"><i class="fas fa-shopping-cart"> </i> Order Now </a>
+
+                                               <a class="order-btn wtc menuviewbtn mt-2" href="{{ route('site.product', ['slug' => $item->slug , 'id' => $item->id]) }}"  target="_blank" style="float: inline-end;"><i class="fas fa-search"></i> View Details </a>
 
                                             </div>
                                      
@@ -56,8 +65,11 @@
                                         </div>
                                         <div class="contents">
                                             <div class="menuFlex__card--title">
-                                                <h3 class="name">{{ $item->name }}</h3>
-                                                <span class="price">${{ $item->price }}</span>
+                                                <h3 class="name">{{ $item->name }}
+
+                                                 <span class="cat bg-green bt-fr" style="margin-left: 10px;">{{ checkVegetarian($item->type) }}</span>
+                                                </h3>
+                                               
                                             </div>
                                             <div class="popular_cont">
                                                 <p class="text">
@@ -65,8 +77,15 @@
                                                     {!!strip_tags(substr($item->excerpt, 0, 180))!!}
 
                                                 </p>
-                                                <a class="wtc" href="{{ requesturl() . '/' . $item->slug }}" target="_blank">order now</a>
-                                                <span class="cat bg-green bt-fr {{cssnonveg($item->type)}}">{{ checkVegetarian($item->type) }}</span>
+                                                   <div class="d-lg-none"> 
+                                                <span class="cat bg-green" >{{ checkVegetarian($item->type) }}</span>
+
+                                                
+                                                </div>
+                                             
+                                                <a class="wtc mt-2" href="{{ requesturl() . '/' . $item->slug }}" target="_blank">order now</a>
+                                               <a class="order-btn wtc menuviewbtn mt-2" href="{{ route('site.product', ['slug' => $item->slug , 'id' => $item->id]) }}"  target="_blank" style="float: inline-end;"><i class="fas fa-search"></i> View Details </a>
+
 
                                             </div>
                                         </div>

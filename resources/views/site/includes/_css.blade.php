@@ -112,10 +112,9 @@
 
       .menuviewbtn,
       .menuviewbtn:hover {
-          background: white;
+          background: white !important;
           color: #ea6600 !important;
-          border: 1px sollid orange !important;
-          border: 1px solid #fc6e00;
+          border: 1px solid #fc6e00 !important;
       }
 
       @media (min-width: 519px) and (max-width: 778px) {
@@ -211,6 +210,31 @@
 
       @media (max-width: 767px) {
 
+      .popular .menuFlex__card .cat.mobdnone{
+        display: none;
+
+      }
+          .menuFlex__card--title .price {
+        display: block;
+    }
+            
+    .popular .menuFlex__card {
+              flex-direction: column;  
+    }
+    .popular .menuFlex__card .img{
+            flex: 0 0 8.5rem;
+            max-width: 80%;
+                margin: auto;
+    }
+    .popular .menuFlex__card .img img {
+        height: 8.5rem !important;
+            border-radius: 15px;
+    }
+    .popular .menuFlex__card .menuFlex__card--title .name {
+        display: flex;
+    }
+
+
           .banner__page--img.sinlge {
               height: 16rem;
           }
@@ -228,9 +252,9 @@
               display: inline-block;
           }
 
-          .menuFlex__card--title .price {
+          /* .menuFlex__card--title .price {
               display: none;
-          }
+          } */
 
           .owl-carousel.wholeMenu__carousel .owl-dots button span {
               height: 0.95rem !important;
