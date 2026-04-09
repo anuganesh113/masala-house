@@ -1,4 +1,7 @@
   <style>
+    .br-25{
+        border-radius: 25px;;
+    }
     .locationm{
         position: relative;
         top: 7px;
@@ -209,6 +212,10 @@
       }
 
       @media (max-width: 767px) {
+           .iisection{
+                bottom: -28px;
+                width: 100%;
+        }
 
       .popular .menuFlex__card .cat.mobdnone{
         display: none;
