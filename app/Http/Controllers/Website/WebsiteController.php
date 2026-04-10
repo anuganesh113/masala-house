@@ -127,6 +127,7 @@ class WebsiteController extends BaseController
 
     public function tablebook(Request $request)
     {
+      
 
         $inquiry = new Inquiry();
         $inquiry->metadata = json_encode($request->table);
