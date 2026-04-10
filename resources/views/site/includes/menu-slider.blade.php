@@ -86,7 +86,7 @@
                 nav: false,
             },
             1000: {
-                items: 3,
+                items: 2,
                 dots: true,
                 nav: false,
             },
