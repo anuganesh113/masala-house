@@ -1,3 +1,7 @@
+@push('header')
+ <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
+@endpush
+
 <section class="reservation">
     <div class="reservation__box">
         <div class="row">
@@ -6,17 +10,17 @@
                 <p>Explore our most Exquisite Indian Menu</p>
                 <form action="{{ route('site.table.book') }}" class="form contactpageform" method="post">
                     @csrf
-               <input type="hidden" class="form-control" name="table[booked]" value="Table Book Reservation Inquire"  placeholder="Your Full name" >
+               <input type="hidden" class="" name="table[booked]" value="Table Book Reservation Inquire"  placeholder="Your Full name" >
 
                     <div class="row g-4">
                         <div class="col-lg-4 mt-5">
                             <div class="form__group ">
-                                <input type="text" name="table[name]"  class="form-control" placeholder=" Your Full Name" required>
+                                <input type="text" name="table[name]"  class="" placeholder=" Your Full Name" required>
                             </div>
                         </div>
                         <div class="col-lg-4 mt-5">
                             <div class="form__group">
-                                <input type="email" class="form-control" name="table[email]" placeholder="Your Email" required>
+                                <input type="email" class="" name="table[email]" placeholder="Your Email" required>
                             </div>
                         </div>
                         <div class="col-lg-4 mt-5">
@@ -25,7 +29,7 @@
                          <input type="tel"
 
                         name="table[phone]"
-                        class="checkphone phone contactpage form-control"
+                        class="checkphone phone contactpage "
                         placeholder="Phone Number"
                         inputmode="numeric"
                         required>
@@ -34,23 +38,26 @@
                             </div>
                         </div>
                      <div class="col-12 col-lg-4 mt-5">
-                        <div class="form__group">
-                           <i class="far fa-calendar mobfomfa"></i>
-                            <input type="date" name="table[date]" class="datepicker-field form-control" placeholder="Select date" required  onkeydown="return false">
+                        <div class="form__group" style="display: flex;">
+                           
+                        <input type="text"  name="table[date]" class="datepicker-field" class="" placeholder="Select date" required onkeydown="return false">
+                          <i class="fas fa-calendar-alt" style="border-bottom: 1px solid;"></i>
+
+                            <!-- <input type="date" placeholder="Select date" name="table[date]" class="datepicker-field "  required  onkeydown="return false"> -->
                             
                         </div>
                      </div>
                       <!-- <div class="col-lg-4 mt-5"> -->
                     <div class="col-12 col-lg-4 mt-5">
                         <div class="form__group">
-                            <i class="far fa-clock  mobfomfa"></i>
-                            <input type="time" name="table[time]" class="form-control" placeholder="Select time" required>
+                          
+                            <input type="time"  placeholder="Select time" name="table[time]" class="" required>
                             
                         </div>
                      </div>
                      <div class="col-lg-4 mt-5">
                         <div class="form__group"><span class="text-danger small no_person"></span>
-                            <input type="number" max="100" min="1" class="checknumberper form-control" name="table[persons]" placeholder="Number of Persons" required>
+                            <input type="number" max="100" min="1" class="checknumberper " name="table[persons]" placeholder="Number of Persons" required>
                            
                         </div>
                      </div>
@@ -79,12 +86,17 @@
 
 
 
-
-
-
 @push('footer')
 
 @include('_helpers._valiadtion')
 
+  <script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
+<script>
+  $( function() {
+    $( ".datepicker-field" ).datepicker({
+      minDate: new Date()  // today's date
+    });
+  });
+</script>
 
 @endpush
