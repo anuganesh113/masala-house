@@ -45,9 +45,9 @@
                                                 
                                                 </div>
                                              
-                                                <a class="order-btn wtc mt-2" href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank"><i class="fas fa-shopping-cart"> </i> Order Now </a>
+                                                <a class="order-btn wtc mt-2 viewip" href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank"><i class="fas fa-shopping-cart"> </i> Order Now </a>
 
-                                               <a class="order-btn wtc menuviewbtn mt-2" href="{{ route('site.product', ['slug' => $item->slug , 'id' => $item->id]) }}"  target="_blank" style="float: inline-end;"><i class="fas fa-search"></i> View Details </a>
+                                               <a class="order-btn wtc menuviewbtn mt-2 viewip" href="{{ route('site.product', ['slug' => $item->slug , 'id' => $item->id]) }}"  target="_blank" style="float: inline-end;"><i class="fas fa-search"></i> View Details </a>
 
                                             </div>
                                      
@@ -83,8 +83,8 @@
                                                 
                                                 </div>
                                              
-                                                <a class="wtc mt-2" href="{{ requesturl() . '/' . $item->slug }}" target="_blank">order now</a>
-                                               <a class="order-btn wtc menuviewbtn mt-2" href="{{ route('site.product', ['slug' => $item->slug , 'id' => $item->id]) }}"  target="_blank" style="float: inline-end;"><i class="fas fa-search"></i> View Details </a>
+                                                <a class="wtc mt-2 viewip" href="{{ requesturl() . '/' . $item->slug }}" target="_blank">order now</a>
+                                               <a class="order-btn wtc menuviewbtn mt-2 viewip" href="{{ route('site.product', ['slug' => $item->slug , 'id' => $item->id]) }}"  target="_blank" style="float: inline-end;"><i class="fas fa-search"></i> View Details </a>
 
 
                                             </div>
