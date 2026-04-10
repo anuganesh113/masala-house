@@ -93,7 +93,7 @@
 <script>
     flatpickr(".datepicker-field", {
         enableTime: false, // enable time
-        dateFormat: "Y-m-d", // 2026-04-10 02:30 PM
+        dateFormat: "m/d/Y", // 2026-04-10 02:30 PM
         minDate: "today" // optional (disable past dates)
     });
 </script>
