@@ -1,4 +1,12 @@
   <style>
+       .menuviewbtn.br-25.iisection{
+            bottom: -27px;
+          }
+
+    .owl-carousel.popular__carousel  .owl-stage {
+        transform: none!important;
+    transition: none!important;
+    }
     .br-25{
         border-radius: 25px;;
     }
@@ -184,7 +192,7 @@
           .menu__list--box.deskview {
               padding: 0px 0px 0px 0px;
           }
-
+          
       }
 
 
@@ -212,7 +220,7 @@
       }
 
       @media (max-width: 767px) {
-           .iisection{
+           .menuviewbtn.br-25.iisection{
                 bottom: -28px;
                 width: 100%;
         }

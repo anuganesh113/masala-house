@@ -77,7 +77,7 @@
             <div class="menu__list--box deskview">
                 <div class="row">
                     <div class="col-lg-5">
-                        <div class="image d-none d-lg-block">
+                        <div class="image d-none d-lg-block" style="margin-top: 30%;position: sticky;z-index: 1;top: 180px;">
                             <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::CATEGORIES_PATH, data_get($category, 'image'))) }}"
                                 class="img-1" alt="{{$category->name}} ">
                             <img src="{{ $category->full_icon_link }}" class="img-2" alt="{{$category->name}}">
