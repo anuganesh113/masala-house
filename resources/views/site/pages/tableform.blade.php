@@ -33,13 +33,14 @@
                                 <!-- <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> -->
                             </div>
                         </div>
-                     <div class="col-lg-4 mt-5">
+                     <div class="col-12 col-lg-4 mt-5">
                         <div class="form__group">
                            
                             <input type="date" name="table[date]" class="datepicker-field form-control" placeholder="Select date" required  onkeydown="return false">
                         </div>
                      </div>
-                     <div class="col-lg-4 mt-5">
+                      <!-- <div class="col-lg-4 mt-5"> -->
+                    <div class="col-12 col-lg-4 mt-5">
                         <div class="form__group">
                            
                             <input type="time" name="table[time]" class="form-control" placeholder="Select time" required>
