@@ -16,12 +16,12 @@
                     <div class="row g-4">
                         <div class="col-lg-4 mt-5">
                             <div class="form__group ">
-                                <input type="text" name="table[name]" class="form-control" placeholder=" Your Full Name" required>
+                                <input type="text" name="table[name]" class="" placeholder=" Your Full Name" required>
                             </div>
                         </div>
                         <div class="col-lg-4 mt-5">
                             <div class="form__group">
-                                <input type="email" class="form-control" name="table[email]" placeholder="Your Email" required>
+                                <input type="email" class="" name="table[email]" placeholder="Your Email" required>
                             </div>
                         </div>
                         <div class="col-lg-4 mt-5">
@@ -38,25 +38,25 @@
                             </div>
                         </div>
                         <div class="col-12 col-lg-4 mt-5">
-                            <div class="form__group" >
+                            <div class="form__group" style="display: flex;">
 
-                                <input type="text" name="table[date]" class="datepicker-field form-control" class="" placeholder="Select date" required onkeydown="return false">
-                                <!-- <i class="fas fa-calendar-alt" style="border-bottom: 1px solid;"></i> -->
+                                <input type="text" name="table[date]" class="datepicker-field viewip" class="" placeholder="Select date" required onkeydown="return false">
+                                <i class="fas fa-calendar-alt" style="border-bottom: 1px solid;"></i>
 
 
                             </div>
                         </div>
                         <!-- <div class="col-lg-4 mt-5"> -->
                         <div class="col-12 col-lg-4 mt-5">
-                            <div class="form__group" >
+                            <div class="form__group" style="display: flex;">
 
-                                <input type="text" class="timepicker-field form-control" name="table[time]" placeholder="Select time" required>
-                                <!-- <i class="fas fa-clock" style="border-bottom: 1px solid;"></i> -->
+                                <input type="text" class="timepicker-field viewip" name="table[time]" placeholder="Select time" required>
+                                <i class="fas fa-clock" style="border-bottom: 1px solid;"></i>
                             </div>
                         </div>
                         <div class="col-lg-4 mt-5">
                             <div class="form__group"><span class="text-danger small no_person"></span>
-                                <input type="number" max="100" min="1" class="checknumberper form-control" name="table[persons]" placeholder="Number of Persons" required>
+                                <input type="number" max="100" min="1" class="checknumberper " name="table[persons]" placeholder="Number of Persons" required>
 
                             </div>
                         </div>
