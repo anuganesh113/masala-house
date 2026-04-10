@@ -11,12 +11,12 @@
                     <div class="row g-4">
                         <div class="col-lg-4 mt-5">
                             <div class="form__group ">
-                                <input type="text" name="table[name]" placeholder=" Your Full Name" required>
+                                <input type="text" name="table[name]"  class="form-control" placeholder=" Your Full Name" required>
                             </div>
                         </div>
                         <div class="col-lg-4 mt-5">
                             <div class="form__group">
-                                <input type="email" name="table[email]" placeholder="Your Email" required>
+                                <input type="email" class="form-control" name="table[email]" placeholder="Your Email" required>
                             </div>
                         </div>
                         <div class="col-lg-4 mt-5">
@@ -25,7 +25,7 @@
                          <input type="tel"
 
                         name="table[phone]"
-                        class="checkphone phone contactpage"
+                        class="checkphone phone contactpage form-control"
                         placeholder="Phone Number"
                         inputmode="numeric"
                         required>
@@ -36,18 +36,18 @@
                      <div class="col-lg-4 mt-5">
                         <div class="form__group">
                            
-                            <input type="date" name="table[date]" class="datepicker-field" placeholder="Select date" required  onkeydown="return false">
+                            <input type="date" name="table[date]" class="datepicker-field form-control" placeholder="Select date" required  onkeydown="return false">
                         </div>
                      </div>
                      <div class="col-lg-4 mt-5">
                         <div class="form__group">
                            
-                            <input type="time" name="table[time]" placeholder="Select time" required>
+                            <input type="time" name="table[time]" class="form-control" placeholder="Select time" required>
                         </div>
                      </div>
                      <div class="col-lg-4 mt-5">
                         <div class="form__group"><span class="text-danger small no_person"></span>
-                            <input type="number" max="100" min="1" class="checknumberper" name="table[persons]" placeholder="Number of Persons" required>
+                            <input type="number" max="100" min="1" class="checknumberper form-control" name="table[persons]" placeholder="Number of Persons" required>
                            
                         </div>
                      </div>
