@@ -1,3 +1,7 @@
+@push('header')
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+@endpush
+
 <section class="reservation">
     <div class="reservation__box">
         <div class="row">
@@ -40,9 +44,10 @@
                         </div>
                      </div>
                      <div class="col-lg-4 mt-5">
-                        <div class="form__group">
-                           
-                            <input type="time" name="table[time]" placeholder="Select time" required>
+                        <div class="form__group" style="display: flex;">
+                       
+                              <input type="text" name="table[time]" id="timepicker" placeholder="Select time" required>
+                              <i class="fas fa-clock" style="border-bottom: 1px solid;"></i>
                         </div>
                      </div>
                      <div class="col-lg-4 mt-5">
@@ -82,6 +87,20 @@
 @push('footer')
 
 @include('_helpers._valiadtion')
-
-
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#timepicker').timepicker({
+                timeFormat: 'h:mm p',   // 12-hour format (e.g., 3:30 PM)
+                interval: 30,           // 30 min step
+                minTime: '10:00am',
+                maxTime: '6:00pm',
+                // defaultTime: '11',
+                startTime: '10:00',
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true
+            });
+        });
+    </script>
 @endpush
