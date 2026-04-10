@@ -143,7 +143,7 @@
 
       @media (max-width: 500px) {
           .viewip {
-              width: 100%;
+              width: 100%!important;
           }
 
 
