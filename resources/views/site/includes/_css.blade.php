@@ -137,6 +137,11 @@
       }
 
       @media (max-width: 500px) {
+        .viewip{
+            width: 100%;
+        }
+
+
           .viewmapmenu.up {
               display: none;
           }
@@ -219,16 +224,25 @@
           background: #FF6F00 !important;
       }
 
+        @media (max-width: 991px) {
+         .popular .menuFlex__card .cat.mobdnone{
+        display: none;
+
+      }
+}
+      
       @media (max-width: 767px) {
            .menuviewbtn.br-25.iisection{
                 bottom: -28px;
                 width: 100%;
         }
 
-      .popular .menuFlex__card .cat.mobdnone{
-        display: none;
-
-      }
+              .menu__card--cta.order-now-btn.mr-l.wtc{
+               
+                width: 100%;
+        }
+        
+   
           .menuFlex__card--title .price {
         display: block;
     }
