@@ -91,6 +91,10 @@ class WebsiteController extends BaseController
 
        $data['similarMenus'] = Menu::status()->where('id', '!=', $id)->where('category_id', $data['menu']->category->id)->get();
         $data['cat_name'] = $data['menu']->category->name;
+          $data['cat_image_link'] = $data['menu']->category->image;
+         
+
+           
        
       
   

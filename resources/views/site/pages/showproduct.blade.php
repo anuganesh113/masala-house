@@ -12,7 +12,7 @@
 @section('content')
 <section class="banner banner__page">
     <div class="banner__page--img sinlge">
-        <img style="object-position: top;" src="{{$menu->full_image_link}}" alt="{{$menu->name ?? '' }}">
+        <img style="object-position: top;" src="{{ asset('uploads/categories/' . $cat_image_link) }}" alt="{{$menu->name ?? '' }}">
     </div>
     <div class="banner__page--content">
         <h1>{{$cat_name ?? 'Category Name'}}</h1>
