@@ -1,8 +1,3 @@
-@push('header')
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-@endpush
-
 <section class="reservation">
     <div class="reservation__box">
         <div class="row">
@@ -11,55 +6,51 @@
                 <p>Explore our most Exquisite Indian Menu</p>
                 <form action="{{ route('site.table.book') }}" class="form contactpageform" method="post">
                     @csrf
-                    <input type="hidden" class="" name="table[booked]" value="Table Book Reservation Inquire" placeholder="Your Full name">
+               <input type="hidden" class="form-control" name="table[booked]" value="Table Book Reservation Inquire"  placeholder="Your Full name" >
 
                     <div class="row g-4">
                         <div class="col-lg-4 mt-5">
                             <div class="form__group ">
-                                <input type="text" name="table[name]" class="" placeholder=" Your Full Name" required>
+                                <input type="text" name="table[name]" placeholder=" Your Full Name" required>
                             </div>
                         </div>
                         <div class="col-lg-4 mt-5">
                             <div class="form__group">
-                                <input type="email" class="" name="table[email]" placeholder="Your Email" required>
+                                <input type="email" name="table[email]" placeholder="Your Email" required>
                             </div>
                         </div>
                         <div class="col-lg-4 mt-5">
-                            <div class="form__group"><span class="invalid-feedback phone-error"> Please enter a valid 10-digit US phone number</span>
+                            <div class="form__group"><span class="invalid-feedback phone-error">  Please enter a valid 10-digit US phone number</span>
+                                
+                         <input type="tel"
 
-                                <input type="tel"
+                        name="table[phone]"
+                        class="checkphone phone contactpage"
+                        placeholder="Phone Number"
+                        inputmode="numeric"
+                        required>
 
-                                    name="table[phone]"
-                                    class="checkphone phone contactpage "
-                                    placeholder="Phone Number"
-                                    inputmode="numeric"
-                                    required>
-
+                                <!-- <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> -->
                             </div>
                         </div>
-                        <div class="col-12 col-lg-4 mt-5">
-                            <div class="form__group" style="display: flex;">
-
-                                <input type="text" name="table[date]" class="datepicker-field viewip" class="" placeholder="Select date" required onkeydown="return false">
-                                <i class="fas fa-calendar-alt" style="border-bottom: 1px solid;"></i>
-
-
-                            </div>
+                     <div class="col-lg-4 mt-5">
+                        <div class="form__group">
+                           
+                            <input type="date" name="table[date]" class="datepicker-field" placeholder="Select date" required  onkeydown="return false">
                         </div>
-                        <!-- <div class="col-lg-4 mt-5"> -->
-                        <div class="col-12 col-lg-4 mt-5">
-                            <div class="form__group" style="display: flex;">
-
-                                <input type="text" class="timepicker-field viewip" name="table[time]" placeholder="Select time" required>
-                                <i class="fas fa-clock" style="border-bottom: 1px solid;"></i>
-                            </div>
+                     </div>
+                     <div class="col-lg-4 mt-5">
+                        <div class="form__group">
+                           
+                            <input type="time" name="table[time]" placeholder="Select time" required>
                         </div>
-                        <div class="col-lg-4 mt-5">
-                            <div class="form__group"><span class="text-danger small no_person"></span>
-                                <input type="number" max="100" min="1" class="checknumberper " name="table[persons]" placeholder="Number of Persons" required>
-
-                            </div>
+                     </div>
+                     <div class="col-lg-4 mt-5">
+                        <div class="form__group"><span class="text-danger small no_person"></span>
+                            <input type="number" max="100" min="1" class="checknumberper" name="table[persons]" placeholder="Number of Persons" required>
+                           
                         </div>
+                     </div>
 
 
                         <div class="col-lg-12">
@@ -85,24 +76,12 @@
 
 
 
+
+
+
 @push('footer')
 
 @include('_helpers._valiadtion')
 
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script>
-    flatpickr(".datepicker-field", {
-        enableTime: false, // enable time
-        dateFormat: "m/d/Y", // 2026-04-10 02:30 PM
-        minDate: "today" // optional (disable past dates)
-    });
-</script>
-<script>
-    flatpickr(".timepicker-field", {
-        enableTime: true,
-        noCalendar: true,
-        dateFormat: "h:i K"
-    });
-</script>
 
 @endpush

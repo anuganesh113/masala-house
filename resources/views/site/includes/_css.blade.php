@@ -1,32 +1,27 @@
   <style>
-      .menuviewbtn.br-25.iisection {
-          bottom: -27px;
-      }
+       .menuviewbtn.br-25.iisection{
+            bottom: -27px;
+          }
 
-      .owl-carousel.popular__carousel .owl-stage {
-          transform: none !important;
-          transition: none !important;
-      }
-
-      .br-25 {
-          border-radius: 25px;
-          ;
-      }
-
-      .locationm {
-          position: relative;
-          top: 7px;
-          right: 12px;
-          font-size: 19px;
-      }
-
-      .fromsquare {
-          position: relative;
-          left: 30px;
-          top: 10px;
-          font-size: 19px;
-      }
-
+    .owl-carousel.popular__carousel  .owl-stage {
+        transform: none!important;
+    transition: none!important;
+    }
+    .br-25{
+        border-radius: 25px;;
+    }
+    .locationm{
+        position: relative;
+        top: 7px;
+        right: 12px;
+        font-size: 19px;
+    }
+    .fromsquare{
+        position: relative;
+        left: 30px;
+        top: 10px;
+        font-size: 19px;
+    }
       .menuboxshadow {
           background: rgba(255, 255, 255, 0.92);
           border-radius: 1.5rem;
@@ -142,9 +137,9 @@
       }
 
       @media (max-width: 500px) {
-          .viewip {
-              width: 100%!important;
-          }
+        .viewip{
+            width: 100%;
+        }
 
 
           .viewmapmenu.up {
@@ -155,17 +150,15 @@
               margin: auto;
               margin-top: 15px;
           }
-
-          .viewmapmenu.down {
-              display: flex;
+          .viewmapmenu.down{
+            display: flex;
           }
-
+       
       }
 
       @media (max-width: 400px) {
           .wtc.men-ord {
-              margin-top: 15px;
-              ;
+            margin-top: 15px;;
               /* Your styles for mobile wtc */
           }
       }
@@ -180,13 +173,12 @@
               margin-left: auto;
 
           }
-
-          .viewmapmenu.up {
-              display: flex;
+          .viewmapmenu.up{
+            display: flex;
           }
 
-
-
+         
+          
 
 
 
@@ -205,7 +197,7 @@
           .menu__list--box.deskview {
               padding: 0px 0px 0px 0px;
           }
-
+          
       }
 
 
@@ -232,51 +224,45 @@
           background: #FF6F00 !important;
       }
 
-      @media (max-width: 991px) {
-          .popular .menuFlex__card .cat.mobdnone {
-              display: none;
+        @media (max-width: 991px) {
+         .popular .menuFlex__card .cat.mobdnone{
+        display: none;
 
-          }
       }
-
-
+}
+      
       @media (max-width: 767px) {
+        
+           .menuviewbtn.br-25.iisection{
+                bottom: -28px;
+                width: 100%;
+        }
 
-    
-
-          .menuviewbtn.br-25.iisection {
-              bottom: -28px;
-              width: 100%;
-          }
-
-          .menu__card--cta.order-now-btn.mr-l.wtc {
-
-              width: 100%;
-          }
-
-
+              .menu__card--cta.order-now-btn.mr-l.wtc{
+               
+                width: 100%;
+        }
+        
+   
           .menuFlex__card--title .price {
-              display: block;
-          }
-
-          .popular .menuFlex__card {
-              flex-direction: column;
-          }
-
-          .popular .menuFlex__card .img {
-              flex: 0 0 8.5rem;
-              max-width: 80%;
-              margin: auto;
-          }
-
-          .popular .menuFlex__card .img img {
-              height: 8.5rem !important;
-              border-radius: 15px;
-          }
-
-          .popular .menuFlex__card .menuFlex__card--title .name {
-              display: flex;
-          }
+        display: block;
+    }
+            
+    .popular .menuFlex__card {
+              flex-direction: column;  
+    }
+    .popular .menuFlex__card .img{
+            flex: 0 0 8.5rem;
+            max-width: 80%;
+                margin: auto;
+    }
+    .popular .menuFlex__card .img img {
+        height: 8.5rem !important;
+            border-radius: 15px;
+    }
+    .popular .menuFlex__card .menuFlex__card--title .name {
+        display: flex;
+    }
 
 
           .banner__page--img.sinlge {
