@@ -35,16 +35,16 @@
                         </div>
                      <div class="col-12 col-lg-4 mt-5">
                         <div class="form__group">
-                           <i class="far fa-calendar mobfomfa"></i>
-                            <input type="date" name="table[date]" class="datepicker-field form-control" placeholder="Select date" required  onkeydown="return false">
+                           
+                            <input type="date" placeholder="Select date" name="table[date]" class="datepicker-field form-control"  required  onkeydown="return false">
                             
                         </div>
                      </div>
                       <!-- <div class="col-lg-4 mt-5"> -->
                     <div class="col-12 col-lg-4 mt-5">
                         <div class="form__group">
-                            <i class="far fa-clock  mobfomfa"></i>
-                            <input type="time" name="table[time]" class="form-control" placeholder="Select time" required>
+                          
+                            <input type="time"  placeholder="Select time" name="table[time]" class="form-control" required>
                             
                         </div>
                      </div>

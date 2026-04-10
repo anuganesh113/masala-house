@@ -238,18 +238,11 @@
 
           }
       }
-      .mobfomfa{
-        display: none;
-      }
+
 
       @media (max-width: 767px) {
 
-          .mobfomfa {
-              position: relative;
-              top: 25px;
-              float: right;
-                  right: 11px;
-          }
+    
 
           .menuviewbtn.br-25.iisection {
               bottom: -28px;
