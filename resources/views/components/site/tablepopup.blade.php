@@ -31,12 +31,12 @@
 
                <div class="form__group">
                   <label for="" class="form-label">Select Date<span class="text-danger">*</span></label>
-                  <input type="date"  name="table[date]" class="form-control datepicker-field" placeholder="Select date" 
+                  <input type="text"  name="table[date]" class="form-control datepicker-field" value="{{ now()->toDateString() }}" placeholder="Select date" 
        required  onkeydown="return false">   
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Select Time<span class="text-danger">*</span></label>
-                  <input type="time" name="table[time]" class="form-control" placeholder="Select time" required onkeydown="return false">
+                  <input type="time" name="table[time]" class="form-control currentTimeInput" placeholder="Select time" required onkeydown="return false">
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Number of Persons <span class="text-danger  small no_person"></span></label>

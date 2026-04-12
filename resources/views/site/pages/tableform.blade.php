@@ -1,14 +1,14 @@
 @push('header')
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
+<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css"> -->
+
 
 
 <style>
     .famobclockview{
         display: none;
     }
-    @media (max-width: 500px) {
-        .seletimemob {
+    @media (max-width: 768px) {
+        /* .seletimemob {
                   position: absolute;
         top: 56%;
         transform: translateY(-50%);
@@ -16,7 +16,7 @@
         color: #1c1c1c;
         opacity: 5.9;
         right: 11%;
-        }
+        } */
         .famobclockview{
             display: inherit;
         }
@@ -129,9 +129,9 @@
 @push('footer')
 
 @include('_helpers._valiadtion')
-<script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-<script>
+
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script> -->
+<!-- <script>
     $(document).ready(function() {
         $('#timepicker').timepicker({
             timeFormat: 'h:mm p', // 12-hour format (e.g., 3:30 PM)
@@ -145,7 +145,7 @@
             scrollbar: true
         });
     });
-</script>
+</script> -->
 <script>
 $(function() {
     $(".datepicker").datepicker({
@@ -158,7 +158,6 @@ $(function() {
     });
 })
 </script>
-
 
 <script>
     const now = new Date();

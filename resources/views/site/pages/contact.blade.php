@@ -82,14 +82,14 @@
 
                   <div class="form__group">
                      <label for="" class="form-label">Select Date<span class="text-danger">*</span></label>
-                     <input type="date" name="contact[date]" class="form-control datepicker-field" onkeydown="return false"
+                     <input type="text" name="contact[date]" class="form-control datepicker-field" onkeydown="return false"
                         placeholder="Select date" required>
                   </div>
 
 
                   <div class="form__group">
                      <label for="" class="form-label">Select time <span class="text-danger"> *</span></label>
-                     <input type="time" name="contact[time]" class="form-control" placeholder="Select time" required onkeydown="return false" >
+                     <input type="time" name="contact[time]" class="form-control currentTimeInput" placeholder="Select time" required onkeydown="return false" >
                   </div>
                   <div class="form__group">
                      <label class="form-control-label">Message:</label>

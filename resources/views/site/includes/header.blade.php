@@ -44,7 +44,7 @@
   <link rel="stylesheet" href="{{ asset('site-assets/css/override.css?v1.1') }}">
 
 
-
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
 
   @include('site.includes._css')
 

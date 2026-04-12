@@ -5,13 +5,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script src="{{ asset('site-assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('site-assets/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('site-assets/js/main.js') }}"></script><script>
+<script src="{{ asset('site-assets/js/main.js') }}"></script>
+<script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
+<!-- <script>
   const today = new Date().toISOString().split('T')[0];
   const dateInputs = document.querySelectorAll('.datepicker-field');
   dateInputs.forEach(input => {
     input.setAttribute('min', today);
   });
+</script> -->
+
+<script>
+$(function() {
+    $(".datepicker-field").datepicker({
+        minDate: new Date()
+    }).attr('readonly', true);  // lowercase readonly is fine
+    
+    // Also prevent keyboard on mobile
+    $(".datepicker-field").on('touchstart', function(e) {
+        this.blur();
+    });
+})
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+
+    const elements = document.getElementsByClassName('currentTimeInput');
+
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].value = `${hours}:${minutes}`;
+    }
+});
+</script>
+
 <script>
    $('.checkphone').on('keyup', function() {
       let value = this.value.replace(/\D/g, '');
