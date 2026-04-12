@@ -189,7 +189,7 @@
     </div>
 </section>
 <!-- qucik grab section end -->
-<!-- @include('components.site.popmodel', ['id' => $page->id])  -->
+{{-- @include('components.site.popmodel', ['id' => $page->id])  --}}
 @endsection
 
 @push('footer')
