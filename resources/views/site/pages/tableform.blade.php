@@ -67,9 +67,9 @@
                         <div class="col-lg-4 mt-5">
                             <div class="form__group" style="display: flex;">
 
-                                <!-- <input type="text" name="table[date]" placeholder="Select Date (m/d/Y)" required id="datepicker" onkeydown="return false">
-                                <i class="fas fa-calendar" style="border-bottom: 1px solid;"></i> -->
-                                <input type="date" name="table[date]" style="min-width:98%;width:100%" class="datepicker-field" placeholder="Select date" required onkeydown="return false" value="{{ now()->toDateString() }}">
+                                <input type="text" name="table[date]" placeholder="Select Date" required id="datepicker" onkeydown="return false" value="{{ now()->toDateString() }}">
+                                <i class="fas fa-calendar" style="border-bottom: 1px solid;"></i>
+                                <!-- <input type="date" name="table[date]" style="min-width:98%;width:100%" class="datepicker-field" placeholder="Select date" required onkeydown="return false" value="{{ now()->toDateString() }}"> -->
 
                                 <!-- <span class="selectdatemob" >Select Date</span> -->
                             </div>
@@ -149,10 +149,10 @@
 </script>
 
 
-<script>
+<!-- <script>
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     document.getElementById('currentTimeInput').value = `${hours}:${minutes}`;
-</script>
+</script> -->
 @endpush
