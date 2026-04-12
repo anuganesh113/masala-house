@@ -89,7 +89,7 @@
 
                   <div class="form__group">
                      <label for="" class="form-label">Select time <span class="text-danger"> *</span></label>
-                     <input type="time" name="contact[time]" class="form-control" placeholder="Select time" required>
+                     <input type="time" name="contact[time]" class="form-control" placeholder="Select time" required onkeydown="return false" >
                   </div>
                   <div class="form__group">
                      <label class="form-control-label">Message:</label>

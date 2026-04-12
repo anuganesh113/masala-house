@@ -33,7 +33,7 @@
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Select time <span class="text-danger">*</span></label>
-                  <input type="time" class="form-control" name="catering[time]" placeholder="Select time" required>
+                  <input type="time" class="form-control" name="catering[time]" placeholder="Select time" required onkeydown="return false" >
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Number of Persons<span class="text-danger small no_person"></span></label>
