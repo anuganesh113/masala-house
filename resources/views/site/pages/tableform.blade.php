@@ -4,6 +4,9 @@
 
 
 <style>
+    .famobclockview{
+        display: none;
+    }
     @media (max-width: 500px) {
         .seletimemob {
                   position: absolute;
@@ -13,6 +16,9 @@
         color: #1c1c1c;
         opacity: 5.9;
         right: 11%;
+        }
+        .famobclockview{
+            display: inherit;
         }
 
         /* .selectdatemob {
@@ -78,8 +84,8 @@
                             <div class="form__group" style="display: flex;">
                                 <input type="time" name="table[time]" id="currentTimeInput" style="min-width:98%;width:100%" placeholder="Select time" required
                                     onfocus="this.showPicker?.()" title="Select time" value="" onkeydown="return false">
-
-                                <span class="seletimemob" > <i class="fas fa-clock"</i></i></span>
+<i class="fas fa-clock famobclockview" style="border-bottom: 1px solid;"></i>
+                                <!-- <span class="seletimemob" > <i class="fas fa-clock"</i></i></span> -->
                                 <!-- <i class="fas fa-clock" style="border-bottom: 1px solid;position: relative;right: 18px;"></i> -->
 
                                 <!-- <input type="text" name="table[time]" id="timepicker" placeholder="Select time" required  onkeydown="return false">
