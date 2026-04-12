@@ -149,10 +149,10 @@
 </script>
 
 
-<!-- <script>
+<script>
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     document.getElementById('currentTimeInput').value = `${hours}:${minutes}`;
-</script> -->
+</script>
 @endpush
