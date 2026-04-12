@@ -41,16 +41,18 @@
                         <div class="col-lg-4 mt-5">
                             <div class="form__group" style="display: flex;">
 
-                                <input type="text" name="table[date]" placeholder="Select Date (m/d/Y)" required id="datepicker" onkeydown="return false">
-                                <i class="fas fa-calendar" style="border-bottom: 1px solid;"></i>
-                                <!-- <input type="date" name="table[date]" class="datepicker-field" placeholder="Select date" required  onkeydown="return false"> -->
+                                <!-- <input type="text" name="table[date]" placeholder="Select Date (m/d/Y)" required id="datepicker" onkeydown="return false">
+                                <i class="fas fa-calendar" style="border-bottom: 1px solid;"></i> -->
+                                <input type="date" name="table[date]" class="datepicker-field" placeholder="Select date" required  onkeydown="return false">
                             </div>
                         </div>
                         <div class="col-lg-4 mt-5">
                             <div class="form__group" style="display: flex;">
+                                <input type="time" name="table[time]" style="min-width:98%;width:100%" placeholder="Select time" required  onkeydown="return false">
 
-                                <input type="text" name="table[time]" id="timepicker" placeholder="Select time" required  onkeydown="return false">
-                                <i class="fas fa-clock" style="border-bottom: 1px solid;"></i>
+
+                                <!-- <input type="text" name="table[time]" id="timepicker" placeholder="Select time" required  onkeydown="return false">
+                                <i class="fas fa-clock" style="border-bottom: 1px solid;"></i> -->
                             </div>
                         </div>
                         <div class="col-lg-4 mt-5">
