@@ -67,7 +67,7 @@
                         <div class="col-lg-4 mt-5">
                             <div class="form__group" style="display: flex;">
 
-                                <input type="text" name="table[date]" placeholder="Select Date" required id="datepicker" onkeydown="return false" value="{{ now()->toDateString() }}">
+                                <input type="text" name="table[date]" placeholder="Select Date" required id="datepicker"  value="{{ now()->toDateString() }}">
                                 <i class="fas fa-calendar" style="border-bottom: 1px solid;"></i>
                                 <!-- <input type="date" name="table[date]" style="min-width:98%;width:100%" class="datepicker-field" placeholder="Select date" required onkeydown="return false" value="{{ now()->toDateString() }}"> -->
 
@@ -145,6 +145,7 @@
         $("#datepicker").datepicker({
             minDate: new Date()
         });
+        $("#datepicker").attr('readOnly', 'true');
     });
 </script>
 
