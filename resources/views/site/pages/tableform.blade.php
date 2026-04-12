@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
 
 
-<style>
+<!-- <style>
     @media (max-width: 500px) {
         .seletimemob {
             position: absolute;
@@ -26,7 +26,7 @@
         }
 
     }
-</style>
+</style> -->
 @endpush
 
 <section class="reservation">
