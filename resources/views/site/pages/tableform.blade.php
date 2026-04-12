@@ -3,19 +3,19 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
 
 
-<!-- <style>
+<style>
     @media (max-width: 500px) {
         .seletimemob {
-            position: absolute;
-            left: 105px;
-            top: 56%;
-            transform: translateY(-50%);
-            pointer-events: none;
-            color: gray;
-            opacity: 0.7;
+                  position: absolute;
+        top: 56%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: #1c1c1c;
+        opacity: 5.9;
+        right: 11%;
         }
 
-        .selectdatemob {
+        /* .selectdatemob {
             position: absolute;
             left: 105px;
             top: 45%;
@@ -23,10 +23,10 @@
             pointer-events: none;
             color: gray;
             opacity: 0.7;
-        }
+        } */
 
     }
-</style> -->
+</style>
 @endpush
 
 <section class="reservation">
@@ -79,7 +79,7 @@
                                 <input type="time" name="table[time]" id="currentTimeInput" style="min-width:98%;width:100%" placeholder="Select time" required
                                     onfocus="this.showPicker?.()" title="Select time" value="" onkeydown="return false">
 
-                                <!-- <span class="seletimemob" >Select time</span> -->
+                                <span class="seletimemob" > <i class="fas fa-clock"</i></i></span>
                                 <!-- <i class="fas fa-clock" style="border-bottom: 1px solid;position: relative;right: 18px;"></i> -->
 
                                 <!-- <input type="text" name="table[time]" id="timepicker" placeholder="Select time" required  onkeydown="return false">
