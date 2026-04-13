@@ -84,6 +84,8 @@
                      <label for="" class="form-label">Select Date<span class="text-danger">*</span></label>
                      <input type="text" name="contact[date]" class="form-control datepicker-field" onkeydown="return false"
                         placeholder="Select date" required>
+         <i class="fas fa-calendar" style="position: relative;bottom: 39px;float: right;margin-right: 20px;z-index: 1;opacity: 0.6;"></i>
+
                   </div>
 
 

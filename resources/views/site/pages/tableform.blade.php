@@ -82,7 +82,7 @@
                         </div>
                         <div class="col-lg-4 mt-5">
                             <div class="form__group" style="display: flex;">
-                                <input type="time" name="table[time]" id="currentTimeInput" style="min-width:98%;width:100%" placeholder="Select time" required
+                                <input type="time" name="table[time]" id="currentTimeInput" class="makaicon" style="min-width:98%;width:100%" placeholder="Select time" required
                                     onfocus="this.showPicker?.()" title="Select time" value="" onkeydown="return false">
 <i class="fas fa-clock famobclockview" style="border-bottom: 1px solid;"></i>
                                 <!-- <span class="seletimemob" > <i class="fas fa-clock"</i></i></span> -->
