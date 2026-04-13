@@ -20,6 +20,7 @@ Route::group(['as' => 'site.'], function ($route) {
           $route->post('contact-store', 'contactsave')->name('contact.save');
         $route->post('table-book', 'tablebook')->name('table.book');
         $route->get('product/{slug}/{id}', 'product')->name('product');
+           $route->get('/insta/gram', 'instagram')->name('instagram');
 
 
 
@@ -30,3 +31,5 @@ Route::group(['as' => 'site.'], function ($route) {
     });
 
 });
+
+// Route::get('/saasasa/asdassa', [WebsiteController::class, 'instagram'])->name('site.instagram');
