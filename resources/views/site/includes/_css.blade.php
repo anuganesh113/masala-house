@@ -1,5 +1,10 @@
   <style>
-    input[type="time"]::-webkit-calendar-picker-indicator {
+    /* input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+} */
+
+    .makaicon::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
 }
