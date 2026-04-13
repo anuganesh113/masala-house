@@ -4,9 +4,9 @@
 
 
 <style>
-    .famobclockview{
+    /* .famobclockview{
         display: none;
-    }
+    } */
     @media (max-width: 768px) {
         /* .seletimemob {
                   position: absolute;
@@ -73,7 +73,7 @@
                         <div class="col-lg-4 mt-5">
                             <div class="form__group" style="display: flex;">
 
-                                <input type="text" name="table[date]" placeholder="Select Date" required class="datepicker"  value="{{ now()->toDateString() }}">
+                                <input type="text" name="table[date]" style="width:100%"  placeholder="Select Date" required class="datepicker"  value="{{ now()->toDateString() }}">
                                 <i class="fas fa-calendar" style="border-bottom: 1px solid;"></i>
                                 <!-- <input type="date" name="table[date]" style="min-width:98%;width:100%" class="datepicker-field" placeholder="Select date" required onkeydown="return false" value="{{ now()->toDateString() }}"> -->
 
@@ -82,7 +82,7 @@
                         </div>
                         <div class="col-lg-4 mt-5">
                             <div class="form__group" style="display: flex;">
-                                <input type="time" name="table[time]" id="currentTimeInput" style="min-width:98%;width:100%" placeholder="Select time" required
+                                <input type="time" name="table[time]" id="currentTimeInput" style="width:100%" placeholder="Select time" required
                                     onfocus="this.showPicker?.()" title="Select time" value="" onkeydown="return false">
 <i class="fas fa-clock famobclockview" style="border-bottom: 1px solid;"></i>
                                 <!-- <span class="seletimemob" > <i class="fas fa-clock"</i></i></span> -->

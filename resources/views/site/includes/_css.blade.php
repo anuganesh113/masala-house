@@ -1,4 +1,12 @@
   <style>
+    input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+    .main-header-two .mobile-nav__toggler {
+            color: #ffffff;
+    }
        .menuviewbtn.br-25.iisection{
             bottom: -27px;
           }
