@@ -139,10 +139,10 @@
         <div class="row">
             <!-- Main Content Column -->
             <div class="col-sm-8 col-lg-8">
-                <div class="boxshadow plt-50" style="position: sticky;top: 6.5rem;z-index: 3;">
+                <div class="boxshadow plt-50" style="position: sticky;top: -33.5rem;z-index: 3;">
                     <div class="about__img position-static mb-4 d-block">
                         <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::BLOGS_PATH, data_get($blog, 'image'))) }}"
-                            alt="{{ $blog->name ?? '' }}"
+                            alt="{{ $blog->image_alt ??  $blog->name }}"
                             loading="lazy" />
                     </div>
 

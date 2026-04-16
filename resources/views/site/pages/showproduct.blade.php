@@ -1,4 +1,9 @@
-@extends('site.layouts.layout')
+@extends('site.layouts.layout',[
+'title' => data_get($menu, "seo.title") ?? data_get($menu, 'name'),
+'description' => data_get($menu, "seo.description") ?? strip_tags(data_get($menu, 'description')),
+'image' => $menu ? $menu->full_image_link : banner(),
+'keywords' => data_get($menu, "seo.keywords") ?? data_get($menu, 'keywords'),
+])
 
 @push('header')
 <link rel="stylesheet" href="{{ asset('site-assets/css/fancybox.css') }}">
@@ -6,29 +11,30 @@
 
 @section('content')
 <section class="banner banner__page">
-    <div class="banner__page--img">
-        <img src="{{asset('site-assets/images/menu-1.png')}}" alt="product banner">
+    <div class="banner__page--img sinlge">
+        <img style="object-position: top;" src="{{ asset('uploads/categories/' . $cat_image_link) }}" alt="{{$menu->name ?? '' }}">
     </div>
     <div class="banner__page--content">
-        <h1>Product</h1>
-        <p>Product show</p>
+        <h1>{{$cat_name ?? 'Category Name'}}</h1>
+        <p> <a href="{{url('/') }}" class="text-white"><i class="fas fa-home"></i></a> / {{$cat_name ?? 'Category Name'}} / {{ $menu->name ?? 'Product Name' }}</p>
     </div>
 
-
-
 </section>
+<section>
+
+
     <div class="mobile-container">
 
         <!-- Main Content (Scrollable) -->
         <main class="content-scroll">
             <section class="hero-image-container">
                 <div class="hero-image-wrapper">
-                    <a href="{{ asset('site-assets/images/menu-1.png') }}" data-type="image" data-fancybox="gallery" class="hero-image-link" aria-label="Zoom image">
-                        <img src="{{ asset('site-assets/images/menu-1.png') }}"
-                            alt="Product Image" class="hero-image">
+                    <a href="{{$menu->full_image_link}}" data-type="image" data-fancybox="gallery" class="hero-image-link" aria-label="Zoom image">
+                        <img src="{{$menu->full_image_link}}"
+                            alt="{{$menu->image_alt ?? $menu->name}}" class="hero-image">
                         <div class="zoom-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" class="zoom-icon">
-                                <path d="M15 15L21 21M10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15 15L21 21M10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
                     </a>
@@ -36,50 +42,67 @@
             </section>
 
             <section class="product-info">
-                <h1 class="product-title">Chaat Papdi</h1>
+                <h1 class="product-title">{{$menu->name ?? 'Product Name'}}</h1>
                 <p class="product-short-desc">
-                    Crispy wafers layered with potatoes, chickpeas, yogurt, tamarind and mint chutneys, and sev. A
-                    delightful mix of...
+                    {!!$menu->description ?? $menu->excerpt ?? 'Short product description goes here. This should be a brief summary that highlights the key features and appeal of the dish, enticing customers to learn more.'!!}
                 </p>
                 <div class="price-row">
-                    <span class="price">$8.99</span>
-                    <span class="tag-vegetarian">Vegetarian</span>
+                    <span class="price">${{$menu->price ?? '0.00'}}</span>
+                    <span class="cat tag-vegetarian  {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
+
+
                 </div>
+
             </section>
 
             <!-- Tabs Section -->
             <section class="tabs-container">
                 <div class="tabs-header">
-                    <button class="tab active" data-target="overview">Overview</button>
+                    <button class="tab active" data-target="overview"><i class="fas fa-file-alt"></i> Overview</button>
                     <div class="tab-divider"></div>
-                    <button class="tab" data-target="faq">FAQ</button>
+                    <button class="tab" data-target="faq"><i class="fas fa-question-circle"></i> FAQ</button>
                     <div class="tab-divider"></div>
-                    <button class="tab" data-target="order">Order Now</button>
+                    <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank" class="btn bg-orange text-white"> <i class="fas fa-shopping-cart"></i> Order Now</a>
+                    <div class="mapbtn up">
+                        <a href="{{google_map_address()}}" target="_blank" class="btn viewmapmenu up">
+
+                            <i class="fas fa-location-dot locationm" ></i>
+                            
+                            <em style="text-align: -webkit-auto;"><b> Location</b> 
+                                <br>
+                          <em style="font-size: 9px;">   view on map </em>
+                        </em>
+                           <i class="fas fa-arrow-up-right-from-square fromsquare"  ></i>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="mapbtn down" >
+                    <a href="{{google_map_address()}}" target="_blank" class="btn viewmapmenu down"
+
+ 
+                        >
+
+                            <i class="fas fa-location-dot locationm" ></i>
+                            
+                            <em style="text-align: -webkit-auto;"><b> Location</b> 
+                                <br>
+                           view on map</em>
+                           <i class="fas fa-arrow-up-right-from-square fromsquare"  ></i>
+                        </a>
+
                 </div>
 
-                <div class="tab-content-wrapper">
+                <div class="tab-content-wrapper" style="background: #fff4ea;border-radius: 25px;">
                     <!-- Overview Tab Content -->
                     <div class="tab-content active long-desc" id="overview">
-                        <h2 class="section-title">Chaat Papdi</h2>
+                        <h2 class="section-title">{{$menu->name ?? 'Product Name'}}</h2>
                         <div class=" long-desc">
-                        <p >
-                            Chaat Papdi consists of crispy wafers topped with diced boiled potatoes, chickpeas, yogurt,
-                            tamarind chutney, mint chutney, green chilles, and is garnished with sev, chopped cilantro,
-                            and a mix of Indian spices. It offers a delightful combination of sweet, tangy, and spicy
-                            flavors with a variety of textures.
-                        </p>
 
-                        <ul>
-                            <li>
-                                Chaat Papdi is a popular street food from India, enjoyed across the country with regional variations.
-                            </li>
-                              <li>
-                                Chaat Papdi is a popular street food from India, enjoyed across the country with regional variations.
-                            </li>
-                              <li>
-                                Chaat Papdi is a popular street food from India, enjoyed across the country with regional variations.
-                            </li>
-                        </ul>
+                            {!!$menu->description ?? $menu->excerpt ?? 'Detailed product description goes here. This section can include information about the ingredients, preparation method, taste profile, and any other relevant details that would help customers understand what makes this dish special.' !!}
+
+
+
                         </div>
 
                         <!-- <div class="details-grid">
@@ -204,7 +227,7 @@
                                     <summary>
                                         Is this dish very spicy?
                                         <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                                         </svg>
                                     </summary>
                                     <div class="faq-answer">
@@ -217,7 +240,7 @@
                                     <summary>
                                         Can I order this vegan or gluten-free?
                                         <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                                         </svg>
                                     </summary>
                                     <div class="faq-answer">
@@ -230,7 +253,7 @@
                                     <summary>
                                         How long does it take to prepare?
                                         <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                                         </svg>
                                     </summary>
                                     <div class="faq-answer">
@@ -242,9 +265,9 @@
                     </div>
 
                     <!-- Order Now Tab Content -->
-                    <div class="tab-content" id="order">
+                    <!-- <div class="tab-content" id="order">
                         <h2 class="section-title">Order Now</h2>
-                        <!-- <div class="order-container">
+                         <div class="order-container">
                             <div class="order-section">
                                 <h3 class="subsection-title">Quantity</h3>
                                 <div class="quantity-stepper">
@@ -288,17 +311,137 @@
                                 <button class="btn-add-cart">Add to Cart</button>
                                 <button class="btn-order-now">Checkout Now</button>
                             </div>
-                        </div> -->
-                    </div>
+                        </div> 
+                    </div> -->
                 </div>
             </section>
         </main>
     </div>
+</section>
+
+<section class="grab" style="background: #fff4ea;">
+    <div class="container-fluid">
+        <div class="flex">
+            <div class="section__title text-center" style="margin: auto;">
+                <!-- <h4>Similar Items of {{$menu->name ?? 'Similar Items' }}</h4> -->
+
+                <h2>{{ 'Similar Items' }}</h2>
+            </div>
+
+        </div>
+    </div>
+    <div class="grab__box itemgrab__box" style="padding-left: 1.375rem;">
+        <div class="owl-carousel owl-theme family family_caro" style="padding: 0;">
+
+
+            @foreach ($similarMenus as $menu)
+            <div class="item" style="margin-right: -20px;">
+                <div class="menu__card menu__card--family" style="width: 95%;">
+                    <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}">
+                        <div class="menu__card--img">
+
+                            <img class="owl-lazy"
+                                data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
+                                alt="{{ $menu->image_alt ?? $menu->name }}">
+
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512"
+                                    height="512" x="0" y="0" viewBox="0 0 48 48" style="enable-background:new 0 0 512 512"
+                                    xml:space="preserve" class="">
+                                    <g>
+                                        <g fill="#000">
+                                            <path
+                                                d="M22.286 0c-.94 0-1.7.767-1.7 1.714h-.014V15.43a1.714 1.714 0 1 1-3.429 0V1.714h-.013C17.13.767 16.368 0 15.429 0c-.94 0-1.701.767-1.701 1.714h-.013V15.43a1.714 1.714 0 1 1-3.429 0V1.714C10.286.767 9.524 0 8.586 0c-.94 0-1.702.767-1.702 1.714h-.027v17.143c0 2.109 2.116 3.921 5.143 4.715v21a3.429 3.429 0 0 0 6.857 0v-21C21.884 22.778 24 20.966 24 18.857V1.714h-.013C23.987.767 23.225 0 22.286 0zM40.286 0c-6.154 0-11.142 10.745-11.142 24 0 1.164.038 2.309.113 3.429h5.03V44.57a3.429 3.429 0 0 0 6.857 0V.07a5.295 5.295 0 0 0-.858-.07z"
+                                                fill="#000000" opacity="1" data-original="#000000" class=""></path>
+                                        </g>
+                                    </g>
+                                </svg>
+
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="menu__card--content">
+                        <div class="menu__card--header">
+                            <h3 class="titlehgt">
+                                <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">{{ $menu->name }}</a>
+                            </h3>
+                            <div class="menu__card--price">${{ $menu->price }}</div>
+                        </div>
+                        <div class="itemexcerpthover">
+                            {!! $menu->excerpt !!}
+                        </div>
+                        <div class="menu__card--footer">
+                            <span class="cat veg-btn bt-fr {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
+                            <a class="menu__card--cta order-now-btn  mr-l wtc" href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+
+
+
+        </div>
+    </div>
+</section>
 
 @endsection
 
 @push('footer')
 <script src="{{ asset('site-assets/js/facybox.js') }}"></script>
+
+<script>
+    $('.family_caro').owlCarousel({
+        loop: true,
+        margin: 30,
+        responsiveClass: true,
+        autoplay: true,
+        autoplayHoverPause: true,
+        autoplaySpeed: 2000,
+        lazyLoad: true,
+        navText: [
+            '<i class="fas fa-chevron-left"></i>',
+            '<i class="fas fa-chevron-right"></i>'
+        ],
+        responsive: {
+            0: {
+                items: 1,
+                dots: false,
+                nav: false,
+                // margin: 15,
+            },
+            627: {
+                items: 2,
+                dots: false,
+                nav: false,
+            },
+            767: {
+                items: 2,
+                dots: false,
+                nav: false,
+            },
+            1000: {
+                items: 3,
+                dots: false,
+                nav: false,
+            },
+            1200: {
+                items: 4,
+                dots: false,
+                nav: false,
+                // margin: 40,
+            },
+            1300: {
+                items: 4,
+                dots: false,
+                nav: false,
+                // margin: 40,
+            },
+        },
+    }, );
+</script>
+
 <script>
     if (typeof Fancybox !== "undefined") {
         Fancybox.bind('[data-fancybox="gallery"]', {
@@ -308,48 +451,47 @@
         });
     }
 
-    
-document.addEventListener('DOMContentLoaded', () => {
-  const tabs = document.querySelectorAll('.tab');
-  const contents = document.querySelectorAll('.tab-content');
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      // Remove active classes
-      tabs.forEach(t => t.classList.remove('active'));
-      contents.forEach(c => c.classList.remove('active'));
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.tab-content');
 
-      // Add active class to clicked tab
-      tab.classList.add('active');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active classes
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
 
-      // Show corresponding content
-      const targetId = tab.getAttribute('data-target');
-      const targetContent = document.getElementById(targetId);
-      if (targetContent) {
-        targetContent.classList.add('active');
-      }
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                // Show corresponding content
+                const targetId = tab.getAttribute('data-target');
+                const targetContent = document.getElementById(targetId);
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                }
+            });
+        });
+
+        // Quantity Stepper Logic
+        const qtyInput = document.getElementById('product-qty');
+        const qtyPlus = document.getElementById('qty-plus');
+        const qtyMinus = document.getElementById('qty-minus');
+
+        if (qtyInput && qtyPlus && qtyMinus) {
+            qtyPlus.addEventListener('click', () => {
+                let val = parseInt(qtyInput.value) || 1;
+                qtyInput.value = val + 1;
+            });
+
+            qtyMinus.addEventListener('click', () => {
+                let val = parseInt(qtyInput.value) || 1;
+                if (val > 1) {
+                    qtyInput.value = val - 1;
+                }
+            });
+        }
     });
-  });
-
-  // Quantity Stepper Logic
-  const qtyInput = document.getElementById('product-qty');
-  const qtyPlus = document.getElementById('qty-plus');
-  const qtyMinus = document.getElementById('qty-minus');
-
-  if (qtyInput && qtyPlus && qtyMinus) {
-    qtyPlus.addEventListener('click', () => {
-      let val = parseInt(qtyInput.value) || 1;
-      qtyInput.value = val + 1;
-    });
-
-    qtyMinus.addEventListener('click', () => {
-      let val = parseInt(qtyInput.value) || 1;
-      if (val > 1) {
-        qtyInput.value = val - 1;
-      }
-    });
-  }
-});
-
 </script>
 @endpush

@@ -1,12 +1,12 @@
-@foreach ($categories->take(1) as $category)
-   @foreach ($category->menus->take(4) as $menu)
+
+    @foreach ($section_3 as $menu)
       <div class="item" style="margin-right: -20px;">
          <div class="menu__card menu__card--family" style="width: 95%;">
             <div class="menu__card--img">
-               <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">
+               <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}" target="_blank">
                   <img class="owl-lazy"
                      data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
-                     alt="{{ $menu->name }}">
+                     alt="{{ $menu->image_alt ?? $menu->name }}">
                </a>
                <div class="icon">
                   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512"
@@ -28,20 +28,26 @@
                   <h3 class="titlehgt">
                      <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">{{ $menu->name }}</a>
                   </h3>
-                  <div class="menu__card--price">${{ $menu->price }}</div>
+                  <div class="menu__card--price">${{ $menu->price }}
+                    <em class="cat {{cssnonveg($menu->type)}} " style="float:inline-end">{{ checkVegetarian($menu->type) }}</em>
+                    </div>
                </div>
                <div class="itemexcerpthover">
                {!! $menu->excerpt !!}
                </div>
                <div class="menu__card--footer">
-                  <span class="cat veg-btn bt-fr {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
-                  <a class="menu__card--cta order-now-btn  mr-l wtc"  href="{{ requesturl() . '/' . $menu->slug  }}"  target="_blank">Order Now</a>
+                  <span class="btn veg-btn bt-fr menuviewbtn br-25 iisection">
+                     <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}" target="_blank" style="color: inherit;font-size: 18px;">
+                        <i class="fas fa-search"></i> View Details
+                     </a>
+                  </span>
+                  <a class="menu__card--cta order-now-btn  mr-l wtc"  href="{{ requesturl() . '/' . $menu->slug  }}"  target="_blank"><i class="fas fa-shopping-cart"></i> Order Now</a>
                </div>
             </div>
          </div>
       </div>
    @endforeach
-@endforeach
+
 
 @push('footer')
 
@@ -54,7 +60,7 @@
         loop: true,
         margin: 30,
         responsiveClass: true,
-        autoplay: true,
+        autoplay: false,
         autoplayHoverPause: true,
         autoplaySpeed: 2000,
         lazyLoad: true,
@@ -80,7 +86,7 @@
                 nav: false,
             },
             1000: {
-                items: 3,
+                items: 2,
                 dots: true,
                 nav: false,
             },

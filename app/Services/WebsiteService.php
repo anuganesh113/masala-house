@@ -16,6 +16,7 @@ use App\Models\Popup;
 use App\Models\Service;
 use App\Models\Setting;
 use App\Models\Testimonial;
+use App\Models\Website;
 
 /**
  * class WebsiteService
@@ -31,6 +32,34 @@ class WebsiteService
         }])->get();
         $data['galleries'] = Gallery::get();
         $data['popup'] = Popup::Image()->where('status', Status::ACTIVE)->first();
+
+
+
+
+        $alldata = Website::get()->toArray();
+        $arrangedData = array_column($alldata, 'value', 'name');
+        $data['settings'] = $arrangedData;
+
+        if (isset($arrangedData['section_2_menu']) && $arrangedData['section_2_menu']) {
+            $ids = array_slice(json_decode($arrangedData['section_2_menu'], true), 0, 4);
+
+            $data['section_2'] = Menu::whereIn('id', $ids)
+                ->status()
+                ->get();
+        } else {
+            $data['section_2'] = Menu::status()->take(4)->get();
+        }
+
+        if (isset($arrangedData['section_3_menu']) && $arrangedData['section_3_menu']) {
+            $arrangedData['section_3_menu'] = json_decode($arrangedData['section_3_menu'], true);
+            foreach ($arrangedData['section_3_menu'] as $key => $value) {
+                $data['section_3'][$key] = Menu::where('id', $value)->status()->first();
+            }
+        } else {
+            $data['section_3'] = Menu::status()->get();
+        }
+
+
 
 
 
@@ -73,7 +102,7 @@ class WebsiteService
                 $data['compliments'] = Testimonial::query()
                     ->status()
                     // ->whereNotNull('member_message_id')
-                
+
                     ->select(['id', 'name', 'designation', 'message'])
                     ->get();
                 $data['videos'] = Popup::Video()->first();
@@ -92,6 +121,20 @@ class WebsiteService
                 $data['categories'] = Category::with(['menus' => function ($query) {
                     $query->status();
                 }])->get();
+
+                $alldata = Website::get()->toArray();
+                $arrangedData = array_column($alldata, 'value', 'name');
+                $data['settings'] = $arrangedData;
+
+                if (isset($arrangedData['section_3_menu']) && $arrangedData['section_3_menu']) {
+                    $arrangedData['section_3_menu'] = json_decode($arrangedData['section_3_menu'], true);
+                    foreach ($arrangedData['section_3_menu'] as $key => $value) {
+                        $data['section_3'][$key] = Menu::where('id', $value)->status()->first();
+                    }
+                } else {
+                    $data['section_3'] = Menu::status()->get();
+                }
+
                 break;
 
             case 'catering':
@@ -99,7 +142,7 @@ class WebsiteService
                 $data['services'] = Service::query()->get();
                 $data['compliments'] = Testimonial::query()
                     ->with(['member:id,name,designation'])
-                 
+
                     ->select(['id', 'member_message_id', 'name', 'designation', 'message'])
                     ->where('status', Status::ACTIVE)
                     ->inRandomOrder()->take(5)

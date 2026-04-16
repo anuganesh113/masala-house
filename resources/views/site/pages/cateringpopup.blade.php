@@ -29,11 +29,13 @@
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Select Date <span class="text-danger">*</span></label>
-                  <input type="date" class="form-control datepicker-field" name="catering[date]" placeholder="Select date" onkeydown="return false" required>
+                  <input type="text" class="form-control datepicker-field" name="catering[date]" value="{{ now()->toDateString() }}" placeholder="Select date" onkeydown="return false" required>
+         <i class="fas fa-calendar" style="position: relative;bottom: 39px;float: right;margin-right: 20px;z-index: 1;opacity: 0.6;"></i>
+               
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Select time <span class="text-danger">*</span></label>
-                  <input type="time" class="form-control" name="catering[time]" placeholder="Select time" required>
+                  <input type="time" class="form-control currentTimeInput" name="catering[time]" placeholder="Select time" required onkeydown="return false" >
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Number of Persons<span class="text-danger small no_person"></span></label>

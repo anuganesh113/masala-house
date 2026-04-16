@@ -1,5 +1,12 @@
 <div class="form-group m-form__group row">
     <div class="col-lg-6">
+        @if(isset($sample) && !empty($sample))
+        <a href="{{ $sample }}" target="_blank">
+           Click here to view :: <em>Sample for background image :: {{ $hint ?? '' }}</em>
+        </a>
+        <br>
+        @endif
+          
         <label>
             {{ ucwords($label) }}
             <span class="text-danger">

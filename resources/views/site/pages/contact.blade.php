@@ -11,7 +11,7 @@
    <!-- page banner start -->
    <section class="banner banner__page">
       <div class="banner__page--img">
-         <img src="{{ asset('site-assets/images/about/about-banner.png') }}" alt="">
+         <img src="{{ $page ?  $page->breadcrumbs_image_link : asset ('site-assets/images/about/about-banner.png') }}" alt="">
       </div>
       <div class="banner__page--content">
          <h1>Contact Us</h1>
@@ -82,14 +82,16 @@
 
                   <div class="form__group">
                      <label for="" class="form-label">Select Date<span class="text-danger">*</span></label>
-                     <input type="date" name="contact[date]" class="form-control datepicker-field" onkeydown="return false"
+                     <input type="text" name="contact[date]" class="form-control datepicker-field" onkeydown="return false"
                         placeholder="Select date" required>
+         <i class="fas fa-calendar" style="position: relative;bottom: 39px;float: right;margin-right: 20px;z-index: 1;opacity: 0.6;"></i>
+
                   </div>
 
 
                   <div class="form__group">
                      <label for="" class="form-label">Select time <span class="text-danger"> *</span></label>
-                     <input type="time" name="contact[time]" class="form-control" placeholder="Select time" required>
+                     <input type="time" name="contact[time]" class="form-control currentTimeInput" placeholder="Select time" required onkeydown="return false" >
                   </div>
                   <div class="form__group">
                      <label class="form-control-label">Message:</label>
@@ -177,7 +179,7 @@
       </div>
    </section>
    <!-- contact info end -->
-
+@include('components.site.popmodel', ['id' => $page->id]) 
 @endsection
 
 @push('footer')

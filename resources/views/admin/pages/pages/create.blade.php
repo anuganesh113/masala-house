@@ -162,6 +162,15 @@
 
                         <x-admin.seo :data="[]" />
 
+                               <x-admin.image-field :data="[
+                            'label' => 'Breadcrumbs Image',
+                            'name' => 'metadata[breadcrumbs]',
+                            'path' => \App\Enums\UploadFilePath::PAGES_PATH,
+                            
+                            'hint' => '1905 px wide and 400 px high.',
+                            'sample' => asset('site-assets/images/about/about-banner.png'),
+                        ]" />
+
 					</div>
 					<div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
 						<div class="m-form__actions m-form__actions--solid">

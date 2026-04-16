@@ -24,7 +24,7 @@ trait FileUpload
         $manager = ImageManager::imagick();
 
         $pics = ($widen != null) ? $manager->read($file)->scaleDown(width: $widen) : $manager->read($file);
-
+        //   dd( $file->getClientOriginalName());
         $file_name = sprintf(
             '%s-%s.%s',
             General::PREFIX_FILE_NAME,
@@ -32,7 +32,8 @@ trait FileUpload
             $file->extension()
         );
 
-        $pics->save($path.$file_name);
+        $file_name =  $file->getClientOriginalName();
+        $pics->save($path . $file_name);
 
         return $file_name;
     }

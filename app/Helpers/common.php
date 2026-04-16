@@ -174,6 +174,21 @@ if (!function_exists('title')) {
         }
     }
 }
+
+if (!function_exists('google_map_address')) {
+    function google_map_address()
+    {
+        $settings = setting(); // Call the function first
+
+        if (isset($settings) && data_get($settings, 'metadata.google_map_address')) {
+            return data_get($settings, 'metadata.google_map_address');
+        } else {
+            return url('/');
+        }
+    }
+}
+
+
 if (!function_exists('description')) {
     function description()
     {
@@ -225,7 +240,18 @@ if (!function_exists('findfaqcount')) {
         if (empty($model) || empty($id) || !class_exists($model)) {
             return 0;
         }
+    }
+}
 
-
+if (!function_exists('googlesiteverification')) {
+    function googlesiteverification()
+    {
+        if (url('/') == 'https://masalahousepittsburg.com') {
+            return 'PVElXv82RpomDLSiiyhvSw8In_ACNXiFC_y-l6RwEXA';
+        } else if (url('/') == 'https://masalahouseconcord.com') {
+            return 'IyLE8ME610THleFQzEQG4wIUNigDiuE-ES5hcaKKmXM';
+        } else {
+            return '';
+        }
     }
 }

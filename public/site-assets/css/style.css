@@ -195,6 +195,8 @@ input.form-control::placeholder {
   margin-bottom: 0;
 }
 
+
+
 @media (max-width: 991px) {
 
   .section__title h1,
@@ -437,6 +439,7 @@ img {
   top: 50%;
   right: 100%;
 }
+
 
 
 .owl-dots button span {
@@ -7274,3 +7277,4 @@ img {
     flex-direction: column;
   }
 }
+

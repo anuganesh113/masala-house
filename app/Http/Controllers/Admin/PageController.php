@@ -59,6 +59,7 @@ class PageController extends BaseController
             $this->databaseManager->rollBack();
             @unlink(sprintf('%s%s', UploadFilePath::PAGES_PATH, data_get($data ?? [], 'image_one')));
             @unlink(sprintf('%s%s', UploadFilePath::PAGES_PATH, data_get($data ?? [], 'image_two')));
+            @unlink(sprintf('%s%s', UploadFilePath::PAGES_PATH, data_get($data ?? [], 'metadata.breadcrumbs')));
 
             foreach (data_get($data ?? [], 'images') ?? [] as $image) {
                 @unlink(sprintf('%s%s', UploadFilePath::IMAGES_PATH, $image));
@@ -105,10 +106,14 @@ class PageController extends BaseController
             if ($request->hasFile('image_two')) {
                 @unlink(sprintf('%s%s', UploadFilePath::PAGES_PATH, data_get($backup, 'image_two')));
             }
+            if ($request->hasFile('metadata.breadcrumbs')) {
+                @unlink(sprintf('%s%s', UploadFilePath::PAGES_PATH, data_get($backup, 'metadata.breadcrumbs')));
+            }
         } catch (Exception $error) {
             $this->databaseManager->rollBack();
             @unlink(sprintf('%s%s', UploadFilePath::PAGES_PATH, data_get($data, 'image_one')));
             @unlink(sprintf('%s%s', UploadFilePath::PAGES_PATH, data_get($data, 'image_two')));
+            @unlink(sprintf('%s%s', UploadFilePath::PAGES_PATH, data_get($data, 'metadata.breadcrumbs')));
 
             foreach (data_get($data ?? [], 'images') ?? [] as $image) {
                 @unlink(sprintf('%s%s', UploadFilePath::IMAGES_PATH, $image));
@@ -127,11 +132,12 @@ class PageController extends BaseController
             if (count($page->child ?? [])) {
                 return $this->jsonResponse(General::FALSE, Message::PAGE_MESSAGE['PAGE_HAS_CHILD'], Response::HTTP_NOT_ACCEPTABLE);
             }
-            $backup = $page->only(['image_one','image_two','images']);
+            $backup = $page->only(['image_one', 'image_two', 'images', 'metadata.breadcrumbs']);
             $page->delete();
 
             @unlink(sprintf('%s%s', UploadFilePath::PAGES_PATH, data_get($backup, 'image_one')));
             @unlink(sprintf('%s%s', UploadFilePath::PAGES_PATH, data_get($backup, 'image_two')));
+            @unlink(sprintf('%s%s', UploadFilePath::PAGES_PATH, data_get($backup, 'metadata.breadcrumbs')));
 
             foreach (data_get($backup, 'images') ?? [] as $image) {
                 @unlink(sprintf('%s%s', UploadFilePath::IMAGES_PATH, $image));

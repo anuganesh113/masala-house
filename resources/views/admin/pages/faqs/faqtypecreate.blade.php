@@ -18,22 +18,35 @@
 							<h3 class="m-portlet__head-text">Create FAQs {{ $model->name ?? '' }}</h3>
 						</div>
 					</div>
+					@php
+					$route = route('admin.faqs.index');
+					if (isset($faq) && $faq) {
+
+					$route = route('admin.' . request()->segment(5) . 's.index');
+					} else {
+					$route = route('admin.' . request()->segment(4) . 's.index');
+					}
+
+
+					@endphp
+
 					<div class="m-portlet__head-tools">
 						<a class="btn btn-info m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill"
-							href="{{ route('admin.faqs.index') }}">
-							<i class="la la-list"></i> FAQs List
+							href="{{ $route }}">
+							<i class="la la-list"></i> {{ isset($faq) ? request()->segment(5) : request()->segment(4) }} List
 						</a>
 					</div>
 				</div>
+
 
 				<form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed"
 					action="{{ isset($faq) ? route('admin.faqtypestore', $faq->id) : route('admin.faqtypestore') }}"
 					method="POST"
 					enctype="multipart/form-data">
 					@csrf
-                    <input type="hidden" name="model_type" value="{{  $faq->model_type ?? request()->segment(4) }}">
-                    <input type="hidden" name="model_id" value="{{ $model->id ?? '' }}">
-                    <input type="hidden" name="faq_id" value="{{ $faq->id ?? '' }}">
+					<input type="hidden" name="model_type" value="{{  $faq->model_type ?? request()->segment(4) }}">
+					<input type="hidden" name="model_id" value="{{ $model->id ?? '' }}">
+					<input type="hidden" name="faq_id" value="{{ $faq->id ?? '' }}">
 
 					<div class="m-portlet__body">
 						<div class="form-group m-form__group row">
@@ -43,10 +56,10 @@
 									name="question"
 									class="form-control m-input"
 									placeholder="Question"
-									value="{{ old('question') ?? $faq->question ?? '' }}"  />
+									value="{{ old('question') ?? $faq->question ?? '' }}" />
 							</div>
 						</div>
-					
+
 						<div class="form-group m-form__group col-lg-12">
 							<label>Answer<span class="text-danger">*</span></label>
 							<textarea class="form-control m-input summernote_reg"
@@ -54,21 +67,21 @@
 								placeholder="Answer"
 								rows="15">{{ old('answer') ?? $faq->answer ?? '' }}</textarea>
 						</div>
-							<div class="form-group m-form__group  row">
-								<div class="col-lg-8">
-									<label>Order<span class="text-danger">*</span></label>
-									<input type="number"
-										name="order"
-										class="form-control m-input"
-										placeholder="Order"
-										value="{{ old('order') ?? $faq->order ?? 1 }}" />
-								</div>
-
-								<div class="col-lg-4 mt-4">
-									<x-admin.radio-status />
-								</div>
+						<div class="form-group m-form__group  row">
+							<div class="col-lg-8">
+								<label>Order<span class="text-danger">*</span></label>
+								<input type="number"
+									name="order"
+									class="form-control m-input"
+									placeholder="Order"
+									value="{{ old('order') ?? $faq->order ?? 1 }}" />
 							</div>
-						
+
+							<div class="col-lg-4 mt-4">
+								<x-admin.radio-status />
+							</div>
+						</div>
+
 					</div>
 
 					<div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">

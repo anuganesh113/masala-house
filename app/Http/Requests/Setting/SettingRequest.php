@@ -34,6 +34,9 @@ class SettingRequest extends FormRequest
             'metadata.google_map_address' => 'Google map address',
             'metadata.google_map_iframe' => 'Google map iframe',
             'metadata.opening_hours' => 'Opening Hours',
+            'metadata.opening_time' => 'Opening Time',
+            'metadata.opening_days' => 'Opening Days',
+
 
             'metadata.title.*' => 'Title',
             'metadata.count.*' => 'Count',
@@ -59,6 +62,9 @@ class SettingRequest extends FormRequest
             'footer_text' => ['nullable', 'max:1000'],
             'metadata.google_map_address' => ['nullable', 'url', 'max:1000'],
             'metadata.opening_hours' => ['nullable'],
+            'metadata.opening_time' => ['nullable'],
+            'metadata.opening_days' => ['nullable'],
+
 
             'metadata.google_map_iframe' => ['nullable', 'max:1000'],
             'metadata.title.*' => ['nullable', 'max:255'],
@@ -83,6 +89,8 @@ class SettingRequest extends FormRequest
                 'google_map_address' => data_get($this, 'metadata.google_map_address'),
                 'google_map_iframe' => data_get($this, 'metadata.google_map_iframe'),
                 'opening_hours' => data_get($this, 'metadata.opening_hours'),
+                'opening_time' => data_get($this, 'metadata.opening_time'),
+                'opening_days' => data_get($this, 'metadata.opening_days'),
 
                 'title' => data_get($this, 'metadata.title'),
                 'count' => data_get($this, 'metadata.count'),

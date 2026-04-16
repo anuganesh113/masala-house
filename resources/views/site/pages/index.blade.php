@@ -18,24 +18,29 @@
 
 @section('content')
 
+<style>
+  .experience::before {
+    content: "{{ $settings['below_experience_text'] ?? 'EXPERIENCE' }}";
+  }
+</style>
 <x-site.banner />
+
 
 <!-- experience section start -->
 <section class="experience">
     <div class="experience__img">
-        <img src="{{ asset('site-assets/images/index/exp-bg-3.png') }}" alt="about-img">
+        <img src="{{ asset('uploads/pages/' . $about->image_two) }}" alt="about-img">
     </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-7 offset-lg-5 col-xl-6 offset-xl-6">
                 <div class="section__title">
-                    <h4>Since 2015</h4>
-                    <h2> Wonderful Dining Experience & Indian Food</h2>
+               
+                    <h4> {{ $about->metadata['sub_heading'] ?? 'Since 2015' }} </h4>
+                    <h2> {{ $about->metadata['sub_title'] ?? 'Wonderful Dining Experience & Indian Food' }} </h2>
                 </div>
                 <div class="content">
-                    <p>Masala House was founded in 2015 by Chef Raj Sharma with a simple mission: to bring the authentic flavors of India to Pittsburg,
-                        California. Born and raised in Delhi, Chef Raj learned the art of Indian cooking from his grandmother,
-                        who taught him the importance of freshly ground spices and traditional cooking techniques.</p>
+                    {!!   $about->excerpt ??  $about->description !!}
                 </div>
                 <div class="btn__group">
                     <button class="l__button l__button--primary" data-bs-toggle="modal"
@@ -63,8 +68,8 @@
 <!-- family together section start -->
 <section class="family p__tb--t">
     <div class="section__title text-center">
-        <h5>Grab a grand orders for your family </h5>
-        <h2>Family Together</h2>
+        <h5>{{ $settings['section_3_heading'] ?? 'Grab a grand orders for your family'  }}  </h5>
+        <h2>  {{ $settings['section_3_title'] ?? 'Family Together'  }} </h2>
         @include("site.includes.scroll")
     </div>
     <div class="owl-carousel owl-theme family__carouselss">
@@ -122,10 +127,10 @@
                                 <div class="item">
                                     <div class="menu__card">
                                         <div class="menu__card--img">
-                                            <a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">
+                                            <a href="{{ route('site.product', ['slug' => $item->slug , 'id' => $item->id]) }}" target="_blank">
                                                 <img class=""
                                                     data-src="{{$item->full_image_link}}" src="{{$item->full_image_link}}"
-                                                    alt="{{$item->name}}">
+                                                    alt="{{ $item->image_alt ?? $item->name }}">
                                             </a>
                                             <div class="icon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
@@ -176,7 +181,7 @@
                                             <a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">
                                                 <img class=""
                                                     data-src="{{$item->full_image_link}}" src="{{$item->full_image_link}}"
-                                                    alt="{{$item->name}}">
+                                                    alt="{{ $item->image_alt ?? $item->name }}">
                                             </a>
                                             <div class="icon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"

@@ -62,10 +62,11 @@
             <div class="footer__middle">
                <div class="box section__title ">
                   <h2>Opening Hours</h2>
-                  <p style="font-weight: 400;">Tuesday - Sunday</p>
+                  <p style="font-weight: 400;"> {!! data_get($setting, 'metadata.opening_days') !!} </p>
 
 
-                  <h2 class=""><i class="fa-solid fa-clock org_color" style="font-size: 20px;"></i>11 AM–9 PM </h2>
+                  <h2 class=""><i class="fa-solid fa-clock org_color" style="font-size: 20px;"></i>
+                     {!! data_get($setting, 'metadata.opening_time') !!} </h2>
                   <!-- @include('components.site._openingpopup') -->
 
                </div>

@@ -145,12 +145,34 @@
                             </div>
                         </div>
 
+                <div class="form-group m-form__group">
+                    <label>Sub Heading</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input type="text" class="form-control m-input" name="metadata[sub_heading]"
+                            value="{{ old('metadata.sub_heading')??data_get($page, "metadata.sub_heading") }}"
+                            placeholder="Sub Heading">
+                    </div>
+                </div>
+
+                <div class="form-group m-form__group">
+                    <label>Sub Title</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input type="text" class="form-control m-input" name="metadata[sub_title]"
+                            value="{{ old('metadata.sub_title')??data_get($page, "metadata.sub_title") }}"
+                            placeholder="Sub Title">
+                    </div>
+                </div>
+
                         <div class="form-group m-form__group">
                             <label>Excerpt</label>
                             <textarea class="summernote_reg form-control m-input"
                                       name="excerpt"
                                       rows="15">{{ old("excerpt") ?? data_get($page, "excerpt") }}</textarea>
                         </div>
+
+          
+
+
 
                         <div class="form-group m-form__group">
                             <label>Description</label>
@@ -182,8 +204,18 @@
                                 <x-admin.radio-status :data="['value' => data_get($page, 'status')]"/>
                             </div>
                         </div>
+                        
 
                         <x-admin.seo :data="data_get($page, 'seo', [])" />
+
+                        <x-admin.image-field :data="[
+                            'label' => 'Breadcrumbs Image',
+                            'name' => 'metadata[breadcrumbs]',
+                            'path' => \App\Enums\UploadFilePath::PAGES_PATH,
+                            'value' => data_get($page, 'metadata.breadcrumbs') ?? '',
+                            'hint' => '1905 px wide and 400 px high.',
+                            'sample' => asset('site-assets/images/about/about-banner.png'),
+                        ]" />
 
 					</div>
 					<div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">

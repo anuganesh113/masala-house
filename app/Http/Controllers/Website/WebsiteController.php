@@ -27,6 +27,7 @@ class WebsiteController extends BaseController
     public function index(): View
     {
         $data = $this->websiteService->index();
+      
         return view('site.pages.index', $data);
     }
 
@@ -82,11 +83,23 @@ class WebsiteController extends BaseController
     }
 
 
-    public function product(Request $request): View
+    public function product(Request $request , string $slug , int $id): View
     {
+      
+       $data['menu'] = Menu::findOrFail($id);
+   
+
+       $data['similarMenus'] = Menu::status()->where('id', '!=', $id)->where('category_id', $data['menu']->category->id)->get();
+        $data['cat_name'] = $data['menu']->category->name;
+          $data['cat_image_link'] = $data['menu']->category->image;
+         
+
+           
+       
+      
   
 
-        return view('site.pages.showproduct');
+        return view('site.pages.showproduct', $data);
     }
 
     public function cateringBooking(Request $request)
@@ -103,7 +116,7 @@ class WebsiteController extends BaseController
             'phone' => $settingdata->phone,
             'address' => $settingdata->address,
             'siteemail' => $settingdata->email,
-            'website' => 'https://masalahousepittsburg.com/',
+            'website' => url('/'),
 
 
         ];
@@ -114,6 +127,7 @@ class WebsiteController extends BaseController
 
     public function tablebook(Request $request)
     {
+      
 
         $inquiry = new Inquiry();
         $inquiry->metadata = json_encode($request->table);
@@ -128,7 +142,7 @@ class WebsiteController extends BaseController
             'phone' => $settingdata->phone,
             'address' => $settingdata->address,
             'siteemail' => $settingdata->email,
-            'website' => app()->make('url')->to('/'),
+            'website' => url('/'),
 
         ];
         Mail::to('info@masalahousepittsburg.com')->cc($details['email'])->send(new \App\Mail\Contact($details));
@@ -149,7 +163,7 @@ class WebsiteController extends BaseController
             'social' => $settingdata->social,
             'phone' => $settingdata->phone,
             'siteemail' => $settingdata->email,
-            'website' => app()->make('url')->to('/'),
+            'website' => url('/'),
 
         ];
 

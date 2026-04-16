@@ -12,7 +12,7 @@
 <!-- page banner start -->
 <section class="banner banner__page">
     <div class="banner__page--img">
-        <img src="{{ asset ('site-assets/images/about/about-banner.png') }}" alt="banner">
+        <img src="{{ $page ?  $page->breadcrumbs_image_link : asset ('site-assets/images/about/about-banner.png') }}" alt="{{ $page->name ?? 'About Us' }}">
     </div>
     <div class="banner__page--content">
         <h1>Our story</h1>
@@ -259,12 +259,21 @@
         </div>
     </div>
 </section>
+
+
+
+
+
+@include('components.site.popmodel', ['id' => $page->id]) 
+
 <!-- gallery section end -->
 
 @endsection
 
 @push('footer')
 <script>
+
+
     $('.chef_carousel ').owlCarousel({
         loop: false,
         margin: 30,

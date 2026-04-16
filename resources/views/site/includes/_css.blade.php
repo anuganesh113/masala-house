@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .menuboxshadow {
         background: rgba(255, 255, 255, 0.92);
@@ -9,6 +10,55 @@
     .menuboxshadow:hover {
         background: rgb(243, 220, 203);
     }
+=======
+  <style>
+    /* input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+} */
+
+    .makaicon::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+    .main-header-two .mobile-nav__toggler {
+            color: #ffffff;
+    }
+       .menuviewbtn.br-25.iisection{
+            bottom: -27px;
+          }
+
+    .owl-carousel.popular__carousel  .owl-stage {
+        transform: none!important;
+    transition: none!important;
+    }
+    .br-25{
+        border-radius: 25px;;
+    }
+    .locationm{
+        position: relative;
+        top: 7px;
+        right: 12px;
+        font-size: 19px;
+    }
+    .fromsquare{
+        position: relative;
+        left: 30px;
+        top: 10px;
+        font-size: 19px;
+    }
+      .menuboxshadow {
+          background: rgba(255, 255, 255, 0.92);
+          border-radius: 1.5rem;
+          border: 1px solid rgb(221 221 221);
+          padding: 20px 15px;
+      }
+
+      /* .menuboxshadow:hover {
+          background: rgb(243, 220, 203);
+      } */
+>>>>>>> f5885c258283ea3029ca0fc2565a760ca52dbf9a
 
     .owl-theme.menuList__carousel .owl-stage-outer .owl-stage {
         transform: none !important;
@@ -40,15 +90,22 @@
     }
 
 
+<<<<<<< HEAD
     .menuboxshadow:hover .menuFlex__card--box .name {
         background: rgb(243, 220, 203);
     }
+=======
+      /* .menuboxshadow:hover .menuFlex__card--box .name {
+          background: rgb(243, 220, 203);
+      }
+>>>>>>> f5885c258283ea3029ca0fc2565a760ca52dbf9a
 
     .menuboxshadow:hover .menuFlex__card--box .popular_cont p,
     .menuboxshadow:focus .menuFlex__card--box .popular_cont p {
         display: inline-flex;
     }
 
+<<<<<<< HEAD
     .menuboxshadow:hover .menuimgrespo {
         height: 12.25rem !important;
     }
@@ -63,32 +120,260 @@
             display: none;
         }
     }
+=======
+      .menuboxshadow:hover .menuimgrespo {
+          height: 12.25rem !important;
+      } */
 
 
+      @media (min-width: 779px) {
+
+          .menu__list--box.deskview {
+              padding: 18px 0 15px 1px;
+          }
+
+          .menu__list--box .menuFlex__card--content {
+              display: inherit;
+          }
+
+          .menuFlex__card--quantity.orderdiv {
+              float: right;
+          }
+
+          .menuimgrespo img {
+              height: 236px !important;
+          }
+
+          .foronly_mobilresponsive,
+          .mobresp {
+              display: none;
+          }
+
+          .menuFlex__card--title::before {
+              content: inherit;
+
+          }
+
+          .boxshadow.mobile {
+              margin-top: 7px;
+          }
+
+          .menuFlex__card--img {
+              width: 10.9375rem;
+              height: 15.25rem !important;
+          }
+
+          .cat.desviewresp {
+              position: relative;
+              bottom: 5px;
+          }
+
+      }
+
+      .menuviewbtn,
+      .menuviewbtn:hover {
+          background: white !important;
+          color: #ea6600 !important;
+          border: 1px solid #fc6e00 !important;
+      }
+
+      @media (min-width: 519px) and (max-width: 778px) {
+          .order-now-btn2.boxshadow.wtc.men-ord {
+              margin: auto;
+              width: auto;
+              margin-top: 10px;
+          }
+      }
+
+      @media (max-width: 500px) {
+        .viewip{
+            width: 100%;
+        }
+
+
+          .viewmapmenu.up {
+              display: none;
+          }
+
+          .mapbtn {
+              margin: auto;
+              margin-top: 15px;
+          }
+          .viewmapmenu.down{
+            display: flex;
+          }
+       
+      }
+
+      @media (max-width: 400px) {
+          .wtc.men-ord {
+            margin-top: 15px;;
+              /* Your styles for mobile wtc */
+          }
+      }
+
+      @media (min-width: 500px) {
+          .mapbtn.down {
+              display: none;
+
+          }
+
+          .mapbtn.up {
+              margin-left: auto;
+
+          }
+          .viewmapmenu.up{
+            display: flex;
+          }
+
+         
+          
+
+
+
+      }
+
+
+
+
+      @media (max-width: 778px) {
+
+          .menu__card--price.mob,
+          .cat.mt-0.desviewresp {
+              display: none;
+          }
+
+          .menu__list--box.deskview {
+              padding: 0px 0px 0px 0px;
+          }
+          
+      }
+
+
+      /* @media (min-width: 767px) {
+          .menuFlex__card--title {
+              display: inline-block;
+          }
+
+          .menuFlex__card--title .price {
+              display: none;
+          }
+      } */
+
+      .viewmapmenu {
+          border-radius: 15px;
+          color: green !important;
+          background: #abdda5 !important;
+          font-size: 13px;
+          padding: 3px 53px;
+          margin-bottom: 7px;
+      }
+>>>>>>> f5885c258283ea3029ca0fc2565a760ca52dbf9a
+
+      .bg-orange {
+          background: #FF6F00 !important;
+      }
+
+<<<<<<< HEAD
     @media (max-width: 767px) {
         .menuFlex__card.dnone {
             flex-direction: inherit;
             align-items: center;
         }
+=======
+        @media (max-width: 991px) {
+         .popular .menuFlex__card .cat.mobdnone{
+        display: none;
+
+      }
+}
+      
+      @media (max-width: 767px) {
+        
+           .menuviewbtn.br-25.iisection{
+                bottom: -28px;
+                width: 100%;
+        }
+
+              .menu__card--cta.order-now-btn.mr-l.wtc{
+               
+                width: 100%;
+        }
+        
+   
+          .menuFlex__card--title .price {
+        display: block;
+    }
+            
+    .popular .menuFlex__card {
+              flex-direction: column;  
+    }
+    .popular .menuFlex__card .img{
+            flex: 0 0 8.5rem;
+            max-width: 80%;
+                margin: auto;
+    }
+    .popular .menuFlex__card .img img {
+        height: 8.5rem !important;
+            border-radius: 15px;
+    }
+    .popular .menuFlex__card .menuFlex__card--title .name {
+        display: flex;
+    }
+
+
+          .banner__page--img.sinlge {
+              height: 16rem;
+          }
+
+          .hero-image-wrapper .hero-image {
+              height: 350px !important;
+          }
+
+          .menuFlex__card.dnone {
+              flex-direction: inherit;
+              align-items: center;
+          }
+>>>>>>> f5885c258283ea3029ca0fc2565a760ca52dbf9a
 
         .menuFlex__card--title {
             display: inline-block;
         }
 
+<<<<<<< HEAD
         .menuFlex__card--title .price {
             display: none;
         }
+=======
+          /* .menuFlex__card--title .price {
+              display: none;
+          } */
+>>>>>>> f5885c258283ea3029ca0fc2565a760ca52dbf9a
 
         .owl-carousel.wholeMenu__carousel .owl-dots button span {
             height: 0.95rem !important;
             width: 0.95rem !important;
         }
 
+<<<<<<< HEAD
         .owl-carousel.wholeMenu__carousel button.owl-dot {
             padding: 0px 3px !important;
         }
 
     }
+=======
+          .owl-carousel.wholeMenu__carousel button.owl-dot {
+              padding: 0px 3px !important;
+          }
+
+      }
+
+
+      @media (min-width: 400px) and (max-width: 520px) {
+          .dnone.dcontent {
+              display: contents;
+          }
+>>>>>>> f5885c258283ea3029ca0fc2565a760ca52dbf9a
 
     @media (min-width: 400px) and (max-width: 520px) {
         .dnone.dcontent {
@@ -103,6 +388,7 @@
             flex-direction: column;
         }
 
+<<<<<<< HEAD
         .order-now-btn2.boxshadow.wtc.men-ord {
             margin: auto;
             width: auto;
@@ -113,6 +399,16 @@
             width: auto;
             width: 317px;
         }
+=======
+          .menuFlex__card--img {
+              width: auto;
+              width: 317px;
+          }
+
+          .dnone.dcontent p {
+              width: 317px;
+          }
+>>>>>>> f5885c258283ea3029ca0fc2565a760ca52dbf9a
 
         .dnone.dcontent p {
             width: 317px;
