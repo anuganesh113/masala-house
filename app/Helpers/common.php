@@ -115,9 +115,9 @@ if (!function_exists('checkVegetarian')) {
     function checkVegetarian($item): bool|string
     {
         if (isset($item) && $item == 'veg') {
-            return 'Vegetarian';
+            return 'Veg';
         }
-        return 'Non-Vegetarian';
+        return 'Non-Veg';
     }
 }
 
@@ -212,11 +212,11 @@ if (!function_exists('banner')) {
 if (!function_exists('findfaqcount')) {
     function findfaqcount($model = null, $id = null)
     {
-   
-        if($model == 'event') {
+
+        if ($model == 'event') {
             $model = FAQ::where('model_type', 'event')->where('model_id', $id)->count();
             return $model;
-        } else if($model == 'menu') {
+        } else if ($model == 'menu') {
             $model = FAQ::where('model_type', 'menu')->where('model_id', $id)->count();
             return $model;
         } else {
@@ -225,7 +225,7 @@ if (!function_exists('findfaqcount')) {
         if (empty($model) || empty($id) || !class_exists($model)) {
             return 0;
         }
-        
-       
+
+
     }
 }
