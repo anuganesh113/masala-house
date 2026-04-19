@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-<style>
-    .menuboxshadow {
-        background: rgba(255, 255, 255, 0.92);
-        border-radius: 1.5rem;
-        border: 1px solid rgb(221 221 221);
-        padding: 20px 15px;
-    }
-
-    .menuboxshadow:hover {
-        background: rgb(243, 220, 203);
-    }
-=======
   <style>
     /* input[type="time"]::-webkit-calendar-picker-indicator {
     display: none;
@@ -58,7 +45,6 @@
       /* .menuboxshadow:hover {
           background: rgb(243, 220, 203);
       } */
->>>>>>> f5885c258283ea3029ca0fc2565a760ca52dbf9a
 
     .owl-theme.menuList__carousel .owl-stage-outer .owl-stage {
         transform: none !important;
