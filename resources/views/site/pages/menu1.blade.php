@@ -122,14 +122,8 @@
                                                     {!! $menu->excerpt ?? '<P> no description available</P> ' !!}
                                                 </div>
                                                 <div class="menuFlex__card--quantity orderdiv">
-<<<<<<< HEAD
                                                     <span class="foronly_mobilresponsive" style="color: rgb(229.5, 99.9, 0);font-weight: 600; font-size: 1.6rem;">${{ $menu->price }}</span>
                                                     <span class="cat catvegg float-end  mt-0 {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
-=======
-                                                    <span class="foronly_mobilresponsive" style="color: rgb(229.5, 99.9, 0);font-weight: 900;">${{ $menu->price }}</span>
-                                                    <span class="cat catvegg float-end mobresp  mt-0 {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
-                                                
->>>>>>> f5885c258283ea3029ca0fc2565a760ca52dbf9a
                                                     <span>
                                                         <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank"
                                                             class="order-now-btn2 boxshadow mobile wtc men-ord"
