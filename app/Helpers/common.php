@@ -115,9 +115,9 @@ if (!function_exists('checkVegetarian')) {
     function checkVegetarian($item): bool|string
     {
         if (isset($item) && $item == 'veg') {
-            return 'Veg';
+            return  strtoupper('Veg');
         }
-        return 'Non-Veg';
+        return strtoupper('Non-Veg');
     }
 }
 
