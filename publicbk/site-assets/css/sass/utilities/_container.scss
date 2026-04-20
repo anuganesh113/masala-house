@@ -1,0 +1,66 @@
+@use "../abstracts" as *;
+
+.l__container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem; /* Add padding for inner spacing */
+}
+
+/* Increased Bootstrap-like responsive max-widths */
+@media (min-width: 576px) {
+    .l__container {
+        max-width: 600px; /* Increased from 540px */
+    }
+}
+
+@media (min-width: 768px) {
+    .l__container {
+        max-width: 800px; /* Increased from 720px */
+    }
+}
+
+@media (min-width: 992px) {
+    .l__container {
+        max-width: 1040px; /* Increased from 1000px by 40px */
+    }
+}
+
+@media (min-width: 1200px) {
+    .l__container {
+        max-width: 1240px; /* Increased from 1200px by 40px */
+    }
+}
+
+@media (min-width: 1400px) {
+    .l__container {
+        max-width: 1440px; /* Increased from 1400px by 40px */
+    }
+}
+
+@media (min-width: 1500px) {
+    .l__container {
+        max-width: 1540px; /* Increased from 1400px by 40px */
+    }
+}
+
+@media (min-width: 1600px) {
+    .l__container {
+        max-width: 1640px; /* Increased from 1400px by 40px */
+    }
+}
+
+@media (min-width: 1700px) {
+    .l__container {
+        max-width: 1740px; /* Increased from 1400px by 40px */
+    }
+}
+
+.container-fluid {
+    padding-inline: 1.875rem;
+}
+
+@media only screen and (min-width: 1550px) {
+    .container-fluid {
+        padding-inline: 4.375rem;
+    }
+}

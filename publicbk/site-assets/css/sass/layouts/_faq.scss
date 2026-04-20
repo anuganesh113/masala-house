@@ -1,0 +1,38 @@
+@use "../abstracts" as *;
+@use "../base/font" as *;
+
+.faq {
+   .accordion {
+      &__item {
+         border-top: 1px solid $black;
+         &:last-child {
+            border-bottom: 1px solid $black;
+         }
+         &--title {
+            position: relative;
+            @include typography(clamp(1rem,2vw,1.25rem), 300);
+            padding: 0.75rem 0;
+            cursor: pointer;
+            i {
+               @include positionTR(absolute, 50%, 0);
+               transform: translateY(-50%);
+               font-size: 0.875rem;
+            }
+         }
+         &--content {
+            display: none;
+            margin-bottom: 1.25rem;
+            p {
+               @include typography(clamp(.875rem,2vw,1rem) !important, 300);
+            }
+         }
+         &.active {
+            .accordion__item--title {
+               i {
+                  transform: rotate(180deg);
+               }
+            }
+         }
+      }
+   }
+}
