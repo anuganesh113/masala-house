@@ -22,25 +22,25 @@
                         <li class="tab__buttons--btn active eventtabbtn"
                         data-image="{{ asset ('site-assets/images/events.png') }}"
                       
-                          data-event-name="lunch-combo" data-target="#eventTab1">
+                          data-event-name="lunch-combo" data-event-target="#eventTab1">
                             <span></span> Lunch Combo
                         </li>
                         <li class="tab__buttons--btn eventtabbtn"
                         data-image="{{ asset ('site-assets/images/events.png') }}"
                       
-                        data-event-name="wedding-events" data-target="#eventTab2">
+                        data-event-name="wedding-events" data-event-target="#eventTab2">
                             <span></span> Wedding Events
                         </li>
                         <li class="tab__buttons--btn eventtabbtn"  
                         data-image="{{ asset ('site-assets/images/events.png') }}"
                       
-                        data-event-name="festive-events" data-target="#eventTab3">
+                        data-event-name="festive-events" data-event-target="#eventTab3">
                             <span></span> Festive Events
                         </li>
                         <li class="tab__buttons--btn eventtabbtn" 
                         data-image="{{ asset ('site-assets/images/events.png') }}"
                       
-                        data-event-name="personal-events" data-target="#eventTab4">
+                        data-event-name="personal-events" data-event-target="#eventTab4">
                             <span></span> Personal Events
                         </li>
                     </ul>
@@ -144,27 +144,50 @@
 
 @push('footer')
 <script>
-    $(document).ready(function() {
-        var defaultImage = $('.eventtabbtn.active').data('image');
-        if (defaultImage) {
-            $('.eventimg').css('background-image', 'url("' + defaultImage + '")');
+    $(document).ready(function () {
+
+    var $eventSection = $('.event'); // scope wrapper
+    var defaultImage = "{{ asset('site-assets/images/events.png') }}";
+
+    // Set default background
+    var activeImage = $eventSection.find('.eventtabbtn.active').data('image');
+    $eventSection.find('.eventimg').css('background-image', 'url("' + (activeImage || defaultImage) + '")');
+
+    function isDesktop() {
+        return window.matchMedia("(min-width: 992px)").matches;
+    }
+
+    $eventSection.find('.eventtabbtn').on('click', function () {
+
+        var $this = $(this);
+        var target = $this.data('event-target');
+        var eventName = $this.data('event-name');
+        var image = $this.data('image');
+
+        // Active class toggle (ONLY inside event section)
+        $eventSection.find('.eventtabbtn').removeClass('active');
+        $this.addClass('active');
+
+        // Show content (ONLY inside event section)
+        $eventSection.find('.tab__contents--text').removeClass('active');
+        $eventSection.find(target).addClass('active');
+
+        // Background image (ONLY inside event section)
+        $eventSection.find('.eventimg').css('background-image', 'url("' + (image || defaultImage) + '")');
+
+        // Desktop scroll only
+        if (isDesktop()) {
+            $('html, body').animate({
+                scrollTop: $eventSection.offset().top - 50
+            }, 100);
         }
-        $('.eventtabbtn').click(function() {
-            var target = $(this).data('target');
-            var eventName = $(this).data('event-name');
-            var image = $(this).data('photo');
-            $('.eventtabbtn').removeClass('active');
-            $(this).addClass('active');
-            $('.tab__contents--text').removeClass('active');
-            $(target).addClass('active');
-            if (image) {
-                $('.eventimg').css('background-image', 'url("' + image + '")');
-            } else {
-                $('.eventimg').css('background-image', 'url("../../site-assets/images/events.png")');
-            }
-            
-  
-        });
+
+        // Hidden nav sync (ONLY inside event section if exists)
+        $eventSection.find('.event-hidden-nav li').removeClass('active');
+        $eventSection.find('.event-hidden-nav li[data-event="' + eventName + '"]').addClass('active');
+
     });
+
+});
 </script>
 @endpush
