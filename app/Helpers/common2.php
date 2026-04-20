@@ -2,7 +2,6 @@
 
 use App\Constants\General;
 use App\Enums\UploadFilePath;
-use App\Models\FAQ;
 use App\Models\Page;
 use App\Models\Setting;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -14,6 +13,7 @@ if (!function_exists('setting')) {
     {
         return Setting::first();
     }
+
 }
 
 if (!function_exists('appName')) {
@@ -42,7 +42,6 @@ if (!function_exists('adminProfileUrl')) {
         return asset(sprintf('%s%s', UploadFilePath::ADMINS_PATH, General::DEFAULT_ADMIN));
     }
 }
-
 
 if (!function_exists('allowedExtensions')) {
     function allowedExtensions(array $extensions, string $type = 'image'): string
@@ -98,7 +97,12 @@ if (!function_exists('getYoutubeVideoIdFromLink')) {
     }
 }
 
-
+if (!function_exists('requesturl')) {
+    function requesturl(): string
+    {
+        return 'https://www.toasttab.com/local/order/masala-house-2171-loveridge-road';
+    }
+}
 if (!function_exists('footerPages')) {
     function footerPages(): array|Collection
     {
@@ -109,15 +113,18 @@ if (!function_exists('footerPages')) {
             ->orderBy('order')
             ->get();
     }
+
+
 }
 
 if (!function_exists('checkVegetarian')) {
     function checkVegetarian($item): bool|string
     {
         if (isset($item) && $item == 'veg') {
-            return strtoupper('Veg');
+            return 'Vegetarian';
         }
-        return strtoupper('Non-Veg');
+
+        return 'Non-Vegetarian';
     }
 }
 
@@ -134,7 +141,10 @@ if (!function_exists('cssnonveg')) {
 }
 
 
-function getidVideo($link)
+
+
+
+function getYoutubeVideoId($link)
 {
     // Regex pattern to match YouTube video IDs from common URL formats
     $pattern = '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/|youtube\.com\/shorts\/)([^"&?\/\s]{11})/i';
@@ -144,114 +154,14 @@ function getidVideo($link)
         return isset($matches[1]) ? $matches[1] : null;
     }
 
-    return 'Ggngkm9qgdw';
+    // Return null if no match found
+    return null;
 }
 
+// // Example usage with your provided link:
+// $videoLink = 'https://www.youtube.com/shorts/Tm6iP_tWVoI';
+// $videoId = getYoutubeVideoId($videoLink);
 
-if (!function_exists('requesturl')) {
-    function requesturl(): string
-    {
-        $settings = setting(); // Call the function first
+// echo "Extracted Video ID: " . $videoId; 
+// }
 
-        if (isset($settings) && data_get($settings, 'social.ordernow')) {
-            return data_get($settings, 'social.ordernow');
-        } else {
-            return request()->url();
-        }
-    }
-}
-
-
-if (!function_exists('title')) {
-    function title()
-    {
-        $settings = setting(); // Call the function first
-
-        if (isset($settings) && data_get($settings, 'seo.title')) {
-            return data_get($settings, 'seo.title');
-        } else {
-            return 'masalahouse';
-        }
-    }
-}
-
-if (!function_exists('google_map_address')) {
-    function google_map_address()
-    {
-        $settings = setting(); // Call the function first
-
-        if (isset($settings) && data_get($settings, 'metadata.google_map_address')) {
-            return data_get($settings, 'metadata.google_map_address');
-        } else {
-            return  url('/');
-        }
-    }
-}
-
-
-if (!function_exists('description')) {
-    function description()
-    {
-
-        $settings = setting(); // Call the function first
-
-        if (isset($settings) && data_get($settings, 'seo.description')) {
-            return data_get($settings, 'seo.description');
-        } else {
-            return 'masalahouse';
-        }
-    }
-}
-
-if (!function_exists('keywords')) {
-    function keywords()
-    {
-        $settings = setting(); // Call the function first
-
-        if (isset($settings) && data_get($settings, 'seo.keywords')) {
-            return data_get($settings, 'seo.keywords');
-        } else {
-            return 'masalahouse';
-        }
-    }
-}
-
-if (!function_exists('banner')) {
-    function banner()
-    {
-        return asset('site-assets/images/logo-color.png');
-    }
-}
-
-
-if (!function_exists('findfaqcount')) {
-    function findfaqcount($model = null, $id = null)
-    {
-
-        if ($model == 'event') {
-            $model = FAQ::where('model_type', 'event')->where('model_id', $id)->count();
-            return $model;
-        } else if ($model == 'menu') {
-            $model = FAQ::where('model_type', 'menu')->where('model_id', $id)->count();
-            return $model;
-        } else {
-            return 0;
-        }
-        if (empty($model) || empty($id) || !class_exists($model)) {
-            return 0;
-        }
-    }
-}
-
-if (!function_exists('googlesiteverification')) {
-    function googlesiteverification()
-    {
-        if (url('/') == 'https://masalahousepittsburg.com') {
-            return 'PVElXv82RpomDLSiiyhvSw8In_ACNXiFC_y-l6RwEXA';
-        } else if (url('/') == 'https://masalahouseconcord.com') {
-            return 'IyLE8ME610THleFQzEQG4wIUNigDiuE-ES5hcaKKmXM';
-        } else {
-            return '';
-        }
-    }
-}
