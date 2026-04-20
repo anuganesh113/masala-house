@@ -11,34 +11,43 @@
                <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
             </li>
             @foreach(footerPages() ?? [] as $page)
-               <li>
-                  <a href="{{ url(data_get($page, 'slug')) }}">{{ data_get($page, 'name') }}</a>
-               </li>
+            <li>
+               <a href="{{ url(data_get($page, 'slug')) }}">{{ data_get($page, 'name') }}</a>
+            </li>
             @endforeach
 
 
          </ul>
          <ul class="social__icon">
+            @if(data_get($setting, 'social.facebook'))
             <li>
                <a target="_blank" href="{{ data_get($setting, 'social.facebook') }}">
                   <i class="fab fa-facebook-f"></i>
                </a>
             </li>
+            @endif
+            @if(data_get($setting, 'social.twitter'))
+
             <li>
                <a target="_blank" href="{{ data_get($setting, 'social.twitter') }}">
                   <i class="fab fa-twitter"></i>
                </a>
             </li>
+            @endif
+            @if(data_get($setting, 'social.instagram'))
             <li>
                <a target="_blank" href="{{ data_get($setting, 'social.instagram') }}">
                   <i class="fab fa-instagram"></i>
                </a>
             </li>
+            @endif
+            @if(data_get($setting, 'social.youtube'))
             <li>
                <a target="_blank" href="{{ data_get($setting, 'social.youtube') }}">
                   <i class="fab fa-youtube"></i>
                </a>
             </li>
+            @endif
          </ul>
       </div>
       <div class="row">
@@ -51,9 +60,9 @@
                   <a href="{{ url('menu') }}">menu</a>
                </li>
                @foreach($pages ?? [] as $page)
-                  <li>
-                     <a href="{{ url(data_get($page, 'slug')) }}">{{ data_get($page, 'name') }}</a>
-                  </li>
+               <li>
+                  <a href="{{ url(data_get($page, 'slug')) }}">{{ data_get($page, 'name') }}</a>
+               </li>
                @endforeach
 
             </ul>
@@ -64,22 +73,20 @@
                   <h2>Opening Hours</h2>
                   <p style="font-weight: 400;"> {!! data_get($setting, 'metadata.opening_days') !!} </p>
 
-
-                  <h2 class=""><i class="fa-solid fa-clock org_color" style="font-size: 20px;"></i>
-                     {!! data_get($setting, 'metadata.opening_time') !!} </h2>
+                   
+                 <h2 class=""><i class="fa-solid fa-clock org_color" style="font-size: 20px;"></i>  {!! data_get($setting, 'metadata.opening_time') !!} </h2>
                   <!-- @include('components.site._openingpopup') -->
-
+               
                </div>
                <div class="box">
                   <h2>Book a Table</h2>
                   <p>{!! data_get($setting, 'footer_text') !!}</p>
-
+                  
                </div>
                <div class="box">
                   <h2>Our Address</h2>
                   <p>{{ data_get($setting, 'address') }}</p>
-                  <a href="tel:{{ data_get($setting, 'contact') }}" class="number"><i class="fas fa-phone"></i>
-                     {{ data_get($setting, 'contact') }}</a>
+            <a href="tel:{{ data_get($setting, 'contact') }}" class="number"><i class="fas fa-phone"></i> {{ data_get($setting, 'contact') }}</a>
 
                </div>
             </div>
@@ -92,7 +99,7 @@
          </div>
       </div>
       <div class="footer__bottom">
-         <p>© {{ date('Y') }} Masala House. All Rights Reserved.</p>
+         <p>© {{ date('Y') }} {{ config('app.name') }}. All Rights Reserved.</p>
       </div>
    </div>
 </footer>

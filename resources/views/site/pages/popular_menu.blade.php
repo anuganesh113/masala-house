@@ -30,7 +30,7 @@
                                         <div class="contents">
                                             <div class="menuFlex__card--title">
                                                 <h3 class="name">{{ $item->name }}
-                                              <span class="cat bg-green bt-fr mobdnone" style="margin-left: 10px;">{{ checkVegetarian($item->type) }}</span>
+                                              <span class="cat text-white  bt-fr mobdnone {{$item->type == 'veg' ? 'bg-green' : 'cssnonveg'}}" style="margin-left: 10px;">{{ checkVegetarian($item->type) }}</span>
 
                                                 </h3>
                                                 <span class="price">${{ $item->price }}</span>
@@ -40,7 +40,7 @@
                                                     {!!strip_tags(substr($item->excerpt, 0, 180))!!}
                                                 </p>
                                                <div class="d-lg-none"> 
-                                                <span class="cat bg-green" >{{ checkVegetarian($item->type) }}</span>
+                                                <span class="cat text-white {{$item->type == 'veg' ? 'bg-green' : 'cssnonveg'}}" >{{ checkVegetarian($item->type) }}</span>
 
                                                 
                                                 </div>
@@ -67,7 +67,7 @@
                                             <div class="menuFlex__card--title">
                                                 <h3 class="name">{{ $item->name }}
 
-                                                 <span class="cat bg-green bt-fr" style="margin-left: 10px;">{{ checkVegetarian($item->type) }}</span>
+                                                 <span class="cat text-white {{$item->type == 'veg' ? 'bg-green' : 'cssnonveg'}}" style="margin-left: 10px;">{{ checkVegetarian($item->type) }}</span>
                                                 </h3>
                                                
                                             </div>
@@ -78,7 +78,7 @@
 
                                                 </p>
                                                    <div class="d-lg-none"> 
-                                                <span class="cat bg-green" >{{ checkVegetarian($item->type) }}</span>
+                                                <span class="cat text-white {{$item->type == 'veg' ? 'bg-green' : 'cssnonveg'}}" >{{ checkVegetarian($item->type) }}</span>
 
                                                 
                                                 </div>

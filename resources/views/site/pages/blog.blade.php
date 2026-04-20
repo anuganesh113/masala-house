@@ -130,16 +130,19 @@
     </div>
     <div class="banner__page--content">
         <h1>Blog</h1>
-        <p>{{ $blog->name }}</p>
-    </div>
+              <p> <a href="{{url('/') }}" class="text-white"><i class="fas fa-home" style="font-size: 27px;"></i></a> / {{$blog->name  ?? 'blog Name'}}</p>
+
+        
+    
 </section>
 
 <section class="about mbabout">
     <div class="container">
         <div class="row">
             <!-- Main Content Column -->
-            <div class="col-sm-8 col-lg-8">
-                <div class="boxshadow plt-50" style="position: sticky;top: -33.5rem;z-index: 3;">
+            <div class="col-sm-12 col-lg-12">
+                <!-- style="position: sticky;top: -33.5rem;z-index: 3;" -->
+                <div class="boxshadow plt-50" >
                     <div class="about__img position-static mb-4 d-block">
                         <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::BLOGS_PATH, data_get($blog, 'image'))) }}"
                             alt="{{ $blog->image_alt ??  $blog->name }}"
@@ -168,7 +171,7 @@
             </div>
 
             <!-- Sidebar Column -->
-            <div class="col-sm-4 col-lg-4">
+            <div class="col-sm-4 col-lg-4  d-none">
                 <!-- Recent Blogs Widget -->
                 <div class="sidebar-widget section__title boxshadow plt-50 mb-rect">
                     <h2 class="fxl blog">Recent Blogs</h2>
