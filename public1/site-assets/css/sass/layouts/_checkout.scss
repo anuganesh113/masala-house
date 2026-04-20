@@ -1,0 +1,660 @@
+@use "../abstracts" as *;
+@use "../base/font" as *;
+
+.breadcrumb__custom {
+   margin-top: 6.875rem;
+}
+
+.checkout {
+   .top {
+      background-color: $white;
+      border-radius: 1.5625rem;
+      box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
+      padding: clamp(1rem, 3vw, 2rem);
+      margin-bottom: 3.4375rem;
+   }
+   .progress {
+      margin-bottom: 1.75rem;
+      background-color: #c9c9c9;
+      position: relative;
+      &::after,
+      &::before {
+         content: "";
+         @include hw(3px, clamp(4.5rem, 5vw, 6rem));
+         background-color: $white;
+         @media (max-width: ($breakpoint-767)) {
+            width: auto;
+         }
+      }
+      &::before {
+         @include positionTL(absolute, 0, 0);
+      }
+      &::after {
+         @include positionTR(absolute, 0, 0);
+      }
+      &-bar {
+         background-color: $primary;
+      }
+   }
+   .step {
+      &-box {
+         position: relative;
+         text-align: center;
+         &-circle {
+            cursor: pointer;
+         }
+         &::before {
+            content: "";
+            @include hw(1.25rem, 1.25rem);
+            background-color: #c9c9c9;
+            @include positionTL(absolute, -2.4375rem, 50%);
+            transform: translateX(-50%);
+            border-radius: 50%;
+         }
+         span {
+            @include typography(clamp(1rem, 3vw, 1.375rem), 600);
+            display: block;
+            color: #1c1c1c;
+         }
+         h4 {
+            @include typography(clamp(0.8125rem, 3vw, 1.5625rem), 500);
+            display: block;
+            color: #a6a3a1;
+            margin-bottom: 0;
+         }
+         &.active {
+            h4 {
+               color: $primary;
+            }
+            &::before {
+               background-color: $primary;
+            }
+         }
+      }
+   }
+}
+
+.checkout {
+   .step {
+      .l__button--secondary {
+         padding: 0.5rem 2rem;
+         border-radius: 0.625rem;
+      }
+   }
+   &__list {
+      box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.1);
+      background-color: $white;
+      padding: clamp(1rem, 3vw, 2.125rem) clamp(1rem, 3vw, 1.625rem);
+      border-radius: 1rem;
+   }
+   &__card {
+      display: flex;
+      gap: clamp(1rem, 3vw, 2rem);
+      border-bottom: 1px solid $black;
+      padding-bottom: 2.125rem;
+      margin-bottom: 2.125rem;
+      position: relative;
+      &:last-child {
+         padding-bottom: 0;
+         margin-bottom: 0;
+         border-bottom: none;
+      }
+      @media (max-width: ($breakpoint-767)) {
+         flex-direction: column;
+      }
+      &--img {
+         width: 16.875rem;
+         flex: 0 0 auto;
+         @media (max-width: ($breakpoint-767)) {
+            height: 8.125rem;
+            width: 10.9375rem;
+         }
+         .image {
+            @include backgroundImg(center, no-repeat, cover);
+            border-radius: 0.9375rem;
+            @include hw(100%, 100%);
+         }
+      }
+      &--content {
+         .head {
+            margin-bottom: 1rem;
+            @include flex-between(center, 1rem);
+            h3 {
+               @include typography(clamp(1.125rem, 2vw, 1.5rem), 600);
+               margin-bottom: 0;
+               color: $black;
+               @include line-clamp(2);
+            }
+            span {
+               color: $primary;
+               font-size: 3rem;
+               @media (max-width: ($breakpoint-767)) {
+                  font-size: 2rem;
+                  @include positionTR(absolute, 0, 0);
+               }
+            }
+         }
+         .body {
+            margin-bottom: 2rem;
+            .cat {
+               margin-bottom: 1rem;
+            }
+            p {
+               color: #777777;
+               @include line-clamp(4);
+               @media (max-width: ($breakpoint-575)) {
+                  font-size: 0.875rem !important;
+               }
+            }
+         }
+         .foot {
+            @include flex-between(center, 1rem);
+            h4 {
+               @include typography(clamp(1.125rem, 2vw, 1.875rem), 500);
+               margin-bottom: 0;
+            }
+            h5 {
+               @include typography(clamp(1.125rem, 2vw, 1.875rem), 500);
+               margin-bottom: 0;
+               font-family: $sansita;
+            }
+            .box {
+               background-color: #f0f0f0;
+               border-radius: 1.5625rem;
+               overflow: hidden;
+               padding: 0.75rem clamp(1rem, 2vw, 1.5rem);
+               @include flex-center(0);
+               button {
+                  border: none;
+                  font-size: clamp(0.625rem, 2vw, 1.375rem);
+               }
+               input {
+                  border: none;
+                  background-color: transparent;
+                  width: 3.125rem;
+                  text-align: center;
+                  font-size: clamp(0.625rem, 2vw, 1.375rem);
+               }
+            }
+         }
+      }
+   }
+   .sidebar {
+      box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.1);
+      background-color: $white;
+      padding: clamp(1rem, 2vw, 2rem);
+      border-radius: 1rem;
+      .title {
+         margin-bottom: 1.875rem;
+         h3 {
+            @include typography(clamp(1.5rem, 2vw, 2rem), 600);
+            margin-bottom: 1.375rem;
+         }
+         p {
+            @include typography(1.25rem, 400);
+            color: #585858;
+            line-height: 1.5;
+         }
+      }
+      .otp {
+         margin-bottom: 2.25rem;
+         padding-bottom: 2.25rem;
+         border-bottom: 1px solid $black;
+         label {
+            @include typography(clamp(1.125rem, 3vw, 1.375rem), 400);
+            margin-bottom: 0.875rem;
+            display: block;
+         }
+         input {
+            padding: clamp(0.625rem, 3vw, 1.25rem) clamp(0.625rem, 3vw, 1rem);
+            border: 1px solid #cfcfcf;
+            width: 100%;
+            margin-bottom: 1.25rem;
+         }
+         .l__button--primary {
+            padding: 0.25rem 2rem;
+            border-radius: 0.75rem;
+         }
+         a {
+            color: #f60000;
+            @include typography(1.125rem, 400);
+         }
+         small {
+            @include typography(1.125rem, 400);
+         }
+      }
+      .reorder {
+         h3 {
+            @include typography(1.625rem, 600);
+            margin-bottom: 1.5625rem;
+         }
+         &__list {
+            @include ul(0, 0);
+         }
+         &__card {
+            list-style: none;
+            display: flex;
+            gap: 0.875rem;
+            background-color: #f8fdff;
+            border: 1px solid #cfcfcf;
+            padding: 0.5rem 0.625rem;
+            border-radius: 0.375rem;
+            margin-bottom: 1.25rem;
+            &:last-child {
+               margin-bottom: 0;
+            }
+            &--img {
+               width: 6.25rem;
+               flex: 0 0 auto;
+               .image {
+                  @include backgroundImg(center, no-repeat, cover);
+                  @include hw(100%, 100%);
+                  border-radius: 0.375rem;
+               }
+            }
+            &--content {
+               @include flex-between(center, 1rem);
+               width: 100%;
+               h4 {
+                  @include typography(1.125rem, 600);
+                  margin-bottom: 0.25rem;
+               }
+               .time {
+                  @include typography(0.875rem, 400);
+                  margin-bottom: 0.25rem;
+               }
+               .price {
+                  @include typography(0.9375rem, 500);
+               }
+               .icon i {
+                  font-size: 3.125rem;
+                  &.bx-plus {
+                     color: #ff6f00;
+                  }
+                  &.bx-check {
+                     color: #62990a;
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+
+.customize {
+   .faq {
+      .accordion__item {
+         background-color: $white;
+         border-radius: 1.5625rem;
+         box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.1);
+         // padding: 2rem 3.125rem;
+         padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 4vw, 3.125rem);
+
+         border: none;
+         margin-bottom: 2rem;
+         &:last-child {
+            margin-bottom: 0;
+         }
+         &--title {
+            position: relative;
+
+            .head {
+               @include flex-between(center, 1rem);
+               width: 95%;
+               h5,
+               h4 {
+                  @include typography(clamp(1rem, 2vw, 1.875rem), 500);
+               }
+               @media (max-width: ($breakpoint-767)) {
+                  h5 {
+                     font-size: 0.75rem;
+                  }
+               }
+            }
+            i {
+               @include positionTR(absolute, 50%, 0);
+               transform: translateY(-50%) rotate(0deg) !important;
+            }
+         }
+         &.active {
+            .accordion__item--title {
+               i {
+                  transform: translateY(-50%) rotate(180deg) !important;
+               }
+            }
+         }
+         &--content {
+            margin-top: clamp(1rem, 3vw, 2.125rem);
+            padding-top: clamp(1rem, 3vw, 2.125rem);
+            border-top: 1px solid #cfcfcf;
+            .box {
+               margin-bottom: 1.875rem;
+               &:last-child {
+                  margin-bottom: clamp(1rem, 3vw, 2.125rem);
+                  padding-bottom: clamp(1rem, 3vw, 2.125rem);
+                  border-bottom: 1px solid #cfcfcf;
+               }
+               h4 {
+                  @include typography(clamp(14px, 2vw, 1.5rem), 500);
+                  margin-bottom: clamp(0.625rem, 2vw, 1.25rem);
+               }
+               ul {
+                  @include flex-start(clamp(1.125rem, 2vw, 1.625rem));
+                  flex-wrap: wrap;
+                  @include ul(0, 0);
+                  .item {
+                     list-style: none;
+                     .form-check {
+                        padding-left: 0;
+                        &-label {
+                           cursor: pointer;
+                           background-color: #f1f1f1;
+                           @include typography(clamp(0.6875rem, 2vw, 1.125rem), 500);
+                           padding: 0.3125rem clamp(1rem, 4vw, 3.125rem);
+                           border-radius: 1.5625rem;
+                        }
+                        &-input {
+                           display: none;
+                           &:checked {
+                              & + label {
+                                 background-color: $primary;
+                                 color: $white;
+                              }
+                           }
+                        }
+                     }
+                  }
+               }
+            }
+            .sidebar {
+               h4 {
+                  @include typography(1.5rem, 600);
+                  margin-bottom: 0.875rem;
+               }
+               p {
+                  @include typography(1rem, 500);
+                  margin-bottom: 1.125rem;
+                  color: #575757;
+               }
+            }
+         }
+      }
+   }
+}
+
+.summary {
+   &__wrapper {
+      box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.1);
+      background-color: $white;
+      padding: clamp(1rem,2vw,2rem);
+      border-radius: 1rem;
+   }
+   &__box {
+      margin-bottom: 1.625rem;
+      h4 {
+         @include typography(clamp(1.5rem,2vw,1.625rem), 600);
+         padding-bottom: 1.25rem;
+         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      ul {
+         @include ul(0, 0);
+         li {
+            padding-block: 0.875rem;
+            @include flex-between(center, 1rem);
+            list-style: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            & :where(span, strong) {
+               @include typography(1.25rem, 500);
+            }
+            span {
+               color: rgba(0, 0, 0, 0.6);
+            }
+            &:last-child {
+               padding-bottom: 2rem;
+               border-color: $black;
+               & :where(span, strong) {
+                  font-weight: 700;
+                  color: $black;
+               }
+            }
+         }
+      }
+   }
+   &__req {
+      h4 {
+         @include typography(1.375rem, 600);
+         margin-bottom: 0.75rem;
+      }
+      p {
+         @include typography(0.9375rem, 400);
+         margin-bottom: 0.75rem;
+         margin-bottom: 1.375rem;
+      }
+      .form__group {
+         position: relative;
+         margin-block: 1.375rem;
+         @include flex-box(start, start, 1rem);
+         .icon {
+            @include positionTL(absolute, 50%, 1rem);
+            transform: translateY(-50%);
+            color: #808080;
+         }
+         input {
+            background-color: #f0f0f0;
+            border: none;
+            width: calc(100% - 7.3125rem);
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border-radius: 0.625rem;
+         }
+         button {
+            display: block;
+            width: auto;
+         }
+      }
+      .l__button--primary {
+         border-radius: 0.75rem;
+         width: 100%;
+      }
+      .bank-icon {
+         @include ul(0, 0);
+         @include flex-start(clamp(1rem, 3vw, 2rem));
+         margin-top: 1.125rem;
+         li {
+            list-style: none;
+            border: 1px solid #b7b7b74d;
+            box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.2);
+            padding: 0.75rem 0.5625rem;
+            img {
+               @include img(1rem, auto, contain);
+            }
+         }
+      }
+   }
+}
+
+.tracking {
+   .section__title {
+      margin-bottom: 2rem;
+      h2 {
+         max-width: 50rem;
+         margin-inline: auto;
+      }
+   }
+   &__box {
+      & :where(h4, h5) {
+         text-align: center;
+         font-family: $sansita;
+         @include typography(2rem, 400);
+      }
+      h4 {
+         color: $primary;
+         @media (max-width:($breakpoint-767)) {
+            font-size: 1.5rem;
+         }
+      }
+      h5 {
+         color: #8c8c8c;
+      }
+   }
+   &__wrapper {
+      &__card {
+         position: relative;
+         // padding-block: 3.75rem;pb200
+         padding-bottom: clamp(4.6875rem,8vw,9.375rem);
+         &::before {
+            content: "";
+            @include hw(100%, 0.1875rem);
+            background-color: #8c8c8c;
+         }
+         &--icon {
+            background-color: #8c8c8c;
+            @include hw(6.25rem,6.25rem);
+            border-radius: 50%;
+            align-content: center;
+            @media (max-width:($breakpoint-991)) {
+               @include hw(5rem,5rem);
+            }
+            @media (max-width:($breakpoint-767)) {
+               @include hw(3.4375rem,3.4375rem);
+            }
+            img {
+               @include img(3.4375rem,3.4375rem, contain);
+               margin: auto;
+               @media (max-width:($breakpoint-991)) {
+                  @include hw(2.8125rem,2.8125rem);
+               }
+               @media (max-width:($breakpoint-767)) {
+                  @include hw(2rem,2rem);
+               }
+            }
+         }
+         &--content {
+            h5 {
+               @include typography(clamp(.75rem,2vw,1.375rem), 600);
+               margin-bottom: 0.625rem;
+               text-align: right;
+            }
+            h6 {
+               @include typography(clamp(.625rem,2vw,1.375rem), 500);
+               margin-bottom: 0;
+            }
+         }
+         &.active {
+            &::before {
+               background-color: $primary;
+            }
+            .tracking__wrapper__card {
+               &--icon {
+                  background-color: $primary;
+               }
+               &--content {
+                  h5 {
+                     color: $primary;
+                  }
+               }
+            }
+         }
+      }
+      .row {
+         &:nth-child(odd) {
+            .tracking__wrapper__card {
+               &::before {
+                  @include positionTR(absolute, 0, 0);
+               }
+               &--icon {
+                  @include positionTR(absolute, 0, -3.125rem);
+                  // transform: translateY(-50%);
+                  @media (max-width:($breakpoint-991)) {
+                     right: -2.5rem;
+                  }
+                  @media (max-width:($breakpoint-767)) {
+                     right: -1.6875rem;
+                  }
+               }
+               &--content {
+                  padding-right: clamp(4rem,8vw,7.5rem);
+                  text-align: right;
+               }
+            }
+         }
+         &:nth-child(even) {
+            justify-content: end;
+            .tracking__wrapper__card {
+               &::before {
+                  @include positionTL(absolute, 0, -0.1875rem);
+               }
+               &--icon {
+                  @include positionTL(absolute, 0, -3.125rem);
+                  // transform: translateY(-50%);
+                  @media (max-width:($breakpoint-991)) {
+                     left: -2.5rem;
+                  }
+                  @media (max-width:($breakpoint-767)) {
+                     left: -1.6875rem;
+                  }
+               }
+               &--content {
+                  padding-left: clamp(4rem,8vw,7.5rem);
+                  text-align: left;
+                  h5 {
+                     text-align: left;
+                  }
+               }
+            }
+         }
+         &:first-child {
+            .tracking__wrapper__card {
+               padding-top: clamp(3.125rem,5vw,6.25rem);
+               &--icon {
+                  top: clamp(3.125rem,5vw,6.25rem);
+               }
+            }
+         }
+         &:last-child {
+            .tracking__wrapper__card {
+               padding-bottom: clamp(3.125rem,5vw,6.25rem);
+            }
+         }
+      }
+   }
+}
+
+.subscribe {
+   background-color: $primary;
+   padding: 2.5rem 3.75rem;
+   border-radius: 1.25rem;
+   position: relative;
+   z-index: 1;
+   .row {
+      align-items: center;
+   }
+   h2 {
+      color: $white;
+      max-width: 40rem;
+      @include typography(2.25rem, 600);
+      margin-bottom: 0;
+   }
+   form {
+      position: relative;
+      .icon {
+         @include positionTL(absolute, 0.875rem, 1rem);
+         color: gray;
+      }
+      input {
+         display: block;
+         width: 100%;
+         border: transparent;
+         background-color: $white;
+         padding-left: 3rem;
+         padding-block: 0.75rem;
+         border-radius: 1.5625rem;
+         font-size: 1.125rem;
+         margin-bottom: 0.875rem;
+      }
+      .l__button {
+         padding-block: 0.75rem;
+         width: 100%;
+         border-radius: 1.5625rem;
+      }
+   }
+}

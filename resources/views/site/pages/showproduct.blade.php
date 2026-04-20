@@ -44,7 +44,7 @@
             <section class="product-info">
                 <h1 class="product-title">{{$menu->name ?? 'Product Name'}}</h1>
                 <p class="product-short-desc">
-                    {!!$menu->description ?? $menu->excerpt ?? 'Short product description goes here. This should be a brief summary that highlights the key features and appeal of the dish, enticing customers to learn more.'!!}
+                    {!! strip_tags($menu->excerpt ?? 'Short product description goes here. This should be a brief summary that highlights the key features and appeal of the dish, enticing customers to learn more.') !!}
                 </p>
                 <div class="price-row">
                     <span class="price">${{$menu->price ?? '0.00'}}</span>
@@ -58,7 +58,7 @@
             <!-- Tabs Section -->
             <section class="tabs-container">
                 <div class="tabs-header">
-                    <button class="tab active" data-target="overview"><i class="fas fa-file-alt"></i> Overview</button>
+                    <button class="tab active" data-target="overview"><i class="fas fa-file-alt"></i> Description</button>
                     <div class="tab-divider"></div>
                     <button class="tab" data-target="faq"><i class="fas fa-question-circle"></i> FAQ</button>
                     <div class="tab-divider"></div>
@@ -366,15 +366,28 @@
                             <h3 class="titlehgt">
                                 <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">{{ $menu->name }}</a>
                             </h3>
-                            <div class="menu__card--price">${{ $menu->price }}</div>
+                            <div >
+                                
+                            <span class="menu__card--price">${{ $menu->price }}</span>
+                            <span class="text-white br-25  bt-fr {{$menu->type == 'veg' ? 'bg-green' : 'cssnonveg'}}" style="font-size: 0.725rem;font-weight: 400;padding: 5px 15px 5px 15px;">{{ checkVegetarian($menu->type) }}</span>
+                            </div>
+
                         </div>
                         <div class="itemexcerpthover">
-                            {!! $menu->excerpt !!}
+                            <p>{!! strip_tags($menu->excerpt ?? 'no description available') !!}</p>
                         </div>
-                        <div class="menu__card--footer">
+                        <!-- <div class="menu__card--footer">
                             <span class="cat veg-btn bt-fr {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
                             <a class="menu__card--cta order-now-btn  mr-l wtc" href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">Order Now</a>
-                        </div>
+                        </div> -->
+                                <div class="menu__card--footer">
+                  <span class="btn veg-btn bt-fr  menuviewbtn br-25 iisection mb-1" style="width: 100%;">
+                     <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}" target="_blank" style="color: inherit;font-size: 18px;">
+                        <i class="fas fa-search"></i> View Details
+                     </a>
+                  </span>
+                  <a class="menu__card--cta order-now-btn viewip   mr-l wtc mb-1"  style="width: 100%;"  href="{{ requesturl() . '/' . $menu->slug  }}"  target="_blank"><i class="fas fa-shopping-cart"></i> Order Now</a>
+               </div>
                     </div>
                 </div>
             </div>
@@ -396,7 +409,7 @@
         loop: true,
         margin: 30,
         responsiveClass: true,
-        autoplay: true,
+        autoplay: false,
         autoplayHoverPause: true,
         autoplaySpeed: 2000,
         lazyLoad: true,

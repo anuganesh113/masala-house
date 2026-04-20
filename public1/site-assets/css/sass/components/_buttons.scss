@@ -1,0 +1,74 @@
+@use "../abstracts" as *;
+@use "../base/font" as *;
+
+.l__button {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: $white;
+    text-transform: capitalize;
+    border: 2px solid $btnColor;
+    padding: .875rem 1.5625rem;
+    @include typography(1.125rem, 600);
+    background-color: $white;
+    display: inline-block;
+    transition: all 0.8s ease;
+    text-decoration: none;
+    text-align: center;
+    @media (max-width: ($breakpoint-767)) {
+        font-size: 1rem;
+        padding: .5rem 1.125rem;
+    }
+    i {
+        margin-left: 0.3125rem;
+    }
+    &--primary {
+        color: $white;
+        border-color: $primary;
+        background-color: $primary;
+        &:hover {
+            border-color: $secondary;
+            color: $white;
+            background-color: $secondary;
+        }
+    }
+    &--secondary {
+        color: $white;
+        background-color: $secondary;
+        border-color: $secondary;
+        &:hover {
+            border-color: $primary;
+            color: $white;
+            background-color: $primary;
+        }
+    }
+    &--transparent {
+        color: $primary;
+        background-color: transparent;
+        border-color: $primary;
+        &:hover {
+            border-color: $primary;
+            background-color: $primary;
+            color: $white ;
+        }
+    }
+    &--border {
+        border-color: $primary;
+        color: $primary;
+        &:hover {
+            color: $primary;
+            border-color: $primary;
+            background-color: $primary;
+            color: $white;
+        }
+    }
+    &:hover {
+        &:before {
+            width: 100%;
+        }
+    }
+    @media (max-width: ($breakpoint-480)) {
+        padding: 0.625rem 1rem;
+        font-size: 0.9375rem;
+    }
+}

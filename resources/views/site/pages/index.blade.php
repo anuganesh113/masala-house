@@ -19,9 +19,9 @@
 @section('content')
 
 <style>
-  .experience::before {
-    content: "{{ $settings['below_experience_text'] ?? 'EXPERIENCE' }}";
-  }
+    .experience::before {
+        content: "{{ $settings['below_experience_text'] ?? 'EXPERIENCE' }}";
+    }
 </style>
 <x-site.banner />
 
@@ -35,12 +35,12 @@
         <div class="row">
             <div class="col-lg-7 offset-lg-5 col-xl-6 offset-xl-6">
                 <div class="section__title">
-               
+
                     <h4> {{ $about->metadata['sub_heading'] ?? 'Since 2015' }} </h4>
                     <h2> {{ $about->metadata['sub_title'] ?? 'Wonderful Dining Experience & Indian Food' }} </h2>
                 </div>
                 <div class="content">
-                    {!!   $about->excerpt ??  $about->description !!}
+                    {!! $about->excerpt ?? $about->description !!}
                 </div>
                 <div class="btn__group">
                     <button class="l__button l__button--primary" data-bs-toggle="modal"
@@ -68,8 +68,8 @@
 <!-- family together section start -->
 <section class="family p__tb--t">
     <div class="section__title text-center">
-        <h5>{{ $settings['section_3_heading'] ?? 'Grab a grand orders for your family'  }}  </h5>
-        <h2>  {{ $settings['section_3_title'] ?? 'Family Together'  }} </h2>
+        <h5>{{ $settings['section_3_heading'] ?? 'Grab a grand orders for your family'  }} </h5>
+        <h2> {{ $settings['section_3_title'] ?? 'Family Together'  }} </h2>
         @include("site.includes.scroll")
     </div>
     <div class="owl-carousel owl-theme family__carouselss">
@@ -123,7 +123,7 @@
 
                             <div class="owl-carousel owl-theme wholeMenu__carousel">
                                 @foreach ($category->menus as $item)
-                              
+
                                 <div class="item">
                                     <div class="menu__card">
                                         <div class="menu__card--img">
@@ -151,16 +151,24 @@
                                         </div>
                                         <div class="menu__card--content">
                                             <h3 class="titlehgt"><a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">{{ $item->name }} </a>
+
                                             </h3>
-                                            <h6 class="menu_price_color">${{ $item->price }} </h6>
                                             <div class="exploreour catexploreour itemexcerpthover" style="min-height: 50px;">
-                                                {!! $item->excerpt !!}
+                                                <p>{!! strip_tags($item->excerpt ?? 'no description available') !!}</p>
+                                            </div>
+                                            <div class="mt-2">
+
+                                                <span class="menu__card--price">${{ $item->price }}</span>
+                                                <span class="text-white br-25  bt-fr {{$item->type == 'veg' ? 'bg-green' : 'cssnonveg'}}" style="font-size: 0.725rem;font-weight: 400;padding: 5px 15px 5px 15px;">{{ checkVegetarian($item->type) }}</span>
                                             </div>
 
                                             <div class="menu__card--footer">
-                                             
-                                                <span class="cat veg-btn-e bt-fr {{cssnonveg($item->type)}}">{{ checkVegetarian($item->type) }}</span>
-                                                <a class="menu__card--cta order-now-btn mr-l wtc" href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">Order Now</a>
+                                                <!-- <span class="btn veg-btn bt-fr  menuviewbtn br-25 iisection mb-1" style="width: 100%;">
+                                                    <a href="{{ route('site.product', ['slug' => $item->slug , 'id' => $item->id]) }}" target="_blank" style="color: inherit;font-size: 18px;">
+                                                        <i class="fas fa-search"></i> View Details
+                                                    </a>
+                                                </span> -->
+                                                <a class="menu__card--cta order-now-btn viewip wtc mb-1" style="width: 100%;margin: auto;margin-top: 35px;" href="{{ requesturl() . '/' . $item->slug  }}" target="_blank"><i class="fas fa-shopping-cart"></i> Order Now</a>
                                             </div>
 
                                         </div>
@@ -172,13 +180,13 @@
 
                             <div class="owl-carousel owl-theme wholeMenu__carousel d-none d-md-block " style="{{ count($category->menusOrdered) > 3 ? '' : 'display: none!important;' }}">
 
-     
+
                                 @foreach ($category->menusOrdered as $item)
-                              
+
                                 <div class="item">
                                     <div class="menu__card">
                                         <div class="menu__card--img">
-                                            <a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">
+                                            <a href="{{ route('site.product', ['slug' => $item->slug , 'id' => $item->id]) }}" target="_blank">
                                                 <img class=""
                                                     data-src="{{$item->full_image_link}}" src="{{$item->full_image_link}}"
                                                     alt="{{ $item->image_alt ?? $item->name }}">
@@ -204,16 +212,24 @@
                                             <h3 class="titlehgt"><a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">{{ $item->name }} </a>
 
                                             </h3>
-                                            <h6 class="menu_price_color">${{ $item->price }} </h6>
-
                                             <div class="exploreour catexploreour itemexcerpthover" style="min-height: 50px;">
-                                               {!! $item->excerpt !!}
+                                                <p>{!! strip_tags($item->excerpt ?? 'no description available') !!}</p>
 
                                             </div>
 
+                                            <div class="mt-2">
+
+                                                <span class="menu__card--price">${{ $item->price }}</span>
+                                                <span class="text-white br-25  bt-fr {{$item->type == 'veg' ? 'bg-green' : 'cssnonveg'}}" style="font-size: 0.725rem;font-weight: 400;padding: 5px 15px 5px 15px;">{{ checkVegetarian($item->type) }}</span>
+                                            </div>
+
                                             <div class="menu__card--footer">
-                                                <span class="cat veg-btn-e bt-fr {{cssnonveg($item->type)}}">{{ checkVegetarian($item->type) }}</span>
-                                                <a class="menu__card--cta order-now-btn mt-2 mr-l" href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">Order Now</a>
+                                                <!-- <span class="btn veg-btn bt-fr  menuviewbtn br-25 iisection mb-1" style="width: 100%;">
+                                                    <a href="{{ route('site.product', ['slug' => $item->slug , 'id' => $item->id]) }}" target="_blank" style="color: inherit;font-size: 18px;">
+                                                        <i class="fas fa-search"></i> View Details
+                                                    </a>
+                                                </span> -->
+                                                <a class="menu__card--cta order-now-btn viewip wtc mb-1" style="width: 100%;margin: auto;margin-top: 35px;" href="{{ requesturl() . '/' . $item->slug  }}" target="_blank"><i class="fas fa-shopping-cart"></i> Order Now</a>
                                             </div>
 
                                         </div>

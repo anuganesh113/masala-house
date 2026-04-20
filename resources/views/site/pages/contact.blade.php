@@ -1,192 +1,202 @@
 @extends('site.layouts.layout',[
-    'title' =>   data_get($page, "seo.title") ?? 'Contact-us',
-   'description' =>  strip_tags(data_get($page, "seo.description") ?? description()),
-    'image' => banner() ? null : null,
-    'keywords' =>  data_get($page, "seo.keywords") ?? keywords(),
+'title' => data_get($page, "seo.title") ?? 'Contact-us',
+'description' => strip_tags(data_get($page, "seo.description") ?? description()),
+'image' => banner() ? null : null,
+'keywords' => data_get($page, "seo.keywords") ?? keywords(),
 ])
 
 
 @section('content')
 
-   <!-- page banner start -->
-   <section class="banner banner__page">
-      <div class="banner__page--img">
-         <img src="{{ $page ?  $page->breadcrumbs_image_link : asset ('site-assets/images/about/about-banner.png') }}" alt="">
-      </div>
-      <div class="banner__page--content">
-         <h1>Contact Us</h1>
-         <p>Connect with us & Visit Masala House </p>
-      </div>
-   </section>
-   <!-- page banner end -->
+<!-- page banner start -->
+<section class="banner banner__page">
+   <div class="banner__page--img">
+      <img src="{{ $page ?  $page->breadcrumbs_image_link : asset ('site-assets/images/about/about-banner.png') }}" alt="">
+   </div>
+   <div class="banner__page--content">
+      <h1>Contact Us</h1>
+      <p>Connect with us & Visit Masala House </p>
+   </div>
+</section>
+<!-- page banner end -->
 
 
-   <!-- contact start -->
-   <section class="contact">
-      <div class="container">
-         <div class="section__title text-center">
-            <h5>Connect with our Team</h5>
-            <h1>How meaningful bonds connect hearts, homes, and hope.</h1>
+<!-- contact start -->
+<section class="contact">
+   <div class="container">
+      <div class="section__title text-center">
+         <h5>Connect with our Team</h5>
+         <h1>How meaningful bonds connect hearts, homes, and hope.</h1>
+      </div>
+   </div>
+   <div class="row mb-5">
+      <div class="col-lg-6">
+         <div class="map" style="width: 100%; height: 100%;">
+            <iframe src=" {!! data_get($setting, 'metadata.google_map_iframe') !!}" width="600"
+               style="border:0;height: 77rem;" allowfullscreen="" loading="lazy"
+               referrerpolicy="no-referrer-when-downgrade"></iframe>
+
          </div>
       </div>
-      <div class="row mb-5">
-         <div class="col-lg-6">
-            <div class="map" style="width: 100%; height: 100%;">
-               <iframe src=" {!! data_get($setting, 'metadata.google_map_iframe') !!}" width="600"
-                  style="border:0;height: 77rem;" allowfullscreen="" loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"></iframe>
 
+      <div class="col-lg-6 ">
+
+         <div class="">
+            @if (Session::has('success-msg'))
+            <div class="alert alert-success" align="center">
+               <p>{{ Session::get('success-msg') }}</p>
             </div>
-         </div>
+            @endif
+            <form action="{{ route('site.contact.save') }}" method="post" class="form contactpageform"
+               style="margin-top: 0;">
+               @csrf
+               <h6>Contact US</h6>
+               <h2>Connect with Masala House</h2>
+               <div class="form__group">
+                  <label for="" class="form-label">Your Full Name <span class="text-danger"> *</span></label>
+                  <input type="text" name="contact[name]" class="form-control" placeholder="Your Full Name" required>
+               </div>
+               <div class="form__group">
+                  <label for="" class="form-label">Your Email <span class="text-danger"> *</span></label>
+                  <input type="email" name="contact[email]" class="form-control" placeholder="Email" required>
+               </div>
 
-         <div class="col-lg-6 ">
-
-            <div class="">
-               @if (Session::has('success-msg'))
-                  <div class="alert alert-success" align="center">
-                     <p>{{ Session::get('success-msg') }}</p>
-                  </div>
-               @endif
-               <form action="{{ route('site.contact.save') }}" method="post" class="form contactpageform"
-                  style="margin-top: 0;">
-                  @csrf
-                  <h6>Contact US</h6>
-                  <h2>Connect with Masala House</h2>
-                  <div class="form__group">
-                     <label for="" class="form-label">Your Full Name <span class="text-danger"> *</span></label>
-                     <input type="text" name="contact[name]" class="form-control" placeholder="Your Full Name" required>
-                  </div>
-                  <div class="form__group">
-                     <label for="" class="form-label">Your Email <span class="text-danger"> *</span></label>
-                     <input type="email" name="contact[email]" class="form-control" placeholder="Email" required>
-                  </div>
-
-                  <div class="form__group">
-                     <label for="phone" class="form-label">Contact Number<em class="text-danger">*</em><span
-                           class="invalid-feedback phone-error"> Please enter a valid 10-digit US phone
-                           number</span></label>
-                     <div class="input-group">
-                        <select class="form-control country-code" id="country_code" name="contact[countrycode]"
-                           style="max-width: 120px;">
-                           <option value="+1" selected>USA (+1)</option>
-                           <!-- <option value="+44">UK (+44)</option>
+               <div class="form__group">
+                  <label for="phone" class="form-label">Contact Number<em class="text-danger">*</em><span
+                        class="invalid-feedback phone-error"> Please enter a valid 10-digit US phone
+                        number</span></label>
+                  <div class="input-group">
+                     <select class="form-control country-code" id="country_code" name="contact[countrycode]"
+                        style="max-width: 120px;">
+                        <option value="+1" selected>USA (+1)</option>
+                        <!-- <option value="+44">UK (+44)</option>
                            <option value="+61">Australia (+61)</option> -->
-                        </select>
-                        <input type="tel" name="contact[phone]" class="form-control checkphone phone contactpage"
-                           placeholder="Phone Number" inputmode="numeric" required>
-                        <!-- <div class="invalid-feedback phone-error" >
+                     </select>
+                     <input type="tel" name="contact[phone]" class="form-control checkphone phone contactpage"
+                        placeholder="Phone Number" inputmode="numeric" required>
+                     <!-- <div class="invalid-feedback phone-error" >
                            Please enter a valid 10-digit US phone number
                         </div> -->
-                     </div>
                   </div>
+               </div>
 
-                  <div class="form__group">
-                     <label for="" class="form-label">Select Date<span class="text-danger">*</span></label>
-                     <input type="text" name="contact[date]" class="form-control datepicker-field" onkeydown="return false"
-                        placeholder="Select date" required>
-         <i class="fas fa-calendar" style="position: relative;bottom: 39px;float: right;margin-right: 20px;z-index: 1;opacity: 0.6;"></i>
+               <div class="form__group">
+                  <label for="" class="form-label">Select Date<span class="text-danger">*</span></label>
+                  <input type="text" name="contact[date]" class="form-control datepicker-field" onkeydown="return false"
+                     placeholder="Select date" required>
+                  <i class="fas fa-calendar" style="position: relative;bottom: 39px;float: right;margin-right: 20px;z-index: 1;opacity: 0.6;"></i>
 
+               </div>
+
+
+               <div class="form__group">
+                  <label for="" class="form-label">Select time <span class="text-danger"> *</span></label>
+                  <input type="time" name="contact[time]" class="form-control currentTimeInput" placeholder="Select time" required onkeydown="return false">
+               </div>
+               <div class="form__group">
+                  <label class="form-control-label">Message:</label>
+                  <textarea class="form-control m-input" name="contact[message]" rows="5" id="message"></textarea>
+               </div>
+
+               <div class="form__group mb-0">
+                  <div class="btn__group">
+                     <button type="submit" class="l__button l__button--primary">send</button>
+                     <button class="l__button l__button--secondary">cancel</button>
                   </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- contact end -->
 
 
-                  <div class="form__group">
-                     <label for="" class="form-label">Select time <span class="text-danger"> *</span></label>
-                     <input type="time" name="contact[time]" class="form-control currentTimeInput" placeholder="Select time" required onkeydown="return false" >
-                  </div>
-                  <div class="form__group">
-                     <label class="form-control-label">Message:</label>
-                     <textarea class="form-control m-input" name="contact[message]" rows="5" id="message"></textarea>
-                  </div>
+<!-- contact info start -->
+<section class="contact__info">
+   <div class="container-fluid">
+      <div class="row g-4">
+         <div class="col-lg-4 col-md-6">
+            <div class="section__title">
+               <h4>Need a private Space ?</h4>
+               <h2>
+                  Reserve a Table
+                  <span>Lets talk</span>
+               </h2>
+            </div>
+         </div>
+         <div class="col-lg-3 col-md-6">
+            <div class="contact__info--box">
+               <h2>Write to us</h2>
+               <ul>
+                  <li>
+                     <a href="mailto:{!! data_get($setting, 'email') !!}"><i class="fa-solid fa-envelope"></i> {!! data_get($setting, 'email') !!}</a>
+                  </li>
+                  <!-- <li>
+                        <a href="mailto:{!! data_get($setting, 'siteemail') !!}"><i class="fa-solid fa-envelope"></i> {!! data_get($setting, 'siteemail') !!}</a>
+                     </li> -->
+               </ul>
+            </div>
+         </div>
 
-                  <div class="form__group mb-0">
-                     <div class="btn__group">
-                        <button type="submit" class="l__button l__button--primary">send</button>
-                        <button class="l__button l__button--secondary">cancel</button>
-                     </div>
-                  </div>
-               </form>
+         <div class="col-lg-3 col-md-6">
+            <div class="contact__info--box">
+               <h2>Follow us</h2>
+               <ul>
+                  @if(data_get($setting, 'social.facebook'))
+                  <li>
+                     <i class="fab fa-facebook-f"></i>
+                     <a target="_blank" href="{!! data_get($setting, 'social.facebook') !!}">Masala house in
+                        Facebook</a>
+                  </li>
+                  @endif
+                  @if(data_get($setting, 'social.instagram'))
+                  <li>
+                     <i class="fab fa-instagram"></i>
+                     <a target="_blank" href="{!! data_get($setting, 'social.instagram') !!}">Masala house in
+                        Instagram</a>
+                  </li>
+                  @endif
+
+                  @if(data_get($setting, 'social.youtube'))
+                  <li>
+                     <i class="fab fa-youtube"></i>
+                     <a target="_blank" href="{!! data_get($setting, 'social.youtube') !!}">Masala house in Youtube</a>
+                  </li>
+                  @endif
+                  @if(data_get($setting, 'social.twitter'))
+                  <li>
+                     <i class="fab fa-twitter"></i>
+                     <a target="_blank" href="{!! data_get($setting, 'social.twitter') !!}">Masala house in Twitter</a>
+                  </li>
+                  @endif
+               </ul>
+            </div>
+         </div>
+         <div class="col-lg-2 col-md-6">
+            <div class="contact__info--box">
+               <h2>Call us</h2>
+               <ul>
+
+                  <li>
+                     <a href="tel:{!! data_get($setting, 'phone') !!}"> <i class="fa-solid fa-phone"></i>
+                        {!! data_get($setting, 'phone') !!}</a>
+                  </li>
+               </ul>
             </div>
          </div>
       </div>
-   </section>
-   <!-- contact end -->
-
-
-   <!-- contact info start -->
-   <section class="contact__info">
-      <div class="container-fluid">
-         <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-               <div class="section__title">
-                  <h4>Need a private Space ?</h4>
-                  <h2>
-                     Reserve a Table
-                     <span>Lets talk</span>
-                  </h2>
-               </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-               <div class="contact__info--box">
-                  <h2>Write to us</h2>
-                  <ul>
-                     <li>
-                        <a href="mailto:info@gmail.com"><i class="fa-solid fa-envelope"></i> info@gmail.com</a>
-                     </li>
-                     <li>
-                        <a href="mailto:sales@gmail.com"><i class="fa-solid fa-envelope"></i> sales@gmail.com</a>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-               <div class="contact__info--box">
-                  <h2>Follow us</h2>
-                  <ul>
-                     <li>
-                        <i class="fab fa-facebook-f"></i>
-                        <a target="_blank" href="{!! data_get($setting, 'social.facebook') !!}">Masala house in
-                           Facebook</a>
-                     </li>
-                     <li>
-                        <i class="fab fa-instagram"></i>
-                        <a target="_blank" href="{!! data_get($setting, 'social.instagram') !!}">Masala house in
-                           Instagram</a>
-                     </li>
-                     <li>
-                        <i class="fab fa-youtube"></i>
-                        <a target="_blank" href="{!! data_get($setting, 'social.youtube') !!}">Masala house in Youtube</a>
-                     </li>
-                     <li>
-                        <i class="fab fa-twitter"></i>
-                        <a target="_blank" href="{!! data_get($setting, 'social.twitter') !!}">Masala house in Twitter</a>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-            <div class="col-lg-2 col-md-6">
-               <div class="contact__info--box">
-                  <h2>Call us</h2>
-                  <ul>
-
-                     <li>
-                        <a href="tel:{!! data_get($setting, 'phone') !!}"> <i class="fa-solid fa-phone"></i>
-                           {!! data_get($setting, 'phone') !!}</a>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <!-- contact info end -->
-@include('components.site.popmodel', ['id' => $page->id]) 
+   </div>
+</section>
+<!-- contact info end -->
+@include('components.site.popmodel', ['id' => $page->id])
 @endsection
 
 @push('footer')
 
-   @include('_helpers._valiadtion')
+@include('_helpers._valiadtion')
 
-   <!-- 
+<!-- 
    <script>
       $(document).ready(function() {
          function validateUSPhone(phoneNumber) {

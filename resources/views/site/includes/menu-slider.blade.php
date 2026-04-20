@@ -33,7 +33,7 @@
                     </div>
                </div>
                <div class="itemexcerpthover">
-               {!! $menu->excerpt !!}
+               <p>{!! strip_tags($menu->excerpt ?? 'no description available') !!}</p>
                </div>
                <div class="menu__card--footer">
                   <span class="btn veg-btn bt-fr menuviewbtn br-25 iisection">

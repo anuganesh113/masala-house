@@ -1,0 +1,44 @@
+@use "../abstracts" as *;
+@use "../base/font" as *;
+
+.tab {
+   &__buttons {
+      list-style: none;
+      @include ul(0, 0);
+      &--btn {
+         cursor: pointer;
+         span {
+            content: "";
+            @include hw(0.0625rem, 4.6875rem);
+            background-color: #9a9a9a;
+            display: block;
+            transition: all 0.5s ease;
+            @media (max-width: ($breakpoint-1200)) {
+               width: 3.125rem;
+            }
+            @media (max-width: ($breakpoint-991)) {
+               display: none;
+            }
+         }
+         &:hover,
+         &.active {
+            color: $primary;
+            span {
+               width: 11.875rem;
+               background-color: $primary;
+               @media (max-width: ($breakpoint-1200)) {
+                  width: 6.25rem;
+               }
+            }
+         }
+      }
+   }
+   &__contents {
+      &--text {
+         display: none;
+         &.active {
+            display: block;
+         }
+      }
+   }
+}
