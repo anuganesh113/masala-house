@@ -1,0 +1,170 @@
+<section class="event-bg">
+    <div class="container">
+        <div class="section__title text-center">
+            <h5>Hosting an Event ? </h5>
+            <h2>Explore our most Exquisite Indian Menu</h2>
+        </div>
+    </div>
+</section>
+<!-- bg section end -->
+
+
+<!-- event section start -->
+<section class="event">
+    <div class="tab">
+        <div class="row g-0">
+            <div class="col-lg-6">
+               <div class="event__left eventimg ">
+                    <!-- <div class="event__img">
+                                                                                                                                                        <img src="{{ asset ('site-assets/images/events.png') }}" alt="events">
+                                                                                                                                                    </div> -->
+                    <ul class="tab__buttons">
+                        <li class="tab__buttons--btn active eventtabbtn"
+                        data-image="{{ asset ('site-assets/images/events.png') }}"
+                      
+                          data-event-name="lunch-combo" data-target="#eventTab1">
+                            <span></span> Lunch Combo
+                        </li>
+                        <li class="tab__buttons--btn eventtabbtn"
+                        data-image="{{ asset ('site-assets/images/events.png') }}"
+                      
+                        data-event-name="wedding-events" data-target="#eventTab2">
+                            <span></span> Wedding Events
+                        </li>
+                        <li class="tab__buttons--btn eventtabbtn"  
+                        data-image="{{ asset ('site-assets/images/events.png') }}"
+                      
+                        data-event-name="festive-events" data-target="#eventTab3">
+                            <span></span> Festive Events
+                        </li>
+                        <li class="tab__buttons--btn eventtabbtn" 
+                        data-image="{{ asset ('site-assets/images/events.png') }}"
+                      
+                        data-event-name="personal-events" data-target="#eventTab4">
+                            <span></span> Personal Events
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="tab__contents">
+                    <div id="eventTab1" class="tab__contents--text active">
+                        <div class="">
+                            <div class="title">
+                                <h3>Corporate Events</h3>
+                                <p>Choose our best venue and Dining Services for your
+                                    next big Event </p>
+                            </div>
+                            <div class="content">
+                                <p>Masala House was founded in 2015 by Chef Raj Sharma with a 
+                                    simple mission: to bring the authentic flavors of India to Pittsburg, 
+                                    California. Born and raised in Delhi, 
+                                    Chef Raj learned the art of Indian cooking from his grandmother,
+                                     who taught him the importance of freshly ground spices and 
+                                     traditional cooking techniques</p>
+                            </div>
+                            <div class="box">
+                                <h3>Service Contains</h3>
+                                @include("site.includes.events-faq")
+                            </div>
+                        </div>
+                    </div>
+                    <div id="eventTab2" class="tab__contents--text">
+                        <div class="">
+                            <div class="title">
+                                <h3>Wedding Events</h3>
+                                <p>Choose our best venue and Dining Services for your
+                                    next big Event </p>
+                            </div>
+                            <div class="content">
+                                <p>Masala House locations  offer specialized event services, 
+                                    including private celebrations, weddings, anniversaries, 
+                                    and corporate gatherings, featuring bespoke menus and tailored catering.
+                                     Venues often highlight rooftop views, live music, and themed nights 
+                                     like High Tea Buffets, retro nights, or curated wine dinners</p>
+                            </div>
+                            <div class="box">
+                                <h3>Service Contains</h3>
+                                @include("site.includes.events-faq")
+                            </div>
+                        </div>
+                    </div>
+                    <div id="eventTab3" class="tab__contents--text">
+                        <div class="">
+                            <div class="title">
+                                <h3>Festive Events</h3>
+                                <p>Choose our best venue and Dining Services for your
+                                    next big Event </p>
+                            </div>
+                            <div class="content">
+                                <p>Marking the moments on everyone's calendar. 
+                                    Our Festive Events are designed to capture the spirit of the holidays 
+                                    and special seasonal occasions. With themed décor, custom menus,
+                                     and an atmosphere charged with excitement, we ensure your guest
+                                      list feels the magic of the moment.</p>
+                            </div>
+                            <div class="box">
+                                <h3>Service Contains</h3>
+                                @include("site.includes.events-faq")
+                            </div>
+                        </div>
+                    </div>
+                    <div id="eventTab4" class="tab__contents--text">
+                        <div class="">
+                            <div class="title">
+                                <h3>Personal Events</h3>
+                                <p>Choose our best venue and Dining Services for your
+                                    next big Event </p>
+                            </div>
+                            <div class="content">
+                                <p>
+                              Life’s most important milestones, celebrated your way. From the first birthday 
+                              to the golden anniversary, we provide the setting for the moments that matter most.
+                                 We believe that life is a collection of moments worth celebrating.
+                                  Our "Personal Events" category is dedicated to the gatherings that
+                                   fill our hearts—birthday dinners, anniversary parties, engagement celebrations,
+                                    and everything in between. We handle the atmosphere so you can focus on the people
+                                </p>
+                            </div>
+                            <div class="box">
+                                <h3>Service Contains</h3>
+                                @include("site.includes.events-faq")
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn__group justify-content-lg-end mt-0">
+                        <button class="l__button l__button--primary">Get Quote</button>
+                        <a href="/contact" class="l__button l__button--secondary">Contact us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@push('footer')
+<script>
+    $(document).ready(function() {
+        var defaultImage = $('.eventtabbtn.active').data('image');
+        if (defaultImage) {
+            $('.eventimg').css('background-image', 'url("' + defaultImage + '")');
+        }
+        $('.eventtabbtn').click(function() {
+            var target = $(this).data('target');
+            var eventName = $(this).data('event-name');
+            var image = $(this).data('photo');
+            $('.eventtabbtn').removeClass('active');
+            $(this).addClass('active');
+            $('.tab__contents--text').removeClass('active');
+            $(target).addClass('active');
+            if (image) {
+                $('.eventimg').css('background-image', 'url("' + image + '")');
+            } else {
+                $('.eventimg').css('background-image', 'url("../../site-assets/images/events.png")');
+            }
+            
+  
+        });
+    });
+</script>
+@endpush
