@@ -2,7 +2,8 @@
 <div class="faq">
    <div class="faq__accordion">
       <div class="accordion custom__accordion">
-   @if($event->eventfaqs->isNotEmpty())
+      @if(request()->segment(1) != 'catering')
+      @if( $event->eventfaqs->isNotEmpty())
       @foreach($event->eventfaqs as $faq)
          <div class="accordion__item  ">
             <div class="accordion__item--title" href="javascript:void(0)">
@@ -31,7 +32,9 @@
          </div>
          @endif
 
-         <!-- <div class="accordion__item ">
+         @else
+
+    <div class="accordion__item ">
             <div class="accordion__item--title" href="javascript:void(0)">
                Who can attend the event?
                <i class="fas fa-chevron-down"></i>
@@ -77,7 +80,10 @@
                   <p>This event is designed to [celebrate achievements, foster team-building, share company updates, train employees, network with clients, etc.]. It’s an opportunity to engage, connect, and grow together as a team.</p>
                </div>
             </div>
-         </div> -->
+         </div> 
+         @endif
+
+   
       </div>
    </div>
 </div>
