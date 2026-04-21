@@ -9,6 +9,7 @@
 <!-- bg section end -->
 
 
+
 <!-- event section start -->
 <section class="event">
     <div class="tab">
@@ -19,13 +20,15 @@
                                                                                                                                                         <img src="{{ asset ('site-assets/images/events.png') }}" alt="events">
                                                                                                                                                     </div> -->
                     <ul class="tab__buttons">
-                        <li class="tab__buttons--btn active eventtabbtn"
-                        data-image="{{ asset ('site-assets/images/events.png') }}"
+                        @foreach($events as $k => $event)
+                        <li class="tab__buttons--btn  eventtabbtn  {{ $k === 0 ? 'active' : '' }}"
+                        data-image="{{ $event->full_image_link }}"
                       
-                          data-event-name="lunch-combo" data-event-target="#eventTab1">
-                            <span></span> Lunch Combo
+                          data-event-name="{{ $event->slug }}" data-event-target="#eventTab{{ $k + 1 }}">
+                            <span></span> {{ $event->name }}
                         </li>
-                        <li class="tab__buttons--btn eventtabbtn"
+                        @endforeach
+                        <!-- <li class="tab__buttons--btn eventtabbtn"
                         data-image="{{ asset ('site-assets/images/events.png') }}"
                       
                         data-event-name="wedding-events" data-event-target="#eventTab2">
@@ -42,26 +45,21 @@
                       
                         data-event-name="personal-events" data-event-target="#eventTab4">
                             <span></span> Personal Events
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="tab__contents">
-                    <div id="eventTab1" class="tab__contents--text active">
+                      @foreach($events as $k => $event)
+                    <div id="eventTab{{ $k + 1 }}" class="tab__contents--text {{ $k === 0 ? 'active' : '' }}">
                         <div class="">
                             <div class="title">
-                                <h3>Corporate Events</h3>
-                                <p>Choose our best venue and Dining Services for your
-                                    next big Event </p>
+                                <h3>{{ data_get($event, 'name') }}</h3>
+                                <p>{!! data_get($event, 'metadata.title') !!}</p>
                             </div>
                             <div class="content">
-                                <p>Masala House was founded in 2015 by Chef Raj Sharma with a 
-                                    simple mission: to bring the authentic flavors of India to Pittsburg, 
-                                    California. Born and raised in Delhi, 
-                                    Chef Raj learned the art of Indian cooking from his grandmother,
-                                     who taught him the importance of freshly ground spices and 
-                                     traditional cooking techniques</p>
+                                <p>{!! data_get($event, 'excerpt') !!}</p>
                             </div>
                             <div class="box">
                                 <h3>Service Contains</h3>
@@ -69,7 +67,8 @@
                             </div>
                         </div>
                     </div>
-                    <div id="eventTab2" class="tab__contents--text">
+                    @endforeach
+                    <!-- <div id="eventTab2" class="tab__contents--text">
                         <div class="">
                             <div class="title">
                                 <h3>Wedding Events</h3>
@@ -131,7 +130,7 @@
                                 @include("site.includes.events-faq")
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="btn__group justify-content-lg-end mt-0">
                         <button class="l__button l__button--primary">Get Quote</button>
                         <a href="/contact" class="l__button l__button--secondary">Contact us</a>

@@ -7,6 +7,7 @@ use App\Enums\Status;
 use App\Models\Album;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Event;
 use App\Models\FAQ;
 use App\Models\Gallery;
 use App\Models\MemberMessage;
@@ -32,6 +33,9 @@ class WebsiteService
         }])->get();
         $data['galleries'] = Gallery::get();
         $data['popup'] = Popup::Image()->where('status', Status::ACTIVE)->first();
+        $data['events'] = Event::where('type', 1)->where('status', Status::ACTIVE)->get();
+       
+
 
 
 

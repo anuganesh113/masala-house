@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Casts\SEOCast;
 use App\Constants\DBTables;
+use App\Enums\UploadFilePath;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -53,6 +54,15 @@ class Event extends Model
       public function scopeStatus($query)
     {
         return $query->where('status', 1);
+    }
+
+        public function getFullImageLinkAttribute(): ?string
+    {
+        if (empty($this->image)) {
+            return null;
+        }
+
+        return asset(sprintf('%s%s', UploadFilePath::EVENT_PATH, $this->image));
     }
 
 }
