@@ -29,7 +29,49 @@
         </div>
     </div>
     <div class="catering__wrapper">
+        @foreach($events as $event)
         <div class="catering__wrapper--box">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="catering__card">
+                        <div class="catering__card--content">
+                            <div class="section__title">
+                            
+                                <h6>{{ data_get($event, 'name') }}</h6>
+                                <h2>{!! data_get($event, 'metadata.title') !!}</h2>
+                            </div>
+                            <div class="content">
+                               <p>{!! data_get($event, 'excerpt') !!}</p>
+                            </div>
+                            <div class="box">
+                                <h3>Included Services</h3>
+                                @include("site.includes.events-faq")
+                            </div>
+                            <div class="btn__group">
+                                <!-- <button class="l__button l__button--primary">Reserve</button> -->
+                                <!-- <button class="l__button l__button--secondary" data-name="Food Tray Service">Contact us</button> -->
+
+                                <a href="" class="l__button l__button--primary bookacatering"
+                                 data-name="{{$event->name}}"
+                                data-bs-toggle="modal" data-bs-target="#bookacatering">Reserve</a>
+                                <a href="/contact" class="l__button l__button--secondary" target="_blank"> Contact us </a>
+
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="catering__card--img mb-4 mb-lg-0"
+                        style="background-image: url('{{ $event->full_image_link }}');">
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+
+         <!-- <div class="catering__wrapper--box">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="catering__card">
@@ -49,29 +91,8 @@
                                 <h3>Included Services</h3>
                                 @include("site.includes.events-faq")
                             </div>
-                            <div class="btn__group">
-                                <!-- <button class="l__button l__button--primary">Reserve</button> -->
-                                <!-- <button class="l__button l__button--secondary" data-name="Food Tray Service">Contact us</button> -->
-
-                                <a href="" class="l__button l__button--primary bookacatering"
-                                 data-name="Food Tray Service"
-                                data-bs-toggle="modal" data-bs-target="#bookacatering">Reserve</a>
-                                <a href="/contact" class="l__button l__button--secondary" target="_blank"> Contact us </a>
-
-
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="catering__card--img mb-4 mb-lg-0"
-                        style="background-image: url('../../site-assets/images/catering/catering-1.png');">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="catering__wrapper--box">
+                            <div class="btn__group
+        <!-- <div class="catering__wrapper--box">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="catering__card">
@@ -92,7 +113,7 @@
                                 @include("site.includes.events-faq")
                             </div>
                             <div class="btn__group">
-                                <!-- <button class="l__button l__button--primary">Reserve</button> -->
+                                <button class="l__button l__button--primary">Reserve</button>
                                  <a href="" class="l__button l__button--primary bookacatering"
                                  data-name="Food Tray"
                                 data-bs-toggle="modal" data-bs-target="#bookacatering">Reserve</a>
@@ -107,7 +128,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 <!-- catering section end -->

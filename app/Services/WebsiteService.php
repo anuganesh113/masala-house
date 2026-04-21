@@ -148,6 +148,10 @@ class WebsiteService
                     ->where('status', Status::ACTIVE)
                     ->inRandomOrder()->take(5)
                     ->get();
+
+                      $data['events'] = Event::catering()->where('status', Status::ACTIVE)->with(['eventfaqs' => function ($q) {
+               $q->status();    }])->get();
+             
                 break;
 
             default:

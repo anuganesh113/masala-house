@@ -60,6 +60,10 @@ class Event extends Model
     {
         return $query->where('type', 1);
     }
+         public function scopeCatering($query)
+    {
+        return $query->where('type', 2);
+    }
 
 
 
