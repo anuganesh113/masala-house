@@ -33,12 +33,9 @@ class WebsiteService
         }])->get();
         $data['galleries'] = Gallery::get();
         $data['popup'] = Popup::Image()->where('status', Status::ACTIVE)->first();
-        $data['events'] = Event::where('type', 1)->where('status', Status::ACTIVE)->get();
-       
-
-
-
-
+         $data['events'] = Event::event()->where('status', Status::ACTIVE)->with(['eventfaqs' => function ($q) {
+        $q->status();    }])->get();
+  
 
         $alldata = Website::get()->toArray();
         $arrangedData = array_column($alldata, 'value', 'name');

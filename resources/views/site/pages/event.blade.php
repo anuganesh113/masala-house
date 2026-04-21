@@ -61,9 +61,14 @@
                             <div class="content">
                                 <p>{!! data_get($event, 'excerpt') !!}</p>
                             </div>
-                            <div class="box">
+                            <div class="box" >
                                 <h3>Service Contains</h3>
+
+                       
+                           
+                             
                                 @include("site.includes.events-faq")
+                             
                             </div>
                         </div>
                     </div>
@@ -83,9 +88,9 @@
                                      like High Tea Buffets, retro nights, or curated wine dinners</p>
                             </div>
                             <div class="box">
-                                <h3>Service Contains</h3>
-                                @include("site.includes.events-faq")
-                            </div>
+                                <h3>Service Contains</h3> -->
+                          
+                            <!-- </div>
                         </div>
                     </div>
                     <div id="eventTab3" class="tab__contents--text">
@@ -103,9 +108,9 @@
                                       list feels the magic of the moment.</p>
                             </div>
                             <div class="box">
-                                <h3>Service Contains</h3>
-                                @include("site.includes.events-faq")
-                            </div>
+                                <h3>Service Contains</h3> -->
+                             
+                            <!-- </div>
                         </div>
                     </div>
                     <div id="eventTab4" class="tab__contents--text">
@@ -126,11 +131,11 @@
                                 </p>
                             </div>
                             <div class="box">
-                                <h3>Service Contains</h3>
-                                @include("site.includes.events-faq")
-                            </div>
-                        </div>
-                    </div> -->
+                                <h3>Service Contains</h3> -->
+                            
+                            <!-- </div>
+                        </div> -->
+                    </div>
                     <div class="btn__group justify-content-lg-end mt-0">
                         <button class="l__button l__button--primary">Get Quote</button>
                         <a href="/contact" class="l__button l__button--secondary">Contact us</a>

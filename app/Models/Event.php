@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Event extends Model
 {
-     /**
+    /**
      * @var string
      */
     protected $table = DBTables::EVENTS;
@@ -51,12 +51,19 @@ class Event extends Model
         return $this->hasMany(FAQ::class, 'model_id');
     }
 
-      public function scopeStatus($query)
+    public function scopeStatus($query)
     {
         return $query->where('status', 1);
     }
 
-        public function getFullImageLinkAttribute(): ?string
+      public function scopeEvent($query)
+    {
+        return $query->where('type', 1);
+    }
+
+
+
+    public function getFullImageLinkAttribute(): ?string
     {
         if (empty($this->image)) {
             return null;
@@ -65,4 +72,10 @@ class Event extends Model
         return asset(sprintf('%s%s', UploadFilePath::EVENT_PATH, $this->image));
     }
 
+    public function eventfaqs()
+    {
+        return $this->hasMany(FAQ::class, 'model_id')
+            ->where('model_type', 'event')->where('status', 1)
+            ->orderBy('order');
+    }
 }

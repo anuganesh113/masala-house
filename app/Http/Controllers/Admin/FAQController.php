@@ -136,7 +136,7 @@ class FAQController extends BaseController
 
     public function faqtypestore(Request $request)
     {
-     
+   
         $request->validate([
             'question' => 'required|max:1000',
             'answer' => 'required|max:3000',
@@ -153,7 +153,7 @@ class FAQController extends BaseController
             $faq->question = $data['question'];
             $faq->answer = $data['answer'];
             $faq->order = $data['order'] ?? 0;
-            $faq->status = $data['status'] ?? 0;
+            $faq->status = $request->status ?? 0;
 
             $faq->save();
         } else {
