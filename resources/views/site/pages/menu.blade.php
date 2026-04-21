@@ -102,7 +102,7 @@
                                     @foreach ($category->menus as $menu)
                                     <div class="menuFlex__card dnone menuboxshadow">
                                         <div class="menuFlex__card--img  mobile-menu mb-2 menuimgrespo">
-                                            <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}" >
+                                            <a href="{{ route('site.product', ['slug' => Str::slug($menu->name), 'id' => $menu->id]) }}" >
                                                 <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
                                                     alt="{{  $menu->image_alt ?? $menu->name }}">
                                             </a>
@@ -131,7 +131,7 @@
                                                             style=" display: block;"><i class="fas fa-shopping-cart"></i> Order Now </a>
                                                     </span>
                                                     <span>
-                                                        <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}"
+                                                        <a href="{{ route('site.product', ['slug' => Str::slug($menu->name) , 'id' => $menu->id]) }}"
                                                             class="order-now-btn2 boxshadow mobile wtc men-ord menuviewbtn"
                                                             style=" display: block;"><i class="fas fa-search"></i> View Details </a>
                                                     </span>

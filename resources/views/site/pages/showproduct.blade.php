@@ -337,7 +337,7 @@
             @foreach ($similarMenus as $menu)
             <div class="item" style="margin-right: -20px;">
                 <div class="menu__card menu__card--family" style="width: 95%;">
-                    <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}">
+                    <a href="{{ route('site.product', ['slug' => Str::slug($menu->name) , 'id' => $menu->id]) }}">
                         <div class="menu__card--img">
 
                             <img class="owl-lazy"
@@ -382,7 +382,7 @@
                         </div> -->
                                 <div class="menu__card--footer">
                   <span class="btn veg-btn bt-fr  menuviewbtn br-25 iisection mb-1" style="width: 100%;">
-                     <a href="{{ route('site.product', ['slug' => $menu->slug , 'id' => $menu->id]) }}" target="_blank" style="color: inherit;font-size: 18px;">
+                     <a href="{{ route('site.product', ['slug' => Str::slug($menu->name) , 'id' => $menu->id]) }}" target="_blank" style="color: inherit;font-size: 18px;">
                         <i class="fas fa-search"></i> View Details
                      </a>
                   </span>

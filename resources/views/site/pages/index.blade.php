@@ -127,7 +127,7 @@
                                 <div class="item">
                                     <div class="menu__card">
                                         <div class="menu__card--img">
-                                            <a href="{{ route('site.product', ['slug' => $item->slug , 'id' => $item->id]) }}" target="_blank">
+                                            <a href="{{ route('site.product', ['slug' => Str::slug($item->name), 'id' => $item->id]) }}" target="_blank">
                                                 <img class=""
                                                     data-src="{{$item->full_image_link}}" src="{{$item->full_image_link}}"
                                                     alt="{{ $item->image_alt ?? $item->name }}">
@@ -186,7 +186,7 @@
                                 <div class="item">
                                     <div class="menu__card">
                                         <div class="menu__card--img">
-                                            <a href="{{ route('site.product', ['slug' => $item->slug , 'id' => $item->id]) }}" target="_blank">
+                                            <a href="{{ route('site.product', ['slug' => Str::slug($item->name), 'id' => $item->id]) }}" target="_blank">
                                                 <img class=""
                                                     data-src="{{$item->full_image_link}}" src="{{$item->full_image_link}}"
                                                     alt="{{ $item->image_alt ?? $item->name }}">
