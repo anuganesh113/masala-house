@@ -136,7 +136,7 @@
                             <!-- </div>
                         </div> -->
                     </div>
-                    <div class="btn__group justify-content-lg-end mt-0">
+                    <div class="btn__group justify-content-lg-end mt-0" style="padding: 0 50px 25px 20px;">
                         <button class="l__button l__button--primary">Get Quote</button>
                         <a href="/contact" class="l__button l__button--secondary">Contact us</a>
                     </div>
