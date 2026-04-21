@@ -78,4 +78,5 @@ class Event extends Model
             ->where('model_type', 'event')->where('status', 1)
             ->orderBy('order');
     }
+    
 }

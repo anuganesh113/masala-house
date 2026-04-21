@@ -70,4 +70,12 @@ class Menu extends Model
 
         return asset(sprintf('%s%s', UploadFilePath::MENUS_PATH, $this->image));
     }
+
+    
+    public function menufaqs()
+    {
+        return $this->hasMany(FAQ::class, 'model_id')
+            ->where('model_type', 'menu')->where('status', 1)
+            ->orderBy('order');
+    }
 }

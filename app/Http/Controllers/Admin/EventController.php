@@ -18,8 +18,8 @@ use App\Enums\UploadFilePath;
 
 class EventController extends Controller
 {
-    
- public function __construct(
+
+    public function __construct(
         protected DatabaseManager $databaseManager,
         protected Event $eventModel
     ) {}
@@ -27,7 +27,7 @@ class EventController extends Controller
     public function index(): View
     {
         $data['events'] = $this->eventModel->query()
-            ->select(['id', 'name','status', 'created_at' ,'type'])
+            ->select(['id', 'name', 'status', 'created_at', 'type'])
             ->latest()
             ->get();
 
@@ -82,12 +82,30 @@ class EventController extends Controller
         return to_route('admin.events.index')->with('success', Message::EVENT_MESSAGE['UPDATE_SUCCESS']);
     }
 
-    public function delete(Event $event ,$id)
+    public function delete(Event $event, $id)
     {
+    
+
         $event = Event::find($id);
-        $backup = $event->only(['image']);
-        $event->delete();
-        @unlink(sprintf('%s%s', UploadFilePath::EVENT_PATH, data_get($backup, 'image')));
-        return redirect()->back()->with('success', Message::EVENT_MESSAGE['DELETE_SUCCESS']);
+      
+        // if ($event->type == 1 || $event->type == 2) {
+            
+            $a = $event->eventfaqs()->count();
+            if ($a > 0) {
+                return redirect()->back()->with('error', 'Cant delete this event because it has faqs');
+            }else{
+                $backup = $event->only(['image']);
+                $event->delete();
+                @unlink(sprintf('%s%s', UploadFilePath::EVENT_PATH, data_get($backup, 'image')));
+                return redirect()->back()->with('success', Message::EVENT_MESSAGE['DELETE_SUCCESS']);
+            }
+        // } 
+        
+        // else {
+        //     $backup = $event->only(['image']);
+        //     $event->delete();
+        //     @unlink(sprintf('%s%s', UploadFilePath::EVENT_PATH, data_get($backup, 'image')));
+        //     return redirect()->back()->with('success', Message::EVENT_MESSAGE['DELETE_SUCCESS']);
+        // }
     }
 }
