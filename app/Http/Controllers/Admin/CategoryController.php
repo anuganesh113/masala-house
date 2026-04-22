@@ -33,7 +33,7 @@ class CategoryController extends BaseController
     {
         $data['categories'] = $this->categoryModel->query()
             ->select(['id', 'name', 'order', 'created_at'])
-            ->latest()
+            ->orderBy('order')
             ->get();
 
         return view('admin.pages.categories.index', $data);
@@ -119,7 +119,7 @@ class CategoryController extends BaseController
        
         $re_order = Category::select(['id', 'order'])->get();
         $this->reOrder($re_order, 'order');
-        return response()->json(['status' => 'success', 'message' => Message::CATEGORY_MESSAGE['UPDATE_SUCCESS'] ?? 'Updated']);
+        return response()->json(['status' => 'success', 'success' =>  'Order Updated Successfully']);
         
     }
 }

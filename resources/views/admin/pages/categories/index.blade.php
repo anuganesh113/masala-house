@@ -132,6 +132,7 @@
                     success: function(response) {
                         if (response.status == "success") {
                             window.location.reload();
+                        showAlertMessage({ message: response.success, success: true });
                         } else {
                             console.log(response);
                         }
