@@ -43,6 +43,6 @@
         });
     });
 </script>--}}
-
+@stack("footer")
 </body>
 </html>
