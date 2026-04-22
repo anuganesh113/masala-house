@@ -68,8 +68,9 @@
                <tbody id="tablecontents">
 
                     @foreach($categories??[] as $value)
+                   
                         <tr id="categories-{{ $value->id }}" class="row1" data-id="{{ $value->id }}">
-                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $value->order }}</td>
                             <td>{{ data_get($value, 'name') }}</td>
                             <td class="center">@datetime(data_get($value, "created_at"))</td>
                             <td data-field="Actions" class="m-datatable__cell">
@@ -130,7 +131,7 @@
                     },
                     success: function(response) {
                         if (response.status == "success") {
-                            console.log(response);
+                            window.location.reload();
                         } else {
                             console.log(response);
                         }

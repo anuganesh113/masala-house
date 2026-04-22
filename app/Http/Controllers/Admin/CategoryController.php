@@ -16,6 +16,7 @@ use Illuminate\Http\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Throwable;
 use App\Traits\reorder;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * class CategoryController
@@ -31,7 +32,7 @@ class CategoryController extends BaseController
     public function index(): View
     {
         $data['categories'] = $this->categoryModel->query()
-            ->select(['id', 'name', 'created_at'])
+            ->select(['id', 'name', 'order', 'created_at'])
             ->latest()
             ->get();
 
@@ -113,10 +114,12 @@ class CategoryController extends BaseController
         return $this->jsonResponse(General::TRUE, Message::CATEGORY_MESSAGE['DELETE_SUCCESS']);
     }
 
-        public function rowReOrder(): void
+    public function rowReOrder(Request $request): JsonResponse
     {
+       
         $re_order = Category::select(['id', 'order'])->get();
         $this->reOrder($re_order, 'order');
+        return response()->json(['status' => 'success', 'message' => Message::CATEGORY_MESSAGE['UPDATE_SUCCESS'] ?? 'Updated']);
         
     }
 }
