@@ -119,7 +119,7 @@ class WebsiteService
 
             case 'menu':
                 $data['menus'] = Menu::query()->status()->get();
-                $data['categories'] = Category::with(['menus' => function ($query) {
+                $data['categories'] = Category::orderBy('order')->with(['menus' => function ($query) {
                     $query->status();
                 }])->get();
 

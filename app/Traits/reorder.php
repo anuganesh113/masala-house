@@ -12,7 +12,7 @@ trait reorder
 
             foreach (request()->order as $order) {
                 if ($order['id'] == $id) {
-                    $row->update([$type => $order['position']]);
+                    $row->update([$type => $order['position'] , 'updated_at' => now()]);
                 }
             }
         }

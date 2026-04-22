@@ -52,6 +52,7 @@ class CategoryController extends BaseController
         $this->databaseManager->beginTransaction();
         try {
             $data = $request->prepareData();
+            $data['order'] = $this->categoryModel->query()->max('order') + 1;
             $this->categoryModel->query()->create($data);
         } catch (Exception $error) {
             $this->databaseManager->rollBack();
