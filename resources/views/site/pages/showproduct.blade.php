@@ -7,6 +7,11 @@
 
 @push('header')
 <link rel="stylesheet" href="{{ asset('site-assets/css/fancybox.css') }}">
+<style>
+    .long-desc  p , .long-desc  li , .long-desc  span , .product-short-desc p , .product-short-desc{
+    font-family: "Sansita Swashed", sans-serif;
+}
+    </style>
 @endpush
 
 @section('content')
