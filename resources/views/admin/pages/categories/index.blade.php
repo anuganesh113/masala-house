@@ -6,6 +6,10 @@
     tr:nth-child(even) {
   background-color: #f4f3f8;
 }
+
+ .table-bordered td {
+    border: none;
+}
 </style>
 @endpush
   
@@ -59,7 +63,7 @@
             <table class="table table-bordered table-hover" id="sortable_table" width="100%">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th># <i class="la la-long-arrow-up text-primary" style="font-size: 14px; margin-left: 5px;"></i></th>
                         <th>Name</th>
                         <th>Created On</th>
                         <th>Action</th>
@@ -69,7 +73,7 @@
 
                     @foreach($categories??[] as $value)
                    
-                        <tr id="categories-{{ $value->id }}" class="row1" data-id="{{ $value->id }}">
+                        <tr id="categories-{{ $value->id }}" class="row1" data-id="{{ $value->id }}" style="cursor: move;">
                             <td>{{ $value->order }}</td>
                             <td>{{ data_get($value, 'name') }}</td>
                             <td class="center">@datetime(data_get($value, "created_at"))</td>
