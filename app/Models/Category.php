@@ -30,6 +30,7 @@ class Category extends Model
         'description',
         'metadata',
         'seo',
+        'order'
     ];
 
     /**
@@ -73,5 +74,10 @@ class Category extends Model
         }
 
         return asset(sprintf('%s%s', UploadFilePath::CATEGORIES_PATH, $this->icon));
+    }
+
+        public function scopeMaxOrder($query)
+    {
+        return $query->max('order');
     }
 }

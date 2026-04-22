@@ -1,6 +1,15 @@
 @section("page_title", "Categories List")
 @extends("admin.layouts.layout")
 
+@push("header")
+<style>
+    tr:nth-child(even) {
+  background-color: #f4f3f8;
+}
+</style>
+@endpush
+  
+
 @section("content")
 <div class="m-content">
 
@@ -46,7 +55,8 @@
                     </div>
                 </div>
             </div>
-            <table class="m-datatable" id="html_table" width="100%">
+             <!-- class="m-datatable" -->
+            <table class="table table-bordered table-hover" id="sortable_table" width="100%">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -55,10 +65,10 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+               <tbody id="tablecontents">
 
                     @foreach($categories??[] as $value)
-                        <tr id="categories-{{ $value->id }}">
+                        <tr id="categories-{{ $value->id }}" class="row1" data-id="{{ $value->id }}">
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ data_get($value, 'name') }}</td>
                             <td class="center">@datetime(data_get($value, "created_at"))</td>
@@ -87,4 +97,50 @@
 @push("footer")
     <script src="{{ asset('admin-assets/js/html-table.js') }}" type="text/javascript" charset="utf-8" defer></script>
     <script src="{{ asset('admin-assets/custom-js/deletion-script.js') }}" type="text/javascript" charset="utf-8" defer></script>
-@endpush
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+   
+ <script type="text/javascript">
+        $(function() {
+            $("#tablecontents").sortable({
+                items: "tr",
+                cursor: 'move',
+                opacity: 0.6,
+                update: function() {
+                    sendOrderToServer();
+                }
+            });
+
+            function sendOrderToServer() {
+
+                var order = [];
+                $('tr.row1').each(function(index, element) {
+                    order.push({
+                        id: $(this).attr('data-id'),
+                        position: index + 1
+                    });
+                });
+
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: "{{ route('admin.categories.reorder') }}",
+                    data: {
+                        order: order,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        if (response.status == "success") {
+                            console.log(response);
+                        } else {
+                            console.log(response);
+                        }
+                    },
+                    error: function(response) {
+                        console.log(response);
+                    }
+                });
+
+            }
+        });
+    </script>
+ @endpush

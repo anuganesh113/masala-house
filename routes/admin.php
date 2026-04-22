@@ -124,6 +124,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
         $route->get('events/{id}', [EventController::class, 'delete'])->name('event.delete');
 
 
+          $route->post('categories/re-order',[CategoryController::class,'rowReOrder'])
+            ->name('categories.reorder');
+
         $route->resource('galleries', GalleryController::class)->except(['show']);
         $route->post('gallery/{album}/{gallery}/delete', [GalleryController::class, 'destroyGallery'])
             ->name('galleries.destroy.image');

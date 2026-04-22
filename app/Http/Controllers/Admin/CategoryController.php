@@ -15,12 +15,14 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Throwable;
+use App\Traits\reorder;
 
 /**
  * class CategoryController
  */
 class CategoryController extends BaseController
 {
+    use reorder;
     public function __construct(
         protected DatabaseManager $databaseManager,
         protected Category $categoryModel
@@ -109,5 +111,12 @@ class CategoryController extends BaseController
         }
 
         return $this->jsonResponse(General::TRUE, Message::CATEGORY_MESSAGE['DELETE_SUCCESS']);
+    }
+
+        public function rowReOrder(): void
+    {
+        $re_order = Category::select(['id', 'order'])->get();
+        $this->reOrder($re_order, 'order');
+        
     }
 }
