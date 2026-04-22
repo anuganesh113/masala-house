@@ -37,7 +37,7 @@
                             <div class="col-md-8">
                                 <div class="m-input-icon m-input-icon--left">
                                     <input type="text" class="form-control m-input"
-                                        placeholder="Search..." id="generalSearch">
+                                        placeholder="Search..." class="generalrowSearch">
                                     <span class="m-input-icon__icon m-input-icon__icon--left">
                                         <span>
                                             <i class="la la-search"></i>
@@ -147,6 +147,14 @@
                 });
 
             }
+
+            // Quick search functionality
+            $(".generalrowSearch").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#tablecontents tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
         });
     </script>
  @endpush
