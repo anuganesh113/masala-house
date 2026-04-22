@@ -26,7 +26,8 @@
     }
 </script>
 
-@stack("footer")
+<script src="{{ asset('admin-assets/js/jquery-3.3.1.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('admin-assets/js/select2.min.js') }}"></script>
 @include('_helpers._summernote')
 <script type="text/javascript" src="{{ asset('admin-assets/js/bootstrap-datepicker.js') }}"></script>
 <script src="{{ asset('admin-assets/js/vendors.bundle.js') }}" type="text/javascript"></script>
