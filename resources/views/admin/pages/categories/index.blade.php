@@ -74,7 +74,7 @@
                     @foreach($categories??[] as $value)
                    
                         <tr id="categories-{{ $value->id }}" class="row1" data-id="{{ $value->id }}" style="cursor: move;">
-                            <td>{{ $value->order }}</td>
+                            <td> <i class="la la-arrows-v sort-handler" style="cursor: move; margin-right: 8px;"></i>{{ $value->order }}</td>
                             <td>{{ data_get($value, 'name') }}</td>
                             <td class="center">@datetime(data_get($value, "created_at"))</td>
                             <td data-field="Actions" class="m-datatable__cell">
@@ -110,6 +110,7 @@
                 items: "tr",
                 cursor: 'move',
                 opacity: 0.6,
+             
                 update: function() {
                     sendOrderToServer();
                 }
