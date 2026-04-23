@@ -195,19 +195,18 @@
 
 @push('footer')
 <script>
-       $(document).ready(function() {
-           $('html, body').animate({
-               scrollTop: $('header').offset().top
-           }, 0);
-       });
-
     $(document).ready(function() {
-
+        // Scroll full up to the top
         $('html, body').animate({
-            scrollTop: $('#menuNav1').offset().top
+            scrollTop: 0
         }, 0);
+
+        // Just make the first link active
         $('.nav-links').removeClass('active');
-        $('a[href="#menuNav1"]').addClass('active');
+        $('.nav-links').first().addClass('active');
+        
+        // You can also add header classes here if needed, e.g.:
+        // $('header').addClass('main-header-two sticky');
     });
 </script>
 <script>
