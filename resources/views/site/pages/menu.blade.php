@@ -9,6 +9,18 @@
     .itemgrab__box {
         padding-left: 0.375rem;
     }
+
+       @media (min-width: 1200px) {
+.main-header-two + div > .menu__wrapper .menu__item {
+   position: relative;
+       top: 0px;
+}
+.main-header-two.sticky + div > .menu__wrapper .menu__item {
+   position: sticky;
+       top: 5.5rem;
+}
+       }
+
 </style>
 @endpush
 @section('content')
