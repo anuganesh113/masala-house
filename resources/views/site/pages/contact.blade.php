@@ -129,8 +129,8 @@
             <div class="contact__info--box">
                <h2>Write to us</h2>
                <ul>
-                  <li>
-                     <a href="mailto:{!! data_get($setting, 'email') !!}"><i class="fa-solid fa-envelope"></i> {!! data_get($setting, 'email') !!}</a>
+                  <li class="contact-item" style="align-items: center;">
+                     <a href="mailto:{!! data_get($setting, 'email') !!}" style="font-size: 16px;font-weight: 700;"><i class="fa-solid fa-envelope"></i> {!! data_get($setting, 'email') !!}</a>
                   </li>
                   <!-- <li>
                         <a href="mailto:{!! data_get($setting, 'siteemail') !!}"><i class="fa-solid fa-envelope"></i> {!! data_get($setting, 'siteemail') !!}</a>
@@ -146,14 +146,14 @@
                   @if(data_get($setting, 'social.facebook'))
                   <li>
                      <i class="fab fa-facebook-f"></i>
-                     <a target="_blank" href="{!! data_get($setting, 'social.facebook') !!}">Masala house in
+                     <a style="font-weight: 700" target="_blank" href="{!! data_get($setting, 'social.facebook') !!}">Masala house in
                         Facebook</a>
                   </li>
                   @endif
                   @if(data_get($setting, 'social.instagram'))
                   <li>
                      <i class="fab fa-instagram"></i>
-                     <a target="_blank" href="{!! data_get($setting, 'social.instagram') !!}">Masala house in
+                     <a style="font-weight: 700" target="_blank" href="{!! data_get($setting, 'social.instagram') !!}">Masala house in
                         Instagram</a>
                   </li>
                   @endif
@@ -161,13 +161,13 @@
                   @if(data_get($setting, 'social.youtube'))
                   <li>
                      <i class="fab fa-youtube"></i>
-                     <a target="_blank" href="{!! data_get($setting, 'social.youtube') !!}">Masala house in Youtube</a>
+                     <a style="font-weight: 700" target="_blank" href="{!! data_get($setting, 'social.youtube') !!}">Masala house in Youtube</a>
                   </li>
                   @endif
                   @if(data_get($setting, 'social.twitter'))
                   <li>
                      <i class="fab fa-twitter"></i>
-                     <a target="_blank" href="{!! data_get($setting, 'social.twitter') !!}">Masala house in Twitter</a>
+                     <a style="font-weight: 700" target="_blank" href="{!! data_get($setting, 'social.twitter') !!}">Masala house in Twitter</a>
                   </li>
                   @endif
                </ul>
@@ -179,7 +179,7 @@
                <ul>
 
                   <li>
-                     <a href="tel:{!! data_get($setting, 'phone') !!}"> <i class="fa-solid fa-phone"></i>
+                     <a style="font-weight: 700" href="tel:{!! data_get($setting, 'phone') !!}"> <i class="fa-solid fa-phone"></i>
                         {!! data_get($setting, 'phone') !!}</a>
                   </li>
                </ul>
