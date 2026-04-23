@@ -5,9 +5,9 @@
             <form action="{{ route('site.catering.booking') }}" method="post" class="form" id="bookingcateringForm">
                @csrf
                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class='bx bx-x'></i></button>
-               <h5>Reservation</h5>
+               <h3 style="font-size: 35px;">Reservation</h3>
                <input name="catering[namecatering]" value="" id="namecatering" type="hidden">
-               <h2>book a catering service</h2>
+               <h2 class="d-none" >book a catering service</h2>
                <div class="form__group">
                   <label for="" class="form-label">Your Full Name <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" name="catering[name]" placeholder="Your Full Name" required>

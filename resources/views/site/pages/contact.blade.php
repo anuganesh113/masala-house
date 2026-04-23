@@ -33,7 +33,7 @@
       <div class="col-lg-6">
          <div class="map" style="width: 100%; height: 100%;">
             <iframe src=" {!! data_get($setting, 'metadata.google_map_iframe') !!}" width="600"
-               style="border:0;height: 77rem;" allowfullscreen="" loading="lazy"
+               style="border:0;height: 60rem;" allowfullscreen="" loading="lazy"
                referrerpolicy="no-referrer-when-downgrade"></iframe>
 
          </div>
@@ -80,19 +80,19 @@
                   </div>
                </div>
 
-               <div class="form__group">
+               <!-- <div class="form__group">
                   <label for="" class="form-label">Select Date<span class="text-danger">*</span></label>
                   <input type="text" name="contact[date]" class="form-control datepicker-field" onkeydown="return false"
                      placeholder="Select date" required>
                   <i class="fas fa-calendar" style="position: relative;bottom: 39px;float: right;margin-right: 20px;z-index: 1;opacity: 0.6;"></i>
 
-               </div>
+               </div> -->
 
 
-               <div class="form__group">
+               <!-- <div class="form__group">
                   <label for="" class="form-label">Select time <span class="text-danger"> *</span></label>
                   <input type="time" name="contact[time]" class="form-control currentTimeInput" placeholder="Select time" required onkeydown="return false">
-               </div>
+               </div> -->
                <div class="form__group">
                   <label class="form-control-label">Message:</label>
                   <textarea class="form-control m-input" name="contact[message]" rows="5" id="message"></textarea>
