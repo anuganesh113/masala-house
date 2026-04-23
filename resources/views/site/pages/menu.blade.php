@@ -194,19 +194,20 @@
 
 @push('footer')
 <script>
-        $(document).ready(function() {
-            $('html, body').animate({
-                scrollTop: $('header').offset().top
-            }, 0);
-        });
+       $(document).ready(function() {
+           $('html, body').animate({
+               scrollTop: $('header').offset().top
+           }, 0);
+       });
 
-     $(document).ready(function() {
-         $('html, body').animate({
-             scrollTop: $('#menuNav1').offset().top
-         }, 0);
-         $('.nav-links').removeClass('active');
-         $('a[href="#menuNav1"]').addClass('active');
-     });
+    $(document).ready(function() {
+
+        $('html, body').animate({
+            scrollTop: $('#menuNav1').offset().top
+        }, 0);
+        $('.nav-links').removeClass('active');
+        $('a[href="#menuNav1"]').addClass('active');
+    });
 </script>
 <script>
     $('.menuList__carousel').owlCarousel({
@@ -288,38 +289,6 @@
 
 
 
-<!-- nav script -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const OFFSET = 220; // Height of your fixed navbar
-
-        const navLinks = document.querySelectorAll('.nav-links');
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                // Remove 'active' from all links
-                navLinks.forEach(l => l.classList.remove('active'));
-
-                // Add 'active' to the clicked link
-                this.classList.add('active');
-
-                // Scroll to the target section
-                const targetID = this.getAttribute('href').substring(1);
-                const targetEl = document.getElementById(targetID);
-                if (targetEl) {
-                    const yOffset = OFFSET;
-                    const y = targetEl.getBoundingClientRect().top + window.pageYOffset - yOffset;
-                    window.scrollTo({
-                        top: y,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    });
-</script>
 
 <!-- quantity script -->
 <script>
@@ -406,6 +375,7 @@
 
         let activeSectionId = null;
         let isScrollingProgrammatically = false;
+        let isClickScrolling = false;
 
         const options = {
             root: null, // viewport
@@ -495,19 +465,18 @@
 
         // Function to check and update active section based on scroll position
         function updateActiveSectionOnScroll() {
-            let currentSection = null;
+            if (isClickScrolling) return; // Prevent scroll observer from firing while smoothly scrolling from a click
+
             let currentSectionNumber = null;
+            const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+            // The offset should roughly match your fixed header height + a little extra padding
+            const headerOffset = 180; 
 
-            // Find which section is currently in view
-            for (let i = 0; i < sections.length; i++) {
+            // Iterate backwards to find the last section we've scrolled past
+            for (let i = sections.length - 1; i >= 0; i--) {
                 const section = sections[i];
-                const rect = section.getBoundingClientRect();
-                const viewportHeight = window.innerHeight;
-                const offset = 200; // Offset from top
-
-                // Check if section is in view
-                if (rect.top <= viewportHeight - offset && rect.bottom >= offset) {
-                    currentSection = section;
+                // Using offsetTop gives consistent document-relative positioning
+                if (scrollPosition >= (section.offsetTop - headerOffset)) {
                     const sectionId = section.getAttribute('id');
                     if (sectionId && sectionId.startsWith('menuNav')) {
                         currentSectionNumber = sectionId.replace('menuNav', '');
@@ -536,6 +505,8 @@
             link.addEventListener('click', function(e) {
                 e.preventDefault();
 
+                isClickScrolling = true;
+
                 // Remove 'active' from all links
                 navLinks.forEach(l => l.classList.remove('active'));
                 // Add 'active' to the clicked link
@@ -544,17 +515,27 @@
                 // Scroll navigation to make active link visible
                 scrollNavToActiveLink(this);
 
-                // Scroll to the target section
+                // Update active section ID manually
                 const targetID = this.getAttribute('href').substring(1);
+                if (targetID.startsWith('menuNav')) {
+                    activeSectionId = targetID.replace('menuNav', '');
+                }
+
+                // Scroll to the target section
                 const targetEl = document.getElementById(targetID);
                 if (targetEl) {
-                    const yOffset = 220; // Height of your fixed navbar
+                    const yOffset = 150; // Height of your fixed navbar + padding
                     const y = targetEl.getBoundingClientRect().top + window.pageYOffset - yOffset;
                     window.scrollTo({
                         top: y,
                         behavior: 'smooth'
                     });
                 }
+
+                // Reset the flag after smooth scroll is likely done
+                setTimeout(() => {
+                    isClickScrolling = false;
+                }, 800);
             });
         });
 
