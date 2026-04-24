@@ -116,7 +116,7 @@
 <section class="contact__info">
    <div class="container-fluid">
       <div class="row g-4">
-         <div class="col-xl-4 col-lg-3 col-md-6">
+         <div class="col-xl-3 col-lg-3 col-md-6">
             <div class="section__title">
                <h4>Need a private Space ?</h4>
                <h2>
@@ -125,7 +125,7 @@
                </h2>
             </div>
          </div>
-         <div class="col-xl-3 col-lg-4 col-md-6">
+         <div class="col-xl-4 col-lg-4 col-md-6">
             <div class="contact__info--box">
                <h2>Write to us</h2>
                <ul>
