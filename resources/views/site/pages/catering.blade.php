@@ -28,7 +28,7 @@
             <h2>{{ strip_tags(data_get($service, 'excerpt')) }}</h2>
         </div>
     </div>
-    <div class="catering__wrapper">
+    <div class="catering__wrapper {{count($events) === 0 ? 'd-none' : ''}}">
         @foreach($events as $event)
         <div class="catering__wrapper--box">
             <div class="row">
