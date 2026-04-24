@@ -47,4 +47,18 @@ class WebsiteController extends Controller
         }
         return redirect()->back()->with('success', 'Setting Updated Successfully');
     }
+
+   public function upload(Request $request)
+    {
+        if ($request->hasFile('image')) {
+            $file     = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $path     = $file->move(public_path('uploads/summernote'), $filename);
+            return asset('uploads/summernote/' . $filename);
+        }
+        return response()->json(['error' => 'No image uploaded'], 400);
+    }
+
+
+
 }

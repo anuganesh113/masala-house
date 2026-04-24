@@ -94,9 +94,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
 
         $route->get('home/page', [WebsiteController::class, 'setting'])->name('home.page');
         $route->post('setting/home/page', [WebsiteController::class, 'settingUpdate'])->name('settingUpdate');
-
-
-
+        $route->post('summernote/upload', [WebsiteController::class, 'upload'])->name('summernote.upload');
 
 
 

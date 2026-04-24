@@ -21,15 +21,16 @@ function showAlertMessage(msg) {
 }
 
 
-$(document).ready(function () {
-    $(`input, select, textarea`).focus(function (event) {
-        let element = $(`span#${event.target.name}`)
-
-        if (element) {
-            element.hide();
-        }
-    });
-});
+// $(document).ready(function () {
+//     $(`input, select, textarea`).focus(function (event) {
+//         if (event.target.name) {
+//             let element = $(`span#${event.target.name}`);
+//             if (element.length) {
+//                 element.hide();
+//             }
+//         }
+//     });
+// });
 
 
 function showPreview(event, id) {
