@@ -119,7 +119,7 @@
          <div class="col-xl-3 col-lg-3 col-md-6">
             <div class="section__title">
                <h4>Need a private Space ?</h4>
-               <h2>
+               <h2 style="font-size: 2.4375rem;">
                   Reserve a Table
                   <span>Lets talk</span>
                </h2>
