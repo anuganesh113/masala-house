@@ -2,7 +2,7 @@
 <div class="faq">
    <div class="faq__accordion">
       <div class="accordion custom__accordion">
-   @if( $event->eventfaqs->isNotEmpty())
+   @if(isset($event) && $event->eventfaqs->isNotEmpty())
       @foreach($event->eventfaqs as $faq)
          <div class="accordion__item  ">
             <div class="accordion__item--title" href="javascript:void(0)">
