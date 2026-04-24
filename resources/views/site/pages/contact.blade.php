@@ -116,7 +116,7 @@
 <section class="contact__info">
    <div class="container-fluid">
       <div class="row g-4">
-         <div class="col-lg-4 col-md-6">
+         <div class="col-lg-3 col-md-6">
             <div class="section__title">
                <h4>Need a private Space ?</h4>
                <h2>
@@ -125,12 +125,12 @@
                </h2>
             </div>
          </div>
-         <div class="col-lg-3 col-md-6">
+         <div class="col-lg-4 col-md-6">
             <div class="contact__info--box">
                <h2>Write to us</h2>
                <ul>
                   <li class="contact-item" style="align-items: center;">
-                     <a href="mailto:{!! data_get($setting, 'email') !!}" style="font-size: 16px;font-weight: 700;"><i class="fa-solid fa-envelope"></i> {!! data_get($setting, 'email') !!}</a>
+                     <a href="mailto:{!! data_get($setting, 'email') !!}" ><i class="fa-solid fa-envelope"></i> {!! data_get($setting, 'email') !!}</a>
                   </li>
                   <!-- <li>
                         <a href="mailto:{!! data_get($setting, 'siteemail') !!}"><i class="fa-solid fa-envelope"></i> {!! data_get($setting, 'siteemail') !!}</a>
