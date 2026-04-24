@@ -97,7 +97,7 @@
                     </div>
                     <div class="col-lg-7">
                         <div class="row  mb-lg-5 mb-4">
-                            <div class="col-xl-7 col-lg-8 col-md-6 col-sm-6">
+                            <div class="col-xl-12 col-lg-12 col-md-6 col-sm-6">
                                 <div class="section__title">
                                     <h4>Our best {{ $category->name }} </h4>
                                     <h2>{{ $category->name }}</h2>
