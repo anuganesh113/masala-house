@@ -139,13 +139,14 @@
 </section>
 <!-- chef section end -->
 
-
+@if(count($compliments ?? []) > 0)
 <!-- testimonial section start -->
 <section class="testimonial m__tb--b">
     <div class="container">
         @include("site.includes.testimonial")
     </div>
 </section>
+@endif
 <!-- testimonial section end -->
 
 
