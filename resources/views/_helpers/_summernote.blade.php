@@ -5,12 +5,12 @@
 
             callbacks: {
                 onImageUpload: function(files) {
-                    uploadImage(files[0]);
+                    uploadImage(files[0], this);
                 }
             }
         });
 
-        function uploadImage(file) {
+        function uploadImage(file, editor) {
             let data = new FormData();
             data.append("image", file);
             data.append("_token", "{{ csrf_token() }}");
@@ -23,7 +23,7 @@
                 processData: false,
                 dataType: "text",
                 success: function(url) {
-                    $('.summernote_reg').summernote('insertImage', url);
+                    $(editor).summernote('insertImage', url);
                 },
                 error: function(data) {
                     console.log(data);
@@ -34,7 +34,7 @@
     });
 
     $(document).ready(function() {
-        $(`input, select, textarea`).focus(function(event) {
+        $(`input, select, textarea.summernote_reg `).focus(function(event) {
             let element = $(`span#${event.target.name}`)
 
             if (element) {
