@@ -71,7 +71,15 @@
                              
                             </div>
                         </div>
+                         <div class="btn__group justify-content-lg-end mt-0" style="padding: 35px 50px 0 0;">
+                          <a href="" class="l__button l__button--primary bookacatering"
+                                 data-name="{{$event->name}}"
+                                data-bs-toggle="modal" data-bs-target="#bookacatering">Reserve</a>
+                                <a href="/contact" class="l__button l__button--secondary" target="_blank"> Contact us </a>
+
                     </div>
+                    </div>
+                    
                     @endforeach
                     <!-- <div id="eventTab2" class="tab__contents--text">
                         <div class="">
@@ -136,15 +144,14 @@
                             <!-- </div>
                         </div> -->
                     </div>
-                    <div class="btn__group justify-content-lg-end mt-0" style="padding: 0 50px 25px 20px;margin-bottom: 45px;">
-                        <button class="l__button l__button--primary">Get Quote</button>
-                        <a href="/contact" class="l__button l__button--secondary">Contact us</a>
-                    </div>
+                   
                 </div>
             </div>
         </div>
     </div>
 </section>
+@include('site.pages.cateringpopup')
+
 
 @push('footer')
 <script>

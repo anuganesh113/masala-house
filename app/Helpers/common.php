@@ -175,6 +175,19 @@ if (!function_exists('title')) {
     }
 }
 
+if (!function_exists('emailaddress')) {
+    function emailaddress()
+    {
+        $settings = setting(); // Call the function first
+
+        if (isset($settings) && data_get($settings, 'email')) {
+            return data_get($settings, 'email');
+        } else {
+            return '';
+        }
+    }
+}
+
 if (!function_exists('google_map_address')) {
     function google_map_address()
     {
