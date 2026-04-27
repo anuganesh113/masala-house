@@ -127,7 +127,7 @@
                                 <div class="item">
                                     <div class="menu__card">
                                         <div class="menu__card--img">
-                                            <a href="{{ route('site.product', ['slug' => Str::slug($item->name), 'id' => $item->id]) }}" target="_blank">
+                                            <a href="{{ route('product.old', ['id' => $item->id]) }}" target="_blank">
                                                 <img class=""
                                                     data-src="{{$item->full_image_link}}" src="{{$item->full_image_link}}"
                                                     alt="{{ $item->image_alt ?? $item->name }}">
@@ -163,11 +163,7 @@
                                             </div>
 
                                             <div class="menu__card--footer">
-                                                <!-- <span class="btn veg-btn bt-fr  menuviewbtn br-25 iisection mb-1" style="width: 100%;">
-                                                    <a href="{{ route('site.product', ['slug' => $item->slug , 'id' => $item->id]) }}" target="_blank" style="color: inherit;font-size: 18px;">
-                                                        <i class="fas fa-search"></i> View Details
-                                                    </a>
-                                                </span> -->
+                                        
                                                 <a class="menu__card--cta order-now-btn viewip wtc mb-1" style="width: 100%;margin: auto;margin-top: 35px;" href="{{ requesturl() . '/' . $item->slug  }}" target="_blank"><i class="fas fa-shopping-cart"></i> Order Now</a>
                                             </div>
 
@@ -186,7 +182,7 @@
                                 <div class="item">
                                     <div class="menu__card">
                                         <div class="menu__card--img">
-                                            <a href="{{ route('site.product', ['slug' => Str::slug($item->name), 'id' => $item->id]) }}" target="_blank">
+                                            <a href="{{ route('product.old', ['id' => $item->id]) }}" target="_blank">
                                                 <img class=""
                                                     data-src="{{$item->full_image_link}}" src="{{$item->full_image_link}}"
                                                     alt="{{ $item->image_alt ?? $item->name }}">
@@ -224,11 +220,7 @@
                                             </div>
 
                                             <div class="menu__card--footer">
-                                                <!-- <span class="btn veg-btn bt-fr  menuviewbtn br-25 iisection mb-1" style="width: 100%;">
-                                                    <a href="{{ route('site.product', ['slug' => $item->slug , 'id' => $item->id]) }}" target="_blank" style="color: inherit;font-size: 18px;">
-                                                        <i class="fas fa-search"></i> View Details
-                                                    </a>
-                                                </span> -->
+                                        
                                                 <a class="menu__card--cta order-now-btn viewip wtc mb-1" style="width: 100%;margin: auto;margin-top: 35px;" href="{{ requesturl() . '/' . $item->slug  }}" target="_blank"><i class="fas fa-shopping-cart"></i> Order Now</a>
                                             </div>
 

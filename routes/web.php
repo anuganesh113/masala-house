@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Website\WebsiteAjaxController;
 use App\Http\Controllers\Website\WebsiteController;
+use App\Models\Menu;
 use Illuminate\Support\Facades\Route;
 
 require_once __DIR__.'/admin.php';
@@ -19,7 +20,7 @@ Route::group(['as' => 'site.'], function ($route) {
           $route->post('catering-booking', 'cateringBooking')->name('catering.booking');
           $route->post('contact-store', 'contactsave')->name('contact.save');
         $route->post('table-book', 'tablebook')->name('table.book');
-        $route->get('product/{slug}/{id}', 'product')->name('product');
+        $route->get('product/{slug}', 'product')->name('product');
 
 
 
@@ -30,3 +31,17 @@ Route::group(['as' => 'site.'], function ($route) {
     });
 
 });
+
+Route::get('/products/{id}', function ($id) {
+    // Find product by ID and get its slug
+    $product = Menu::find($id);
+    
+    if ($product) {
+        // Extract clean slug (remove UUID if exists)
+        $cleanSlug = explode('_', $product->slug)[0];
+        return redirect()->route('site.product', ['slug' => $cleanSlug], 301);
+    }
+    
+    // If product not found, redirect to 404 or home
+    abort(404);
+})->name('product.old');

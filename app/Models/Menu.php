@@ -78,4 +78,9 @@ class Menu extends Model
             ->where('model_type', 'menu')->where('status', 1)
             ->orderBy('order');
     }
+
+    public function getCleanSlugAttribute()
+{
+    return explode('_', $this->slug)[0];
+}
 }

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Menu;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -32,6 +33,11 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+
+            Route::bind('slug', function ($value) {
+        $cleanSlug = explode('_', $value)[0];
+        return Menu::where('slug', 'LIKE', $cleanSlug . '%')->firstOrFail();
+    });
 
     }
 
