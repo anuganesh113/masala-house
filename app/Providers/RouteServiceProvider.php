@@ -33,11 +33,13 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
-
+      
+       if(request()->segment(1) === 'product') {
             Route::bind('slug', function ($value) {
-        $cleanSlug = explode('_', $value)[0];
-        return Menu::where('slug', 'LIKE', $cleanSlug . '%')->firstOrFail();
-    });
+                $cleanSlug = explode('_', $value)[0];
+                return Menu::where('slug', 'LIKE', $cleanSlug . '%')->firstOrFail();
+            });
+        }
 
     }
 
