@@ -2,7 +2,7 @@
     <div class="owl-carousel owl-theme banner__carousel">
 
         @foreach($banners ?? [] as $banner)
-            <div class="item">
+            <div class="item banneritem">
                 <div class="banner__card"
                     style="background-image: url({{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::BANNERS_PATH, $banner->image)) }});">
                     <div class="banner__card--content">

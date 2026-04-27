@@ -236,6 +236,9 @@
       .bg-orange {
           background: #FF6F00 !important;
       }
+        .orange {
+          color: #FF6F00 !important;
+      }
 
         @media (max-width: 991px) {
          .popular .menuFlex__card .cat.mobdnone{
@@ -245,6 +248,10 @@
 }
       
       @media (max-width: 767px) {
+
+          .owl-item .item.banneritem{
+            padding: inherit!important;
+          }
         
            .menuviewbtn.br-25.iisection{
                 bottom: -28px;
