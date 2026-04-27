@@ -144,7 +144,7 @@
             </div>
 
             <div class="form-group m-form__group row">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <label>Order Now Link</label>
                     <div class="m-input-icon m-input-icon--right">
                         <input type="url"
@@ -154,6 +154,18 @@
                             placeholder="Order Now Link"
                             pattern="https?://.+"
                             title="Please enter a valid URL starting with http:// or https://">
+                    </div>
+                </div>
+                          <div class="col-lg-6">
+                    <label>Google Site Verification key</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input type="text"
+                            class="form-control m-input"
+                            name="social[google_site_verification]"
+                            value="{{ old('social.google_site_verification')??data_get($setting, "social.google_site_verification") }}"
+                            placeholder="Google Site Verification"
+                          
+                            >
                     </div>
                 </div>
             </div>
