@@ -83,25 +83,38 @@ class WebsiteController extends BaseController
     }
 
 
-    public function product(Request $request , string $slug ): View
+    public function product(Request $request, string $slug): View
     {
-    $id= session()->get('id');
-      
-       $data['menu'] = Menu::findOrFail($id);
-   
+        // Look up the product ID from the slug mapping file
+        $id = null;
+        $filePath = storage_path('app/slug_mappings.json');
+        if (file_exists($filePath)) {
+         //  dd('asd');
+            $mappings = json_decode(file_get_contents($filePath), true) ?? [];
+           // dd($mappings);
+            $id = $mappings[$slug] ?? null;
+        }
 
-      $data['similarMenus'] = Menu::status()->where('id', '!=', $id)->where('category_id', $data['menu']->category->id)->get();
-      //dd($data['similarMenus']);
-      $data['cat_name'] = $data['menu']->category->name;
-      //dd($data['cat_name']);
-      $data['cat_image_link'] = $data['menu']->category->image;
-      //dd($data['cat_image_link'] );
-         
+        // Fallback: try to find by slug column directly in DB
+        if (!$id) {
+            $menu = Menu::where('slug', $slug)->first();
+            if ($menu) {
+                $id = 1;
+            }
+        }
+//dd($id);
+        if (!$id) {
+            abort(404);
+        }
+       // dd($id);
 
-           
-       
-      //dd($data);
-  
+        $data['menu']         = Menu::findOrFail($id);
+        $data['similarMenus'] = Menu::status()
+            ->where('id', '!=', $id)
+            ->where('category_id', $data['menu']->category->id)
+            ->get();
+        $data['cat_name']       = $data['menu']->category->name;
+        $data['cat_image_link'] = $data['menu']->category->image;
 
         return view('site.pages.showproduct', $data);
     }
@@ -173,4 +186,22 @@ class WebsiteController extends BaseController
         Mail::to(emailaddress())->cc($details['email'])->send(new \App\Mail\Contact($details));
         return redirect()->back()->with('success-msg', 'Successfull!  We will inform you soon');
     }
+
+    function reverseTransform($input) {
+    // Split by hyphens
+    $parts = explode('-', $input);
+    
+    if (count($parts) == 3) {
+        // Convert back to original format: Soda (Coke/Sprite)
+        return ucfirst($parts[0]) . ' (' . ucfirst($parts[1]) . '/' . ucfirst($parts[2]) . ')';
+    } elseif (count($parts) == 2) {
+        // Convert back to: Soda Coke
+        return ucfirst($parts[0]) . ' ' . ucfirst($parts[1]);
+    }
+    
+    return $input;
+}
+
+
+
 }

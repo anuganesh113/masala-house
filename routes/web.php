@@ -3,6 +3,7 @@
 use App\Http\Controllers\Website\WebsiteAjaxController;
 use App\Http\Controllers\Website\WebsiteController;
 use App\Models\Menu;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Route;
 
 require_once __DIR__.'/admin.php';
@@ -32,31 +33,30 @@ Route::group(['as' => 'site.'], function ($route) {
 
 });
 
+
+
 Route::get('/products/{id}', function ($id) {
-    // Find product by ID and get its slug
     $product = Menu::find($id);
-//dd($product);
-    $pattern = '/[\/\s\(\)]+/';
 
-$output = preg_replace_callback($pattern, function($matches) {
-    // $matches[0] contains the entire text that matched the pattern
-    // Let's see what's inside
-    return '-';
-}, $product->name);
-
- // dd($output);
-$output = strtolower(trim($output, '-'));
- session()->flash('id', $id);
-
-   
-    if ($product) {
-        // Extract clean slug (remove UUID if exists)
-        //$cleanSlug = explode('_', $product->slug)[0];
-
-       
-        return redirect()->route('site.product', ['slug' => $output], 301);
+    if (!$product) {
+        abort(404);
     }
-    
-    // If product not found, redirect to 404 or home
-    abort(404);
+
+    // Generate slug from product name
+    $pattern = '/[\/\s\(\)]+/';
+    $slug = preg_replace_callback($pattern, function ($matches) {
+        return '-';
+    }, $product->name);
+    $slug = strtolower(trim($slug, '-'));
+
+    // Save slug -> id mapping to a local JSON file
+    $filePath = storage_path('app/slug_mappings.json');
+    $mappings = [];
+    if (file_exists($filePath)) {
+        $mappings = json_decode(file_get_contents($filePath), true) ?? [];
+    }
+    $mappings[$slug] = $id;
+    file_put_contents($filePath, json_encode($mappings, JSON_PRETTY_PRINT));
+
+    return redirect()->route('site.product', ['slug' => $slug]);
 })->name('product.old');
