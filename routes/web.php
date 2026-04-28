@@ -25,6 +25,8 @@ Route::group(['as' => 'site.'], function ($route) {
 
 
 
+
+        
     });
 
     $route->controller(WebsiteAjaxController::class)->group(function ($route) {
