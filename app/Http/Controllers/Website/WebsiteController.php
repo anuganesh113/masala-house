@@ -85,19 +85,22 @@ class WebsiteController extends BaseController
 
     public function product(Request $request , string $slug ): View
     {
-   
+    $id= session()->get('id');
       
-       $data['menu'] = Menu::findOrFail(json_decode($slug)->id);
+       $data['menu'] = Menu::findOrFail($id);
    
 
-      $data['similarMenus'] = Menu::status()->where('id', '!=', json_decode($slug)->id)->where('category_id', $data['menu']->category->id)->get();
+      $data['similarMenus'] = Menu::status()->where('id', '!=', $id)->where('category_id', $data['menu']->category->id)->get();
+      //dd($data['similarMenus']);
       $data['cat_name'] = $data['menu']->category->name;
+      //dd($data['cat_name']);
       $data['cat_image_link'] = $data['menu']->category->image;
+      //dd($data['cat_image_link'] );
          
 
            
        
-      
+      //dd($data);
   
 
         return view('site.pages.showproduct', $data);
