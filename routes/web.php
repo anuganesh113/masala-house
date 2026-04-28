@@ -5,10 +5,24 @@ use App\Http\Controllers\Website\WebsiteController;
 use App\Models\Menu;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 require_once __DIR__.'/admin.php';
 
 require_once __DIR__.'/auth.php';
+
+
+Route::get('/cmd', function () {
+    Artisan::call('config:cache');
+    Artisan::call('cache:clear');
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+
+    return redirect()
+        ->back()
+        ->with('success', 'Cache cleared successfully!');
+});
+
 
 Route::group(['as' => 'site.'], function ($route) {
 
