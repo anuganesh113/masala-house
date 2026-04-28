@@ -18,8 +18,7 @@ Route::get('/cmd', function () {
     Artisan::call('view:clear');
     Artisan::call('route:clear');
 
-    return redirect('/')
-        ->with('success', 'Cache cleared successfully!');
+    return 'Cache cleared successfully!';
 });
 
 Route::group(['as' => 'site.'], function ($route) {
