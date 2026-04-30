@@ -1,7 +1,7 @@
 @push('header')
 <style>
 
-@media (min-width: 1300px) and (max-width: 1640px) {
+@media (min-width: 1200px) and (max-width: 1640px) {
     .deskfooter li a {
         font-size: 0.875rem;
 
