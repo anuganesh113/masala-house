@@ -59,6 +59,9 @@
                <li>
                   <a href="{{ url('menu') }}">menu</a>
                </li>
+                  <li>
+                  <a href="{{ url('privacy-policy') }}">Privacy Policy</a>
+               </li>
                @foreach($pages ?? [] as $page)
                <li>
                   <a href="{{ url(data_get($page, 'slug')) }}">{{ data_get($page, 'name') }}</a>
