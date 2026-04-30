@@ -414,7 +414,7 @@
         loop: true,
         margin: 30,
         responsiveClass: true,
-        autoplay: false,
+        autoplay: true,
         autoplayHoverPause: true,
         autoplaySpeed: 500,
         lazyLoad: true,
