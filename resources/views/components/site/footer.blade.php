@@ -62,6 +62,13 @@
                   <li>
                   <a href="{{ url('privacy-policy') }}">Privacy Policy</a>
                </li>
+                </li>
+                  <li>
+                  <a href="{{ url('terms-conditions') }}">Terms & Conditions</a>
+               </li>
+
+
+               
                @foreach($pages ?? [] as $page)
                <li>
                   <a href="{{ url(data_get($page, 'slug')) }}">{{ data_get($page, 'name') }}</a>

@@ -83,7 +83,7 @@ if (!function_exists('pages')) {
                 $query->select(['id', 'page_id', 'name', 'slug', 'template', 'order'])->orderBy('order');
             })
             ->select(['id', 'page_id', 'name', 'slug', 'template'])
-            ->whereNull('page_id')
+            ->whereNull('page_id')->where('slug', '!=', 'privacy-policy')->where('slug', '!=', 'terms-conditions')
             ->orderBy('order')
             ->get()->toArray();
     }
