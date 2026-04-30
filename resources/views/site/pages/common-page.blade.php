@@ -17,7 +17,6 @@
         padding: 30px 50px;
     }
 
-
 </style>
 
 @endpush
