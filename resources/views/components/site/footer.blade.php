@@ -1,3 +1,20 @@
+@push('header')
+<style>
+
+@media (min-width: 1300px) and (max-width: 1640px) {
+    .deskfooter li a {
+        font-size: 0.875rem;
+
+    }
+    .footer__top--nav{
+          gap: clamp(1rem, 5vw, 3rem);
+    }
+
+}
+   </style>
+
+  
+
 <footer class="footer">
    <div class="container-fluid">
       <div class="footer__top">
@@ -6,7 +23,7 @@
                src="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::LOGO_PATH, data_get($setting, 'white_logo'))) }}"
                alt="white logo">
          </a>
-         <ul class="footer__top--nav d-none d-lg-flex">
+         <ul class="footer__top--nav d-none d-lg-flex deskfooter">
             <li>
                <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
             </li>
