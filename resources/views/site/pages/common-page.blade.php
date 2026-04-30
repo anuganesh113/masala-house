@@ -12,7 +12,6 @@
     .boxshadow {
         box-shadow: 0px 2px 7px rgb(22 30 106 / 30%) !important;
     }
-
     .plt-50 {
         padding: 30px 50px;
     }
