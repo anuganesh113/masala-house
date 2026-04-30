@@ -391,7 +391,7 @@
                         <i class="fas fa-search"></i> View Details
                      </a>
                   </span>
-                  <a class="menu__card--cta order-now-btn viewip   mr-l wtc mb-1"  style="width: 100%;"  href="{{ requesturl() . '/' . $menu->slug  }}"  target="_blank"><i class="fas fa-shopping-cart"></i> Order Now</a>
+                  <a class="menu__card--cta order-now-btn viewip ml-auto   wtc mb-1"  style="width: 100%;margin-left: auto;"  href="{{ requesturl() . '/' . $menu->slug  }}"  target="_blank"><i class="fas fa-shopping-cart"></i> Order Now</a>
                </div>
                     </div>
                 </div>
@@ -414,7 +414,7 @@
         loop: true,
         margin: 30,
         responsiveClass: true,
-        autoplay: true,
+        autoplay: false,
         autoplayHoverPause: true,
         autoplaySpeed: 500,
         lazyLoad: true,
