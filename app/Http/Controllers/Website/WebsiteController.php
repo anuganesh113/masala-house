@@ -34,16 +34,20 @@ class WebsiteController extends BaseController
     public function page(string $page): View|RedirectResponse
     {
         $page = Page::query()->where(['slug' => $page])->firstOrFail();
+        
 
         if (in_array($page->slug, General::NO_PAGES)) {
             return to_route('site.index');
         }
 
         $data = $this->websiteService->page($page);
+     
 
-
-
+        if(isset($page) && $page->slug == 'policy-page' || $page->slug == 'privacy-policy'){
+            return view('site.pages.policy-page', $data);
+        }else{
         return view(sprintf('site.pages.%s', data_get($page, 'template', 'common-page')), $data);
+        }
     }
 
     public function blog(string $slug): View|RedirectResponse
