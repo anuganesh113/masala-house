@@ -51,9 +51,9 @@
          </ul>
       </div>
       <div class="row">
-         <div class="col-lg-12  ">
+         <div class="col-lg-12 col-md-12"> ">
             <ul class="footer__top--nav d-block d-lg-none mobfooter">
-               <li>
+               <!-- <li>
                   <a href="{{ requesturl() }}">Order Now</a>
                </li>
                <li>
@@ -65,13 +65,14 @@
                 </li>
                   <li>
                   <a href="{{ url('terms-conditions') }}">Terms & Conditions</a>
-               </li>
+               </li> -->
+               
 
 
                
-               @foreach($pages ?? [] as $page)
+               @foreach(footerPages() ?? [] as $page)
                <li>
-                  <a href="{{ url(data_get($page, 'slug')) }}">{{ data_get($page, 'name') }}</a>
+                  <a href="{{ url(data_get($page, 'slug')) }}" class="font-san">{{ data_get($page, 'name') }}</a>
                </li>
                @endforeach
 
@@ -89,12 +90,12 @@
                
                </div>
                <div class="box">
-                  <h2>Book a Table</h2>
+                  <h2 class="font-san">Book a Table</h2>
                   <p>{!! data_get($setting, 'footer_text') !!}</p>
                   
                </div>
                <div class="box">
-                  <h2>Our Address</h2>
+                  <h2 class="font-san">Our Address</h2>
                   <p>{{ data_get($setting, 'address') }}</p>
             <a href="tel:{{ data_get($setting, 'contact') }}" class="number"><i class="fas fa-phone"></i> {{ data_get($setting, 'contact') }}</a>
 
@@ -104,7 +105,7 @@
       </div>
       <div class="footer__middle footer__middle--mb d-lg-none">
          <div class="box">
-            <h2>Book a Table</h2>
+            <h2 class="font-san">Book a Table</h2>
             <p>{!! data_get($setting, 'footer_text') !!}</p>
          </div>
       </div>

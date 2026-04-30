@@ -1,4 +1,8 @@
   <style>
+    .font-san {
+        font-family: "Sansita Swashed", sans-serif;
+    }
+
     /* input[type="time"]::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;

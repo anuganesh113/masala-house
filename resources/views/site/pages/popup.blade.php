@@ -52,14 +52,14 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
             
          
-            <h2 class="text-center" ><a class="orange" style="text-decoration: auto;" href="{{ data_get($popup, 'link') }}" target="_blank" >{{ data_get($popup, 'title') }}</a></h2>
-            <a href="{{ data_get($popup, 'link') }}" target="_blank" >
+            <h2 class="text-center font-san" ><a class="orange" style="text-decoration: auto;" href="{{ data_get($popup, 'link') }}" target="_blank" >{{ data_get($popup, 'title') }}</a></h2>
+            <a href="{{ data_get($popup, 'link') }}" class="font-san" target="_blank" >
             <img src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::POPUPS_PATH, data_get($popup, 'image'))) }}" alt="Catering Service" class="img-fluid mb-3">
           
                <div class="text-center learnpopmorecriclediv" >
                <em  class="learnpopmorecricle" >
              
-               <a href="{{ data_get($popup, 'link') }}" target="_blank" class="learnpopmore" >  <i class="fa-solid fa-angle-down learnpopmorearrow"  ></i> MORE</a>
+               <a href="{{ data_get($popup, 'link') }}" target="_blank" class="learnpopmore " >  <i class="fa-solid fa-angle-down learnpopmorearrow"  ></i> MORE</a>
                </em>
             </div>
               </a>
