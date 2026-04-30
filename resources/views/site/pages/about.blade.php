@@ -217,7 +217,7 @@
 
 
 <!-- gallery section start -->
-<section class="gallery p__tb">
+<section class="gallery p__tb" style="    padding: 10px 30px 50px 30px;">
     <div class="container-fluid">
         <div class="flex">
             <div class="section__title">

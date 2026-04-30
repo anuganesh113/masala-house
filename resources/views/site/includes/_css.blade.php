@@ -1,4 +1,7 @@
   <style>
+      .gallery__box.gallery__boxres{
+            padding-left: 0px;
+        }
     .font-san {
         font-family: "Sansita Swashed", sans-serif;
     }
@@ -95,6 +98,7 @@
 
 
       @media (min-width: 779px) {
+      
 
           .menu__list--box.deskview {
               padding: 18px 0 15px 1px;
@@ -146,6 +150,8 @@
       }
 
       @media (min-width: 519px) and (max-width: 778px) {
+
+      
           .order-now-btn2.boxshadow.wtc.men-ord {
               margin: auto;
               width: auto;
@@ -245,6 +251,9 @@
       }
 
         @media (max-width: 991px) {
+                .gallery__box.gallery__boxres{
+            padding-left: 0px;
+        }
          .popular .menuFlex__card .cat.mobdnone{
         display: none;
 
@@ -361,6 +370,9 @@
       }
 
       @media (min-width: 521px) and (max-width: 778px) {
+        
+
+      padding-left: 30px;
           .menuFlex__card {
               display: block;
           }
