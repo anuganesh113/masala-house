@@ -28,7 +28,7 @@
         <img src="{{ $page ?  $page->breadcrumbs_image_link : asset ('site-assets/images/about/about-banner.png') }}" alt="{{ data_get($page, 'alt', 'page banner') }}">
     </div>
     <div class="banner__page--content">
-        <h1>Our {{ $page->name ?? 'page Name' }}</h1>
+        <!-- <h1>Our {{ $page->name ?? 'page Name' }}</h1> -->
         <p> <a href="{{url('/') }}" class="text-white"><i class="fas fa-home" style="font-size: 27px;"></i></a> / {{$page->name ?? 'page Name'}}</p>
 
 </section>
