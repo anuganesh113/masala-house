@@ -414,9 +414,9 @@
         loop: true,
         margin: 30,
         responsiveClass: true,
-        autoplay: false,
+        autoplay: true,
         autoplayHoverPause: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 500,
         lazyLoad: true,
         navText: [
             '<i class="fas fa-chevron-left"></i>',
@@ -450,12 +450,7 @@
                 nav: false,
                 // margin: 40,
             },
-            1300: {
-                items: 4,
-                dots: false,
-                nav: false,
-                // margin: 40,
-            },
+            
         },
     }, );
 </script>
