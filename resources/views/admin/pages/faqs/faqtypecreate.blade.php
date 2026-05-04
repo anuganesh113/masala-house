@@ -92,8 +92,15 @@
 										<i class="la la-upload"></i>
 										Submit
 									</button>
-									<a href="{{ route('admin.faqs.index') }}"
+									@if(isset($faq) && $faq)
+
+									  <a href="{{ route('admin.faqtype', ['type' => request()->segment(5),'id' => $model->id]) }}"
 										class="btn btn-danger text-light">
+
+									@else
+	                                 <a href="{{ route('admin.faqtype', ['type' => request()->segment(4),'id' => request()->segment(5)]) }}"
+										class="btn btn-danger text-light">
+										@endif
 										<i class="la la-close"></i>
 										Cancel
 									</a>
