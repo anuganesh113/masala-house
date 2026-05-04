@@ -5,7 +5,7 @@
 
 @endpush
 
-<!-- <section style="    background-color: #1d1d1e;">
+<section style="    background-color: #1d1d1e;">
 <div class="container-fluid">
     <div class="row mt-3">
         <div class="col-md-12 col-sm-12 w-100" id="instagram-media" style="padding: 0 200px;">
@@ -18,5 +18,5 @@
         </div>
     </div>
 </div>
-</section> -->
+</section>
 
