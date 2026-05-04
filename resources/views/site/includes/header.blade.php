@@ -3,9 +3,15 @@
 
 <head>
   @include('site.includes.meta')
- <meta name="google-site-verification" content="{{googlesiteverification()}}" />
+
+  
+  @include('site.includes.google')
+
+
+
+ <!-- <meta name="google-site-verification" content="{{googlesiteverification()}}" /> -->
   <!-- <meta name="google-site-verification" content="PVElXv82RpomDLSiiyhvSw8In_ACNXiFC_y-l6RwEXA" /> -->
-  <script>
+  <!-- <script>
     (function(w, d, s, l, i) {
       w[l] = w[l] || [];
       w[l].push({
@@ -20,7 +26,7 @@
         'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-K8WJ7LSJ');
-  </script>
+  </script> -->
   <!-- End Google Tag Manager -->
 
   @stack('seo-share')
