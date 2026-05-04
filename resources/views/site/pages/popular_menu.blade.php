@@ -47,7 +47,7 @@
                                              
                                                 <a class="order-btn wtc mt-2 viewip" href="{{ requesturl() . '/' . $item->slug  }}"  target="_blank"><i class="fas fa-shopping-cart"> </i> Order Now </a>
 
-                                               <a class="order-btn wtc menuviewbtn mt-2 viewip" href="{{ route('product.old', ['id' => $item->id]) }}"  target="_blank" style="float: inline-end;"><i class="fas fa-search"></i> View Details </a>
+                                               <a class="order-btn wtc menuviewbtn mt-2 viewip" href="{{ route('product.old', ['id' => $item->id]) }}"  target="" style="float: inline-end;"><i class="fas fa-search"></i> View Details </a>
 
                                             </div>
                                      

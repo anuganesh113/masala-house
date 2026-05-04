@@ -46,7 +46,7 @@
                     <button class="l__button l__button--primary" data-bs-toggle="modal"
                         data-bs-target="#bookatableModal">find a table
                     </button>
-                    <button class="l__button l__button--secondary">order now</button>
+                    <a href="{{requesturl() }}" class="l__button l__button--secondary">order now</a>
                 </div>
             </div>
         </div>
@@ -150,7 +150,7 @@
                                             </div>
                                         </div>
                                         <div class="menu__card--content">
-                                            <h3 class="titlehgt"><a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">{{ $item->name }} </a>
+                                            <h3 class="titlehgt"><a href="{{ route('product.old', ['id' => $item->id]) }}" target="_blank">{{ $item->name }} </a>
 
                                             </h3>
                                             <div class="exploreour catexploreour itemexcerpthover" style="min-height: 50px;">
@@ -205,7 +205,7 @@
                                             </div>
                                         </div>
                                         <div class="menu__card--content">
-                                            <h3 class="titlehgt"><a href="{{ requesturl() . '/' . $item->slug  }}" target="_blank">{{ $item->name }} </a>
+                                            <h3 class="titlehgt"><a href="{{ route('product.old', ['id' => $item->id]) }}" target="_blank">{{ $item->name }} </a>
 
                                             </h3>
                                             <div class="exploreour catexploreour itemexcerpthover" style="min-height: 50px;">

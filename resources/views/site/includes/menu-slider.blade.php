@@ -3,7 +3,7 @@
       <div class="item" style="margin-right: -20px;">
          <div class="menu__card menu__card--family" style="width: 95%;">
             <div class="menu__card--img">
-               <a href="{{ route('product.old', ['id' => $menu->id]) }}" target="_blank">
+               <a href="{{ route('product.old', ['id' => $menu->id]) }}" target="">
                   <img class="owl-lazy"
                      data-src="{{ asset(sprintf('%s%s', \App\Enums\UploadFilePath::MENUS_PATH, data_get($menu, 'image'))) }}"
                      alt="{{ $menu->image_alt ?? $menu->name }}">
@@ -26,7 +26,7 @@
             <div class="menu__card--content">
                <div class="menu__card--header">
                   <h3 class="titlehgt">
-                     <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">{{ $menu->name }}</a>
+                     <a href="{{ route('product.old', ['id' => $menu->id]) }}" target="">{{ $menu->name }}</a>
                   </h3>
                   <div class="menu__card--price">${{ $menu->price }}
                     <em class="cat {{cssnonveg($menu->type)}} " style="float:inline-end">{{ checkVegetarian($menu->type) }}</em>
@@ -37,7 +37,7 @@
                </div>
                <div class="menu__card--footer">
                   <span class="btn veg-btn bt-fr menuviewbtn br-25 iisection">
-                     <a href="{{ route('product.old', ['id' => $menu->id]) }}" target="_blank" style="color: inherit;font-size: 18px;">
+                     <a href="{{ route('product.old', ['id' => $menu->id]) }}" target="" style="color: inherit;font-size: 18px;">
                         <i class="fas fa-search"></i> View Details
                      </a>
                   </span>

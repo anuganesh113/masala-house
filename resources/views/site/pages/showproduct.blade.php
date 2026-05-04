@@ -356,7 +356,7 @@
             @foreach ($similarMenus as $menu)
             <div class="item" style="margin-right: -20px;">
                 <div class="menu__card menu__card--family" style="width: 95%;">
-                    <a href="{{ route('product.old', ['id' => $menu->id]) }}" target="_blank">
+                    <a href="{{ route('product.old', ['id' => $menu->id]) }}" target="">
                         <div class="menu__card--img">
 
                             <img class="owl-lazy"
@@ -383,7 +383,7 @@
                     <div class="menu__card--content">
                         <div class="menu__card--header">
                             <h3 class="titlehgt">
-                                <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">{{ $menu->name }}</a>
+                                <a href="{{ route('product.old', ['id' => $menu->id]) }}" target="_blank">{{ $menu->name }}</a>
                             </h3>
                             <div>
 
@@ -395,13 +395,10 @@
                         <div class="itemexcerpthover">
                             <p>{!! strip_tags($menu->excerpt ?? 'no description available') !!}</p>
                         </div>
-                        <!-- <div class="menu__card--footer">
-                            <span class="cat veg-btn bt-fr {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
-                            <a class="menu__card--cta order-now-btn  mr-l wtc" href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">Order Now</a>
-                        </div> -->
+                    
                         <div class="menu__card--footer">
                             <span class="btn veg-btn bt-fr  menuviewbtn br-25 iisection mb-1" style="width: 100%;">
-                                <a href="{{ route('product.old', ['id' => $menu->id]) }}" target="_blank" style="color: inherit;font-size: 18px;">
+                                <a href="{{ route('product.old', ['id' => $menu->id]) }}" target="" style="color: inherit;font-size: 18px;">
                                     <i class="fas fa-search"></i> View Details
                                 </a>
                             </span>
