@@ -33,7 +33,7 @@
                     <button class="l__button l__button--primary" data-bs-toggle="modal"
                         data-bs-target="#bookatableModal">find a table
                     </button>
-                    <a href="{{requesturl() }}" class="l__button l__button--secondary">order now</a>
+                    <a href="{{requesturl() }}" target="_blank" class="l__button l__button--secondary">order now</a>
                 </div>
             </div>
         </div>
