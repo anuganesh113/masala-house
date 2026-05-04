@@ -81,7 +81,7 @@
                         <td>
                             {{findfaqcount('event', $value->id)}}
                             <a href="{{ route('admin.faqtype', ['type' => 'event', 'id' => $value->id]) }}"
-                                class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Faq">
+                                class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Click to add a FAQ">
 
                                 <i class="la la-long-arrow-right text-danger"></i>
                             </a>

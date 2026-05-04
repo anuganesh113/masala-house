@@ -2,7 +2,9 @@
 
 use App\Constants\General;
 use App\Enums\UploadFilePath;
+use App\Models\Event;
 use App\Models\FAQ;
+use App\Models\Menu;
 use App\Models\Page;
 use App\Models\Setting;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -273,5 +275,23 @@ if (!function_exists('googlesiteverification')) {
                 return '';
             }
         }
+    }
+}
+
+if (!function_exists('requestfaq')) {
+    function requestfaq(array $params = [])
+    {
+        $type = $params['type'] ?? request()->segment(3);
+        $id   = $params['id'] ?? request()->segment(4);
+       
+          if ($type == 'menu') {
+            $data['model'] = Menu::where('id', $id)->first();
+        } else {
+            $data['model'] = Event::where('id', $id)->first();
+        }
+
+        return $data['model']->name;
+
+   
     }
 }
