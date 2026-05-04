@@ -26,6 +26,10 @@ class SocialLinkCast implements CastsAttributes
             'youtube' => data_get($value, 'youtube'),
             'ordernow' => data_get($value, 'ordernow'),
             'google_site_verification' => data_get($value, 'google_site_verification'),
+            'google_analytics' => data_get($value, 'google_analytics'),
+
+
+            
 
 
         ];
@@ -45,6 +49,8 @@ class SocialLinkCast implements CastsAttributes
             'youtube' => data_get($value, 'youtube'),
             'ordernow' => data_get($value, 'ordernow'),
             'google_site_verification' => data_get($value, 'google_site_verification'),
+            'google_analytics' => data_get($value, 'google_analytics'),
+
         ]);
     }
 }

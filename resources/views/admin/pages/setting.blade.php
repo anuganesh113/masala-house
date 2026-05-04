@@ -144,7 +144,7 @@
             </div>
 
             <div class="form-group m-form__group row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <label>Order Now Link</label>
                     <div class="m-input-icon m-input-icon--right">
                         <input type="url"
@@ -156,17 +156,25 @@
                             title="Please enter a valid URL starting with http:// or https://">
                     </div>
                 </div>
-                          <div class="col-lg-6">
+            </div>
+              <div class="form-group m-form__group row">
+                <div class="col-lg-12">
                     <label>Google Site Verification key</label>
                     <div class="m-input-icon m-input-icon--right">
                         <input type="text"
                             class="form-control m-input"
                             name="social[google_site_verification]"
                             value="{{ old('social.google_site_verification')??data_get($setting, "social.google_site_verification") }}"
-                            placeholder="Google Site Verification"
-                          
-                            >
+                            placeholder="Google Site Verification">
                     </div>
+                </div>
+              </div>
+            </div>
+                 <div class="form-group m-form__group row">
+                <div class="col-lg-12">
+                    <label>Google Analytics</label>
+                    <textarea class=" form-control m-input" name="social[google_analytics]"
+                        rows="15">{{ old('social.google_analytics')??data_get($setting, "social.google_analytics") }}</textarea>
                 </div>
             </div>
             <div class="form-group m-form__group row">
@@ -217,7 +225,7 @@
                         rows="7">{{ old('metadata.opening_hours')??data_get($setting, "metadata.opening_hours") }}</textarea>
                 </div> -->
 
-                     <div class="col-lg-12 mb-3">
+                <div class="col-lg-12 mb-3">
                     <label>Opening Days</label>
                     <div class="m-input-icon m-input-icon--right">
                         <input type="text" class="form-control m-input" name="metadata[opening_days]"
