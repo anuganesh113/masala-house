@@ -7,12 +7,19 @@
     @include("admin.includes.errors")
 
     <div class="m-portlet m-portlet--mobile">
-        <div class="m-portlet__head">
-            <div class="m-portlet__head-caption">
+        <div class="m-portlet__head" style="    padding: 25px 2.2rem;">
+            <div class="m-portlet__head-caption" style="display: grid;">
                 <div class="m-portlet__head-title">
                     <h3 class="m-portlet__head-text">
                         FAQs List
                     </h3>
+                      <a href="{{ url('admin/' . request()->segment(3) . 's') }}"
+                            class="btn btn-info m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill float-right">
+                            <span>
+                                <i class="la la-long-arrow-left"></i>
+                                <span>Back {{ ucfirst( request()->segment(3))}} List</span>
+                            </span>
+                        </a>
                 </div>
             </div>
         </div>

@@ -1,4 +1,0 @@
-[04-Mar-2026 11:55:28 UTC] PHP Fatal error:  Uncaught Error: Class "Storage" not found in /home/customer/www/realmi11.sg-host.com/public_html/public/laravel_upload_test.php:37
-Stack trace:
-#0 {main}
-  thrown in /home/customer/www/realmi11.sg-host.com/public_html/public/laravel_upload_test.php on line 37

@@ -36,7 +36,7 @@
             </li>
 
             <li class="m-menu__item  m-menu__item--submenu
-                {{ request()->is(array_map(fn($route) => "*{$route}*", array_column(config('masala.side-bar'), 'route'))) ? 'm-menu__item--open' : '' }}"
+                {{ request()->is(array_map(fn($route) => "*{$route}*", array_column(config('masala.side-bar'), 'route'))) || request()->is('admin/faq/menu*') ? 'm-menu__item--open' : '' }}"
                 aria-haspopup="true" m-menu-submenu-toggle="hover">
                 <a href="javascript:;" class="m-menu__link m-menu__toggle">
                     <i class="m-menu__link-icon flaticon-imac"></i>
