@@ -1,20 +1,7 @@
 @extends('site.layouts.layout')
 
 
-<!-- @push('seo-share')
-<meta name="title" content="{{ data_get($setting, 'seo.title') }}" />
-<meta name="keywords" content="{{ data_get($setting, 'seo.keywords') }}" />
-<meta name="description" content="{{ data_get($setting, 'seo.description') }}" />
 
-<meta property="og:url" content="{{ request()->url() }}" />
-<meta property="og:type" content="website" />
-<meta property="og:locale" content="en_US" />
-<meta property="og:title" content="{{ data_get($setting, 'name') }}" />
-<meta property="og:description" content="{{ substr(strip_tags(data_get($about, 'excerpt')), 0, 215) }}" />
-<meta property="og:image"
-    content="{{ asset(sprintf('%s%s', App\Enums\UploadFilePath::LOGO_PATH, data_get($setting, 'logo'))) }}" />
-<meta property="og:image:alt" content="{{ data_get($setting, 'name') }}" />
-@endpush -->
 
 @section('content')
 
