@@ -8,10 +8,14 @@
 @push('header')
 <link rel="stylesheet" href="{{ asset('site-assets/css/fancybox.css') }}">
 <style>
-    .long-desc  p , .long-desc  li , .long-desc  span , .product-short-desc p , .product-short-desc{
-    font-family: "Sansita Swashed", sans-serif;
-}
-    </style>
+    .long-desc p,
+    .long-desc li,
+    .long-desc span,
+    .product-short-desc p,
+    .product-short-desc {
+        font-family: "Sansita Swashed", sans-serif;
+    }
+</style>
 @endpush
 
 @section('content')
@@ -71,30 +75,23 @@
                     <div class="mapbtn up">
                         <a href="{{google_map_address()}}" target="_blank" class="btn viewmapmenu up">
 
-                            <i class="fas fa-location-dot locationm" ></i>
-                            
-                            <em style="text-align: -webkit-auto;"><b> Location</b> 
+                            <i class="fas fa-location-dot locationm"></i>
+
+                            <em style="text-align: -webkit-auto;"><b> Location</b>
                                 <br>
-                          <em style="font-size: 9px;">   view on map </em>
-                        </em>
-                           <i class="fas fa-arrow-up-right-from-square fromsquare"  ></i>
+                                <em style="font-size: 9px;"> view on map </em>
+                            </em>
+                            <i class="fas fa-arrow-up-right-from-square fromsquare"></i>
                         </a>
 
                     </div>
                 </div>
-                <div class="mapbtn down" >
-                    <a href="{{google_map_address()}}" target="_blank" class="btn viewmapmenu down"
-
- 
-                        >
-
-                            <i class="fas fa-location-dot locationm" ></i>
-                            
-                            <em style="text-align: -webkit-auto;"><b> Location</b> 
-                                <br>
-                           view on map</em>
-                           <i class="fas fa-arrow-up-right-from-square fromsquare"  ></i>
-                        </a>
+                <div class="mapbtn down">
+                    <a href="{{google_map_address()}}" target="_blank" class="btn viewmapmenu down">
+                        <i class="fas fa-location-dot locationm"></i>
+                        <em style="text-align: -webkit-auto;"><b> Location</b>
+                            <br>view on map</em><i class="fas fa-arrow-up-right-from-square fromsquare"></i>
+                    </a>
 
                 </div>
 
@@ -103,11 +100,7 @@
                     <div class="tab-content active long-desc" id="overview">
                         <h2 class="section-title">{{$menu->name ?? 'Product Name'}}</h2>
                         <div class=" long-desc">
-
                             {!!$menu->description ?? $menu->excerpt ?? 'Detailed product description goes here. This section can include information about the ingredients, preparation method, taste profile, and any other relevant details that would help customers understand what makes this dish special.' !!}
-
-
-
                         </div>
 
                         <!-- <div class="details-grid">
@@ -223,24 +216,45 @@
                         </div> -->
                     </div>
 
+
+
                     <!-- FAQ Tab Content -->
                     <div class="tab-content" id="faq">
                         <h2 class="section-title">Frequently Asked Questions</h2>
                         <div class="faq-accordion">
+                            @if(isset($menu) && $menu->menufaqs->isNotEmpty())
+                            @foreach($menu->menufaqs as $val)
                             <div class="faq-item">
                                 <details name="faq">
                                     <summary>
-                                        Is this dish very spicy?
+                                        {{$val->question}}
                                         <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                                         </svg>
                                     </summary>
                                     <div class="faq-answer">
-                                        Chaat Papdi offers a beautifully balanced flavor profile. It has a mild tanginess from the tamarind chutney and a refreshing kick from the mint chutney, making it extremely pleasant and not overwhelmingly spicy. Perfect for all palates!
+                                        {!! $val->answer !!}
                                     </div>
                                 </details>
                             </div>
+                            @endforeach
+
+                            @else
+
                             <div class="faq-item">
+                                <details name="faq">
+                                    <summary>
+                                        No FAQs available for this menu
+                                        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                        </svg>
+                                    </summary>
+                                    <div class="faq-answer">
+                                        No FAQs available for this menu
+                                </details>
+                            </div>
+                            @endif
+                            <!-- <div class="faq-item">
                                 <details name="faq">
                                     <summary>
                                         Can I order this vegan or gluten-free?
@@ -265,7 +279,7 @@
                                         As one of our most popular street-food style appetizers, Chaat Papdi is prepared rapidly to ensure the wafers remain perfectly crisp. You can typically expect it to arrive at your table within 5 to 10 minutes of ordering.
                                     </div>
                                 </details>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
@@ -371,10 +385,10 @@
                             <h3 class="titlehgt">
                                 <a href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">{{ $menu->name }}</a>
                             </h3>
-                            <div >
-                                
-                            <span class="menu__card--price">${{ $menu->price }}</span>
-                            <span class="text-white br-25  bt-fr {{$menu->type == 'veg' ? 'bg-green' : 'cssnonveg'}}" style="font-size: 0.725rem;font-weight: 400;padding: 5px 15px 5px 15px;">{{ checkVegetarian($menu->type) }}</span>
+                            <div>
+
+                                <span class="menu__card--price">${{ $menu->price }}</span>
+                                <span class="text-white br-25  bt-fr {{$menu->type == 'veg' ? 'bg-green' : 'cssnonveg'}}" style="font-size: 0.725rem;font-weight: 400;padding: 5px 15px 5px 15px;">{{ checkVegetarian($menu->type) }}</span>
                             </div>
 
                         </div>
@@ -385,14 +399,14 @@
                             <span class="cat veg-btn bt-fr {{cssnonveg($menu->type)}}">{{ checkVegetarian($menu->type) }}</span>
                             <a class="menu__card--cta order-now-btn  mr-l wtc" href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank">Order Now</a>
                         </div> -->
-                                <div class="menu__card--footer">
-                  <span class="btn veg-btn bt-fr  menuviewbtn br-25 iisection mb-1" style="width: 100%;">
-                     <a href="{{ route('product.old', ['id' => $menu->id]) }}" target="_blank" style="color: inherit;font-size: 18px;">
-                        <i class="fas fa-search"></i> View Details
-                     </a>
-                  </span>
-                  <a class="menu__card--cta order-now-btn viewip ml-auto   wtc mb-1"  style="width: 100%;margin-left: auto;"  href="{{ requesturl() . '/' . $menu->slug  }}"  target="_blank"><i class="fas fa-shopping-cart"></i> Order Now</a>
-               </div>
+                        <div class="menu__card--footer">
+                            <span class="btn veg-btn bt-fr  menuviewbtn br-25 iisection mb-1" style="width: 100%;">
+                                <a href="{{ route('product.old', ['id' => $menu->id]) }}" target="_blank" style="color: inherit;font-size: 18px;">
+                                    <i class="fas fa-search"></i> View Details
+                                </a>
+                            </span>
+                            <a class="menu__card--cta order-now-btn viewip ml-auto   wtc mb-1" style="width: 100%;margin-left: auto;" href="{{ requesturl() . '/' . $menu->slug  }}" target="_blank"><i class="fas fa-shopping-cart"></i> Order Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -450,7 +464,7 @@
                 nav: false,
                 // margin: 40,
             },
-            
+
         },
     }, );
 </script>
