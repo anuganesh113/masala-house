@@ -3,11 +3,40 @@
 
 <head>
   @include('site.includes.meta')
+
+  
   @include('site.includes.google')
+
+
+
+ <!-- <meta name="google-site-verification" content="{{googlesiteverification()}}" /> -->
+  <!-- <meta name="google-site-verification" content="PVElXv82RpomDLSiiyhvSw8In_ACNXiFC_y-l6RwEXA" /> -->
+  <!-- <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-K8WJ7LSJ');
+  </script> -->
+  <!-- End Google Tag Manager -->
+
   @stack('seo-share')
+
   <title>@yield('page_title')</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- fontawesome CSS -->
+
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
@@ -19,6 +48,7 @@
   <!-- css -->
   <link rel="stylesheet" href="{{ asset('site-assets/css/style.css?v1.1') }}">
   <link rel="stylesheet" href="{{ asset('site-assets/css/override.css?v1.1') }}">
+
 
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
 
