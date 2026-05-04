@@ -11,10 +11,7 @@
             <div class="m-portlet__head-caption" style="display: grid;">
                 <div class="m-portlet__head-title">
                     <h3 class="m-portlet__head-text">
-                        FAQs List  {{ requestfaq([
-    'type' => request()->segment(3),
-    'id' => request()->segment(4)
-]) }}
+                        FAQs List  {{ requestfaq(['type' => request()->segment(3),'id' => request()->segment(4)]) }}
                     </h3>
                       <a href="{{ url('admin/' . request()->segment(3) . 's') }}"
                             class="btn btn-info m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill float-right">
@@ -50,10 +47,7 @@
                             class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
                             <span>
                                 <i class="la la-plus"></i>
-                                <span>Create FAQs {{ requestfaq([
-    'type' => request()->segment(3),
-    'id' => request()->segment(4)
-]) }} </span>
+                <span>Create FAQs {{ requestfaq(['type' => request()->segment(3),'id' => request()->segment(4)]) }} </span>
                             </span>
                         </a>
                         <div class="m-separator m-separator--dashed d-xl-none"></div>

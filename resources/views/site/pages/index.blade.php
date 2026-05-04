@@ -261,7 +261,9 @@
                 <div class="cta__middle">
                     <h2>Looking for Catering ? </h2>
                     <p>Explore our most Exquisite Indian Menu</p>
-                    <a href="" class="l__button l__button--transparent">Get a Quote Today </a>
+                       <a href="" class="l__button l__button--transparent bookacatering"
+                                 data-name="Looking for Catering "
+                                data-bs-toggle="modal" data-bs-target="#bookacatering">Get a Quote Today</a>
                 </div>
             </div>
             <div class="col-md-3">
