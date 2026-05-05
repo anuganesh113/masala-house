@@ -1,8 +1,8 @@
 @extends('site.layouts.layout',[
-    'title' =>   data_get($page, "seo.title") ?? 'Catering',
-    'description' =>  strip_tags(data_get($page, "seo.description") ?? description()),
-     'image' =>   $page ?  $page->full_image_link : banner() ,
-    'keywords' =>  data_get($page, "seo.keywords") ?? keywords(),
+'title' => data_get($page, "seo.title") ?? 'Catering',
+'description' => strip_tags(data_get($page, "seo.description") ?? description()),
+'image' => $page ? $page->full_image_link : banner() ,
+'keywords' => data_get($page, "seo.keywords") ?? keywords(),
 ])
 
 @section('content')
@@ -36,12 +36,12 @@
                     <div class="catering__card">
                         <div class="catering__card--content">
                             <div class="section__title">
-                            
+
                                 <h6>{{ data_get($event, 'name') }}</h6>
                                 <h2>{!! data_get($event, 'metadata.title') !!}</h2>
                             </div>
                             <div class="content">
-                               <p>{!! data_get($event, 'excerpt') !!}</p>
+                                <p>{!! data_get($event, 'excerpt') !!}</p>
                             </div>
                             <div class="box">
                                 <h3>Included Services</h3>
@@ -52,12 +52,13 @@
                                 <!-- <button class="l__button l__button--secondary" data-name="Food Tray Service">Contact us</button> -->
 
                                 <a href="" class="l__button l__button--primary bookacatering"
-                                 data-name="{{$event->name}}"
-                                data-bs-toggle="modal" data-bs-target="#bookacatering">Reserve</a>
-                                <a href="/contact" class="l__button l__button--secondary" target="_blank"> Contact us </a>
+                                    data-name="{{$event->name}}"
+                                    data-bs-toggle="modal" data-bs-target="#bookacatering">Reserve</a>
+                                <a href="{{ route('site.event', $event->slug) }}" class="l__button l__button--secondary" > VIEW MORE </a>
 
 
-                                
+
+
                             </div>
                         </div>
                     </div>
@@ -71,7 +72,7 @@
         </div>
         @endforeach
 
-         <!-- <div class="catering__wrapper--box">
+        <!-- <div class="catering__wrapper--box">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="catering__card">
@@ -148,7 +149,7 @@
             <p>Experience the best of Indian and Nepali catering with Masala House in {{ env('APP_CATERING_NAME') }}, CA</p>
         </div>
     </div>
-    
+
     <div class="container-fluid">
         <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-xxl-5 g-4">
 
@@ -256,14 +257,14 @@
         </div>
     </div>
     <div class="map">
-     <iframe src=" {!! data_get($setting, 'metadata.google_map_iframe') !!}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src=" {!! data_get($setting, 'metadata.google_map_iframe') !!}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </section>
 <!-- our location section end -->
 
 
 @include('site.pages.cateringpopup')
-@include('components.site.popmodel', ['id' => $page->id]) 
+@include('components.site.popmodel', ['id' => $page->id])
 
 @endsection
 
@@ -273,50 +274,50 @@
 <!-- owl carousel -->
 <script>
     $('.textSlider__carousel').owlCarousel({
-        loop: true,
-        center: true,
-        margin: 90,
-        responsiveClass: true,
-        autoplay: true,
-        autoplayHoverPause: true,
-        slideTransition: 'linear',
-        autoplaySpeed: 10000,
-        smartSpeed: 6000,
-        autoWidth: true,
-        navText: [
-            '<i class="fas fa-chevron-left"></i>',
-            '<i class="fas fa-chevron-right"></i>'
-        ],
-        responsive: {
-            0: {
-                items: 1,
-                dots: false,
-                nav: false,
+            loop: true,
+            center: true,
+            margin: 90,
+            responsiveClass: true,
+            autoplay: true,
+            autoplayHoverPause: true,
+            slideTransition: 'linear',
+            autoplaySpeed: 10000,
+            smartSpeed: 6000,
+            autoWidth: true,
+            navText: [
+                '<i class="fas fa-chevron-left"></i>',
+                '<i class="fas fa-chevron-right"></i>'
+            ],
+            responsive: {
+                0: {
+                    items: 1,
+                    dots: false,
+                    nav: false,
+                },
+                767: {
+                    items: 2,
+                    dots: false,
+                },
+                991: {
+                    items: 3,
+                    dots: false,
+                },
+                1200: {
+                    items: 3,
+                    dots: false,
+                },
             },
-            767: {
-                items: 2,
-                dots: false,
-            },
-            991: {
-                items: 3,
-                dots: false,
-            },
-            1200: {
-                items: 3,
-                dots: false,
-            },
-        },
-    })
-    .on('changed.owl.carousel', function(event) {
-        // Remove active class from all items
-        $('.textSlider__carousel .owl-item').removeClass('is-center-active');
+        })
+        .on('changed.owl.carousel', function(event) {
+            // Remove active class from all items
+            $('.textSlider__carousel .owl-item').removeClass('is-center-active');
 
-        // Get the centered item index
-        var current = event.item.index;
+            // Get the centered item index
+            var current = event.item.index;
 
-        // Add active class to the centered item
-        $('.textSlider__carousel .owl-item').eq(current).addClass('is-center-active');
-    });
+            // Add active class to the centered item
+            $('.textSlider__carousel .owl-item').eq(current).addClass('is-center-active');
+        });
 
     $('.testimonial__carousel').owlCarousel({
         loop: false,

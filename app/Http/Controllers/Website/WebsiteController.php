@@ -8,6 +8,7 @@ use App\Http\Controllers\BaseController;
 use App\Mail\Contact;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Event;
 use App\Models\Inquiry;
 use App\Models\Menu;
 use App\Models\Page;
@@ -44,6 +45,13 @@ class WebsiteController extends BaseController
 
 
         return view(sprintf('site.pages.%s', data_get($page, 'template', 'common-page')), $data);
+    }
+
+      public function event(string $slug): View|RedirectResponse
+    {
+       $event =  Event::where('slug' ,  $slug)->first();
+      return view('site.pages.showcatering', compact('event'));
+
     }
 
     public function blog(string $slug): View|RedirectResponse
