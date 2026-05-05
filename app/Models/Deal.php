@@ -10,6 +10,8 @@ class Deal extends Model
     protected $casts = [
         'metadata' => 'json',
         'seo' => 'json',
+         'start_date' => 'datetime',
+    'end_date' => 'datetime',
 
     ];
 

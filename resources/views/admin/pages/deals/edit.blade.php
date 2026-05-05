@@ -1,6 +1,10 @@
 @extends("admin.layouts.layout")
 @section("page_title", "Edit Deal")
 
+@push('header')
+ <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
+@endpush
+
 @section("content")
 <div class="m-content">
 
@@ -114,18 +118,18 @@
 					       <div class="col-lg-4">
 								<label>Start Date</label>
 								<div class="m-input-icon m-input-icon--right">
-									<input type="date"
+									<input type="text"
                                            class="form-control m-input"
-                                           name="start_date"
+                                           name="start_date" id="start_date" onkeydown="return false"
                                            value="{{ old('start_date', $deal->start_date ? \Carbon\Carbon::parse($deal->start_date)->format('Y-m-d') : '') }}">
 								</div>
 							</div>
                             <div class="col-lg-4">
 								<label>End Date</label>
 								<div class="m-input-icon m-input-icon--right">
-									<input type="date"
+									<input type="text"
                                            class="form-control m-input"
-                                           name="end_date"
+                                           name="end_date" id="end_date" onkeydown="return false"
                                            value="{{ old('end_date', $deal->end_date ? \Carbon\Carbon::parse($deal->end_date)->format('Y-m-d') : '') }}">
 								</div>
 							</div>
@@ -136,6 +140,8 @@
 						</div>
 
 					</div>
+
+					
 					<div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
 						<div class="m-form__actions m-form__actions--solid">
 							<div class="row">
@@ -161,6 +167,38 @@
 @endsection
 
 @push("footer")
-    <script src="https://cdn.tiny.cloud/1/{{ env('summernote_reg_API_KEY') }}/tinymce/5/tinymce.min.js" referrerpolicy="origin" defer></script>
-    <script src="{{ asset('admin-assets/custom-js/summernote_reg-script.js') }}" defer></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
+	<script>
+  $( function() {
+    var dateFormat = "mm/dd/yy",
+      from = $( "#start_date" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 2
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#end_date" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 2
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+ 
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+      return date;
+    }
+  } );
+  </script>
 @endpush
