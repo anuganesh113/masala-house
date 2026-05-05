@@ -45,17 +45,17 @@
         font-size: x-small !important;
     }
 
-    .blog ul li,
+    /* .blog ul li,
     a {
         color: #000;
-        font-size: 1rem !important;
+           font-size: clamp(0.875rem, 3vw, 1.25rem);
     }
 
     .blog ul li,
     a:hover {
         color: #FF6F00;
         font-size: 1rem !important;
-    }
+    } */
 
     .mt-15 {
         margin-top: 15px !important;

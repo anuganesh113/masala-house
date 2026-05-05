@@ -45,7 +45,7 @@
         font-size: x-small !important;
     }
 
-    .blog ul li,
+    /* .blog ul li,
     a {
         color: #000;
         font-size: 1rem !important;
@@ -55,7 +55,7 @@
     a:hover {
         color: #FF6F00;
         font-size: 1rem !important;
-    }
+    } */
 
     .mt-15 {
         margin-top: 15px !important;
