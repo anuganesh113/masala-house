@@ -1,7 +1,18 @@
 @extends("admin.layouts.layout")
 @section("page_title", "Create Deal")
 @push('header')
- <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" type="text/css" media="screen"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href="./css/prettify-1.0.css" rel="stylesheet">
+<link href="./css/base.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" rel="stylesheet">
+<style>
+    .bootstrap-datetimepicker-widget table td.disabled,
+    .bootstrap-datetimepicker-widget table td.disabled:hover {
+        color: #ff4c4c !important;
+    }
+</style>
 @endpush
 
 @section("content")
@@ -41,97 +52,99 @@
 							<div class="col-lg-6">
 								<label>Name<span class="text-danger">*</span></label>
 								<input type="text"
-                                       name="name"
-                                       class="form-control m-input"
-                                       placeholder="Name"
-                                       value="{{ old('name') }}" required>
+									name="name"
+									class="form-control m-input"
+									placeholder="Name"
+									value="{{ old('name') }}" required>
 							</div>
-                  			<div class="col-lg-6">
+							<div class="col-lg-6">
 								<label>Link</label>
 								<div class="m-input-icon m-input-icon--right">
 									<input type="text"
-                                           class="form-control m-input"
-                                           name="link"
-                                           value="{{ old('link') }}"
-                                           placeholder="Link">
+										class="form-control m-input"
+										name="link"
+										value="{{ old('link') }}"
+										placeholder="Link">
 								</div>
 							</div>
 						</div>
 
-						      <x-admin.image-field :data="[
+						<x-admin.image-field :data="[
                             'label' => 'Image',
                             'name' => 'image',
                            
                         ]" />
 
 						<div class="form-group m-form__group row">
-                            <div class="col-lg-12">
-                                <label>Excerpt</label>
-                                <textarea class="form-control m-input"
-                                          name="excerpt"
-                                          rows="4">{{ old('excerpt') }}</textarea>
-                            </div>
+							<div class="col-lg-12">
+								<label>Excerpt</label>
+								<textarea class="form-control m-input"
+									name="excerpt"
+									rows="4">{{ old('excerpt') }}</textarea>
+							</div>
 						</div>
 						<div class="form-group m-form__group row">
-                            <div class="col-lg-12">
-                                <label>Description</label>
-                                <textarea class="summernote_reg form-control m-input"
-                                          name="description"
-                                          rows="4">{{ old('description') }}</textarea>
-                            </div>
-                        </div>
+							<div class="col-lg-12">
+								<label>Description</label>
+								<textarea class="summernote_reg form-control m-input"
+									name="description"
+									rows="4">{{ old('description') }}</textarea>
+							</div>
+						</div>
 
 						<div class="form-group m-form__group row">
-					
-                            <div class="col-lg-6">
+
+							<div class="col-lg-6">
 								<label>Price</label>
 								<div class="m-input-icon m-input-icon--right">
 									<input type="number" step="0.01"
-                                           class="form-control m-input"
-                                           name="price"
-                                           value="{{ old('price') }}"
-                                           placeholder="Price">
+										class="form-control m-input"
+										name="price"
+										value="{{ old('price') }}"
+										placeholder="Price">
 								</div>
 							</div>
-								      <div class="col-lg-6">
-                                <label>Order</label>
-                                <div class="m-input-icon m-input-icon--right">
-                                    <input type="number"
-                                           name="order"
-                                           class="form-control m-input"
-                                           value="{{ old('order')??1 }}"
-                                           placeholder="Order" required>
-                                </div>
-                            </div>
-							
-                 
+							<div class="col-lg-6">
+								<label>Order</label>
+								<div class="m-input-icon m-input-icon--right">
+									<input type="number"
+										name="order"
+										class="form-control m-input"
+										value="{{ old('order')??1 }}"
+										placeholder="Order" required>
+								</div>
+							</div>
+
+
 						</div>
 
 						<div class="form-group m-form__group row">
-				           <div class="col-lg-4">
+							<div class="col-lg-4">
 								<label>Start Date</label>
-								<div class="m-input-icon m-input-icon--right">
-									<input type="text" id='start_date'
-                                           class="form-control m-input"
-                                           name="start_date"
-                                           value="{{ old('start_date') }}">
+								<div class='input-group date' id='start_date'>
+									<input type='text' class="form-control" name="start_date" value="{{ old('start_date') }}" />
+									<span class="input-group-addon">
+										<span class="glyphicon glyphicon-calendar"></span>
+									</span>
 								</div>
 							</div>
-						
-                            <div class="col-lg-4">
+
+							<div class="col-lg-4">
 								<label>End Date</label>
-								<div class="m-input-icon m-input-icon--right">
-									<input type="text" id='end_date'
-                                           class="form-control m-input"
-                                           name="end_date"
-                                           value="{{ old('end_date') }}">
+								<div class='input-group date' id='end_date'>
+									<input type='text' class="form-control" name="end_date" value="{{ old('end_date') }}" />
+									<span class="input-group-addon">
+										<span class="glyphicon glyphicon-calendar"></span>
+									</span>
 								</div>
 							</div>
-                      
-                            <div class="col-lg-4">
-                                <x-admin.radio-status />
-                            </div>
+
+							<div class="col-lg-4">
+								<x-admin.radio-status />
+							</div>
 						</div>
+
+
 
 					</div>
 					<div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
@@ -159,38 +172,28 @@
 @endsection
 
 @push("footer")
-	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-	<script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
-	<script>
-  $( function() {
-    var dateFormat = "mm/dd/yy",
-      from = $( "#start_date" )
-        .datepicker({
-          defaultDate: "+1w",
-          changeMonth: true,
-          numberOfMonths: 2
-        })
-        .on( "change", function() {
-          to.datepicker( "option", "minDate", getDate( this ) );
-        }),
-      to = $( "#end_date" ).datepicker({
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 2
-      })
-      .on( "change", function() {
-        from.datepicker( "option", "maxDate", getDate( this ) );
-      });
- 
-    function getDate( element ) {
-      var date;
-      try {
-        date = $.datepicker.parseDate( dateFormat, element.value );
-      } catch( error ) {
-        date = null;
-      }
-      return date;
-    }
-  } );
-  </script>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#start_date').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm:ss',
+            minDate: moment()
+        });
+		$('#end_date').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm:ss',
+            useCurrent: false
+        });
+
+        $("#start_date").on("dp.change", function (e) {
+            $('#end_date').data("DateTimePicker").minDate(e.date);
+        });
+        $("#end_date").on("dp.change", function (e) {
+            $('#start_date').data("DateTimePicker").maxDate(e.date);
+        });
+	});
+</script>
 @endpush

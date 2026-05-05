@@ -1,18 +1,9 @@
 @extends("admin.layouts.layout")
 @section("page_title", "Edit Deal")
-@push('header')
-<link rel="stylesheet" type="text/css" media="screen"
-          href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" rel="stylesheet">
-<style>
-    .bootstrap-datetimepicker-widget table td.disabled,
-    .bootstrap-datetimepicker-widget table td.disabled:hover {
-        color: #ff4c4c !important;
-    }
-</style>
-  @endpush
 
+@push('header')
+ <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
+@endpush
 
 @section("content")
 <div class="m-content">
@@ -124,23 +115,22 @@
 						</div>
 
 						<div class="form-group m-form__group row">
-					 	<div class="col-lg-4">
+					       <div class="col-lg-4">
 								<label>Start Date</label>
-								<div class='input-group date' id='start_date'>
-									<input type='text' class="form-control" name="start_date" value="{{ $deal->start_date }}" />
-									<span class="input-group-addon">
-										<span class="glyphicon glyphicon-calendar"></span>
-									</span>
+								<div class="m-input-icon m-input-icon--right">
+									<input type="text"
+                                           class="form-control m-input"
+                                           name="start_date" id="start_date" onkeydown="return false"
+                                           value="{{ old('start_date', $deal->start_date ? \Carbon\Carbon::parse($deal->start_date)->format('Y-m-d') : '') }}">
 								</div>
 							</div>
-
-							<div class="col-lg-4">
+                            <div class="col-lg-4">
 								<label>End Date</label>
-								<div class='input-group date' id='end_date'>
-									<input type='text' class="form-control" name="end_date" value="{{ $deal->end_date }}" />
-									<span class="input-group-addon">
-										<span class="glyphicon glyphicon-calendar"></span>
-									</span>
+								<div class="m-input-icon m-input-icon--right">
+									<input type="text"
+                                           class="form-control m-input"
+                                           name="end_date" id="end_date" onkeydown="return false"
+                                           value="{{ old('end_date', $deal->end_date ? \Carbon\Carbon::parse($deal->end_date)->format('Y-m-d') : '') }}">
 								</div>
 							</div>
                    
@@ -177,39 +167,38 @@
 @endsection
 
 @push("footer")
-
-  <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-  <script type="text/javascript">
-         $(function () {
-             $('#start_date').datetimepicker({
-                 format: 'YYYY-MM-DD HH:mm:ss',
-                 minDate: moment()
-             });
-             $('#end_date').datetimepicker({
-                 format: 'YYYY-MM-DD HH:mm:ss',
-                 useCurrent: false
-             });
-
-             // Set initial constraints based on existing values
-             var startDateObj = $('#start_date').data("DateTimePicker").date();
-             if (startDateObj) {
-                 $('#end_date').data("DateTimePicker").minDate(startDateObj);
-             }
-             var endDateObj = $('#end_date').data("DateTimePicker").date();
-             if (endDateObj) {
-                 $('#start_date').data("DateTimePicker").maxDate(endDateObj);
-             }
-
-             $("#start_date").on("dp.change", function (e) {
-                 $('#end_date').data("DateTimePicker").minDate(e.date);
-             });
-             $("#end_date").on("dp.change", function (e) {
-                 $('#start_date').data("DateTimePicker").maxDate(e.date);
-             });
-         });
-      </script>
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
+	<script>
+  $( function() {
+    var dateFormat = "mm/dd/yy",
+      from = $( "#start_date" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 2
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#end_date" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 2
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+ 
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+      return date;
+    }
+  } );
+  </script>
 @endpush
-
