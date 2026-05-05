@@ -45,6 +45,7 @@ final class UploadFilePath extends Enum
     const POPUPS_PATH = 'uploads/popups/';
     const EVENT_PATH = 'uploads/events/';
     const HOME_PATH = 'uploads/home/';
+    const DEALS_PATH = 'uploads/deals/';
 
 
 }

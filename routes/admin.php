@@ -25,6 +25,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\WebsiteController;
+use App\Http\Controllers\Admin\DealController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
@@ -148,6 +149,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
             $route->post('setting', 'update')->name('update');
         });
 
+        $route->resource('deals', DealController::class)->except(['show']);
         $route->resource('testimonials', TestimonialController::class)->except(['show']);
     });
 });

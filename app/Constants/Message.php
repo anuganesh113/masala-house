@@ -257,4 +257,13 @@ class Message
         'DELETE_SUCCESS' => 'Product FAQ Delete Success',
         'CANNOT_DELETE' => 'Cannot Delete the FAQ as it does not belong to the Product',
     ];
+
+    /**
+     * @var array
+     */
+    public const DEAL_MESSAGE = [
+        'CREATE_SUCCESS' => 'Deal Create Success',
+        'UPDATE_SUCCESS' => 'Deal Update Success',
+        'DELETE_SUCCESS' => 'Deal Delete Success',
+    ];
 }
