@@ -57,7 +57,14 @@
                  
 						</div>
 
-						<x-admin.image-field :data="['required'=>false, 'image'=>$deal->image, 'path'=>\App\Enums\UploadFilePath::DEALS_PATH]" />
+							<x-admin.image-field :data="[
+                            'label' => 'Image',
+                            'name' => 'image',
+                            'path' => \App\Enums\UploadFilePath::DEALS_PATH,
+                            'value' => data_get($deal, 'image')
+                        ]" />
+
+
 
 						<div class="form-group m-form__group row">
                             <div class="col-lg-12">

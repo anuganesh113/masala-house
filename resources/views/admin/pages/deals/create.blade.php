@@ -55,7 +55,11 @@
 							</div>
 						</div>
 
-						<x-admin.image-field :data="['required'=>true]" />
+						      <x-admin.image-field :data="[
+                            'label' => 'Image',
+                            'name' => 'image',
+                           
+                        ]" />
 
 						<div class="form-group m-form__group row">
                             <div class="col-lg-12">
