@@ -75,7 +75,9 @@
                           <a href="" class="l__button l__button--primary bookacatering"
                                  data-name="{{$event->name}}"
                                 data-bs-toggle="modal" data-bs-target="#bookacatering">Reserve</a>
-                                <a href="/contact" class="l__button l__button--secondary" target="_blank"> Contact us </a>
+                                <a href="{{ route('site.event', $event->slug) }}" class="l__button l__button--primary">  
+                                <i class="fas fa-search"></i>    
+                                View Details  </a>
 
                     </div>
                     </div>
