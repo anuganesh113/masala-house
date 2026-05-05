@@ -72,12 +72,12 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
         $route->resource('admins', AdminController::class)->except(['show']);
         $route->resource('faqs', FAQController::class)->except(['show']);
 
-        $route->get('faq/{type}/{id}/', [FAQController::class, 'faqtype'])
+        $route->get('faqs/{type}/{id}/', [FAQController::class, 'faqtype'])
             ->name('faqtype');
-        $route->get('faq/create/{type}/{id}/', [FAQController::class, 'faqtypecreate'])->name('faqtypecreate');
+        $route->get('faqs/create/{type}/{id}/', [FAQController::class, 'faqtypecreate'])->name('faqtypecreate');
 
-        $route->post('faq/create/faqtypestore/', [FAQController::class, 'faqtypestore'])->name('faqtypestore');
-        $route->get('faq/edit/{id}/{type}', [FAQController::class, 'faqtypeedit'])->name('faqtypeedit');
+        $route->post('faqs/create/faqtypestore/', [FAQController::class, 'faqtypestore'])->name('faqtypestore');
+        $route->get('faqs/edit/{id}/{type}', [FAQController::class, 'faqtypeedit'])->name('faqtypeedit');
 
 
         $route->resource('advertises', AdvertiseController::class)->except(['show']);
