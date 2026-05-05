@@ -11,7 +11,7 @@
             <div class="m-portlet__head-caption">
                 <div class="m-portlet__head-title">
                     <h3 class="m-portlet__head-text">
-                        Blogs List
+                        Deals List
                     </h3>
                 </div>
             </div>
@@ -35,11 +35,11 @@
                         </div>
                     </div>
                     <div class="col-xl-4 order-1 order-xl-2 m--align-right">
-                        <a href="{{ route('admin.blogs.create') }}"
+                        <a href="{{ route('admin.deals.create') }}"
                             class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
                             <span>
                                 <i class="la la-plus"></i>
-                                <span>Create Blog</span>
+                                <span>Create Deals</span>
                             </span>
                         </a>
                         <div class="m-separator m-separator--dashed d-xl-none"></div>

@@ -43,76 +43,7 @@
                                        placeholder="Name"
                                        value="{{ old('name') }}" required>
 							</div>
-                            <div class="col-lg-6">
-                                <label>Type</label>
-                                <input type="text"
-                                       name="type"
-                                       class="form-control m-input"
-                                       placeholder="Type"
-                                       value="{{ old('type') }}">
-                            </div>
-						</div>
-
-						<x-admin.image-field :data="['required'=>true]" />
-
-						<div class="form-group m-form__group row">
-                            <div class="col-lg-6">
-                                <label>Excerpt</label>
-                                <textarea class="form-control m-input"
-                                          name="excerpt"
-                                          rows="4">{{ old('excerpt') }}</textarea>
-                            </div>
-                            <div class="col-lg-6">
-                                <label>Description</label>
-                                <textarea class="summernote_reg form-control m-input"
-                                          name="description"
-                                          rows="4">{{ old('description') }}</textarea>
-                            </div>
-                        </div>
-
-						<div class="form-group m-form__group row">
-							<div class="col-lg-3">
-								<label>Old Price</label>
-								<div class="m-input-icon m-input-icon--right">
-									<input type="number" step="0.01"
-                                           class="form-control m-input"
-                                           name="old_price"
-                                           value="{{ old('old_price') }}"
-                                           placeholder="Old Price">
-								</div>
-							</div>
-                            <div class="col-lg-3">
-								<label>Price</label>
-								<div class="m-input-icon m-input-icon--right">
-									<input type="number" step="0.01"
-                                           class="form-control m-input"
-                                           name="price"
-                                           value="{{ old('price') }}"
-                                           placeholder="Price">
-								</div>
-							</div>
-                            <div class="col-lg-3">
-								<label>Start Date</label>
-								<div class="m-input-icon m-input-icon--right">
-									<input type="date"
-                                           class="form-control m-input"
-                                           name="start_date"
-                                           value="{{ old('start_date') }}">
-								</div>
-							</div>
-                            <div class="col-lg-3">
-								<label>End Date</label>
-								<div class="m-input-icon m-input-icon--right">
-									<input type="date"
-                                           class="form-control m-input"
-                                           name="end_date"
-                                           value="{{ old('end_date') }}">
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group m-form__group row">
-							<div class="col-lg-8">
+                  			<div class="col-lg-6">
 								<label>Link</label>
 								<div class="m-input-icon m-input-icon--right">
 									<input type="text"
@@ -122,7 +53,40 @@
                                            placeholder="Link">
 								</div>
 							</div>
-                            <div class="col-lg-2">
+						</div>
+
+						<x-admin.image-field :data="['required'=>true]" />
+
+						<div class="form-group m-form__group row">
+                            <div class="col-lg-12">
+                                <label>Excerpt</label>
+                                <textarea class="form-control m-input"
+                                          name="excerpt"
+                                          rows="4">{{ old('excerpt') }}</textarea>
+                            </div>
+						</div>
+						<div class="form-group m-form__group row">
+                            <div class="col-lg-12">
+                                <label>Description</label>
+                                <textarea class="summernote_reg form-control m-input"
+                                          name="description"
+                                          rows="4">{{ old('description') }}</textarea>
+                            </div>
+                        </div>
+
+						<div class="form-group m-form__group row">
+					
+                            <div class="col-lg-6">
+								<label>Price</label>
+								<div class="m-input-icon m-input-icon--right">
+									<input type="number" step="0.01"
+                                           class="form-control m-input"
+                                           name="price"
+                                           value="{{ old('price') }}"
+                                           placeholder="Price">
+								</div>
+							</div>
+								      <div class="col-lg-6">
                                 <label>Order</label>
                                 <div class="m-input-icon m-input-icon--right">
                                     <input type="number"
@@ -132,7 +96,32 @@
                                            placeholder="Order" required>
                                 </div>
                             </div>
-                            <div class="col-lg-2">
+							
+                 
+						</div>
+
+						<div class="form-group m-form__group row">
+				           <div class="col-lg-4">
+								<label>Start Date</label>
+								<div class="m-input-icon m-input-icon--right">
+									<input type="date"
+                                           class="form-control m-input"
+                                           name="start_date"
+                                           value="{{ old('start_date') }}">
+								</div>
+							</div>
+						
+                            <div class="col-lg-4">
+								<label>End Date</label>
+								<div class="m-input-icon m-input-icon--right">
+									<input type="date"
+                                           class="form-control m-input"
+                                           name="end_date"
+                                           value="{{ old('end_date') }}">
+								</div>
+							</div>
+                      
+                            <div class="col-lg-4">
                                 <x-admin.radio-status />
                             </div>
 						</div>
