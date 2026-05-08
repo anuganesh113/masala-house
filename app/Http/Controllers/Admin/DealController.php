@@ -61,7 +61,7 @@ class DealController extends BaseController
     }
 
     public function update(DealRequest $request, Deal $deal): RedirectResponse
-    {
+    { 
         $this->databaseManager->beginTransaction();
      
         try {

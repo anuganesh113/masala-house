@@ -1,17 +1,8 @@
 @extends("admin.layouts.layout")
 @section("page_title", "Edit Deal")
 @push('header')
-<link rel="stylesheet" type="text/css" media="screen"
-          href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" rel="stylesheet">
-<style>
-    .bootstrap-datetimepicker-widget table td.disabled,
-    .bootstrap-datetimepicker-widget table td.disabled:hover {
-        color: #ff4c4c !important;
-    }
-</style>
-  @endpush
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+@endpush
 
 
 @section("content")
@@ -44,7 +35,7 @@
 					action="{{ route('admin.deals.update', $deal->id) }}" method="POST" enctype="multipart/form-data">
 
 					@csrf
-                    @method('PUT')
+					@method('PUT')
 
 					<div class="m-portlet__body">
 
@@ -52,25 +43,25 @@
 							<div class="col-lg-6">
 								<label>Name<span class="text-danger">*</span></label>
 								<input type="text"
-                                       name="name"
-                                       class="form-control m-input"
-                                       placeholder="Name"
-                                       value="{{ old('name', $deal->name) }}" required>
+									name="name"
+									class="form-control m-input"
+									placeholder="Name"
+									value="{{ old('name', $deal->name) }}" required>
 							</div>
-									<div class="col-lg-6">
+							<div class="col-lg-6">
 								<label>Link</label>
 								<div class="m-input-icon m-input-icon--right">
 									<input type="text"
-                                           class="form-control m-input"
-                                           name="link"
-                                           value="{{ old('link', $deal->link) }}"
-                                           placeholder="Link">
+										class="form-control m-input"
+										name="link"
+										value="{{ old('link', $deal->link) }}"
+										placeholder="Link">
 								</div>
 							</div>
-                 
+
 						</div>
 
-							<x-admin.image-field :data="[
+						<x-admin.image-field :data="[
                             'label' => 'Image',
                             'name' => 'image',
                             'path' => \App\Enums\UploadFilePath::DEALS_PATH,
@@ -80,78 +71,76 @@
 
 
 						<div class="form-group m-form__group row">
-                            <div class="col-lg-12">
-                                <label>Excerpt</label>
-                                <textarea class="form-control m-input"
-                                          name="excerpt"
-                                          rows="4">{{ old('excerpt', $deal->excerpt) }}</textarea>
-                            </div>
+							<div class="col-lg-12">
+								<label>Excerpt</label>
+								<textarea class="form-control m-input"
+									name="excerpt"
+									rows="4">{{ old('excerpt', $deal->excerpt) }}</textarea>
+							</div>
 						</div>
 						<div class="form-group m-form__group row">
-                            <div class="col-lg-12">
-                                <label>Description</label>
-                                <textarea class="summernote_reg form-control m-input"
-                                          name="description"
-                                          rows="4">{{ old('description', $deal->description) }}</textarea>
-                            </div>
-                        </div>
+							<div class="col-lg-12">
+								<label>Description</label>
+								<textarea class="summernote_reg form-control m-input"
+									name="description"
+									rows="4">{{ old('description', $deal->description) }}</textarea>
+							</div>
+						</div>
 
 						<div class="form-group m-form__group row">
-					
-                            <div class="col-lg-6">
+
+							<div class="col-lg-6">
 								<label>Price</label>
 								<div class="m-input-icon m-input-icon--right">
 									<input type="number" step="0.01"
-                                           class="form-control m-input"
-                                           name="price"
-                                           value="{{ old('price', $deal->price) }}"
-                                           placeholder="Price">
+										class="form-control m-input"
+										name="price"
+										value="{{ old('price', $deal->price) }}"
+										placeholder="Price">
 								</div>
 							</div>
 
-							         <div class="col-lg-6">
-                                <label>Order</label>
-                                <div class="m-input-icon m-input-icon--right">
-                                    <input type="number"
-                                           name="order"
-                                           class="form-control m-input"
-                                           value="{{ old('order', $deal->order) }}"
-                                           placeholder="Order" required>
-                                </div>
-                            </div>
+							<div class="col-lg-6">
+								<label>Order</label>
+								<div class="m-input-icon m-input-icon--right">
+									<input type="number"
+										name="order"
+										class="form-control m-input"
+										value="{{ old('order', $deal->order) }}"
+										placeholder="Order" required>
+								</div>
+							</div>
 
-                     
+
 						</div>
 
 						<div class="form-group m-form__group row">
-					 	<div class="col-lg-4">
-								<label>Start Date</label>
-								<div class='input-group date' id='start_date'>
-									<input type='text' class="form-control" name="start_date" value="{{ $deal->start_date }}" />
-									<span class="input-group-addon">
-										<span class="glyphicon glyphicon-calendar"></span>
-									</span>
+							<div class="col-lg-4">
+								<label>Start Date <span class="text-danger">*</span></label>
+								<div class='input-group date'>
+									<input type='text' class="form-control start_date"  name="start_date" value="{{ $deal->start_date }}" onkeydown="return false" style="z-index: 2;"  />
+
+									<span class="flaticon-calendar " style="position: relative;right: 38px;font-size: xx-large;"></span>
+
 								</div>
 							</div>
 
 							<div class="col-lg-4">
-								<label>End Date</label>
-								<div class='input-group date' id='end_date'>
-									<input type='text' class="form-control" name="end_date" value="{{ $deal->end_date }}" />
-									<span class="input-group-addon">
-										<span class="glyphicon glyphicon-calendar"></span>
-									</span>
+								<label>End Date <span class="text-danger">*</span></label>
+								<div class='input-group date'>
+									<input type='text' class="form-control end_date" name="end_date" value="{{ $deal->end_date }}"  onkeydown="return false" style="z-index: 2;" />
+									<span class="flaticon-calendar " style="position: relative;right: 38px;font-size: xx-large;"></span>
 								</div>
 							</div>
-                   
-                            <div class="col-lg-4">
-                                <x-admin.radio-status :status="$deal->status" />
-                            </div>
+
+							<div class="col-lg-4">
+								<x-admin.radio-status :status="$deal->status" />
+							</div>
 						</div>
 
 					</div>
 
-					
+
 					<div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
 						<div class="m-form__actions m-form__actions--solid">
 							<div class="row">
@@ -177,39 +166,48 @@
 @endsection
 
 @push("footer")
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-  <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-  <script type="text/javascript">
-         $(function () {
-             $('#start_date').datetimepicker({
-                 format: 'YYYY-MM-DD HH:mm:ss',
-                 minDate: moment()
-             });
-             $('#end_date').datetimepicker({
-                 format: 'YYYY-MM-DD HH:mm:ss',
-                 useCurrent: false
-             });
+<script>
+flatpickr(".end_date", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    onOpen: function(selectedDates, dateStr, instance) {
+        // Get start date value when end date picker opens
+        var startDateValue = $('.start_date').val();
+        if (startDateValue) {
+            // Set minDate to the start date value
+            instance.set('minDate', startDateValue);
+        }
+    },
+    onChange: function(dates, str, instance) {
+        showResult("dateTimeResult", str);
+    }
+});
 
-             // Set initial constraints based on existing values
-             var startDateObj = $('#start_date').data("DateTimePicker").date();
-             if (startDateObj) {
-                 $('#end_date').data("DateTimePicker").minDate(startDateObj);
-             }
-             var endDateObj = $('#end_date').data("DateTimePicker").date();
-             if (endDateObj) {
-                 $('#start_date').data("DateTimePicker").maxDate(endDateObj);
-             }
+// Initialize the end date with the deal start date if available
+var dealStartDate = "{{ $deal->start_date ?? '' }}";
+if (dealStartDate) {
+    $('.end_date').val(dealStartDate);
+    
+    // Also set minDate for flatpickr if deal start date exists
+    var endDatePicker = $('.end_date')[0]._flatpickr;
+    if (endDatePicker) {
+        endDatePicker.set('minDate', dealStartDate);
+    }
+}
+</script>
 
-             $("#start_date").on("dp.change", function (e) {
-                 $('#end_date').data("DateTimePicker").minDate(e.date);
-             });
-             $("#end_date").on("dp.change", function (e) {
-                 $('#start_date').data("DateTimePicker").maxDate(e.date);
-             });
-         });
-      </script>
+<script>
+	flatpickr(".start_date", {
+		enableTime: true,
+		dateFormat: "Y-m-d H:i",
+		 minDate: new Date(), 
+		onChange: (dates, str) => {
+			showResult("dateTimeResult", str);
+		}
+	});
+</script>
+
+
 @endpush
-

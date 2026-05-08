@@ -1,19 +1,9 @@
 @extends("admin.layouts.layout")
 @section("page_title", "Create Deal")
 @push('header')
-<link rel="stylesheet" type="text/css" media="screen"
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href="./css/prettify-1.0.css" rel="stylesheet">
-<link href="./css/base.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" rel="stylesheet">
-<style>
-    .bootstrap-datetimepicker-widget table td.disabled,
-    .bootstrap-datetimepicker-widget table td.disabled:hover {
-        color: #ff4c4c !important;
-    }
-</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 @endpush
+
 
 @section("content")
 <div class="m-content">
@@ -69,11 +59,7 @@
 							</div>
 						</div>
 
-						<x-admin.image-field :data="[
-                            'label' => 'Image',
-                            'name' => 'image',
-                           
-                        ]" />
+						<x-admin.image-field :data="['label' => 'Image', 'name' => 'image', ]" />
 
 						<div class="form-group m-form__group row">
 							<div class="col-lg-12">
@@ -93,15 +79,11 @@
 						</div>
 
 						<div class="form-group m-form__group row">
-
 							<div class="col-lg-6">
 								<label>Price</label>
 								<div class="m-input-icon m-input-icon--right">
 									<input type="number" step="0.01"
-										class="form-control m-input"
-										name="price"
-										value="{{ old('price') }}"
-										placeholder="Price">
+										class="form-control m-input" name="price" value="{{ old('price') }}" placeholder="Price">
 								</div>
 							</div>
 							<div class="col-lg-6">
@@ -114,28 +96,22 @@
 										placeholder="Order" required>
 								</div>
 							</div>
-
-
 						</div>
 
 						<div class="form-group m-form__group row">
 							<div class="col-lg-4">
-								<label>Start Date</label>
-								<div class='input-group date' id='start_date'>
-									<input type='text' class="form-control" name="start_date" value="{{ old('start_date') }}" />
-									<span class="input-group-addon">
-										<span class="glyphicon glyphicon-calendar"></span>
-									</span>
+								<label>Start Date <span class="text-danger">*</span></label>
+								<div class='input-group date'>
+									<input type='text' class="form-control start_date" name="start_date" value="{{ old('start_date') }}"  onkeydown="return false" style="z-index: 2;" />
+									<span class="flaticon-calendar " style="position: relative;right: 38px;font-size: xx-large;"></span>
 								</div>
 							</div>
 
 							<div class="col-lg-4">
-								<label>End Date</label>
-								<div class='input-group date' id='end_date'>
-									<input type='text' class="form-control" name="end_date" value="{{ old('end_date') }}" />
-									<span class="input-group-addon">
-										<span class="glyphicon glyphicon-calendar"></span>
-									</span>
+								<label>End Date <span class="text-danger">*</span></label>
+								<div class='input-group date'>
+									<input type='text' class="form-control end_date" name="end_date" value="{{ old('end_date') }}"  onkeydown="return false"  style="z-index: 2;"/>
+									<span class="flaticon-calendar " style="position: relative;right: 38px;font-size: xx-large;"></span>
 								</div>
 							</div>
 
@@ -170,30 +146,49 @@
 	</div>
 </div>
 @endsection
-
 @push("footer")
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-<script type="text/javascript">
-	$(function() {
-		$('#start_date').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
-            minDate: moment()
-        });
-		$('#end_date').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
-            useCurrent: false
-        });
+<script>
+	flatpickr(".end_date", {
+		enableTime: true,
+		dateFormat: "Y-m-d H:i",
+		onOpen: function(selectedDates, dateStr, instance) {
+			// Get start date value when end date picker opens
+			var startDateValue = $('.start_date').val();
+			if (startDateValue) {
+				// Set minDate to the start date value
+				instance.set('minDate', startDateValue);
+			}
+		},
+		onChange: function(dates, str, instance) {
+			showResult("dateTimeResult", str);
+		}
+	});
 
-        $("#start_date").on("dp.change", function (e) {
-            $('#end_date').data("DateTimePicker").minDate(e.date);
-        });
-        $("#end_date").on("dp.change", function (e) {
-            $('#start_date').data("DateTimePicker").maxDate(e.date);
-        });
+	// Initialize the end date with the deal start date if available
+	var dealStartDate = "{{ $deal->start_date ?? '' }}";
+	if (dealStartDate) {
+		$('.end_date').val(dealStartDate);
+
+		// Also set minDate for flatpickr if deal start date exists
+		var endDatePicker = $('.end_date')[0]._flatpickr;
+		if (endDatePicker) {
+			endDatePicker.set('minDate', dealStartDate);
+		}
+	}
+</script>
+
+<script>
+	flatpickr(".start_date", {
+		enableTime: true,
+		dateFormat: "Y-m-d H:i",
+		minDate: new Date(),
+		onChange: (dates, str) => {
+			showResult("dateTimeResult", str);
+		}
 	});
 </script>
+
+
 @endpush

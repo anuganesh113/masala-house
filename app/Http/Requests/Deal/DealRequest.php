@@ -36,8 +36,8 @@ class DealRequest extends FormRequest
             'description' => ['nullable'],
             'old_price' => ['nullable', 'numeric'],
             'price' => ['nullable', 'numeric'],
-            'start_date' => ['nullable', 'date'],
-            'end_date' => ['nullable', 'date'],
+            'start_date' => ['required', 'date'],
+            'end_date' => ['required', 'date'],
         ];
     }
 

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flatpickr Examples - Date & Time Pickers</title>
+    <!-- Flatpickr CSS & JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <style>
+        body {
+            font-family: system-ui, 'Segoe UI', 'Roboto', sans-serif;
+            background: #f5f7fb;
+            margin: 0;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #1a2c3e;
+            border-bottom: 3px solid #3b82f6;
+            display: inline-block;
+            padding-bottom: 0.3rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2rem;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #0f2b3d;
+            font-weight: 600;
+        }
+        .card p {
+            color: #4b5563;
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+        input, .flatpickr {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            margin-bottom: 8px;
+        }
+        .result {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            margin-top: 12px;
+            color: #0f172a;
+            word-break: break-all;
+        }
+        .badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            border-radius: 30px;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        hr {
+            margin: 15px 0;
+        }
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #5b6e8c;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📅 Flatpickr — pick date, time, range & more</h1>
+    <p>Based on official <a href="https://flatpickr.js.org/examples/" target="_blank">flatpickr examples</a> — fully interactive</p>
+
+    <div class="grid">
+        <!-- 1️⃣ Basic date picker -->
+        <div class="card">
+            <div class="badge">📆 Basic</div>
+            <h3>Simple date picker</h3>
+            <input type="text" id="basicPicker" placeholder="Select a date...">
+            <div class="result" id="basicResult"></div>
+        </div>
+
+        <!-- 2️⃣ Date + time picker -->
+        <div class="card">
+            <div class="badge">⏰ DateTime</div>
+            <h3>Date & time</h3>
+            <input type="text" id="dateTimePicker" placeholder="Pick date and time...">
+            <div class="result" id="dateTimeResult"></div>
+        </div>
+
+        <!-- 3️⃣ Time picker (no calendar) -->
+        <div class="card">
+            <div class="badge">⌚ Time only</div>
+            <h3>Time picker (24h)</h3>
+            <input type="text" id="timePicker" placeholder="Select time...">
+            <div class="result" id="timeResult"></div>
+        </div>
+
+        <!-- 4️⃣ Range picker -->
+        <div class="card">
+            <div class="badge">📌 Range</div>
+            <h3>Select date range</h3>
+            <input type="text" id="rangePicker" placeholder="Start – End">
+            <div class="result" id="rangeResult"></div>
+        </div>
+
+        <!-- 5️⃣ Multiple dates -->
+        <div class="card">
+            <div class="badge">✨ Multiple</div>
+            <h3>Pick several dates</h3>
+            <input type="text" id="multiPicker" placeholder="Click to select multiple...">
+            <div class="result" id="multiResult"></div>
+        </div>
+
+        <!-- 6️⃣ Inline calendar (always visible) -->
+        <div class="card">
+            <div class="badge">📆 Inline</div>
+            <h3>Inline calendar</h3>
+            <div id="inlinePicker"></div>
+            <div class="result" id="inlineResult">Selected: none</div>
+        </div>
+
+        <!-- 7️⃣ Min/max dates + disabled weekends -->
+        <div class="card">
+            <div class="badge">🚫 Restrictions</div>
+            <h3>Min / max & no weekends</h3>
+            <input type="text" id="restrictedPicker" placeholder="Only weekdays, after today">
+            <div class="result" id="restrictedResult"></div>
+        </div>
+    </div>
+    <footer>
+        ⚡ Flatpickr examples — use the console to see full selected values
+    </footer>
+</div>
+
+<script>
+    // Helper to show results
+    function showResult(elementId, value, label = "Selected") {
+        const el = document.getElementById(elementId);
+        if (el) el.innerHTML = `${label}: ${value || 'none'}`;
+    }
+
+    // 1️⃣ Basic
+    const basic = flatpickr("#basicPicker", {
+        onChange: (selectedDates, dateStr) => {
+            showResult("basicResult", dateStr || "—");
+        }
+    });
+
+    // 2️⃣ DateTime (with time)
+    const dtPicker = flatpickr("#dateTimePicker", {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        onChange: (dates, str) => {
+            showResult("dateTimeResult", str);
+        }
+    });
+
+    // 3️⃣ Time picker (24hr, no calendar)
+    flatpickr("#timePicker", {
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "H:i",
+        time_24hr: true,
+        onChange: (dates, str) => {
+            showResult("timeResult", str);
+        }
+    });
+
+    // 4️⃣ Range picker
+    flatpickr("#rangePicker", {
+        mode: "range",
+        dateFormat: "Y-m-d",
+        onChange: (dates, str) => {
+            if (dates.length === 2) {
+                showResult("rangeResult", `${dates[0].toLocaleDateString()} → ${dates[1].toLocaleDateString()}`);
+            } else {
+                showResult("rangeResult", str || "incomplete range");
+            }
+        }
+    });
+
+    // 5️⃣ Multiple dates
+    flatpickr("#multiPicker", {
+        mode: "multiple",
+        dateFormat: "Y-m-d",
+        onChange: (dates, str) => {
+            const count = dates.length;
+            showResult("multiResult", str || "none", `${count} date(s):`);
+        }
+    });
+
+    // 6️⃣ Inline (always visible)
+    const inlineFp = flatpickr("#inlinePicker", {
+        inline: true,
+        defaultDate: new Date(),
+        onChange: (dates, str) => {
+            document.getElementById("inlineResult").innerText = `Selected: ${str || 'none'}`;
+        }
+    });
+
+    // 7️⃣ Restricted: minDate = today, disable weekends (Sat/Sun)
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const todayStr = `${yyyy}-${mm}-${dd}`;
+
+    flatpickr("#restrictedPicker", {
+        minDate: todayStr,
+        disable: [
+            function(date) {
+                // disable saturday (6) and sunday (0)
+                return date.getDay() === 0 || date.getDay() === 6;
+            }
+        ],
+        dateFormat: "Y-m-d",
+        onChange: (dates, str) => {
+            showResult("restrictedResult", str || "not allowed (weekend or past)");
+        }
+    });
+
+    // Optional: prefill some examples for demo clarity
+    setTimeout(() => {
+        if (basic.selectedDates.length === 0) basic.setDate(new Date());     // set today as example
+        dtPicker.setDate(new Date());
+        inlineFp.setDate(new Date());
+    }, 100);
+</script>
+</body>
+</html>
