@@ -320,6 +320,18 @@
         </a>
     </li>
 
+        <li class="m-menu__item " aria-haspopup="true" title="Popups">
+        <a href="{{ route('admin.deals.index') }}" class="m-menu__link" title="Admin Dashboard">
+            <i class="m-menu__link-icon flaticon-menu-1 {{ request()->is('admin/deals*') ? 'text-secondary' : '' }}"></i>
+            <span class="m-menu__link-title">
+                <span class="m-menu__link-wrap">
+                    <span class="m-menu__link-text {{ request()->is('admin/deals*') ? 'text-secondary' : '' }}">Deals</span>
+                </span>
+            </span>
+        </a>
+    </li>
+    
+
     <!-- @if(Route::has('admin.events.index'))
     <li class="m-menu__item m-menu__item" aria-haspopup="true">
         <a href="{{ route('admin.events.index') }}" class="m-menu__link">

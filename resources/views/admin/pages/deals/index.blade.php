@@ -1,4 +1,4 @@
-@section("page_title", "Blogs List")
+@section("page_title", "Deals List")
 @extends("admin.layouts.layout")
 
 @section("content")
