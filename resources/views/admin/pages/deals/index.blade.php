@@ -50,7 +50,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                      
+
                         <th>Name</th>
                         <th>Image</th>
                         <th>Blog Status</th>
@@ -61,30 +61,30 @@
                 <tbody>
 
                     @foreach($deals ??[] as $value)
-                        <tr id="blogs-{{ $value->id }}">
-                            <td>{{ $loop->iteration }}</td>
-                         
-                            <td>{{ data_get($value, "name") }}</td>
-                            <td>{{ !empty(data_get($value, "image")) ? "Image Found" : "Image Not Found" }}</td>
-                            <td>
-                                <span class="m-badge m-badge--{{ data_get($value, "status") ? 'success' : 'danger' }} m-badge--wide">
-                                    {{ data_get($value, "status") ? "Active" : "Inactive" }}
-                                </span>
-                            </td>
-                            <td class="center">@datetime(data_get($value, "created_at"))</td>
-                            <td data-field="Actions" class="m-datatable__cell">
-                                <span style="overflow: visible; width: 110px;">
-                                    <a href="{{ route('admin.deals.edit', data_get($value, "id")) }}"
-                                        class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit">
-                                        <i class="la la-edit text-success"></i>
-                                    </a>
-                                    <a href="javascript:;" onclick="deleteDeals({{ data_get($value, "id") }})"
-                                        class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
-                                        <i class="la la-trash text-danger"></i>
-                                    </a>
-                                </span>
-                            </td>
-                        </tr>
+                    <tr id="deals-{{ $value->id }}">
+                        <td>{{ $loop->iteration }}</td>
+
+                        <td>{{ data_get($value, "name") }}</td>
+                        <td>{{ !empty(data_get($value, "image")) ? "Image Found" : "Image Not Found" }}</td>
+                        <td>
+                            <span class="m-badge m-badge--{{ data_get($value, "status") ? 'success' : 'danger' }} m-badge--wide">
+                                {{ data_get($value, "status") ? "Active" : "Inactive" }}
+                            </span>
+                        </td>
+                        <td class="center">@datetime(data_get($value, "created_at"))</td>
+                        <td data-field="Actions" class="m-datatable__cell">
+                            <span style="overflow: visible; width: 110px;">
+                                <a href="{{ route('admin.deals.edit', data_get($value, "id")) }}"
+                                    class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit">
+                                    <i class="la la-edit text-success"></i>
+                                </a>
+                                <a href="javascript:;" onclick="deleteDeals({{ data_get($value, "id") }})"
+                                    class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
+                                    <i class="la la-trash text-danger"></i>
+                                </a>
+                            </span>
+                        </td>
+                    </tr>
                     @endforeach
 
                 </tbody>
@@ -95,6 +95,32 @@
 @endsection
 
 @push("footer")
-    <script src="{{ asset('admin-assets/js/html-table.js') }}" type="text/javascript" charset="utf-8" defer></script>
-    <script src="{{ asset('admin-assets/custom-js/deletion-script.js') }}" type="text/javascript" charset="utf-8" defer></script>
+<script src="{{ asset('admin-assets/js/html-table.js') }}" type="text/javascript" charset="utf-8" defer></script>
+<script>
+    function deleteDeals(id) {
+        if (confirm(`Are You Sure Want To Delete ?`)) {
+            $.ajax({
+                    url: `/admin/deals/${id}`,
+                    method: `DELETE`
+                })
+                .done(function(response) {
+
+                    if (response.success) {
+                        $(`tr#deals-${id}`).fadeOut("slow", function() {
+                            $(this).remove();
+                        });
+                    }
+                    showAlertMessage({
+                        message: response.message,
+                        success: true
+                    });
+                })
+                .fail(function(error) {
+                    showAlertMessage({
+                        message: error.responseJSON.message
+                    });
+                });
+        }
+    }
+</script>
 @endpush
