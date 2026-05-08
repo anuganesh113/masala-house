@@ -120,7 +120,7 @@
 								<div class='input-group date'>
 									<input type='text' class="form-control start_date"  name="start_date" value="{{ $deal->start_date }}" onkeydown="return false" style="z-index: 2;"  />
 
-									<span class="flaticon-calendar " style="position: relative;right: 38px;font-size: xx-large;"></span>
+									<span class="flaticon-calendar " style="position: relative;right: 30px;font-size: 25px;"></span>
 
 								</div>
 							</div>
@@ -129,7 +129,7 @@
 								<label>End Date <span class="text-danger">*</span></label>
 								<div class='input-group date'>
 									<input type='text' class="form-control end_date" name="end_date" value="{{ $deal->end_date }}"  onkeydown="return false" style="z-index: 2;" />
-									<span class="flaticon-calendar " style="position: relative;right: 38px;font-size: xx-large;"></span>
+									<span class="flaticon-calendar " style="position: relative;right: 30px;font-size: 25px;"></span>
 								</div>
 							</div>
 
