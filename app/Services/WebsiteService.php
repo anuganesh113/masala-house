@@ -33,7 +33,7 @@ class WebsiteService
         }])->get();
         $data['galleries'] = Gallery::get();
         $data['popup'] = Popup::Image()->where('status', Status::ACTIVE)->first();
-         $data['events'] = Event::event()->where('status', Status::ACTIVE)->with(['eventfaqs' => function ($q) {
+         $data['events'] = Event::event()->orderBy('order')->where('status', Status::ACTIVE)->with(['eventfaqs' => function ($q) {
         $q->status();    }])->get();
   
 
@@ -149,7 +149,7 @@ class WebsiteService
                     ->inRandomOrder()->take(5)
                     ->get();
 
-                      $data['events'] = Event::catering()->where('status', Status::ACTIVE)->with(['eventfaqs' => function ($q) {
+                      $data['events'] = Event::catering()->where('status', Status::ACTIVE)->orderBy('order')->with(['eventfaqs' => function ($q) {
                $q->status();    }])->get();
              
                 break;
