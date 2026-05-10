@@ -29,6 +29,7 @@ class Event extends Model
         'metadata',
         'status',
         'seo',
+        'order'
     ];
 
     /**
@@ -81,6 +82,11 @@ class Event extends Model
         return $this->hasMany(FAQ::class, 'model_id')
             ->where('model_type', 'event')->where('status', 1)
             ->orderBy('order');
+    }
+
+    public function scopeMaxOrder($query)
+    {
+        return $query->max('order');
     }
     
 }

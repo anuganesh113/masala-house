@@ -121,6 +121,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($route) {
         $route->resource('categories', CategoryController::class)->except(['show']);
         $route->resource('events', EventController::class)->except(['show']);
         $route->get('events/{id}', [EventController::class, 'delete'])->name('event.delete');
+        $route->post('events/re-order',[EventController::class,'rowReOrder'])->name('events.reorder');
+
 
 
           $route->post('categories/re-order',[CategoryController::class,'rowReOrder'])

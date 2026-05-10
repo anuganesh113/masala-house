@@ -15,10 +15,10 @@ use Illuminate\Http\Request;
 use App\Constants\General;
 use App\Constants\Message;
 use App\Enums\UploadFilePath;
-
+use App\Traits\reorder;
 class EventController extends Controller
 {
-
+     use reorder;
     public function __construct(
         protected DatabaseManager $databaseManager,
         protected Event $eventModel
@@ -27,8 +27,8 @@ class EventController extends Controller
     public function index(): View
     {
         $data['events'] = $this->eventModel->query()
-            ->select(['id', 'name', 'status', 'created_at', 'type'])
-            ->latest()
+            ->select(['id', 'name', 'status', 'created_at', 'type' ,'order'])
+            ->orderBy('order')
             ->get();
 
         return view('admin.pages.events.index', $data);
@@ -107,5 +107,14 @@ class EventController extends Controller
         //     @unlink(sprintf('%s%s', UploadFilePath::EVENT_PATH, data_get($backup, 'image')));
         //     return redirect()->back()->with('success', Message::EVENT_MESSAGE['DELETE_SUCCESS']);
         // }
+    }
+
+        public function rowReOrder(Request $request): JsonResponse
+    {
+       
+        $re_order = Event::select(['id', 'order'])->get();
+        $this->reOrder($re_order, 'order');
+        return response()->json(['status' => 'success', 'success' =>  'Order Updated Successfully']);
+        
     }
 }
