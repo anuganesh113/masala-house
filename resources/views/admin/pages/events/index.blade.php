@@ -1,4 +1,4 @@
-@section("page_title", "events List")
+@section("page_title", "Events List")
 @extends("admin.layouts.layout")
 
 @push("header")
@@ -52,7 +52,7 @@
                             class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
                             <span>
                                 <i class="la la-plus"></i>
-                                <span>Create Category</span>
+                                <span>Create Event</span>
                             </span>
                         </a>
                         <div class="m-separator m-separator--dashed d-xl-none"></div>
