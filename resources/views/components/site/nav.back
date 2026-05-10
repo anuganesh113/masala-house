@@ -24,12 +24,6 @@
                               <a href="{{ url(data_get($page, 'slug')) }}" class="{{ request()->is(data_get($page, 'slug')) ? 'active' : '' }}">
                                  {{ data_get($page, 'name') }}
                               </a>
-                              <span class="lg-none"> <i class="fa fa-plus-square clicksquare" style="float: right;color: white;font-size: 25px;position: relative;top: -45px;"></i></span>
-
-                              <ul class="main-menu__list viewmobilenav">
-                                 <li> <a  href="" >sffdsfd </a></li>
-                                 <li>  <a  href="" >sffdsfd </a></li>
-                              </ul>
                            </li>
                            @endforeach
                            <li class="border-menu primary tb-tb">
@@ -43,7 +37,7 @@
                   </div>
                   <div class="main-menu-two__right d-lg-none">
                      <div class="main-menu-two__btn-box ">
-                        <a href="#" class="mobile-nav__toggler clicksquare">
+                        <a href="#" class="mobile-nav__toggler">
                            <i class="fa fa-bars ms-0"></i></a>
                      </div>
                   </div>
@@ -91,79 +85,3 @@
       </div>
    </div>
 </header>
-
-@push('header')
-<style>
-   /* Mobile Nav CSS (only for mobile & tablet) */
-@media (max-width: 991.98px) {
-   .viewmobil{
-     display:block!important; 
-   }
-
-   .clicksquare{
-      display: none;
-   }
-
-}
-
-
-   </style>
-@endpush
-
-@push('footer')
-<script>
-// Mobile nav and submenu toggle logic
-document.addEventListener('DOMContentLoaded', function () {
-   function isMobileOrTablet() {
-      return window.innerWidth < 768;
-   }
-   // Hamburger menu opens mobile nav
-   document.querySelectorAll('.mobile-nav__toggler').forEach(function (el) {
-      el.addEventListener('click', function (e) {
-         if (isMobileOrTablet()) {
-            e.preventDefault();
-            document.querySelector('.mobile-nav__wrapper').classList.add('active');
-            document.body.classList.add('mobile-nav-active');
-         }
-      });
-   });
-   // Overlay and close button close mobile nav
-   document.querySelectorAll('.mobile-nav__overlay, .mobile-nav__close').forEach(function (el) {
-      el.addEventListener('click', function (e) {
-         if (isMobileOrTablet()) {
-            e.preventDefault();
-            document.querySelector('.mobile-nav__wrapper').classList.remove('active');
-            document.body.classList.remove('mobile-nav-active');
-         }
-      });
-   });
-   // Plus-square toggles its own submenu
-   document.querySelectorAll('.main-menu__list .clicksquare').forEach(function (icon) {
-      icon.addEventListener('click', function (e) {
-         if (isMobileOrTablet()) {
-            e.preventDefault();
-            var parentLi = icon.closest('li');
-            if (parentLi) {
-               var submenu = parentLi.querySelector('.viewmobilenav');
-               if (submenu) {
-                  submenu.classList.toggle('active');
-                  submenu.style.display = 'block';
-                  if (submenu.classList.contains('active')) {
-                      icon.classList.remove('fa-plus-square');
-                      icon.classList.add('fa-minus-square');
-                      submenu.style.display = 'block';
-                  } else {
-                      icon.classList.remove('fa-minus-square');
-                      icon.classList.add('fa-plus-square');
-                      submenu.style.display = 'none';
-                  }
-               }
-            }
-         }
-      });
-   });
-});
-</script>
-@endpush
-
-

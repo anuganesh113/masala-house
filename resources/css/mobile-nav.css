@@ -1,0 +1,48 @@
+/* Mobile Nav CSS (only for mobile & tablet) */
+@media (max-width: 991.98px) {
+    .mobile-nav__wrapper {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.7);
+        transition: all 0.3s;
+    }
+    .mobile-nav__wrapper.active {
+        display: block;
+    }
+    body.mobile-nav-active {
+        overflow: hidden;
+    }
+    .mobile-nav__content {
+        background: #fff;
+        width: 80vw;
+        max-width: 350px;
+        height: 100vh;
+        position: absolute;
+        right: 0;
+        top: 0;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        padding: 2rem 1rem;
+        overflow-y: auto;
+    }
+    .mobile-nav__overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.7);
+    }
+    .mobile-nav__close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 10001;
+    }
+}
