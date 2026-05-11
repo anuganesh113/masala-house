@@ -113,6 +113,16 @@ if (!function_exists('footerPages')) {
     }
 }
 
+if (!function_exists('navcatering')) {
+    function navcatering()
+    {
+      $events = Event::catering()->where('status', 1)->orderBy('order')->get();
+      return  $events;
+
+    }
+}
+
+
 if (!function_exists('checkVegetarian')) {
     function checkVegetarian($item): bool|string
     {

@@ -41,23 +41,19 @@
                               <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
                            </li>
 
-                           @foreach($pages ?? [] as $page)
+                           @foreach(pages() ?? [] as $page)
                            <li class="">
                               <a href="{{ url(data_get($page, 'slug')) }}" class="{{ request()->is(data_get($page, 'slug')) ? 'active' : '' }}">
                                  {{ data_get($page, 'name') }}
                               </a>
+                              @if(data_get($page, 'slug') === 'catering')
                               <span class="lg-none"> <i class="fa fa-plus-square clicksquare d-none" style="float: right;color: white;font-size: 25px;position: relative;top: -45px;"></i></span>
-
                               <ul class=" viewmobilenav">
-                                 <li> <a  href="" >1 </a></li>
-                                 <li>  <a  href="" >2 </a></li>
-                                 <li>  <a  href="" >3 </a></li>
-                                 <li>  <a  href="" >sffdsfd </a></li>
-                                 <li>  <a  href="" >sffdsfd </a></li>
-                                 <li>  <a  href="" >sffdsfd </a></li>
-                                 <li>  <a  href="" >sffdsfd </a></li>
-
+                                 @foreach(navcatering() as $catering)
+                                 <li> <a  href="{{ route('site.event', $catering->slug) }}" >{{ $catering->name }} </a></li>
+                                 @endforeach
                               </ul>
+                              @endif
                            </li>
                            @endforeach
                            <li class="border-menu primary tb-tb">
