@@ -78,17 +78,17 @@ $('.checkphone').on('input', function() {
       }
       // Convert to number for comparison
       let numValue = parseInt(value, 10);
-      // Check if value is more than 100
-      if (numValue > 100) {
-         // alert('Number of persons cannot be more than 100!');
+      // Check if value is more than 400
+      if (numValue > 400) {
+         // alert('Number of persons cannot be more than 400!');
 
-         $('.no_person').html('Number of persons cannot be more than 100!');
-         // If value > 100, keep only first 2 digits
+         $('.no_person').html('Number of persons cannot be more than 400!');
+         // If value > 400, keep only first 2 digits
          if (value.length > 2) {
             this.value = value.slice(0, 2);
 
          } else {
-            this.value = value; // Keep as is if it's less than 100
+            this.value = value; // Keep as is if it's less than 400
          }
       }
       // If value is between 1-99, keep as is
@@ -97,8 +97,8 @@ $('.checkphone').on('input', function() {
          // Allow up to 3 digits for numbers 1-99
          this.value = value.slice(0, 3);
       }
-      // If value is exactly 100
-      else if (numValue === 100) {
+      // If value is exactly 400
+      else if (numValue === 400) {
          this.value = value.slice(0, 3);
           $('.no_person').html('');
       }
