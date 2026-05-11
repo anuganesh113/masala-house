@@ -142,7 +142,7 @@ $(document).ready(function() {
 // Mobile nav and submenu toggle logic
 document.addEventListener('DOMContentLoaded', function () {
    function isMobileOrTablet() {
-      return window.innerWidth < 768;
+      return window.innerWidth < 1025;
    }
    // Hamburger menu opens mobile nav
    document.querySelectorAll('.mobile-nav__toggler').forEach(function (el) {
