@@ -161,7 +161,7 @@
 
 
                     <div class="faq ">
-                           <h2 class="section-title">Frequently Asked Questions</h2>
+                           <h3 >Included Services</h3>
                         <div class="faq__accordion ">
                             <div class="accordion custom__accordion ">
                                 @foreach($event->eventfaqs as $faq)
