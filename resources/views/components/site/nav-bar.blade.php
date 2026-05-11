@@ -1,3 +1,25 @@
+@push('header')
+<style>
+
+   .clicksquare.viewmobileplus{
+      display: none;
+   }
+   /* Mobile Nav CSS (only for mobile & tablet) */
+@media (max-width: 991.98px) {
+   .viewmobil{
+     display:block!important; 
+   }
+
+   .clicksquare{
+      display: none;
+   }
+}
+
+
+   </style>
+@endpush
+
+
 <header class="main-header-two" id="myHeader">
    <div class="main-header__wrapper">
       <nav class="main-menu main-menu-two">
@@ -24,11 +46,17 @@
                               <a href="{{ url(data_get($page, 'slug')) }}" class="{{ request()->is(data_get($page, 'slug')) ? 'active' : '' }}">
                                  {{ data_get($page, 'name') }}
                               </a>
-                              <span class="lg-none"> <i class="fa fa-plus-square clicksquare" style="float: right;color: white;font-size: 25px;position: relative;top: -45px;"></i></span>
+                              <span class="lg-none"> <i class="fa fa-plus-square clicksquare d-none" style="float: right;color: white;font-size: 25px;position: relative;top: -45px;"></i></span>
 
-                              <ul class="main-menu__list viewmobilenav">
-                                 <li> <a  href="" >sffdsfd </a></li>
+                              <ul class=" viewmobilenav">
+                                 <li> <a  href="" >1 </a></li>
+                                 <li>  <a  href="" >2 </a></li>
+                                 <li>  <a  href="" >3 </a></li>
                                  <li>  <a  href="" >sffdsfd </a></li>
+                                 <li>  <a  href="" >sffdsfd </a></li>
+                                 <li>  <a  href="" >sffdsfd </a></li>
+                                 <li>  <a  href="" >sffdsfd </a></li>
+
                               </ul>
                            </li>
                            @endforeach
@@ -92,26 +120,25 @@
    </div>
 </header>
 
-@push('header')
-<style>
-   /* Mobile Nav CSS (only for mobile & tablet) */
-@media (max-width: 991.98px) {
-   .viewmobil{
-     display:block!important; 
-   }
 
-   .clicksquare{
-      display: none;
-   }
-
-}
-
-
-   </style>
-@endpush
 
 @push('footer')
 <script>
+// jQuery to toggle d-none for plus icon based on screen size
+$(document).ready(function() {
+   function togglePlusIcon() {
+      var w = $(window).width();
+      if (w >= 992) { // Desktop (lg and up)
+         $(".main-menu__list .clicksquare").addClass('d-none');
+      } else { // Tablet and Mobile
+         $(".main-menu__list .clicksquare").removeClass('d-none');
+      }
+   }
+   togglePlusIcon();
+   $(window).on('resize', function() {
+      togglePlusIcon();
+   });
+});
 // Mobile nav and submenu toggle logic
 document.addEventListener('DOMContentLoaded', function () {
    function isMobileOrTablet() {
