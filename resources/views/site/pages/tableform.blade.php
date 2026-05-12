@@ -94,7 +94,7 @@
                         </div>
                         <div class="col-lg-4 mt-5">
                             <div class="form__group"><span class="text-danger small no_person"></span>
-                                <input type="number" max="100" min="1" class="checknumberper" name="table[persons]" placeholder="Number of Persons" required>
+                                <input type="number" max="400" min="1" class="checknumberper" name="table[persons]" placeholder="Number of Persons" required>
 
                             </div>
                         </div>

@@ -41,7 +41,7 @@
                </div>
                <div class="form__group">
                   <label for="" class="form-label">Number of Persons <span class="text-danger  small no_person"></span></label>
-                  <input type="number" max="100" min="1" class="form-control checknumberper" name="table[persons]" placeholder="Number of Persons" required>
+                  <input type="number" max="400" min="1" class="form-control checknumberper" name="table[persons]" placeholder="Number of Persons" required>
                   <!-- <select name="" id="" class="form-select">
                      <option value="">Number of persons</option>
                      <option value="">1 - 2 persons</option>
