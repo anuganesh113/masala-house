@@ -18,14 +18,15 @@
          @endforeach
 
          @else
+         
          <div class="accordion__item  ">
             <div class="accordion__item--title" href="javascript:void(0)">
-             "No FAQs available for this event"
+             "No Services  available for this event"
                <i class="fas fa-chevron-down"></i>
             </div>
             <div class="accordion__item--content">
                <div>
-                  <p> "No FAQs available for this event"</p>
+                  <p> "No Service available for this event"</p>
                </div>
             </div>
          </div>
