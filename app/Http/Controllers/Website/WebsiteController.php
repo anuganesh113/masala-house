@@ -123,6 +123,7 @@ class WebsiteController extends BaseController
             ->get();
         $data['cat_name']       = $data['menu']->category->name;
         $data['cat_image_link'] = $data['menu']->category->image;
+        $data['webtitle'] = $data['menu']->name ? $data['menu']->name : title();
     
         $data['seotitle'] = $data['menu']->seo['title'] ? $data['menu']->seo['title'] : title();
         $data['seokeywords'] = $data['menu']->seo['keywords'] ? $data['menu']->seo['keywords'] : keywords();

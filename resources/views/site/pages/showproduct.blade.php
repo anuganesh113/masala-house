@@ -1,5 +1,5 @@
 @extends('site.layouts.layout',[
-'title' => $menu->name,
+'title' => $webtitle,
 'seotitle' => $seotitle,
 'description' => $seodescription,
 'image' => $menu ? $menu->full_image_link : banner(),
