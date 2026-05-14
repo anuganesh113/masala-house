@@ -11,13 +11,13 @@
  <meta name="keywords" content="{{ $keywords ?? (keywords() ?? 'masala-house, masala-house ') }}">
  <meta name="author" content="{{ title() }}">
  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
- <meta property="og:title" content="{{ $seotitle ?? (title() ?? 'masala-house') }}" />
+ <meta property="og:title" content="{{ $title ?? (title() ?? 'masala-house') }}" />
  <meta property="og:description" content="{{ $description ?? (description() ?? 'masala-house') }}" />
  <meta property="og:image" content="{{ url($image ?? banner()) }}" />
  <meta name="csrf-token" content="{{ csrf_token() }}">
  <meta property="og:site_name" content="{{ title() }}">
  <link rel="canonical" href="{{ request()->url() }}">
  <meta name="twitter:card" content="{{ url($image ?? banner()) }}">
- <meta name="twitter:title" content="{{ $seotitle ?? (title() ?? 'masala-house') }}">
+ <meta name="twitter:title" content="{{ $title ?? (title() ?? 'masala-house') }}">
  <meta name="twitter:description" content="{{ $description ?? (description() ?? 'masala-house') }}">
  <meta name="twitter:image" content="{{ url($image ?? banner()) }}">

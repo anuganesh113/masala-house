@@ -1,6 +1,5 @@
 @extends('site.layouts.layout',[
-    'title' =>   data_get($page, "title") ?? 'Blogs',
-    'seotitle' =>   data_get($page, "seo.title") ?? 'Blogs',
+    'title' =>   data_get($page, "seo.title") ?? 'Blogs',
     'description' =>  data_get($page, "seo.description") ?? description(),
     'image' =>   $page ?  $page->full_image_link : banner() ,
     'keywords' =>  data_get($page, "seo.keywords") ?? keywords(),

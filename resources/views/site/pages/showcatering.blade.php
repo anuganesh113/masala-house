@@ -1,6 +1,5 @@
 @extends('site.layouts.layout',[
-'title' => data_get($event, "name") ?? data_get($event, 'name'),
- 'seotitle' =>   data_get($event, "seo.title") ?? 'Blogs',
+ 'title' =>   data_get($event, "seo.title") ?? 'Catering',
 'description' => data_get($event, "seo.description") ?? strip_tags(data_get($event, 'description')),
 'image' => $event ? $event->full_image_link : banner(),
 'keywords' => data_get($event, "seo.keywords") ?? data_get($event, 'keywords'),
