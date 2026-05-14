@@ -123,6 +123,12 @@ class WebsiteController extends BaseController
             ->get();
         $data['cat_name']       = $data['menu']->category->name;
         $data['cat_image_link'] = $data['menu']->category->image;
+    
+        $data['seotitle'] = $data['menu']->seo['title'] ? $data['menu']->seo['title'] : title();
+        $data['seokeywords'] = $data['menu']->seo['keywords'] ? $data['menu']->seo['keywords'] : keywords();
+        $data['seodescription'] = $data['menu']->seo['description'] ? $data['menu']->seo['description'] : description();
+
+
 
         return view('site.pages.showproduct', $data);
     }

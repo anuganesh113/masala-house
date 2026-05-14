@@ -1,9 +1,11 @@
 @extends('site.layouts.layout',[
-'title' => data_get($menu, "seo.title") ?? data_get($menu, 'name'),
-'description' => data_get($menu, "seo.description") ?? strip_tags(data_get($menu, 'description')),
+'title' => $menu->name,
+'seotitle' => $seotitle,
+'description' => $seodescription,
 'image' => $menu ? $menu->full_image_link : banner(),
-'keywords' => data_get($menu, "seo.keywords") ?? data_get($menu, 'keywords'),
+'keywords' => $seokeywords,
 ])
+
 
 @push('header')
 <link rel="stylesheet" href="{{ asset('site-assets/css/fancybox.css') }}">

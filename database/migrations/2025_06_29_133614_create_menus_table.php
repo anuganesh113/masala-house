@@ -31,7 +31,8 @@ return new class extends Migration
                 $table->decimal('price', 10, 2)->nullable();
                 $table->string('type')->default(FoodType::VEG);
                 $table->string('status')->default(Status::INACTIVE);
-                $table->string('seo')->nullable();
+                // $table->string('seo')->nullable();
+                $table->json('seo')->nullable();
                 $table->timestamps();
             }
         );
