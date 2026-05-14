@@ -7,7 +7,7 @@
  <meta property="og:locale" content="en_US" />
  <link rel="icon" type="image/x-icon" href="{{ asset('site-assets/images/favicon.jpg') }}">
  <title>{{ title() . (isset($title) ? ' - ' . ($title ?? '') : '') }}</title>
- <meta name="description" content="{{ $description ?? (description() ?? (title() ?? 'masala-house')) }}s">
+ <meta name="description" content="{{ $description ?? (description() ?? (title() ?? 'masala-house')) }}">
  <meta name="keywords" content="{{ $keywords ?? (keywords() ?? 'masala-house, masala-house ') }}">
  <meta name="author" content="{{ title() }}">
  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
