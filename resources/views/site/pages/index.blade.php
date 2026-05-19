@@ -146,7 +146,7 @@
                                             <div class="mt-2">
 
                                                 <span class="menu__card--price">${{ $item->price }}</span>
-                                                <span class="text-white br-25  bt-fr {{$item->type == 'veg' ? 'bg-green' : 'cssnonveg'}}" style="font-size: 0.725rem;font-weight: 400;padding: 5px 15px 5px 15px;">{{ checkVegetarian($item->type) }}</span>
+                                                <span class="text-white br-25  bt-fr {{cssnonveg($item->type)}}" style="font-size: 0.725rem;font-weight: 400;padding: 5px 15px 5px 15px;">{{ checkVegetarian($item->type) }}</span>
                                             </div>
 
                                             <div class="menu__card--footer">
@@ -203,7 +203,7 @@
                                             <div class="mt-2">
 
                                                 <span class="menu__card--price">${{ $item->price }}</span>
-                                                <span class="text-white br-25  bt-fr {{$item->type == 'veg' ? 'bg-green' : 'cssnonveg'}}" style="font-size: 0.725rem;font-weight: 400;padding: 5px 15px 5px 15px;">{{ checkVegetarian($item->type) }}</span>
+                                                <span class="text-white br-25  bt-fr {{cssnonveg($item->type)}}" style="font-size: 0.725rem;font-weight: 400;padding: 5px 15px 5px 15px;">{{ checkVegetarian($item->type) }}</span>
                                             </div>
 
                                             <div class="menu__card--footer">

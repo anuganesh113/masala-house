@@ -1,4 +1,17 @@
   <style>
+    .alcoholic{
+      background: #3d1119!important;
+
+    }
+        .non-alcoholic{
+      background: #803900a1!important;
+    }
+    
+    .type-veg{
+      background: #62990a!important;
+    }
+
+  
       .gallery__box.gallery__boxres{
             padding-left: 0px;
         }

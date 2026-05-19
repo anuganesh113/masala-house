@@ -11,6 +11,8 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
+use function PHPSTORM_META\elementType;
+
 if (!function_exists('setting')) {
     function setting(): ?Setting
     {
@@ -128,8 +130,13 @@ if (!function_exists('checkVegetarian')) {
     {
         if (isset($item) && $item == 'veg') {
             return  strtoupper('Veg');
-        }
+        }else if (isset($item) && $item == 'non-veg') {
         return strtoupper('Non-Veg');
+        } else if (isset($item) && $item == 'non-alcoholic') {
+          return strtoupper('Non-Alcoholic');
+        }else if (isset($item) && $item == 'alcoholic') {
+           return strtoupper('Alcoholic');
+        }
     }
 }
 
@@ -138,10 +145,14 @@ if (!function_exists('cssnonveg')) {
     function cssnonveg($item): bool|string
     {
         if (isset($item) && $item == 'veg') {
-            return '';
-        }
-
+            return 'type-veg';
+        }else if (isset($item) && $item == 'non-veg') {
         return 'cssnonveg';
+        } else if (isset($item) && $item == 'non-alcoholic') {
+            return 'non-alcoholic';
+        }else{
+           return 'alcoholic';
+        }
     }
 }
 

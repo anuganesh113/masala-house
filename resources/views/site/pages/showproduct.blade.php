@@ -389,7 +389,7 @@
                             <div>
 
                                 <span class="menu__card--price">${{ $menu->price }}</span>
-                                <span class="text-white br-25  bt-fr {{$menu->type == 'veg' ? 'bg-green' : 'cssnonveg'}}" style="font-size: 0.725rem;font-weight: 400;padding: 5px 15px 5px 15px;">{{ checkVegetarian($menu->type) }}</span>
+                                <span class="text-white br-25  bt-fr {{cssnonveg( $menu->type )}}" style="font-size: 0.725rem;font-weight: 400;padding: 5px 15px 5px 15px;">{{ checkVegetarian($menu->type) }}</span>
                             </div>
 
                         </div>

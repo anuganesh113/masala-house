@@ -12,4 +12,9 @@ final class FoodType extends Enum
 {
     const VEG = 'veg';
     const NON_VEG = 'non-veg';
+    const ALCOHOLIC = 'alcoholic';
+    const NON_ALCOHOLIC = 'non-alcoholic';
+
+
+
 }
