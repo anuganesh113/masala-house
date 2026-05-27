@@ -65,4 +65,10 @@ class Blog extends Model
 
         return asset(sprintf('%s%s', UploadFilePath::BLOGS_PATH, $this->image));
     }
+
+        public function scopeStatus($query)
+    {
+        return $query->where('status', 1);
+    }
+
 }
