@@ -1,0 +1,211 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Masala House API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/events": {
+            "get": {
+                "tags": [
+                    "Events"
+                ],
+                "summary": "List events",
+                "description": "Returns active events. Use type=event or type=catering to filter by event type.",
+                "operationId": "getEvents",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "Optional event type filter.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "event",
+                            "enum": [
+                                "event",
+                                "catering"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Events returned."
+                    }
+                }
+            }
+        },
+        "/api/catering-events": {
+            "get": {
+                "tags": [
+                    "Events"
+                ],
+                "summary": "List catering events",
+                "description": "Returns active catering events, matching the website catering page.",
+                "operationId": "getCateringEvents",
+                "responses": {
+                    "200": {
+                        "description": "Catering events returned."
+                    }
+                }
+            }
+        },
+        "/api/events/{event}": {
+            "get": {
+                "tags": [
+                    "Events"
+                ],
+                "summary": "Show event",
+                "description": "Returns an active event by ID or slug.",
+                "operationId": "getEvent",
+                "parameters": [
+                    {
+                        "name": "event",
+                        "in": "path",
+                        "description": "Event ID or slug",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "wedding-catering"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Event returned."
+                    },
+                    "404": {
+                        "description": "Event not found."
+                    }
+                }
+            }
+        },
+        "/api/menus": {
+            "get": {
+                "tags": [
+                    "Menus"
+                ],
+                "summary": "List menus",
+                "description": "Returns all active menus with their category.",
+                "operationId": "getMenus",
+                "responses": {
+                    "200": {
+                        "description": "Menus returned."
+                    }
+                }
+            }
+        },
+        "/api/menus/{menu}": {
+            "get": {
+                "tags": [
+                    "Menus"
+                ],
+                "summary": "Show menu",
+                "description": "Returns an active menu by ID.",
+                "operationId": "getMenu",
+                "parameters": [
+                    {
+                        "name": "menu",
+                        "in": "path",
+                        "description": "Menu ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Menu returned."
+                    },
+                    "404": {
+                        "description": "Menu not found."
+                    }
+                }
+            }
+        },
+        "/api/pages": {
+            "get": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "List pages",
+                "description": "Returns active parent pages with their active child pages.",
+                "operationId": "getPages",
+                "responses": {
+                    "200": {
+                        "description": "Pages returned."
+                    }
+                }
+            }
+        },
+        "/api/pages/{page}": {
+            "get": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Show page",
+                "description": "Returns an active page by ID or slug.",
+                "operationId": "getPage",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "description": "Page ID or slug",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "about-us"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Page returned."
+                    },
+                    "404": {
+                        "description": "Page not found."
+                    }
+                }
+            }
+        },
+        "/api/masala-house": {
+            "get": {
+                "tags": [
+                    "Masala House"
+                ],
+                "summary": "Get masala house",
+                "description": "Returns the masala house.",
+                "operationId": "getSetting",
+                "responses": {
+                    "200": {
+                        "description": "Masala house returned."
+                    },
+                    "401": {
+                        "description": "Masala house not found."
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Events",
+            "description": "Events"
+        },
+        {
+            "name": "Menus",
+            "description": "Menus"
+        },
+        {
+            "name": "Pages",
+            "description": "Pages"
+        },
+        {
+            "name": "Masala House",
+            "description": "Masala House"
+        }
+    ]
+}

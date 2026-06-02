@@ -11,6 +11,7 @@ require_once __DIR__.'/admin.php';
 
 require_once __DIR__.'/auth.php';
 
+Route::redirect('/swagger', '/api/documentation')->name('swagger');
 
 Route::get('/cmd', function () {
     Artisan::call('config:cache');
