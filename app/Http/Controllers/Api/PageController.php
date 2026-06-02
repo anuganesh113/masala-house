@@ -3,8 +3,21 @@
 namespace App\Http\Controllers\Api;
 
 use App\Constants\General;
+use App\Enums\Pagination;
+use App\Enums\Status;
 use App\Http\Controllers\BaseController;
+use App\Models\Album;
+use App\Models\Blog;
+use App\Models\Category;
+use App\Models\Event;
+use App\Models\FAQ;
+use App\Models\MemberMessage;
+use App\Models\Menu;
 use App\Models\Page;
+use App\Models\Popup;
+use App\Models\Service;
+use App\Models\Testimonial;
+use App\Models\Website;
 use Illuminate\Http\JsonResponse;
 use OpenApi\Attributes as OA;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,44 +36,30 @@ class PageController extends BaseController
     )]
     public function index(): JsonResponse
     {
-        $pages = Page::query()
-            ->with(['child' => function ($query): void {
-                $query
-                    ->status()
-                    ->select([
-                        'id',
-                        'page_id',
-                        'name',
-                        'title',
-                        'slug',
-                        'template',
-                        'order',
-                        'status',
-                    ])
-                    ->orderBy('order');
-            }])
-            ->status()
-            ->whereNull('page_id')
-            ->select([
-                'id',
-                'page_id',
-                'name',
-                'title',
-                'slug',
-                'image_one',
-                'image_one_alt',
-                'excerpt',
-                'template',
-                'order',
-                'status',
-            ])
-            ->orderBy('order')
-            ->get()
-            ->map(fn (Page $page): array => $this->formatPage($page, includeChildren: true))
-            ->values()
-            ->all();
+        $pages = Page::get();
 
-        return $this->jsonResponse(General::TRUE, 'Pages returned successfully.', data: $pages);
+        $about = $pages->filter(function ($item) {
+            return $item->slug == 'about';
+        })->values();
+        $menus = $pages->filter(function ($item) {
+            return $item->slug == 'menu';
+        })->values();
+        $caterings = $pages->filter(function ($item) {
+            return $item->slug == 'catering';
+        })->values();
+        $blogs = $pages->filter(function ($item) {
+            return $item->slug == 'blogs';
+        })->values();
+
+
+
+        return response()->json([
+            'about' => $about,
+            'menus' => $menus,
+            'caterings' => $caterings,
+            'blogs' => $blogs,
+            'message' => ' Teams category'
+        ]);
     }
 
     #[OA\Get(
@@ -85,90 +84,87 @@ class PageController extends BaseController
     )]
     public function show(string $page): JsonResponse
     {
-        $page = Page::query()
-            ->with([
-                'parent:id,page_id,name,title,slug,template,order,status',
-                'child' => function ($query): void {
-                    $query
-                        ->status()
-                        ->select([
-                            'id',
-                            'page_id',
-                            'name',
-                            'title',
-                            'slug',
-                            'template',
-                            'order',
-                            'status',
-                        ])
-                        ->orderBy('order');
-                },
-            ])
-            ->status()
-            ->where(function ($query) use ($page): void {
-                $query->where('slug', $page);
+     $page = Page::where('slug', $page)->firstOrFail();
+     $data['page'] = $page;
+        switch (data_get($page, 'slug')) {
+            case 'about':
+                $data['our_story'] = getPageBySlug('our-story');
+                $data['welcome'] = getPageBySlug('welcome-to-masala');
+                $data['dining_experience'] = getPageBySlug('dining-experiences');
+                $data['members'] = MemberMessage::query()->get();
+                $data['galleries'] =  Album::with('gallery')->get();
+                $data['compliments'] = Testimonial::query()
+                    ->with(['member:id,name,designation'])
+                    // ->whereNotNull('member_message_id')
+                    ->select(['id', 'member_message_id', 'name', 'designation', 'message'])
+                    ->where('status', Status::ACTIVE)
+                    ->inRandomOrder()->take(5)
+                    ->get();
+                break;
 
-                if (ctype_digit($page)) {
-                    $query->orWhere('id', (int) $page);
+            case 'blogs':
+                $data['categories'] = Category::query()->get();
+                $data['blogs'] = Blog::query()->status()->select(['id', 'tag', 'name', 'slug', 'image'])->paginate(Pagination::MEDIUM_PAGE);
+                $data['compliments'] = Testimonial::query()
+                    ->status()
+                    // ->whereNotNull('member_message_id')
+
+                    ->select(['id', 'name', 'designation', 'message'])
+                    ->get();
+                $data['videos'] = Popup::Video()->first();
+                break;
+
+            case 'faqs':
+                $data['faqs'] = FAQ::query()->status()->whereNull('model_id')->orderBy('order')->get();
+                break;
+
+            case 'gallery':
+                $data['albums'] = Album::query()->with(['gallery'])->orderBy('order')->get();
+                break;
+
+            case 'menu':
+             $data['menus'] = Menu::query()->with('category')->status()->get();
+                $data['categories'] = Category::orderBy('order')->with(['menus' => function ($query) {
+                    $query->status();
+                }])->get();
+
+                $alldata = Website::get()->toArray();
+                $arrangedData = array_column($alldata, 'value', 'name');
+                $data['settings'] = $arrangedData;
+
+                if (isset($arrangedData['section_3_menu']) && $arrangedData['section_3_menu']) {
+                    $arrangedData['section_3_menu'] = json_decode($arrangedData['section_3_menu'], true);
+                    foreach ($arrangedData['section_3_menu'] as $key => $value) {
+                        $data['section_3'][$key] = Menu::where('id', $value)->status()->first();
+                    }
+                } else {
+                    $data['section_3'] = Menu::status()->get();
                 }
-            })
-            ->first();
 
-        if (! $page) {
-            return $this->jsonResponse(
-                General::FALSE,
-                'Page not found.',
-                Response::HTTP_NOT_FOUND
-            );
+                break;
+
+            case 'catering':
+                $data['service'] = getPageBySlug('services');
+                $data['services'] = Service::query()->get();
+                $data['compliments'] = Testimonial::query()
+                    ->with(['member:id,name,designation'])
+
+                    ->select(['id', 'member_message_id', 'name', 'designation', 'message'])
+                    ->where('status', Status::ACTIVE)
+                    ->inRandomOrder()->take(5)
+                    ->get();
+
+                      $data['events'] = Event::catering()->where('status', Status::ACTIVE)->orderBy('order')->take(4)->with(['eventfaqs' => function ($q) {
+               $q->status();    }])->get();
+             
+                break;
+
+            default:
+                break;
         }
 
-        return $this->jsonResponse(
-            General::TRUE,
-            'Page returned successfully.',
-            data: $this->formatPage($page, includeDetails: true, includeChildren: true)
-        );
-    }
-
-    private function formatPage(
-        Page $page,
-        bool $includeDetails = false,
-        bool $includeChildren = false
-    ): array {
-        $data = [
-            'id' => $page->id,
-            'page_id' => $page->page_id,
-            'name' => $page->name,
-            'title' => $page->title,
-            'slug' => $page->slug,
-            'image_one' => $page->image_one,
-            'image_one_url' => $page->full_image_link,
-            'image_one_alt' => $page->image_one_alt,
-            'excerpt' => $page->excerpt,
-            'template' => $page->template,
-            'order' => $page->order,
-            'status' => $page->status,
-        ];
-
-        if ($includeDetails) {
-            $data = [
-                ...$data,
-                'image_two' => $page->image_two,
-                'image_two_alt' => $page->image_two_alt,
-                'breadcrumbs_image_url' => $page->breadcrumbs_image_link,
-                'description' => $page->description,
-                'images' => $page->images,
-                'metadata' => $page->metadata,
-                'seo' => $page->seo,
-                'parent' => $page->parent ? $this->formatPage($page->parent) : null,
-            ];
-        }
-
-        if ($includeChildren) {
-            $data['children'] = $page->child
-                ? $page->child->map(fn (Page $child): array => $this->formatPage($child))->values()->all()
-                : [];
-        }
-
-        return $data;
+      return response()->json($data);
     }
 }
+
+
