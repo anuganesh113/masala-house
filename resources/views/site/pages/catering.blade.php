@@ -149,7 +149,8 @@
         <div class="section__title catering__title text-center">
             <h5>Welcome to Masala House Catering!</h5>
             <h2>Why Choose Our {{ env('APP_CATERING_NAME') }} Catering Services</h2>
-            <p>Experience the best of Indian and Nepali catering with Masala House in {{ env('APP_CATERING_NAME') }}, CA</p>
+            <!-- <p>Experience the best of Indian {{ env('APP_CATERING_NAME') === 'PITTSBURGH' ? '' :'and Nepali' }}  catering with Masala House in {{ env('APP_CATERING_NAME') }}, CA</p> -->
+            <p>{{ strip_tags(data_get($service, 'excerpt')) }}</p> 
         </div>
     </div>
 
