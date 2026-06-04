@@ -129,7 +129,7 @@
         <img src="{{ $blog->full_image_link }}" alt="{{ data_get($blog, 'alt', 'Blog banner') }}">
     </div>
     <div class="banner__page--content">
-        <h1>Blog</h1>
+        <!-- <h1>Blog</h1> -->
               <p> <a href="{{url('/') }}" class="text-white"><i class="fas fa-home" style="font-size: 27px;"></i></a> / {{$blog->name  ?? 'blog Name'}}</p>
 
         
@@ -161,7 +161,7 @@
                     </div>
 
                     <div class="section__title">
-                        <h2 class="fxl">{{ data_get($blog, 'name') }}</h2>
+                        <h1 class="fxl">{{ data_get($blog, 'name') }}</h1>
                     </div>
 
                     <div class="about__content blog-post-content">

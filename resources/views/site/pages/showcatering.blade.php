@@ -127,7 +127,7 @@
         <img src="{{ $event->full_image_link }}" alt="{{ data_get($event, 'alt', 'Event banner') }}">
     </div>
     <div class="banner__page--content">
-        <h1>Catering</h1>
+        <!-- <h1>Catering</h1> -->
         <p> <a href="{{url('/') }}" class="text-white"><i class="fas fa-home" style="font-size: 27px;"></i></a> / {{$event->name ?? 'Event Name'}}</p>
 
 </section>
@@ -145,7 +145,7 @@
                             loading="lazy" />
                     </div>
                     <div class="section__title">
-                        <h2 class="fxl">{{ data_get($event, 'name') }}</h2>
+                        <h1 class="fxl">{{ data_get($event, 'name') }}</h1>
                     </div>
                     <div class="about__content blog-post-content mb-0">
                         {!! data_get($event, 'description') !!}

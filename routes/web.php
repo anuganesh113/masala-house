@@ -34,7 +34,7 @@ Route::group(['as' => 'site.'], function ($route) {
           $route->post('contact-store', 'contactsave')->name('contact.save');
         $route->post('table-book', 'tablebook')->name('table.book');
         $route->get('product/{slug}', 'product')->name('product');
-        $route->get('event-catering/{slug}', 'event')->name('event');
+        $route->get('catering/{slug}', 'event')->name('event');
 
 
 
