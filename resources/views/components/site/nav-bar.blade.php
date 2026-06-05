@@ -50,7 +50,7 @@
                               <span class="lg-none"> <i class="fa fa-plus-square clicksquare d-none" style="float: right;color: white;font-size: 25px;position: relative;top: -45px;"></i></span>
                               <ul class=" viewmobilenav">
                                  @foreach(navcatering() as $catering)
-                                 <li> <a  href="{{ route('site.event', $catering->slug) }}" >{{ $catering->name }} </a></li>
+                                 <li> <a  href="{{ route('site.catering', $catering->slug) }}" >{{ $catering->name }} </a></li>
                                  @endforeach
                               </ul>
                               @endif

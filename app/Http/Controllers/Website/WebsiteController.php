@@ -53,6 +53,12 @@ class WebsiteController extends BaseController
       return view('site.pages.showcatering', compact('event'));
 
     }
+        public function catering(string $slug): View|RedirectResponse
+    {
+       $event =  Event::where('slug' ,  $slug)->first();
+      return view('site.pages.showcatering', compact('event'));
+
+    }
 
     public function blog(string $slug): View|RedirectResponse
     {
