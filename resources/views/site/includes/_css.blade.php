@@ -1,4 +1,8 @@
   <style>
+    .experience::before{
+            font-size: 12.75rem;
+                top: -2.3125rem;
+    }
     .alcoholic{
       background: #3d1119!important;
 
@@ -274,6 +278,12 @@
 }
       
       @media (max-width: 767px) {
+
+      .experience::before {
+        font-size: 4.5rem!important;
+        top: -1rem!important;
+    }
+
 
           .owl-item .item.banneritem{
             padding: inherit!important;
