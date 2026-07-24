@@ -1,8 +1,9 @@
   <style>
     .experience::before{
-            font-size: 12.75rem;
-                top: -2.3125rem;
+               font-size: 8.75rem;
+    top: -1.3125rem;
     }
+    
     .alcoholic{
       background: #3d1119!important;
 
