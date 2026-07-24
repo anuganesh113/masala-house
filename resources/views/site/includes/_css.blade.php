@@ -1,6 +1,6 @@
   <style>
     .experience::before{
-               font-size: 8.75rem;
+               font-size: 7.75rem;
     top: -1.3125rem;
     }
     
