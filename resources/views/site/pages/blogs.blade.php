@@ -8,6 +8,7 @@
 
 @push('header')
 <link rel="stylesheet" href="{{ asset ('site-assets/css/fancybox.css') }}">
+
 @endpush
 
 @section('content')
@@ -55,6 +56,10 @@
 
         </div>
     </div>
+
+    <!-- pagination start -->
+    {{ $blogs->links('vendor.pagination.custom') }}
+    <!-- pagination end -->
 </section>
 <!-- catering section end -->
 

@@ -432,4 +432,101 @@
 
 
       }
+
+
+          /* Pagination styling */
+    .pagination-wrapper {
+        padding: 3rem 0 1rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .pagination-wrapper .pagination {
+        gap: 0.375rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 0;
+    }
+
+    .pagination-wrapper .page-item .page-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 50% !important;
+        border: 2px solid #e9ecef;
+        color: #5a5a5a;
+        font-weight: 600;
+        font-size: 1rem;
+        background: #fff;
+        transition: all 0.3s ease;
+        padding: 0;
+        line-height: 1;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .pagination-wrapper .page-item .page-link:hover {
+        background: #fff8f0;
+        border-color: #FF6F00;
+        color: #FF6F00;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 111, 0, 0.15);
+    }
+
+    .pagination-wrapper .page-item.active .page-link {
+        background: #FF6F00;
+        border-color: #FF6F00;
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(255, 111, 0, 0.3);
+    }
+
+    .pagination-wrapper .page-item.active .page-link:hover {
+        background: #e66000;
+        border-color: #e66000;
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(255, 111, 0, 0.4);
+    }
+
+    .pagination-wrapper .page-item.disabled .page-link {
+        opacity: 0.4;
+        cursor: not-allowed;
+        pointer-events: none;
+        transform: none !important;
+        box-shadow: none !important;
+        background: #f8f9fa;
+        border-color: #e9ecef;
+        color: #adb5bd;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 576px) {
+        .pagination-wrapper {
+            padding: 2rem 0.5rem 0.5rem;
+        }
+
+        .pagination-wrapper .pagination {
+            gap: 0.3rem;
+        }
+
+        .pagination-wrapper .page-item .page-link {
+            width: 2.25rem;
+            height: 2.25rem;
+            font-size: 0.85rem;
+            border-width: 1.5px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .pagination-wrapper .page-item .page-link {
+            width: 2rem;
+            height: 2rem;
+            font-size: 0.78rem;
+        }
+
+        .pagination-wrapper .pagination {
+            gap: 0.25rem;
+        }
+    }
   </style>

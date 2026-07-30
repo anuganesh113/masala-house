@@ -99,7 +99,7 @@ class WebsiteService
 
             case 'blogs':
                 $data['categories'] = Category::query()->get();
-                $data['blogs'] = Blog::query()->status()->select(['id', 'tag', 'name', 'slug', 'image'])->paginate(Pagination::MEDIUM_PAGE);
+                $data['blogs'] = Blog::query()->status()->select(['id', 'tag', 'name', 'slug', 'image'])->latest()->paginate(Pagination::MEDIUM_PAGE);
                 $data['compliments'] = Testimonial::query()
                     ->status()
                     // ->whereNotNull('member_message_id')
